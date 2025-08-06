@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>两年无脑速通美国信用卡(第一版)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-80e3-89fa-e0781b819499" class="page serif"><header><h1 class="page-title">两年无脑速通美国信用卡(第一版)</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8003-a927-d275a381aa36"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23764738-a3cc-80c7-b1bd-f5f2f1376f2f" class="">【2025.07】删除部分过时内容</p><p id="23564738-a3cc-806e-ba00-db351ad495a8" class="">【2025.02】1.0版本发布</p><p id="23564738-a3cc-8016-8c43-f8e93b3e15af" class="">由于本文内容已相对过时，第2版内容已发布（但在读第2版前， 请先读完本文）</p></div></figure><p id="23764738-a3cc-80aa-9623-fdd72dc0fbfd" class="">
+</p><nav id="23564738-a3cc-80ea-9168-d13d85b5e8fb" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-804c-87a4-f4a09bfe0724">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-804a-a599-f1b437fd4075">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8031-a199-de3fdbc56ab0">细节分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80b9-9edb-c3cead14a8b8">第1个月：Boa123</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8076-8c91-d0d7b3fbd8b8">第6个月：Freedom</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-809f-86ae-d914a3631607">第9个月：Freedom</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-802f-b47d-cc71534df80d">第13个月：Bilt</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80ec-8a6e-fb8b21a06b6f">第15个月：CSP</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8076-b0bb-f0771938346b">第17个月：Custom Cash</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80e1-8aca-fd4624f46e19">第22个月：Strata Premier</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-805b-8090-cf97dc66f6e2">第24个月：Connect</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-800e-b6d2-ec5b3e3cebe1">银行思路</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8008-861d-d80dcb6b871b">建议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80d9-997e-dd7b19a9a214">未来展望</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80ca-a160-cdacf90559bf"><strong>524规则说明</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8065-995b-ed5b3f4b72b2">结语</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-808a-b58c-c49c67574464">免责声明</a></div></nav><h2 id="23564738-a3cc-804c-87a4-f4a09bfe0724" class="">前言</h2><p id="23564738-a3cc-80c2-b1ee-e189f4e01bab" class="">相信你能看到这里，楼主的帖应该你看的差不多了，并且对信用卡有一定了解。那么这一期我将献上大结局。如果你还是不知道怎么申请，可以参考我的建议，带你两年内速通美国信用卡，少走弯路。</p><h2 id="23564738-a3cc-804a-a599-f1b437fd4075" class="">结论</h2><p id="23564738-a3cc-8011-88c6-f0028adbf3fe" class="">第1个月：Boa123<br/>第6个月：Freedom<br/>第9个月：Freedom<br/>第13个月：Bilt<br/>第15个月：CSP/R<br/>第17个月：Custom Cash<br/>第22个月：Strata Premier<br/>第24个月：Connect<br/>时间线参考现有DP，并不绝对，仅供参考。接下来将告诉你原因。<br/></p><h2 id="23564738-a3cc-8031-a199-de3fdbc56ab0" class="">细节分析</h2><h3 id="23564738-a3cc-80b9-9edb-c3cead14a8b8" class="">第1个月：Boa123</h3><p id="23564738-a3cc-804f-870e-c6f03dca33fd" class="">首先，作为没有信用记录的小白，前期基本就是新手卡3选1。虽然不得不承认Discover的通过率可能三张卡最高，但楼主还是仍然强推Boa123，即使是押金卡。原因很简单，一共只有两张卡有3%的网购，这是其中之一。而2%的超市包括沃尔玛，Target，以及仓储型超市也很实用。如果你申请了别的新手卡，后期如果需要网购的话则需要重新申请Boa123或BCE，浪费一个卡槽。如果想速通关话，前期卡槽对你来说非常宝贵，胜过开卡奖励。</p><p id="23764738-a3cc-806d-aa0c-d0cb83f534f2" class="">在攒前期信用时，只看中俩点：按时还款和不超过总额度的30%，尤其是第2点。一般来说4个月即可出分，基本都能做到650+。如果接下来想申请Chase的卡，建议现在去开一个Chase checking。</p><p id="23764738-a3cc-8040-807d-f4612a0aadf0" class="">
+</p><p id="23564738-a3cc-80d7-bedf-e2b404ed803c" class="">另外，楼主这里想介绍一下Paypal Debit Card，就不另外单独发帖介绍了。这是一张24年年底新推出的借记卡（注意不是信用卡）  ，自选一个类别（餐厅，超市，加油，衣服，健康）有5%的返现，每月上限$1000。超市包括Walmart，Target，Coscto，Sam club。</p><p id="23764738-a3cc-80fe-9791-cef64e528e1d" class="">但是有一点很坑，Walmart的MCC不同，取决于你购买的地方。如果你在线下超市，那可能算Grocery；但是如果你在APP上购买，MCC则是Online Shopping，Paypal Debit不算。这个时候就可以用Boa红卡的3%来购买。</p><p id="23764738-a3cc-806d-9af9-cc986c4aef27" class="">
+</p><p id="23764738-a3cc-80a5-96c7-fb25101e0db1" class="">这么比较下来，Discover就一垃圾，被完美替代，Paypal上限还高。要说缺点嘛，就是刷卡前需要手动充值到Paypal余额账户，使用借记卡一般几秒内能完成。还有就是每个月1号需要手动选择类别，不然一分钱返现没有。</p><p id="23764738-a3cc-8062-845b-c43aff122e17" class="">不过比较搞笑的是，Discover会拒绝信用好的人。这就很迷了，估计收不到利息，没法赚钱。楼主觉得直接move on吧，这破卡不申也可，毕竟之前有提到会随机抽查文件，很烦。</p><p id="23764738-a3cc-804a-b073-c38bcaa269a2" class="">所以结论就是又少了一个申请Discover的理由。因为是借记卡所以也不会pull信用报告，不占卡槽。而如果后续Discover被C1收购之后，就彻底失去了申请的意义。</p><p id="23764738-a3cc-8015-9019-df9886af3689" class="">不过注意5%类别的卡还是优先选择返点，都刷完了再返现。</p><h3 id="23564738-a3cc-8076-8c91-d0d7b3fbd8b8" class="">第6个月：Freedom</h3><p id="23564738-a3cc-8066-95c6-c4b1296696ff" class="">现在已经有足够多的数据显示，Freedom不再需要一年的信用记录即可下卡，这些年来已经降低了申请门槛。但是这并不意味着你就可以为所欲为——6个月信用记录，还非常脆弱。</p><p id="23764738-a3cc-8033-af8d-e8b7fadc982d" class="">要申请第1张Freedom，除了注重前期信用，和Chase搞好关系也很重要。甚至有DP显示，如果你有Chase checking一段时间并且有存款，新手零信用记录都可以下卡！所以建议申请这张卡的时候到线下Branch，先开checking，先开checking，先开checking（重要的事情说三遍）！开完之后立马就可以往里面存钱，然后再叫Banker帮你申请信用卡，这样能大大提升成功概率。如果没有过的话，立马叫Banker帮你打Recon的电话。</p><h3 id="23564738-a3cc-809f-86ae-d914a3631607" class="">第9个月：Freedom</h3><p id="23564738-a3cc-80a0-bf11-f599abecc499" class="">在第1张Freedom成功下卡后，申请第2张Chase建议间隔是三个月。这个节骨眼上应该没有任何问题，正常申就行。不过仍然建议线下Branch。</p><h3 id="23564738-a3cc-802f-b47d-cc71534df80d" class="">第13个月：Bilt</h3><p id="23564738-a3cc-80d1-ab14-f8f3350f6824" class="">到现在，恭喜你成功度过了新手期，你现在有一年的信用记录，可以尝试房租神卡Bilt了。虽然有少量数据显示信用记录不足一年有Bilt批卡，但是总的来说还是不建议，一年的信用记录更加稳妥。由于Chase的524，除了三剑客之外，新手卡和Bilt分别占了另外两个卡槽。这个节骨眼上Bilt比Chase联名卡值很多。你觉得你是日常交房租/房贷多，还是使用某家特定酒店/航司多？答案显而易见。</p><h3 id="23564738-a3cc-80ec-8a6e-fb8b21a06b6f" class="">第15个月：CSP</h3><p id="23564738-a3cc-8086-9e7a-f41b51de3b29" class="">之所以把CSP放在Bilt后面是因为，CSP不能攒房租。所以只需要把属于CSP的卡槽预留好即可，早申Bilt早开始攒点。后期如果有需要可以随时升级CSR，不浪费卡槽。<br/>按照Chase的尿性这个时间点（或者更早）你可能同时收到CSP和CSR的Pre-approve。如果你旅行真的很频繁，那就直接一步到位CSR（楼主去翻了一下邮箱，在开完第1张Freedom之后去八个月就收到了CSR的Pre-approve，有点离谱） 不然大多数的还是建议CSP。<br/></p><p id="23564738-a3cc-803a-a010-f6dee7aaf8ae" class="">虽然理论上该卡可以降级再升级，但是楼主还是建议长持。因为$45等效年费很低了，还有Doordash报销，主力UR的话就算买一个转点卡了。还附primary保险，绝对能够值回车票。不会被反薅太多，总不能一毛不拔吧。另外你要把这卡关了以后就申不下来了，毕竟你不会再出524了。</p><p id="23764738-a3cc-801d-968c-d03975a5f32c" class="">Bilt和CSP申请顺序：可以看情况调整。如果房租的花销高，Bilt优先，旅行花销高CSP优先。不过注意申完Bilt之后下一张必须CSP，不然卡槽满了就申不下来了。</p><h3 id="23564738-a3cc-8076-b0bb-f0771938346b" class="">第17个月：Custom Cash</h3><p id="23564738-a3cc-8006-b5fb-f3874a6cd503" class="">恭喜你Chase毕业了，也有了房租神卡，524卡槽已满，可以申请别的银行的卡了。楼主推荐这张CC是因为5x的结构灵活（哪怕兑现也很香），攒点快，能够作为CFF很好的补充。同时也开始建立跟Citi的关系，为后续准备。</p><h3 id="23564738-a3cc-80e1-8aca-fd4624f46e19" class="">第22个月：Strata Premier</h3><p id="23564738-a3cc-80e3-afbe-e896785d90fa" class="">虽然是24年年中推出的新卡（基本就是改了个名字），但是不影响它成为性价比最高的中端旅行卡之一，也是Citi唯一的转点卡。在这里，TYP能很好的对UR进行补充。</p><p id="23764738-a3cc-80d9-ac16-eca40af9f42b" class="">这张卡的本身消费结构非常合理，非常全能的日常卡+旅行卡。虽然报销有点鸡肋，但是Citi给Reten Offer算是比较大方。如果再要不到，<del>建议降级Reward+（小额消费友好）</del>  已绝版， 建议降级Strata。不管怎么说，哪怕是薅个开卡奖励也值得，四舍五入就是回国的单程商务舱。</p><p id="23764738-a3cc-8003-81ce-fd8c72d92360" class="">不过呢，据说这卡的Model也很迷，批卡难度仅次于VX（需要更多DP证明）？论坛推荐6个月内HP小于3次申请，楼主觉得可能不够，这就是为啥时间线上间隔了近6个月。如果可以的话，把Chase的钱提前几个月转过来Citi，因为也有新手几乎零记录下卡的DP，靠的就是存钱，顺便再把Bonus拿了。</p><h3 id="23564738-a3cc-805b-8090-cf97dc66f6e2" class="">第24个月：Connect</h3><p id="23564738-a3cc-809e-9c71-d4f6f4a6fe3e" class="">你即将通关了。两年内最后一个卡槽，本来想推荐VX，虽然点数很难用，但是卡本身的报销和奖励及PPS不可忽略，是性价比不错的高端旅行卡。推荐VX无非就这两个原因。</p><p id="23564738-a3cc-80ec-b1f0-d9be6f6ba454" class="">但问题是，这个时间节点可能申不下来。大量的DP显示VX需要三年以上的信用记录（虽然有个别低于三年）。论坛内专门有对VX的批卡数据进行分析，结论就是C1更注重信用长度而不是信用分。关于这张卡如何申请以及批准情况，还是建议大家参考DP贴再决定要不要申请。即使你能申下来，这卡基本不能降级的。如果因为这个原因而关卡的话，比较伤，因为你信用记录不长。</p><p id="23564738-a3cc-8090-afaa-d21283238415" class="">虽然申不下来，替代品也不是没有。VX长持就一理由：PPS。旅行次数不多，Connect每年送4次满血PPS以及其他福利，配合CSP足够用了。楼主觉得绝对是继UAR之后又被低估的一张旅行卡。两年的信用记录申请小银行的卡刚刚好。</p><h2 id="23564738-a3cc-800e-b6d2-ec5b3e3cebe1" class="">银行思路</h2><p id="23564738-a3cc-8046-83be-cdb3448e7a6c" class="">C1和USBank，这俩银行感觉比较像。喜欢玩卡的，卡太多的可能就申不下来了（毕竟你卡太多银行觉得你可能就把这当抽屉卡用了，银行血亏。银行希望跟你从头培养关系，而不是薅了羊毛就走）。C1的确只有一张VX值得申请，但USbank有好几张卡都可圈可点，具体可以看一看之前的对比帖。</p><p id="23564738-a3cc-80eb-9651-f1147744906a" class="">再来说Citi，感觉跟前面两家越来越像了。现在据说Citi的批卡策略会记录你过去一年申的卡，并且会查看你是否有在其他卡消费。如果你都不在其他的卡消费，那你为啥来申我的卡？而跟Chase不同，Citi的recon概率很低。</p><p id="23764738-a3cc-8089-b621-e78d6266402b" class="">所以最好的申卡策略就是Amex最后，因为在各大银行里批卡难度最低。如果你真的对Amex独有情怀，那么后续一些难度高的银行和一些好卡都很难批。而且，Amex本来就两极分化，大部分都用不到。所以，管住你的欲望。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-80ef-9656-cb60b6b4f749"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23764738-a3cc-80e3-8c9c-e30e084dadb1" class="">关于这些银行的批卡要求，现在有一篇文章讲解更详细《<a href="%E7%BE%8E%E5%9B%BD%E4%BF%A1%E7%94%A8%E4%BD%93%E7%B3%BB%E8%AF%A6%E8%A7%A3%E5%92%8C%E6%8E%A8%E8%8D%90%2023564738a3cc8031a1baf937cfcc2ea6.html">美国信用体系详解和推荐</a>》</p></div></figure><p id="23564738-a3cc-8059-8542-ea29cb46f4d8" class="">要说唯一一点比较好的，Chase/Citi等大多数银行基本上都pull EX，但Boa/USbank主要pull TU，这就很友好了，HP不会集中在同一个信用局上（理论上等第24个月申请Connect时，你的TU HP只有1/24，绝对是下卡的最佳时机）。而C1则臭名昭著三家都pull，真要申的话建议锁EX。</p><p id="23564738-a3cc-80b5-a25d-d3b8ed3e1a84" class="">再说回VX，综合保险居然还不如CSP（唯一劣势就是12小时Trip Delay），就是一张伪高端卡，真是笑话。如果真想要6小时延误险，Bilt和Premier都有，Premier直接订酒店机票返现还更高，CSP则可以覆盖其他的旅行结构（Connect有4x但季度上限$1000）。一年旅游次数不多，CSP+Premier+Connect是不错的组合。<del>要是旅行频率上来了，直接CSR还关VX什么事</del>。</p><p id="23564738-a3cc-805d-9853-e9f8cdf4b8ef" class=""><strong>VX二次分析：</strong><br/>这张卡绝对没有大家吹的那么神，你有想过你申的下来吗？很多人为了Refer脸都不要了。渣行发行，Dispute容易有问题，可靠性跟大行比差远了。总体保险不如CSP，点数难用，<br/><del>PPS和</del>国内消费一卡流成为唯二的申请理由。但是如果为了单纯薅PPS而平时不刷，很可能会收到关卡警告。（以上两个DP均为网友提供）</p><h2 id="23564738-a3cc-8008-861d-d80dcb6b871b" class="">建议</h2><p id="23564738-a3cc-80dc-8deb-ef830405ff9e" class="">虽然楼主之前有说过，如果Chase三剑客不适合你可以重点考虑Citi。但是由于524，且Citi的批卡难度比Chase略高。综上考虑两点还是建议大家先入手Chase三剑客，现在用不到以后可能可以，谁知道呢，毕竟现在不申下来以后就难了。这不是二选一，可以全部都有。日后可以根据你的消费重心再决定主力UR还是TYP。</p><p id="23564738-a3cc-80b0-9262-ebac278caa6a" class="">另外，UR+TYP组合能覆盖大部分酒店&amp;航空场景，UR最值钱的伙伴是Hyatt，另外欧美航线居多；而TYP有亚洲航线，也有比较不错的酒店伙伴。C1可补充。<br/>如果住店的频率远达不到需要联名卡，CSP报销酒店$50，Strata Premier报销酒店（单次消费满$500），以及VX $300旅行相关报销。<br/>机票方面，<br/><del>美国国内，以及中美经济舱可以考虑用CSR 1.5订（如果没有合适的转点伙伴）</del>，商务舱推荐使点数最难用点数最难用用点数。</p><h2 id="23564738-a3cc-80d9-997e-dd7b19a9a214" class="">未来展望</h2><p id="23564738-a3cc-80be-91ad-d5f2fac458ba" class="">恭喜你，你花两年时间速通了美国信用卡。在这两年中，你拿到了现金价值$3000+的开卡奖励，而转点值更高价值。这难道不是一个里程碑吗？</p><p id="23564738-a3cc-8053-bcdf-ca275f6275f0" class="">通过这两年的申卡经验，相信你对信用卡有更深入了解，也对自己的消费有更加成熟的认知。这时候一定要记住：没有需求不要创造需求。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-80de-85c7-f3a695cac8bc"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80aa-a436-e81f67d33647" class="">时间线仅供参考，保守一点稍微延长间隔也是可以的。但总体来说两年或两年出头还是可以通关的</p></div></figure><p id="23564738-a3cc-80fb-b1b2-f6b0e8324915" class="">在你通关之后，接下来呢？楼主在这里给大家指明几条路：</p><ol type="1" id="23564738-a3cc-806f-b443-ffa0d69046a6" class="numbered-list" start="1"><li>非Chase联名卡。相信这个时候你一定知道了你的消费重心，如果需要，可以申请。</li></ol><ol type="1" id="23564738-a3cc-80e7-821a-e151b5745c83" class="numbered-list" start="2"><li>Chase联名卡。为什么单独拿出来说呢，因为524。由于两年内开了8张卡，需要休养一阵才能继续开Chase的卡了。一旦出了524，记住，每一个卡槽都很宝贵。申请前三思而后行。</li></ol><ol type="1" id="23564738-a3cc-80f8-85a5-c989c13df1c9" class="numbered-list" start="3"><li>转战Amex。Amex算是对HP很友好的一个银行之一了，所以放在最后来，先开对HP敏感银行的卡。不推荐前期入坑的原因就是成本太高，Coupon Book很累，如果觉得划不来后期关卡很伤，拉低平均信用记录。而放在最后开，即使关卡也不会太影响总信用记录。两年玩卡经验，如果对薅回年费有信心，愿意花时间研究，高消费，报销能用得上，Amex还是很行的。</li></ol><ol type="1" id="23564738-a3cc-80bc-bcea-c340934b8e9e" class="numbered-list" start="4"><li>养记录申VX。没什么诀窍，需要时间和耐心。</li></ol><ol type="1" id="23564738-a3cc-80c1-b9c8-f10521214731" class="numbered-list" start="5"><li>一些小众且好用的卡。上面四个选项都有一定的门槛，这个不需要。举个例子USBank的Cash+（Utility有5%），Smartly（存满10w所有消费4%），都无年费。另外Robinhood Gold，虽然要Waitlist，但是楼主觉得是UAR之后最有资本成为无脑一卡流的卡（两者等效年费差不多）。<p id="23764738-a3cc-8054-927e-c20e0cd3e683" class="">再比如Citi SYW，这张卡很小众，基本没人提起（因为Citi不能refer）。5%的加油和3%的餐厅超市虽然平平无奇，但是有时候有target promotion动不动就有10%~20%的折扣（需要持卡一定时间）。</p></li></ol><ol type="1" id="23564738-a3cc-8043-8c0f-e83a62e76418" class="numbered-list" start="6"><li>不再申请新的卡，持卡到天荒地老。（虽然有点夸张或不可能，但很多上了年纪的人确实不喜欢研究信用卡）</li></ol><p id="23764738-a3cc-806b-82cb-c8e26734643e" class="">差不多信用卡就这些了，想要玩赚信用卡离不开强大的消费能力做支撑。</p><h3 id="23564738-a3cc-80ca-a160-cdacf90559bf" class=""><strong>524规则说明</strong></h3><p id="23764738-a3cc-80a4-bdf9-f55556fa30aa" class="">Chase自营三剑客严格遵守这一规则，所以强烈推荐提前拿到。对于联名卡，历史有DP显示，近些年来524对联名卡有所放松，可能是合作伙伴施压的关系。</p><p id="23764738-a3cc-8055-858e-ccbc429ffc53" class="">目前，已经有大量DP显示，Southwest，UA，Amazon等联名卡基本不再受524限制，能开出的概率非常大。而另一边比较出名的联名卡比如万豪和凯悦，只有少部分人能突破。目前并没有相关的DP什么样的人可以突破，什么样的人不行。楼主猜测跟名下的账户，HP，历史信用记录和消费习惯都有关系。平时喜欢玩卡薅羊毛的可能突破不了，而基本不咋开卡的，平时都有认真刷更有可能突破。没有人比你更了解你自己了，申之前评估一下自己的心态。</p><p id="23564738-a3cc-80a0-ba64-ea5b8f9500c6" class="">在推荐万金油组合之后，这个时候肯定就有大佬跳出来说，这玩法太低级了，我一年就通关了...</p><p id="23764738-a3cc-805f-a3c0-fb3feea7a6b6" class="">本攻略仍然新手向，不要把各种高端操作强塞进来。新手第1年的信用记录尤其重要，不建议有太多的HP。有人一年内开了十几张卡然后被杀全家了，损人不利己。</p><h2 id="23564738-a3cc-8065-995b-ed5b3f4b72b2" class="">结语</h2><p id="23564738-a3cc-8087-85cf-f74f11d58a4d" class="">无论如何，再无脑的组合，也要确保满足自己的消费结构。希望大家在申一张卡前权衡利弊。</p><p id="23564738-a3cc-80a6-aa30-c3d944ed174f" class="">虽说申请信用卡的目的是将奖励最大化，但是其实是指在你的消费能力范围内的奖励最大化。如果一味的追求点数奖励和报销，从而陷入消费陷阱，是非常不值得的。记住，你只是游戏的参与者，而不是规则的制定者。</p><p id="23564738-a3cc-800c-a3b5-e7e1391d0fe5" class="">信用卡的操作远不止于此，还有更多高端的操作，本合集的攻略贴仅仅是入门。如果你有心思研究，那么信用卡肯定能够给你带来很高的价值。不管怎么说，你做到了。</p><p id="23564738-a3cc-80e1-bb4c-c329f1a9ca57" class="">本贴初稿一个月前已写好，但参考了很多文章和DP前前后后改了十几次才有你们现在看到的版本。后续可能会更新信用卡高级操作入门，但信用卡的主线攻略就到此为止了。楼主，只能帮你到这了。剩下，靠你自己了。后会有期！</p><h2 id="23564738-a3cc-808a-b58c-c49c67574464" class="">免责声明</h2><p id="23564738-a3cc-803c-bea7-ef32b0eee098" class="">本文内容楼主参考了非常多的文章和DP，理论上可以，实际操作起来还有一些额外的注意事项和细节。如果在某一个时间点申卡被拒，那就不要头铁继续了。每个人有不同的意见很正常，内容仅供参考。拒绝任何一切以偏概全，指责内容，但欢迎交流想法。</p><p id="23764738-a3cc-80ba-9568-d0bb447447ac" class="">本贴只提供针对信用卡申请的一般建议，时间线仅供参考，不构成最终入坑理由和法律建议，仅供参考。</p><p id="23564738-a3cc-8078-9dc1-d6a459c92034" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8002-a0b6-fda5c03e706e"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8078-a213-e2a597cfb778" class="">XHS原文章</p><p id="23564738-a3cc-80a6-a30b-d5d8ad40c43d" class=""><a href="http://xhslink.com/m/2KvF1FthZ71">http://xhslink.com/m/2KvF1FthZ71</a></p></div></figure><p id="23564738-a3cc-80ca-ac86-d4db832a0b99" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

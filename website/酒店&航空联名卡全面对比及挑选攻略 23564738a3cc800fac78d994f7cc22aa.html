@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>酒店&amp;航空联名卡全面对比及挑选攻略</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-800f-ac78-d994f7cc22aa" class="page serif"><header><h1 class="page-title">酒店&amp;航空联名卡全面对比及挑选攻略</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-805c-8182-fb70876b9f7d"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23764738-a3cc-80df-9ff5-cea92fdbf399" class="">【2025.07】删除部分过时内容</p><p id="23664738-a3cc-8010-ae0e-efa9063c2cd9" class="">【2025.02】1.0版本发布</p><p id="23664738-a3cc-807c-93c3-f873880fa7a8" class="">同样作为早期攻略之一，本文很多内容已经过时。关于联名卡的推荐思路和之前信用卡推荐一样，介绍太过宏观，所以导致一些人更疑惑了。另外本文原本有附各大酒店和航空公司的信用卡对比，但是时至今日很多卡已经进行翻新，对比表格很多内容已过时。由于反响一般，所以本文永久停更。值得一提的是，该文章的后半部分内容“航空联名信用卡攻略”在其他帖子有更详细的讲解《<a href="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%BE%8E%E5%8D%A1%E7%A7%AF%E5%88%86%E6%8D%A2%E5%9B%9E%E5%9B%BD%E6%9C%BA%E7%A5%A8%EF%BC%9F%2023564738a3cc80c6b327c17bd810d1db.html">如何使用美卡积分换回国机票？</a>》。</p></div></figure><p id="23664738-a3cc-803c-a850-d1f70e3d71ac" class="">
+</p><nav id="23664738-a3cc-801d-9651-dc3ee9414065" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80b8-b49c-f97c5937b587">酒店联名卡介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-806f-b2b0-d2b032065221">五大酒店集团介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8006-a544-f3d1ea9a910f">点数的使用</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-800b-9f37-c6c0263d2b6a">申请建议&amp;推荐</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80a5-bcba-ec6ba33e0f93">航线分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80fb-9f98-fc828caecab5">航空联盟</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8059-8f21-d35a59101e93">美国国内航线</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-806b-b8fb-d93402a175a0">中美往返航线</a></div></nav><p id="23664738-a3cc-80bb-9dce-d91c79641c0a" class="">
+</p><h2 id="23664738-a3cc-80b8-b49c-f97c5937b587" class="">酒店联名卡介绍</h2><p id="23664738-a3cc-80a2-aff2-e5e16a01e5fa" class="">联名卡，顾名思义，就是由酒店或航空公司和银行联合推出的联名信用卡（以下统一简称&quot;联名卡”）。联名卡和普通的信用卡一样，也有不同的消费返现结构。但是与普通的卡不同的是，联名卡返的是酒店/航司点数，而普通信用卡返的是银行点数。</p><p id="23664738-a3cc-80a7-9768-da18f3b0aa0b" class="">普通信用卡返银行点数很好理解，获取的是银行点数，上期已经介绍过。比如主流的点数有UR，MR，TYP等，他们的特点是点数灵活，用途广，攒点快。而酒店/航点数，获取的是这个酒店/航司点数。每个酒店和航司都是一个单独的点数系统，但是可以根据情况转点。比如，酒店集团的点数除了可以订自家的酒店之外，还可以转点给航司。而航司的点数也可以转回酒店，也可以出同一个联盟内其他航司的机票（一般情况下）。</p><h3 id="23664738-a3cc-806f-b2b0-d2b032065221" class="">五大酒店集团介绍</h3><p id="23664738-a3cc-80b9-a908-eb69a137e153" class="">大多数内容来自于网上，大家有个基础了解就行。</p><ul id="23664738-a3cc-8035-8300-d23cb7d0e041" class="bulleted-list"><li style="list-style-type:disc">Marriott 万豪酒店</li></ul><ul id="23664738-a3cc-80b0-8d31-f83385ce0b30" class="bulleted-list"><li style="list-style-type:disc">Choice 精选酒店</li></ul><ul id="23664738-a3cc-80f2-b397-d61d175d2c09" class="bulleted-list"><li style="list-style-type:disc">Hyatt 凯悦酒店</li></ul><ul id="23664738-a3cc-8078-aaae-f415412a61d2" class="bulleted-list"><li style="list-style-type:disc">Hilton希尔顿酒店</li></ul><ul id="23664738-a3cc-803b-84e7-db36d549db14" class="bulleted-list"><li style="list-style-type:disc">IHG 洲际酒店</li></ul><h3 id="23664738-a3cc-8006-a544-f3d1ea9a910f" class="">点数的使用</h3><p id="23664738-a3cc-801e-9490-c57776cdce0e" class="">既然联名卡返的都是酒店的点数，那么核心论点是需要把这个点用出去。这里有一个问题是，酒店的点数普遍估值低，转给航司更亏。这里来给大家列个清单。<br/>（酒店点数转点给航司，不同的航空公司比例略有区别，表格中只列出众数）<br/></p><table id="23664738-a3cc-80ff-8c55-fcb27886b860" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-80a8-a0ce-ec85b1e14827"><th id="QhUL" class="simple-table-header-color simple-table-header"></th><th id="mfjv" class="simple-table-header-color simple-table-header">点数估值</th><th id="&lt;:ne" class="simple-table-header-color simple-table-header">转点比例（给航司）</th><th id="{CWE" class="simple-table-header-color simple-table-header">合作伙伴总数</th></tr></thead><tbody><tr id="23664738-a3cc-8058-930c-d05b215d98fe"><th id="QhUL" class="simple-table-header-color simple-table-header">Marriott 万豪</th><td id="mfjv" class="">¢0.8</td><td id="&lt;:ne" class="">3:1</td><td id="{CWE" class="">40</td></tr><tr id="23664738-a3cc-80ab-ad94-dae656c49f6b"><th id="QhUL" class="simple-table-header-color simple-table-header">Choice 精选</th><td id="mfjv" class="">¢0.6</td><td id="&lt;:ne" class="">5:1</td><td id="{CWE" class="">12</td></tr><tr id="23664738-a3cc-801f-bb01-c3cc62d62206"><th id="QhUL" class="simple-table-header-color simple-table-header">Hyatt 凯悦</th><td id="mfjv" class="">¢1.7</td><td id="&lt;:ne" class="">5:2</td><td id="{CWE" class="">25</td></tr><tr id="23664738-a3cc-80e0-aaa7-c591110a653b"><th id="QhUL" class="simple-table-header-color simple-table-header">Hilton希尔顿</th><td id="mfjv" class="">¢0.4</td><td id="&lt;:ne" class="">10:1</td><td id="{CWE" class="">26</td></tr><tr id="23664738-a3cc-80e3-b475-ff774da318a8"><th id="QhUL" class="simple-table-header-color simple-table-header">IHG 洲际</th><td id="mfjv" class="">¢0.5</td><td id="&lt;:ne" class="">5:1</td><td id="{CWE" class="">45</td></tr></tbody></table><p id="23664738-a3cc-803f-80de-f2a1653716fb" class="">假设你申请了一张万豪的信用卡，有3x的餐馆，那么实际回报是多少呢？万豪的估值0.8cpp，真实回报只有3x0.8=2.4x，而转给航司相当于只有1x的回报。相比较于银行点数可以1:1转给航司，酒店的转点比例属实性价比低。不过酒店的合作伙伴都比银行多，如果你在订票的时候发现少一点点数还是可以凑合用一用。那如果这么算下来的话，日常卡不香吗？那3x的回报都是实实在在的。</p><p id="23664738-a3cc-8094-a20c-f0e0785ab0a5" class="">看到这里大家应该明白了吧。除了Hyatt估值较高之外，其他的性价比都蛮低的。申请联名卡的意义是拿开卡奖励，各类福利，会员等级——当然这是建立在你是他家的常客情况下。航司同理。</p><p id="23664738-a3cc-80bc-a759-febb7682a3c7" class="">虽然这样，但总体来说也有可圈可点的地方。比如万豪作为最大的酒店集团，一共发了5张联名信用卡。相对比较慷慨的开卡奖励，自家酒店消费6x，不同等级还会额外送bonus（比如白金和信用卡住店21x），攒点相对而言快一些。但是高攒点的消费类别也仅限某些万豪酒店，普通日常的消费攒点不合算。最后合作伙伴比银行多，有些情况下还可以凑合用。而点数更值钱的Hyatt相对来说攒点就更慢。</p><p id="23764738-a3cc-80c7-85fa-f5e5a617e0d2" class="">联名卡也就住店刷一刷，日常使用还是算了。</p><p id="23664738-a3cc-8079-89fa-c1681e81f142" class="">所以这么一番比较下来，现在大家知道为什么不要轻易碰联名卡吧？估值和转点比例都很低，如果你要再不是他家常客，那最终结果只会被反薅。</p><h2 id="23664738-a3cc-800b-9f37-c6c0263d2b6a" class="">申请建议&amp;推荐</h2><p id="23664738-a3cc-80b1-9bff-f14a96bcec40" class="">因为每个人的情况不同，所以也很难做出推荐。以下推荐基于一般情况下，抛开关于你是否是他家常客的推荐。</p><p id="23664738-a3cc-80f3-8f1d-e480fb8abf5c" class="">酒店联名卡，首先推荐万豪或凯悦，然后其他。</p><p id="23764738-a3cc-803f-9c34-d9e0a6f20339" class="">万豪自从收购了SPG以后，现在已成为最大的酒店集团，名下共8500+酒店，覆盖范围非常大，很容易就能碰到。</p><p id="23764738-a3cc-8082-bed4-cedbfba69297" class="">凯悦全球酒店数量900左右，虽然数量不是很多，但质量普遍都还行，且点数非常值钱。<br/>住店需求多，基本上万豪+凯悦能做到全覆盖。<br/></p><p id="23664738-a3cc-809f-abbb-d11278bf92ba" class="">航空联名卡，阿拉斯加航空不错。点数价值高，就一张卡，且点数来源少。另外加拿大航空也不赖，点数可以出星空联盟内其他航司的航班，点数价值也不错。且两者年费都不高。</p><p id="23664738-a3cc-8069-aa3e-e7a6bbfd7573" class="">以上比较不容易被反薅的联名卡，但是仍然需要你去使用他们的服务。</p><h2 id="23664738-a3cc-80a5-bcba-ec6ba33e0f93" class="">航线分析</h2><h3 id="23664738-a3cc-80fb-9f98-fc828caecab5" class="">航空联盟</h3><p id="23664738-a3cc-80ec-9b42-df81af3d9667" class="">现在主流的航空联盟一共有三个，天合联盟，星空联盟和寰宇一家。其中对点数最友好的应该是星空联盟，来源途径较广，能出星空联盟任何一个航司的机票。</p><p id="23664738-a3cc-800b-84f0-fe1b02644c51" class="">而天合联盟则是完全相反的情况，航司之间特别不团结。比如大韩居然只给同为天合联盟的成员每趟航班放1张商务票和2-3张经济票（如果楼主没记错），可谓是非常小气。而达美虽然理论上能出大韩的票，但本身点数来源途径也不多，且回国常常需要百万里程，性价比很低。</p><p id="23664738-a3cc-80d9-b5f8-de14d3be5376" class="">寰宇一家航司数量最少，大家应该听的比较少，乘坐的应该也比较少。唯一用的比较多的应该就是国泰吧。</p><h3 id="23664738-a3cc-8059-8f21-d35a59101e93" class="">美国国内航线</h3><p id="23664738-a3cc-80fb-9770-d384bd79f9fa" class="">提到美国国内航线，那肯定避不开三大航了：AA，UA和DL。他们都有各自的Hub，美国国内的航线相对错开，大部分情况下不会直接形成竞争，还得根据你的地理位置选择。另外整体服务确实一言难尽，且点数估值都较低（美国航空点数价值相对较高是因为来源少，不懂以后TYP支持转点了以后会不会贬值）。有一点需要注意的是，信用卡送的第一件托运行李和你购买的托运行李不能叠加。</p><p id="23664738-a3cc-80af-85b9-f534791c6ef6" class="">另外，如果你观察美国国内航空点数估值，大部分都是低于1.5cpp的。<del>所以，还不如直接用CSR 1.5cpp订这些国内航线呢，价值比转点高</del>。想要用出大于1.5cpp甚至2cpp的价值，一般都是国际航线的两舱。</p><p id="23664738-a3cc-803f-9ad1-d02ad733e645" class="">相比于美国三大航，阿拉斯加航空，捷蓝航空和西南航空航线覆盖率次之，各方面的服务理论上更好，联名卡也没有那么多弯弯绕绕。如果能用得上，感觉比三大航更值。</p><h3 id="23664738-a3cc-806b-b8fb-d93402a175a0" class="">中美往返航线</h3><p id="23664738-a3cc-8091-92bf-cde4bc5a6a10" class="">另外再介绍一下中美往返航线，毕竟大多数人还是有中美往返的需求。其实在这方面来说，选择较少。有两个主力航司你避免不了：国泰航空和大韩航空。这两航司无论是在航点，价格，服务上都非常相似（不过这两联名卡都很垃）。而相比之下，国内的一些航司直飞有点一言难尽，价格高不说，航点还非常稀疏。不是每个人都住在北上广深和洛杉矶纽约这样的大城市，整体不实用，不介绍。</p><p id="23664738-a3cc-800c-98cd-e6d0d3881e56" class="">国泰在内地共有16个航点，美国有6个航点（旧金山，洛杉矶，达拉斯，芝加哥，纽约，波士顿）。而大韩航空在内地共有21个航点，美国共有10个航点（西雅图，旧金山，洛杉矶，拉斯维加斯，达拉斯，芝加哥，亚特兰大，华盛顿，纽约，波士顿）。总有一个离你家近吧？而其中，大韩的实用性又优于国泰，因为航点更多。</p><p id="23664738-a3cc-804f-b61f-e706602bc803" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80a4-99db-cde8598f151a"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8024-99f5-e485a7740a3e" class="">XHS原文章</p><p id="23664738-a3cc-80cd-8ca2-ef1390d715f1" class=""><a href="http://xhslink.com/m/3trS2JfLRV2">http://xhslink.com/m/3trS2JfLRV2</a></p></div></figure><p id="23664738-a3cc-80b4-acf2-d49bcb0da0cc" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

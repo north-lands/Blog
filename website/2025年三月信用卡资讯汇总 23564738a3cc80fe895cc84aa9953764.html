@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2025年三月信用卡资讯汇总</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-80fe-895c-c84aa9953764" class="page serif"><header><h1 class="page-title">2025年三月信用卡资讯汇总</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80b5-b8ad-da6f0366a741"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8005-aceb-f6b045d7a76d" class="">【2025.03】1.0版本发布</p><p id="23664738-a3cc-8079-8b30-e712e908c74b" class="">每隔一段时间楼主就会总结这段时间内信用卡圈发生的大事，算是记录历史了，所以也没有必要更新。</p></div></figure><p id="23664738-a3cc-804f-ab83-c3fafa2533ee" class="">
+</p><nav id="23664738-a3cc-8018-a1fd-e9b419cc5981" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ee-b3a3-f654a315fa8a">USBank Smartly可能即将绝版</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80c7-b038-fe8ea1581172">USBank推出新卡Shield</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-806d-9088-e90cf0b04c88">Citi Reward+可能即将绝版</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8065-a2ec-d9b100de1438">Bilt更新支付方式</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80a2-b891-d9b376e009f2">CSP 100K史高重现江湖</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80fd-be4b-dfdd94615b99">UA联名卡全家桶迎来升级</a></div></nav><p id="23664738-a3cc-80bb-896c-d1858b759322" class="">
+</p><h3 id="23664738-a3cc-80ee-b3a3-f654a315fa8a" class="">USBank Smartly可能即将绝版</h3><p id="23664738-a3cc-80a4-bdfe-cc869e39ad45" class="">这张卡最早于3月中旬在Doc上发布，根据Doc文章上写，“将此归为谣言，但一名reddit 用户被分行代表告知，他们在周一收到一封电子邮件，称他们无法再在分行申请美国银行智能卡，但令他们惊讶的是，该卡仍可在网上申请。另一位reddit 用户与承销商进行了交谈，并被告知该卡将在大约一个月后停用。另一位用户被告知产品更改已暂停。如果这是真的，美国银行肯定已经在这张卡上损失了很多钱。”</p><p id="23664738-a3cc-80c1-b59b-c91fcc941b22" class="">要知道这张卡于24年11月才推出，作为UAR的继承者最初也是被寄予厚望。现在没想到传言该卡即将绝版，成为最短命产品，实在是遗憾。估计4%被薅疼了吧...</p><p id="23664738-a3cc-8080-be16-e9049a584dae" class="">其实从USBank的信用卡可以看出他们家在信用卡业务方面的野心，推出的卡跟其他银行非常不同，想走出属于自己的专属路线。可能是用力过猛，也有可能是太过自大造成信用卡业务亏损严重（也有人猜测是内部的老大被干掉了）。不管怎么说，且撸且珍惜吧。</p><h3 id="23664738-a3cc-80c7-b038-fe8ea1581172" class="">USBank推出新卡Shield</h3><p id="23664738-a3cc-8040-ac29-f10c998827c9" class="">随着Smartly的即将绝版，这张卡也是以迅雷不及掩耳的速度上线了。但是楼主一看，这张卡真的很拉...</p><p id="23664738-a3cc-8008-ae7a-ec3c3249d073" class="">这张卡的定位是一张关于修复信用的卡，所以就不要太指望有很多福利了。虽然只有大约不到一半的美国人能够一次还清每个Statement的消费，但是对于华人来说这应该是一个标准操作。如果是这样看的话，这张卡的福利也就仅仅是每年赠送$20而已（注意是每年，不是每月）。福利整体来说可以是非常鸡肋（不过对于一张修复信用的卡就不要指望太多了）。</p><p id="23664738-a3cc-8078-817b-c1f3d5b606e0" class="">从这里也可以看出来USBank可能真的是怕了？在信用卡上面亏了挺多钱，推出这张卡来回血一下。</p><h3 id="23664738-a3cc-806d-9088-e90cf0b04c88" class="">Citi Reward+可能即将绝版</h3><p id="23664738-a3cc-80c0-9c60-fbdb5d80e53e" class="">Reward+传出即将绝版的消息几乎跟Smartly即将绝版的消息时间相同。这张卡放眼信用卡圈也是独一档的存在，因为有其两个独特的功能：点数向上取整和额外奖励10%现金。最终，2019年发布的卡寿命还是即将走到了尽头。</p><p id="23664738-a3cc-807b-a37d-d7f94d3c02d4" class="">从这张卡的功能来看，应该也是被薅疼了。毕竟小额消费友好的卡，且白送10%现金奖励，同样功能的找不到第2张卡。不过还有一个说法就是接下来Citi准备主推Strata系列了，除了已经上市的Premier之外，还有另外两张分别是Select和Elite。前者应该是修复信用的低端卡，而后者是旅行高端卡。有小道消息指出Elie将在今年暑假和大家见面，期待一手吧。</p><p id="23664738-a3cc-8079-b227-e8823f12bc50" class="">不过随着Reward+的绝版，以后Premier没有什么好的降级选项了。降级到CC和DC也可以，但是有个问题是点数会过期。点数会过期，点数会过期，点数会过期，重要的事情讲三遍。之前有一个人不懂装懂称“哪家银行的自家点数占有账号的情况下会过期的”，就你这样的还是别出来丢人现眼了，真是笑话。虽然这俩给TYP，但是官方定义是返现卡。另外虽然也有少量不会过期的DP，但是还是不建议大家挑战渣IT（万一要是真在你那过期了怎么办）。</p><p id="23664738-a3cc-8088-a581-eaab13d10db1" class="">另外Premier其实也没有被大佬们开发出负年费或者好的回血方法，唯一的方式可能是靠reten offer，但也不是每个人都有。这张卡有一个很尴尬的点就在于，留着吧，年费不好回血；降级吧，这张又是Citi唯一的转点卡，没有卡转点了。而且Premier不像CSP，CSP的等效年费只有$45且还有Doordash，Primary保险，价格是可以接受的并且可以长持。而Premier相比较下就显得非常尴尬，感觉完全在用$95的年费购买转点功能。如果这么看来的话，要是点数对你用处不大，Reward+换现金是不是更香？</p><h3 id="23664738-a3cc-8065-a2ec-d9b100de1438" class="">Bilt更新支付方式</h3><p id="23664738-a3cc-8001-9e5f-e0afbbacf2ab" class="">在本月Bilt也是发邮件给所有Out of network的用户关于更新支付方式的信息，以后支付方式将通过Bilt pay进行并且需要预授权。这一变化从4月29号开始执行，并且在这之前大家需要手动更新一次Account和Rounting号码。</p><p id="23664738-a3cc-80aa-9191-c8f29a244c6d" class="">那么在前几天Bilt也是重新发了一份邮件，邮件中表明每月自动授权的功能已经上线，APP内已经更新。更新过后，可以看到有两个auto pay可以设置：一个是online payment，另外一个是check payment。</p><p id="23664738-a3cc-80c9-aa90-fca2a167b24d" class="">关于此支付方式的改动，Bilt解释是为了改善体验，并且防止盗刷。不过嘛，这种话听听就好。目前的情况是这样的：每个月最多可以授权三次，每授权一次有效期为7天，也就是意味着银行需要在这7天内扣款。每次授权的金额不一定需要和实际费用相等。如果大家还想付多笔金额的话，建议把所有费用（房租，水电，HOA等）设置在相近的日期，并且输入总授权金额。比如你的房租是$1000，水电$300，HOA $100，那么理论上来说你可以每月自动授权$2000。当要交的总费用超过总授权的费用，那么就有可能支付失败。</p><p id="23664738-a3cc-809e-be52-e5f25e39acca" class="">所以就目前来看对大部分人的确是不受影响，但是也有个别DP报告因为这次改动似乎是换了银行，原先可以交房贷现在却不行了。确实地主家的余粮越来越少，且用且珍惜吧。</p><p id="23664738-a3cc-80c2-a0c7-c453cfcd131b" class="">另外以上内容只针对Out of network的用户。对于In network的用户来讲，以上情况并不全部适用，你可能压根就没收到邮件。</p><h3 id="23664738-a3cc-80a2-b891-d9b376e009f2" class="">CSP 100K史高重现江湖</h3><p id="23664738-a3cc-804b-a947-fc123f42176c" class="">这个消息最早在3月23号礼拜一正式上市前大约一周前曝出，当时楼主还不是特别相信，在这个节骨眼下Chase还敢推出100k的奖励确实有点too good to be true。最后的结果相信大家也知道了，奖励确实如期上线。</p><p id="23664738-a3cc-80fb-b43c-da12e4971d99" class="">关于这个offer能持续多久，楼主的态度可能不太乐观。有消息说5月就结束了，所以能上车的赶紧上车吧。如果实在是因为一些原因搞不了比如524或者48个月已经拿过奖励的，说实话就没太大办法了。</p><p id="23664738-a3cc-80f3-ab3d-c4fff228ccc2" class="">另外就是网申的offer预计4月第1周会上线，到时候大家就可以直接在网上申请100k得奖励了。不过如果你急用，理论上现在直接申请60k也行，然后再match 100k，成功率几乎100%。</p><p id="23664738-a3cc-80ce-a697-eb9cad292887" class="">另外关于Match offer，跟以往的30天和90天不同，Chase这次大大提高了标准：只有3月13号或之后开卡的才能Match。这说实话就很不友好了...</p><p id="23664738-a3cc-8024-831a-fcd931c2b33c" class="">关于如何在开卡13号前Match，目前楼主目前也在研究，目前还没有相关的DP。不过从整体情况来看不太乐观，Chase似乎死了心不想给。不过不管怎么说Match成功还是失败，建议先把开卡消费要求5k越早达成越好。</p><h3 id="23664738-a3cc-80fd-be4b-dfdd94615b99" class="">UA联名卡全家桶迎来升级</h3><p id="23664738-a3cc-80f5-9475-d01eb1929ba7" class="">那么3月份最后一个事件就是UA联名卡的全家桶迎来升级，楼主之前并没有提到。虽然开卡奖励提升了，但是怎么说呢，一言难尽吧。</p><p id="23664738-a3cc-800c-8cc6-c98a9c2f40f6" class="">根据大家的话来总结就是辣鸡。在涨年费的同时，“福利”也在跟着涨。为什么打双引号？因为Coupon Book越来越厚，真的是跟Amex越来越像。不得不说现在各大银行都喜欢往信用卡里面添加各种各样的Coupon Book，而消费者恰好最讨厌这类东西。真的很烦...</p><p id="23664738-a3cc-80d2-bb76-e5c99ab6f680" class="">不过的确也有可圈可点的地方。中端卡Explorer开卡奖励变成80k，年费也就是涨了仅仅$55而已。作为第1年使用福利不错，第二年用不到的话，降级长持。但是如果要长持，还得自己评估一下性价比。</p><p id="23664738-a3cc-809e-9046-f3aba03041e9" class="">这次改版过后有人评论UA再也没有比较合适长持的卡了。楼主本身对联名卡并不感冒，不是用不到，而是不想被某一家公司束缚住从而影响自己的选择。大家按需申请吧，千万不要被反薅了。</p><p id="23664738-a3cc-8000-9e5e-dc9459f89508" class="">如果硬要评价，楼主肯定还是建议大家把各大银行自营卡该备齐备齐，满足日常消费和一般旅行需求。然后在此基础上开联名卡优先建议：升降机友好和轻松负年费的卡。</p><p id="23664738-a3cc-805a-bfb8-e04fa35918f9" class="">什么是升降机友好？就是联名卡有无年费的降级选项。大家可以选择第1年开高级卡拿SUB，第2年降级无年费。<br/>什么是轻松负年费？就是年费很好回本的卡，没有烧脑的操作。一个最好的例子就是Hyatt，每年住一晚即可回本。各大高端旅行联名卡Coupon反而不好回本，自行斟酌。<br/></p><p id="23664738-a3cc-803c-91e7-c8a106455fef" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8024-b066-ea40b39957c2"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8050-8c76-c714ec4556ee" class="">XHS原文章</p><p id="23664738-a3cc-803d-9664-e723f07c70df" class=""><a href="http://xhslink.com/m/7OEAMlZj1L4">http://xhslink.com/m/7OEAMlZj1L4</a></p></div></figure><p id="23764738-a3cc-80f5-a74a-f03c5a29700a" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

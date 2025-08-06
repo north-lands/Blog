@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>锐评各大银行点数系统及估值</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-806b-be77-d640201fc86f" class="page serif"><header><h1 class="page-title">锐评各大银行点数系统及估值</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8080-8862-f05ac827800c"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8048-abb4-d6e85df127ec" class="">【2025.07】1.5版本（XHS未发布），更新了一些内容</p><p id="23664738-a3cc-8093-b6d1-c64567d1ddc1" class="">【2025.04】1.0版本发布</p></div></figure><p id="23664738-a3cc-80ef-8c57-c092686ba2c8" class="">
+</p><nav id="23664738-a3cc-80c1-bafb-d3bd81f86156" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80b3-8f8d-ecf9b2315030">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8003-b044-e79d3ba2a175">物有所值还是创造需求？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-803b-8c99-cce69a5fdbfd">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8092-b560-c2d9ad04b521">基本情况</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8061-b04f-eb84757c42ea">Chase：UR点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80e5-8edd-df89a06e7ea4">总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8011-b67d-dadba2f6e650">Amex：MR点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80bd-8dc8-f47480eb4749">总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8008-a866-e87ee00dd016">Citi：TYP点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80ee-8d89-cbd104fd094b">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8099-87a5-c1cafe0edf0d">Well Fargo: Bilt点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-800e-86cc-c56f7db0655a">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-803a-8d5f-ddeeca9cd10a">Capital One：Miles点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80e0-9284-ebc79f3b1612">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-801a-a2b8-ccef20fc84ed">Bank of America点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80cc-808a-ed61aeb0802a">Usbank点数锐评</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80c7-aafc-ffd348f1d6a3">总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80fd-8ba5-f682ed07d5a4">免责声明</a></div></nav><p id="23664738-a3cc-80fb-9890-fabd1caddda1" class="">
+</p><h2 id="23664738-a3cc-80b3-8f8d-ecf9b2315030" class="">简要介绍</h2><p id="23664738-a3cc-8021-969b-d03fbb597336" class="">楼主之前以介绍信用卡为主，关于点数用法及估值都是一笔带过。宣传中点数能用出“高价值”，然而事实真的如此吗？你是赚了还是被银行反薅了？</p><h3 id="23664738-a3cc-8003-b044-e79d3ba2a175" class="">物有所值还是创造需求？</h3><p id="23664738-a3cc-803a-99c4-e79e4ad72a4e" class="">在推荐完信用卡之后，楼主又反思了一下所谓的点数。仿佛在各大资本的推崇和他人的口口相传下，不转点就是亏，然而真的是这样吗？</p><p id="23664738-a3cc-805f-a1f7-d7fbc473ee3c" class="">事情的起因是有人分享了他把UR点数全部兑现，然后底下就有人评论，“你也是人才”等明显带有讽刺意味的评论。也有人保持相对清醒的头脑，&quot;以为自己节省了一大笔钱，实际上只是被信用卡公司制造了原本不存在的消费。”</p><p id="23764738-a3cc-80ea-afdb-c7f3b62883b0" class="">这就很值得反思了，点数到底给你了所谓的&quot;低成本高服务”，还是真的被&quot;创造了需求”？</p><p id="23764738-a3cc-805f-bcb7-db98a8f5eddc" class="">
+</p><p id="23664738-a3cc-8044-a5ff-c4b1e3c4933a" class="">如果你真的无动于衷，做到了绝对理智，那说实话也是一件很了不起的事。Hyatt点数是值钱，但你平时就住汽车旅馆或Airbnb；商务舱是能换出高价值，但是你从来只坐经济舱... 不是所有的人都能用上这些所谓的“高价值”兑换途径，也有一些人觉得&quot;现金为王”。点数，改变了你的生活方式了吗？</p><p id="23664738-a3cc-808a-8590-dc5f74c9ac49" class="">你还记得是什么原因入坑点数的吗？有一个评论写的很好，“新手一般不会问点数价值是多少，而是关心点数如何‘最大化’。大多数‘新手’都是听说玩信用卡能薅羊毛才来的，你跟他说MR是0.6cpp现金人家根本听不进去，然后跑去问别人怎么换头等舱，新手要是能理性就没这么多问题了”。</p><p id="23764738-a3cc-8048-8bed-d26cd02efb0b" class="">这个人是不是你？你的心态被银行拿捏的死死的。</p><p id="23664738-a3cc-804e-9ff6-ded6c763d31b" class="">“<strong>点数价值对每个人都不同，你忽悠别人MR有超过1cpp的价值就是你的不对了</strong>”。在宣传点数价值时，银行不会对点数上限价值进行宣传，而是保底价值。</p><p id="23764738-a3cc-8024-9b9f-decf730af42c" class="">所以，基于以上情况楼主写了一篇2025年各大银行点数系统的详细介绍和深度反思，你真的赚了吗？</p><h2 id="23664738-a3cc-803b-8c99-cce69a5fdbfd" class="">前言</h2><p id="23664738-a3cc-806f-abbc-f8c7e1f4ecb2" class="">但你还是一个信用卡新手时，你并不会太在乎返现结构，你的第一张卡可能大概率取决于你的家人，朋友或亲戚。为什么？因为这些所谓和你在现实生活中比较亲近的人，&quot;现身说法”，在他们的推荐下，你就这样草率的入坑了。</p><p id="23664738-a3cc-80ef-ad6f-d1c1095281bc" class="">慢慢的，你对信用卡有了研究，也开始追求返现奖励了。作为仅有几个月信用记录的你，你蠢蠢欲动，在网上看了攻略之后就找了一张“自认为”最符合自己消费结构的卡申请了。</p><p id="23664738-a3cc-80ad-bc31-cfed469bba11" class="">然后，你对信用卡的研究越来越深，看过的文章越来越多，经验越来越丰富。这时，你开始研究所谓的点数，希望能从中获得更多。难道你不是被所谓的“高价值”的宣传而入坑的吗？而问题是，你真的赚了吗？</p><h2 id="23664738-a3cc-8092-b560-c2d9ad04b521" class="">基本情况</h2><p id="23664738-a3cc-8088-99fc-c63306e63676" class="">大多数新手在开卡时，肯定都会听到关于信用卡奖励的两个名词：返现和返点。这时候你就会想：信用卡是返现好还是返点好呢？如果你询问大多数人，他们的答案是返点。为什么？你大概率能从他们口中听到类似于&quot;点数可以换机票和酒店，从而能用出更高的价值”之类的答案，可事实真如此吗？这篇文章尝试从不同角度分析所谓的点数价值，扒出点数所谓的真面目。</p><p id="23664738-a3cc-8010-a269-d637471e9e9b" class="">不过在这里楼主有必要提醒就是，点数要用出去才是好点数，你怎么使用其他人无权干涉。别人能用出2cpp不代表你就行，点数价值对每个人都不一样。银行在这一方面很鸡贼，给你灌输一种心理“直接把点数兑现觉得很亏，从而让你试图追求更高的点数兑换价值”，在这个过程中一旦你失去理智，就被反薅。不信？现在立马做个实验：在你下一次旅行中，你是愿意以1.2cpp的价值转到美联航（是你本来就要支出的机票），还是愿意以2cpp的价值订$500+的凯悦酒店（而这也不符合你日常消费习惯）？盲猜选后者的人不少，甚至有时楼主都陷入过这样的错觉。</p><p id="23664738-a3cc-8069-88da-d46a5350ed95" class="">在接下来的文章中，楼主将着重介绍点数系统，使用方式和估值。最后楼主会给出关于点数使用保底价值的意见。请注意这里的点数保底价值不是指简单的“兑现”，而是楼主认为能以比较简单，无脑的方式用出去。另外，楼主也会给出参考转点价值，因为不同的人用出不同价值。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-809d-a48b-d826e6ac8840"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23664738-a3cc-809a-8573-f1e248da3c06" class="">本文作为进阶攻略，将会用到大量的名词和简写，如果不懂的话请自行上网查询。</p></div></figure><h2 id="23664738-a3cc-8061-b04f-eb84757c42ea" class="">Chase：UR点数锐评</h2><p id="23664738-a3cc-8036-893a-d8bdb6962f0b" class="">楼主在这里打赌，在度过新手期之后，你一定是从Chase入坑的。你肯定知道524规则，你也肯定知道所谓的点数换航空和酒店，虽然你还不懂怎么换。Chase本身家大业大，信用卡业务确实是一大亮点，产品本身是没毛病的。另外，楼主也打赌也有很多人是通过所谓的&quot;refer”入的坑，因为有利可图啊。你看一看隔壁没有refer的银行，有几个发帖介绍的？</p><p id="23664738-a3cc-80c0-8155-e69d2865ea2a" class="">先来过一遍开卡奖励。开完三剑客，你一共能拿到以下奖励：<br/>CFU，20k（branch有25k）<br/>CFF，20k（可能近期马上大改版或者绝版了）<br/>CSP，<br/><del>60k（经常有活动，也有黑车，低于75k不建议入）</del> 现在已更新全新Offer 75k<br/>所以，你一共能拿到120k的奖励。关于Chase的转点伙伴以及伙伴点数估值之前有介绍过，Chase一共有14个转点伙伴。<br/></p><p id="23664738-a3cc-8078-996e-e8dc53911d5b" class="">某攻略文章是这么写的：&quot;Chase的转点伙伴包括普通人很容易用得上，并且价值很高的Hyatt，而航司伙伴则不但覆盖三大联盟，并且包括了最多的美国本土航司”。刚开始，楼主认同这个观点，但是细想了一下发现不太对。</p><p id="23664738-a3cc-8076-b31b-c09e8d794b35" class="">只需要稍微观察一下表格就知道，这些所谓的转点伙伴估值都较低，比如美联航1.2cpp，捷蓝航空1.4cpp，西南航空1.3cpp，<del>与CSP自带的1.25cpp拉不开太大差距</del>，而且里程票限制还多。不过，点数怎么使用是你的自由。理论上来说，能用出超过1cpp的价值就是赚。但是作为一个&quot;羊毛党”，看着这么低的价值你会甘心吗？</p><p id="23664738-a3cc-8057-a0a6-f605a58dbe40" class="">所以如果再想把UR用出高价值，且不被反薅，就没有那么容易了。纵观全局，想要做到这样只有两种方式：凯悦酒店<del>和CSR 1.5</del> Point Boost。</p><p id="23764738-a3cc-8007-8dbc-e74e5d21be88" class="">
+</p><p id="23664738-a3cc-8028-b5a3-c2704f2f4d3e" class="">凯悦酒店作为唯一一个点数高价值的酒店，也是UR最值的使用方式之一。你可能不懂怎么用，也可能不懂Hyatt是啥，但你一定听说过这种使用方式，这就是自媒体的力量。但是现在Hyatt本身点数贬值严重，UR也在贬值。如果你看网上的大多数文章，大多数人认为凯悦的点数大多数情况下能达到1.8-2cpp，保底1.7cpp。甚至有些文章说，如果点数用不出1.7cpp的价值就不要换了。</p><p id="23664738-a3cc-8012-b8f1-e60b4e36ade2" class="">放在以前的可能可以，现在就未必了。楼主搜索了好多家Hyatt，发现很多酒店根本换不到1.7cpp。而且对于放假高峰期，以及一些热门酒店，根本就不放积分房。所以，楼主认为只要有1.5cpp就比较合算了。</p><p id="23664738-a3cc-8086-be39-c27d57196ba0" class="">那么这里涉及到一个计算问题。如何计算自己换的Hyatt大约是多少cpp？这里有一个误区就是在计算现金价格的时候，大家都习惯把官网最终价进行对比。但是在购买现金房的时候，往往第三方平台都有各种折扣和额外返现，再加上信用卡本身的返现，平均都能做到官网价的7~9折。</p><p id="23664738-a3cc-80ac-9e0d-ee863b05344e" class="">举个例子，Hyatt C3的酒店标间房需要1.2w分，官网标价税后$200。那很多人想，1.2w分换$200，约等于1.67cpp，非常值！但如果你在第三方平台定加上信用卡本身的返现，又或者是其他一些地方折扣，按照保守估计九折拿下$180，真实点数价值为1.5cpp。那如果说低于九折呢？点数价值已不足1.5cpp。</p><p id="23664738-a3cc-8055-bfe8-dd8f23b6e2b0" class="">所以很多人反映Hyatt能用出2cpp的价值，楼主认为并不能简单的这么定义：你能做到是你，不代表别人。美卡论坛估1.6cpp，美国攻略网估1.7cpp，从此可以看出2cpp本身是有困难并且限制较大（而且2cpp的价值大概率没有将额外折扣算入），和CSR的1.5cpp拉不开太大差距。所以一番分析，Hyatt点数价值没有你想象中的那么高，1.5cpp已经很合算了。</p><p id="23664738-a3cc-80a4-b0f6-dcaaf384c80c" class=""><del>第二个使用方式就是CSR了，毕竟持卡送的保底价值，而Chase所有的转点伙伴理论上来说都没有1.5cpp高。所以楼主还是建议如果你有很多的UR，建议升级一年CSR把点数全部烧掉后降级（还是有挺多人持百万点数，如果全拿来住凯悦酒店得住多久？）。</del></p><p id="23664738-a3cc-8060-9631-e1ee746cc904" class="">目前CSR已经移除1.5cpp的福利。所以另外一种还能用出高价值的就是Point Boost。具体可以参考《<a href="Chase%E6%96%B0%E5%8A%9F%E8%83%BD%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%EF%BC%9AUR%E5%8A%A0%E5%BC%BA&amp;%E5%89%8A%E5%BC%B1%EF%BC%9F%2023564738a3cc807bb711e949d0453a51.html">Chase新功能正式上线：UR加强&amp;削弱？</a>》。</p><h3 id="23664738-a3cc-80e5-8edd-df89a06e7ea4" class="">总结</h3><p id="23664738-a3cc-8037-b5ae-d23e6bf1bf4b" class="">所以综上，楼主认为UR再也没有之前吹的那么神了。不可以因为UR估值为1.6cpp就按照1.5x1.6=2.4%的回报来计算，你能不能用出1.6cpp是个问题。总的来说，点数价值全靠Hyatt支撑，<del>如果再没有CSR 1.5，UR恐怕将大幅度贬值</del>。说实话，如果没有点数，有谁会用现金价买Hyatt呢？</p><p id="23664738-a3cc-8020-86de-ec3368dc55f0" class="">基于以上分析，如何给UR估值？</p><ul id="23664738-a3cc-801f-a712-e84f0a3cfd35" class="bulleted-list"><li style="list-style-type:disc">现金价值：1cpp</li></ul><ul id="23664738-a3cc-80ec-8a50-e46a24b98376" class="bulleted-list"><li style="list-style-type:disc"><del>CSP购买旅行/苹果产品：1.25cpp</del></li></ul><ul id="23664738-a3cc-8087-be32-db2854741187" class="bulleted-list"><li style="list-style-type:disc"><del>CSR购买旅行产品：1.5cpp</del></li></ul><ul id="23664738-a3cc-8087-a167-fd9d917829ac" class="bulleted-list"><li style="list-style-type:disc">购买苹果产品仍可获得更高价值，CSP/CSR分别应该是1.25/1.5cpp</li></ul><p id="23664738-a3cc-80dc-8952-e42dfa598392" class="">楼主给UR保底价值为<del>1.25cpp/1.5cpp</del> 1cpp，进阶选手能用出1.25-2cpp，高级选手能用出大于2cpp的价值。</p><h2 id="23664738-a3cc-8011-b67d-dadba2f6e650" class="">Amex：MR点数锐评</h2><p id="23664738-a3cc-807a-8e06-fa7ecb15f62b" class="">想要真正的把点数玩出花样，Amex说第二没人敢说第一。作为一个最会稳转点数和Coupon Book的银行，把消费者的心可谓是拿捏的死死的。而这也是Amex的争议所在，毕竟有争议才有话题，再加上refer，你在xhs上一定可以看见关于amex refer，因为他家的SUB最高。过于关心高SUB而忽略点数的估值和使用，你就这样上了贼船。</p><p id="23664738-a3cc-80ff-a719-dcc29fa96103" class="">曾经，大家都推荐新手入坑Amex，但是现在情况已有所改变。以前，Amex是超市卡的主力之一，无年费的点数卡性价比很高。那时金卡的年费也没有那么高，只有$250而已。而后来增加了年费之后取而代之的加了Dunkin的Coupon，一波操作实属恶心。</p><p id="23664738-a3cc-80ca-95b1-c080bb2bf64e" class="">自从无年费的点数卡绝版以后，Amex的点数卡只有以下三张：绿卡金卡和白金卡。而且！拿高等级卡的SUB还会影响低等级的卡，所以想把三张卡的奖励全部拿一遍的话，必须按照从低到高的顺序申请。过一遍开卡奖励：<br/>Green，40k<br/>Gold, as high as 100k<br/>Platinum, as high as 175k<br/>为什么写as high as呢，因为官网就是这样宣传的。因为SUB很高，很多人都想薅一把羊毛就走。所以银行不高兴了，看人下菜，也就有了著名的弹窗。很多人拼命刷也刷不到175k。所以理论上来说，你最高能拿到315k奖励，但现实情况YMMV。<br/></p><p id="23664738-a3cc-80f1-a7bc-d50612b1ebd6" class="">攒点方面，通过刷卡是很慢的，大家千万不要认为4x的餐厅和超市很牛逼，那Chase和Citi不完爆？</p><p id="23764738-a3cc-804d-806b-f00d597e5cf8" class="">那为什么很多大佬觉得MR的获取速度比UR快多了？因为骚操作多啊。论坛各路大佬都在研究高端操作，比如reten，升降机，副卡，NLL，睡衣等等（风险警告！）。理论上只要你会玩，一年获得的MR肯定比用出去的还多。所以，获得MR的方式一定不是靠刷卡。入坑Amex就是把自己逼成高手，研究把年费薅回本仅仅是开始而已。</p><p id="23664738-a3cc-8088-92e4-c6b883636b37" class="">
+</p><p id="23664738-a3cc-80d2-bf8e-c120f454b530" class="">那么点数的估值和使用如何呢？楼主敢说，MR绝对是最眼花缭乱和争议最大的点数，没有之一。作为新手的你入坑时，你肯定看见各大网站上写着MR估值为1.6cpp。然而，事实真的如此吗？考虑到它的点数使用方式不常规，楼主将逐一介绍。</p><p id="23664738-a3cc-80b3-9217-d59d37370110" class="">首先，如果想换现金的话，价值0.6cpp。对你没看错，只有0.6cpp，而不是主流银行的1cpp。不过还是那句话，你大概率是被信用卡羊毛而忽悠进来的，你的目标是头等舱而不是兑现，你看得上吗？</p><p id="23664738-a3cc-8048-974e-cc2c981450c0" class="">那有没有在兑现的基础上，价值稍微高一点的方式？有，礼品卡。点数可以1cpp兑换成礼品卡，也可以把这些礼品卡挂在正规网站上卖，如果能卖出0.85cpp，那这个就是保底价值。</p><p id="23664738-a3cc-8008-8d9b-d711de82cad0" class="">有没有至少1cpp价值？有，Amex portal买旅行产品。有没有比例更高的兑现方式？有，持Schwab，可以1.1cpp换现金（有上限）。先不说别的，你知道Schwab是个啥吗？</p><p id="23664738-a3cc-80d2-9ec3-fea1a0c4e8ba" class="">还有没有更高？有。持Amex商白，订机票时可将点数用出35%的额外价值，经过换算之后约等于1.54cpp，<del>和CSR的功能相同</del>，每年上限1M。可以看出这至少是一个不错的使用方式，<del>至少给了一个像CSR相同的功能</del>。但问题呢？首先作为商业卡，理论上只能公民绿卡申请。再者，此卡的SUB要求在三个月内花满2w，这本身就是一件门槛非常高的事情，很多人根本就完不成。如此大的消费需求，有可能钱还没花完就会直接招来FR。为什么？因为你在银行系统里没有大额消费的记录。</p><p id="23764738-a3cc-804e-8232-d1d7711e4f45" class="">
+</p><p id="23664738-a3cc-803f-b969-db442e636105" class="">最后的最后，肯定是转点了。这也是银行希望你干的，也能把点数用出所谓大多数人口中的&quot;高价值&quot;。如果你看表格，Amex共有21个转点伙伴，所有银行中最多。但有时候多没有用啊，你能不能用得到呢？</p><p id="23664738-a3cc-80d4-a912-cf8e2e89f374" class="">那么这里就要诞生另外一个问题，“如何换头等舱”，这种方法肯定你最关心的。但是这种东西有非常高的学习成本，限制非常多。你要是真牛逼网上搜几个攻略就直接开干了，还需要在XHS发帖问如何兑换吗？真有，大批大批的。说实话，你发帖的那一刻，就注定了你不适合这条路，你玩不来的。</p><p id="23664738-a3cc-8069-b584-c0591bd91fa4" class="">楼主在这里举个例子：想用点数换商务舱回国的票，你了解过以下情况吗？</p><ol type="1" id="23664738-a3cc-80dd-a98b-fe95e2839ffb" class="numbered-list" start="1"><li>打算换哪家航司，哪个航线？去哪里搜票？需要多少点数？</li></ol><ol type="1" id="23664738-a3cc-8089-87a7-c57ef08aa91b" class="numbered-list" start="2"><li>里程票兑换有哪些限制？你想兑换的航司放票规律是什么？</li></ol><ol type="1" id="23664738-a3cc-800d-a9aa-c940e5e2e50f" class="numbered-list" start="3"><li>如何兑换这些票？换里程票有时可不是直接把点数转到对应航空公司这么简单，有的时候是需要通过A航司搜票，B航司的里程出C航司的票，有时打电话才能出票。研究过吗？愿意花时间吗？</li></ol><ol type="1" id="23664738-a3cc-8053-85f4-f52ada166426" class="numbered-list" start="4"><li>知道兑换细节吗？踩过哪些坑？有一些东西必须踩过坑才知道，没踩过的都不好意思说自己是高手。</li></ol><ol type="1" id="23664738-a3cc-80e6-b672-e5016526f496" class="numbered-list" start="5"><li>能不能给其他人出票？各家航司都有什么规定？</li></ol><p id="23764738-a3cc-80df-8b19-e784d30974cf" class="">看完了这些你还对自己很自信吗？自信就冲啊，这个帖跟你没关系。但大部分的肯定不行，所以这个贴是劝退大部分的。</p><p id="23664738-a3cc-807b-bd7d-ff757fbad0cc" class="">之前楼主就回答了一个关于如何点数换商务舱的贴子，贴主后来提了一个问题“某些专门搞信用卡点数的人，常年持有几十几百万的点数，不知是如何做到的”。楼主的第一回答是这些是票贩子。是，还有另外一种可能性，这些人是信用卡高手，各种骚操作reten，升降机，副卡，NLL，睡衣玩的很溜，第一你知道这些是啥吗？第二你玩的来吗？</p><p id="23664738-a3cc-8029-83a5-d9b3fc978bc7" class="">所以，银行就吃定了不可能所有的人都能够通过这种方式用出高价值，大部分用户就是想寻找一个简单粗暴的兑换方式，这样银行才有的赚，不然这羊早死了。</p><p id="23664738-a3cc-80dd-a53f-e2cd2582c465" class="">还是那句话，“大多数‘新手’都是听说玩信用卡能薅羊毛才来的，你跟他说MR 0.6cpp现金人家听不进去，然后跑去问别人怎么换头等舱，新手要是能理性就没这么多问题了”。羊毛这么好薅吗？</p><p id="23664738-a3cc-80ea-b924-fbdf639a5819" class="">所以这里直接上结论，MR对于大多数人来讲就是冥币，想要用出2cpp的价值，需要兑换洲际航线的两舱，并且Amex没有好的酒店伙伴。</p><p id="23764738-a3cc-80d5-ac5f-edffa6d2505c" class="">本身大家都是作为羊毛党才入坑的点数卡，如果为了能换出2cpp而消费了自己平时不会购买的两舱，你觉得是你赚了还是被银行反薅了？里程票这么好换吗？每个人都有这个需求吗？</p><p id="23664738-a3cc-8072-96e2-d5a3d3be8b37" class="">
+</p><p id="23664738-a3cc-80a3-9f96-d930ea10de74" class="">还有几个几个操作就比较骚了：<br/>比如，有人分享所谓的退票大法。在Amex Portal上订机票然后再退票的方式，以1cpp拿到现金。<br/></p><p id="23764738-a3cc-808d-8b43-c62bfee63564" class="">再比如，很多大佬愿意把上百万的点数转到AC然后PYB，然后被Chase杀全家（风险警告！），就说明了1.25cpp对于MR是不错的价值。</p><p id="23764738-a3cc-80bf-9199-c47f03959dfb" class="">相关的骚操作还有很多，这里就不一一列举了，风险客观存在。相信有很多Amex玩家都是被别人骗上贼船，最后因为规则原因不得不研究如何回本，本末倒置。</p><p id="23664738-a3cc-80ef-be29-f64eb15eb67f" class="">所以，想要把MR用出高价值还是很不容易的，每一种方式都有门槛，需要花大量的时间研究，不是为“普通人”而准备的。只要你能把MR至少以1cpp的价值用出去就是一种胜利。</p><h3 id="23664738-a3cc-80bd-8dc8-f47480eb4749" class="">总结</h3><p id="23664738-a3cc-80d0-bb89-c49820902c70" class="">太多太多新手对Amex的了解就是SUB非常高和MR估值高，而没有考虑到其背后的阴暗面。所以，再次强调一遍，Amex信用卡和点数MR作为争议最大的点数没有之一，楼主从来不会向人主动推荐。好用的人真好用，不好用的人是真用不出去，跟冥币没区别。不要把你的消费习惯强加于他人，给别人一种“不用出2cpp的价值就是菜”的想法非常有问题。精选评论：&quot;点数价值对每个人不一样。但你要忽悠别人办卡说MR有超过1cpp的价值，就是你的不对了”。自始至终，楼主也认为MR不可能会有大于或等于1cpp的估值，这和别人宣传的“估值1.6cpp”是不是相差甚远？</p><p id="23664738-a3cc-80ef-b539-f7526e50d62d" class="">基于以上分析，如何给MR估值？</p><ul id="23664738-a3cc-8020-87c1-d7e107e7582d" class="bulleted-list"><li style="list-style-type:disc">现金价值：0.6cpp</li></ul><ul id="23664738-a3cc-80f6-8686-f2c924194313" class="bulleted-list"><li style="list-style-type:disc">礼品卡倒卖价值：0.6cpp-0.9cpp不等，取决于礼品卡</li></ul><ul id="23664738-a3cc-8022-9460-c6252fd3a57b" class="bulleted-list"><li style="list-style-type:disc">Amex旅行 &amp; 礼品卡价值: 1cpp</li></ul><ul id="23664738-a3cc-8078-a65a-d04d5820101e" class="bulleted-list"><li style="list-style-type:disc">Schwab价值: 1.1cpp</li></ul><ul id="23664738-a3cc-8061-887b-e19ac96900b3" class="bulleted-list"><li style="list-style-type:disc">Amex商业白金卡：1.54cpp</li></ul><p id="23664738-a3cc-80a4-87aa-daf76c821872" class="">楼主给MR保底价值为1.0-1.1cpp，进阶选手能用出大于1cpp，骨灰级选手能用出大于2cpp的价值。</p><h2 id="23664738-a3cc-8008-a866-e87ee00dd016" class="">Citi：TYP点数锐评</h2><p id="23664738-a3cc-80dd-92b7-e9154d3d2d90" class="">看完了Amex，你现在知道为啥MR争议很大了吧。所以现在2025年的今天，楼主更推荐大部分人入坑TYP。Citi的信用卡和点数经过这几年的改版，本身就是属于美国三大点数系统之一，现在变得更好用了。</p><p id="23664738-a3cc-80b3-a0d2-e9bb4444ee71" class="">如果你有看楼主之前的信用卡攻略，那么你肯定会觉得Citi的策略整体和Chase很像。在信用卡方面，Citi的三剑客（DC，CC，Premier）和Chase的三剑客（CFU，CFF，CSP）形成直接竞争，丝毫不占下风。因为Citi没有refer program，所以你在xhs上恐怕根本看不到几个介绍帖子。另外主要是他家的封控渣IT确实值得吐槽，但眼下也没有更好的选择。</p><p id="23664738-a3cc-8052-ad03-cb768b221bd4" class="">先来过一遍开卡奖励（现在改版之后Citi<del>也像Chase看齐了</del>，同系列之间的卡SUB不再互相影响，而是改成了48个月之后才能churn）：<br/>Double Cash，20k<br/>Custom Cash，20k<br/>Strata Premier，60k<br/>Citi的开卡奖励比较稳定，不像Chase有各种活动和黑车。如果把三剑客全部申一遍的话，你一共能拿到115k的奖励。<br/></p><p id="23764738-a3cc-8082-a3ac-d0271d00e0a9" class="">这里关于Double Cash的2x有个小知识，所谓的消费2x不是直接给你2x，而是在你消费的时候给你1x，然后在你还钱的时候给另外1x。那这个时候有很多人就要说了这有什么区别吗，答案是有！给大家普及个知识，在美国大概只有25%~40%左右的人能够一次性还完月内消费，而剩下的人都在付高额的利息。是不是有点出乎你的意料？不过考虑到华人全额付款是普遍现象，所以这里的2x也就默认了。</p><p id="23664738-a3cc-808a-af04-ed6aca35c9b0" class="">
+</p><p id="23664738-a3cc-808b-9ba4-ffe22f0566bf" class="">再来看看点数的估值和使用吧，大多数人可能对Citi没有那么了解。</p><p id="23664738-a3cc-8038-b664-f75a389885fe" class=""><del>首先如果要换现金的话，持reward+（这卡快绝版了）可以获得10%的奖励，保底1.1cpp</del>。曾经高端卡Prestige有和CSP一样的功能，支持以保底1.25cpp预定旅行相关产品，可惜2021年绝版了。虽然Citi在破产重组，但是楼主觉得他们不会放弃高端卡的市场，有小道消息表示Strata Elite很可能在今年暑假推出：<del>应该会有1.25cpp的功能</del>。</p><p id="23764738-a3cc-8012-af65-f131964ee6a4" class="">除此之外，就需要通过转点以获取更高的价值。楼主认为几个比较值的选项有Cathy，AA，Choice， Preferred Hotels，长荣。</p><ol type="1" id="23664738-a3cc-8020-a04b-d7d1624f9b0b" class="numbered-list" start="1"><li>首当其冲的肯定是国泰航空。大家或多或少都有往返中美的需求。而UR的痛点就是亚洲航线较少，没有比较值的航空伙伴，全靠Hyatt撑着。如果只是偶尔回国，那么用点数试一下商务舱也未尝不可。国泰航空的商务舱能用出大约2cpp的价值，经济舱也能用出1.3cpp左右，算是一个不错的兑换方式。</li></ol><ol type="1" id="23664738-a3cc-804f-8f33-cdca75c58278" class="numbered-list" start="2"><li>第二个就是美国航空。AA的里程来源少且珍贵，除了办他家的信用卡之外目前没有其他更好的获取方式。不过目前Citi官宣2026年开始将独家发行AA信用卡，TYP转AA已是板上钉钉，剩下的就是时间和比例问题。大家当然都希望转点比例是1:1，但如果转点比例类似于1:0.8，你会选择下手吗？不管怎么说，至少给了一个途径。但不可避免的是，AA如果真的开始接受TYP的转点，恐怕将面临一定程度的贬值（情况可能跟UR转Hyatt很像）。</li></ol><ol type="1" id="23664738-a3cc-8059-882c-e64dac00ba05" class="numbered-list" start="3"><li>第三个是精选酒店。这个选项大家讨论的比较少，所以应该没有人在意。虽然精选酒店的估值仅有0.6cpp，但TYP支持1:2转点，经过楼主实测基本上可以用出1.2-1.5cpp，还是比较香的。而且精选酒店的覆盖率比凯悦更高，如果你平时出门就是以经济型酒店为主的话，精选酒店是一个不错的选项。</li></ol><ol type="1" id="23664738-a3cc-807c-a69a-f3f97fc6655b" class="numbered-list" start="4"><li>第四个是是Preferred Hotels，这是一个全新的转点伙伴，24年10月份才正式加入，并且目前作为Citi唯一的转点伙伴。这个酒店集团相更加冷门。但TYP支持1:4的比例转点，如果有时能用上还是很香的。</li></ol><ol type="1" id="23664738-a3cc-8067-bd51-d094ab6a4a97" class="numbered-list" start="5"><li>其实还有一个比较值的伙伴楼主之前没有提到，就是长荣航空（BR）。只有Citi能1:1转，C1只能2:1.5。而BR自家里程票可用性很好，推荐使用。</li></ol><p id="23664738-a3cc-80c2-a907-fdb4a1d11f47" class="">虽然以上几个伙伴比较值，唯一的问题恐怕还是楼主之前提的关于Premier作为Citi目前唯一的转点卡，定位有些尴尬。留着吧，年费不好回血；降级吧，这张又是Citi唯一的转点卡，没有卡转点了。<del>如果不是绝对刚需，一些情况下可能直接拿Reward+直接兑现更香</del>。但如果随着Reward+的绝版，你是会选择直接以1cpp兑现，还是付$95买一个转点功能呢？</p><p id="23664738-a3cc-805e-95af-e4663decca75" class="">对了，最后TYP是可以转给陌生人的，是所有银行中对点数系统政策最松的一个。</p><h3 id="23664738-a3cc-80ee-8d89-cbd104fd094b" class="">结论</h3><p id="23664738-a3cc-80b4-8b59-ff1b15406247" class="">总的来说，TYP的使用方式还是较为简单，都比较容易能用出去，而且也可以保底1cpp兑现。</p><p id="23664738-a3cc-80c4-b68a-ebed6a244cb8" class="">基于以上分析，如何给TYP估值？</p><ul id="23664738-a3cc-805f-b589-c5244409adab" class="bulleted-list"><li style="list-style-type:disc">现金价值：1cpp</li></ul><p id="23664738-a3cc-802b-984c-db2bccaff9d5" class="">楼主给TYP的保底价值为1cpp，一般选手能用出1.1-1.5cpp，进阶选手能用出1.5-2cpp，高级选手能用出大于2cpp。</p><h2 id="23664738-a3cc-8099-87a5-c1cafe0edf0d" class="">Well Fargo: Bilt点数锐评</h2><p id="23664738-a3cc-8098-b825-ff5c1723b91c" class="">介绍完了现有的美国三大点数系统，来看一看其他的一些较小的点数系统吧。Bilt这张卡大家应该都不陌生，一张卡构成一个点数系统。</p><p id="23664738-a3cc-8018-aa14-d335bf138677" class="">首先，Bilt没有开卡奖励，但这似乎不影响大家申请它的热情。不过说实话，在大部分情况下如果一张卡没有SUB或者SUB很差的情况下，大多数人是没有动力去申请的。而作为市面上唯一一张房租的卡，好像又成为了必申的理由，也被迫入坑了这个点数系统。</p><p id="23664738-a3cc-80aa-ab01-f3ea617fbabf" class="">在攒点方面楼主之前已经介绍过多次，并且也做过一个大胆的猜测：攒点上限就是你的房租上限。在之前的调查中，近四成的人表示当抽屉卡用；35%的人表示再观望观望，而剩下只有不到25%的人表示继续当主力卡使用。所以从这个结果中也能大概了解一二。</p><p id="23664738-a3cc-8095-af8e-c39f930ed430" class="">关于点数方面，官方给的兑现是0.55cpp，这么亏的比例应该没有人会去兑吧。不过有一点很好的是Bilt<del>给了与CSP一样的功能</del>，则支持以1.25cpp购买旅行产品。Chase至少需要中端信用卡才能做到，而Boa和Citi则需要高端卡才能做到。相比之下Bilt免年费居然给了这个功能，实属良心。</p><p id="23664738-a3cc-8073-9b15-d2893a828d18" class="">除此之外就是转点了。楼主觉得Bilt的转点伙伴比较万金油，可以看成是UR+TYP的完全体。即能飞亚洲航线，也能飞美国境内（其中阿拉斯加航空独家转点伙伴），也有很值钱的酒店伙伴（凯悦）。点数应该是所有的点数系统里最好用的了。不过缺点嘛，就是只有一张卡，攒点太慢了。除了房租的1x，第二大主力就是吃饭3x，但如果这样的话拿Custom Cash不香吗？</p><p id="23664738-a3cc-809e-9283-d92125545b0b" class=""><strong>推荐点数使用：</strong><br/>楼主觉得是UR+TYP的结合，比较万金油，但攒点慢。当你需要转点伙伴时，应当优先转实用性最低的点数。比如你想飞国泰，转点的顺序应该是MR，C1，TYP，Bilt。如果你想住凯悦，先考虑UR再考虑Bilt。核心观点是把难用的点数先用掉。楼主首推阿拉斯加航空，毕竟Bilt是唯一转点伙伴。<br/></p><h3 id="23664738-a3cc-800e-86cc-c56f7db0655a" class="">结论</h3><p id="23664738-a3cc-80ea-a300-d26f1e9907e0" class="">基于以上分析，如何给Bilt估值？</p><ul id="23664738-a3cc-8068-aa31-ccb00a85dc9e" class="bulleted-list"><li style="list-style-type:disc">现金价值：0.55cpp</li></ul><ul id="23664738-a3cc-8023-a8e7-d181e95be1c2" class="bulleted-list"><li style="list-style-type:disc">Bilt购买旅行产品：1.25cpp</li></ul><p id="23664738-a3cc-80e1-bf88-fa583a6e9b4b" class="">基于以上分析，楼主给予Bilt保底价值为1.25cpp，进阶选手可用出1.25-2cpp，高级选手可以用出大于2cpp的价值。</p><h2 id="23664738-a3cc-803a-8d5f-ddeeca9cd10a" class="">Capital One：Miles点数锐评</h2><p id="23664738-a3cc-8068-a023-e5976b14edfe" class="">C1其实并没有点数的官方称呼，官网上就直接写Miles，楼主之前直接用C1来代替。不过为了内容的完整性，这里还是稍微提一提吧。</p><p id="23664738-a3cc-80d2-991d-ceb09292d4a8" class="">C1点数楼主曾经有说过很难用，但是你不知道的是，在改版前的点数更难用。在经过改版后，虽然状况改善了许多，但C1点数实用性目前仍一言难尽。</p><p id="23664738-a3cc-80df-bb03-e1c13cc8ba12" class="">老规矩，先来过一遍开卡奖励。这里楼主又要叨几句了，看着是真烦。其他家的自营卡定位清晰，而C1整了一堆乱七八糟的卡，有些卡甚至还分正常版本和押金卡版本，真不愧是渣行。问题在于，卡是很多，每张卡的确都有开卡奖励，但是C1真的会让你把所有的卡都申一遍吗？<br/>所以稍微细看一下就会知道，基本上就是SavorOne+Venture系列的两剑客。虽然C1也有的三剑客，但是整体竞争力很弱。<br/>Quicksilver，20k<br/>SavorOne，20k<br/>Venture(X)，75k<br/>Quicksilver 1.5x所有勉强还说的过去，SavorOne 3x吃饭和超市，聊胜于无吧，但是这俩的替代性太强了，拿什么和Chase和Citi竞争？C1也没有5x的卡。中端旅行卡Venture收着$95的年费几乎零福利，也就高端卡VX可以看一看。所以，大多数人只持有VX，仅此而已。<br/></p><p id="23664738-a3cc-8070-b7c8-cb0bd8efaf7e" class="">
+</p><p id="23664738-a3cc-804e-9f44-dd8f9bcbfdf4" class="">再来看一看点数的使用和估值吧。现实情况如何呢？也有很多人发帖表示C1点数难用，不过争议似乎没有MR大。假设你持Venture系列，获得的点数是不能转给Savor 1cpp兑现的。如果想直接兑现，只有0.5cpp，非常坑。</p><p id="23664738-a3cc-8083-aa7e-ce5e64f83aea" class="">那么能不能至少用出1cpp的价值？目前唯一的方式好像就是在官方Portal订购旅行产品。</p><p id="23664738-a3cc-8075-b67e-c1ea63045b1c" class="">除此之外还想把点数用出高价值，就是转点了。但是纵观C1的转点伙伴，大部分人能用得到的，应该就是国泰和加拿大航空。除此之外虽然也支持转精选酒店，但是比例只有1:1，点数估值不足1cpp，转点反而还亏了。长荣航空方面，比例2:1.5也一言难尽，不建议拿这个当主力。如果是换票差一点可以考虑转。</p><p id="23664738-a3cc-8026-b253-d479ca621199" class="">其实之前也有不少人吐槽C1的点数比较难用，但更多的还是在于看看他的转点伙伴你能不能用得上。目前对于分析来看，C1点数对于大部分人来说都很难用。</p><h3 id="23664738-a3cc-80e0-9284-ebc79f3b1612" class="">结论</h3><p id="23664738-a3cc-8045-81f9-e465cebc18d2" class="">基于以上分析，如何给C1估值？</p><ul id="23664738-a3cc-8094-b6c3-cb8cc6254e4c" class="bulleted-list"><li style="list-style-type:disc">现金价值：0.5cpp</li></ul><ul id="23664738-a3cc-80fb-b06d-f41f25252454" class="bulleted-list"><li style="list-style-type:disc">购买旅行产品：1cpp</li></ul><p id="23664738-a3cc-8048-a6d2-db8a917fb868" class="">基于以上分析，楼主给予C1点数保底价值1cpp，进阶选手能用出高于1cpp的价值。</p><h2 id="23664738-a3cc-801a-a2b8-ccef20fc84ed" class="">Bank of America点数锐评</h2><p id="23664738-a3cc-8093-b54f-f3a3b4128417" class="">号称全美第一大返现银行的Boa其实也有点数系统，只不过由于无法转点获取更高的价值，楼主之前基本都直接忽略。其中，两张日常卡是返现，另外三张旅行卡是返点。</p><p id="23664738-a3cc-80ad-8dd6-e03ccf4dbe7b" class="">先来过一遍开卡奖励：<br/>Travel Rewards，25k<br/>Premium Rewards，60k<br/>Premium Rewards Elite，75k<br/>理论上可以全部申请然后把所有奖励都拿一遍，但确实没必要...这里建议大家至少申请Premium级别的卡，因为开卡奖励更高，如不想长持一年后可以降级Travel。<br/></p><p id="23664738-a3cc-80fb-a87f-e95818b088de" class="">关于点数的使用方面，可能是很多人的盲区。虽然不能转点，但其高端信用卡Premium Rewards Elite支持以1.25cpp订购机票。而且，三张旅行卡的点数是可以合并的。</p><p id="23664738-a3cc-8045-89fd-f19b9509285a" class="">而且，Boa自营的信用卡全部都可以Product Change（有人通过转卡获得了多张红卡），升降机随便玩。如果你真的能存满10w，申一张银卡过几个月转为红卡（没错转卡不需要一年）。然后再申一张黑卡，一年之后降级为蓝卡，其他消费全部刷这个，在某一个时间点升级Elite，一年之后降级。这样理论上来有一卡流1.5x1.75x1.2=3.15%的回报，感觉还行（没有FTF）。</p><p id="23664738-a3cc-8086-a3dc-c6ec75db4cbe" class="">除此之外就没有什么其他的方式了，已经很好了。综合以上分析，楼主给予Boa点数保底1cpp的价值，持Premium Rewards Elite能用出1.25cpp的价值。</p><h2 id="23664738-a3cc-80cc-808a-ed61aeb0802a" class="">Usbank点数锐评</h2><p id="23664738-a3cc-8044-8940-e1b087309394" class="">作为第二大以返现为主的银行，USBank也有点数系统。但是和其他银行一个点数系统互通不同，不同卡之间的点数不能合并且独立存在，这就很迷。</p><p id="23664738-a3cc-8041-9f1e-c72c20ede8e1" class="">开卡奖励：<br/>UAR，50k（已绝版）<br/>UAC，20k<br/>UAR有多神相信就不用楼主多说了吧，基本上都能用出4.5%的无脑回报，点数的使用还是很灵活的。而UAC就不同了，点数不能转给UAR以来获取更高的价值。由于UAR已绝版，接下来重点介绍UAC。<br/></p><p id="23664738-a3cc-801d-a556-dfde45114147" class="">作为现在USbank唯一还留存的旅行卡，这张卡的点数也是很难用。首先，如果要兑现的话，虽说可以1cpp，但限制很多：最低2500点才能兑换，且兑换的点数必须被2500整除，并持Usbank checking才能兑换1cpp，不然只有0.8cpp。</p><p id="23664738-a3cc-80a1-81db-fc515147f6f4" class="">这两个规则说实话就很烦了。那如果说我没有Usbank checking但是也想换出1cpp的价值应该怎么办？官方给的解决方案是可以在portal订购旅行相关产品。但是楼主对此并不感冒，因为凡是要求需要在portal订票的多多少少都有点耍流氓（主要也是各家银行portal服务真的烂）。</p><p id="23664738-a3cc-8096-8ad7-c5a13f9aeb99" class="">那如果没有USBank Checking，也不想在Portal上购买旅行产品怎么办呢？这时还有一个方式，比较冷门几乎很少人提起，，就是Amazon shop with points（因为信用卡点数直接在亚马逊上购物）。值得一提的是，以点数卡为主的银行在亚马逊购物价值均低于1cpp，所以之前没有说明。而Usbank作为传统返现银行，也是给予了1cpp直接在Amazon购买。相比于旅行产品，Amazon大家使用的频率肯定更高。</p><p id="23664738-a3cc-804a-a3b3-c43f9a7910ad" class="">综上，楼主给UAC的点数估值保底和上限为1cpp，不能用出更高价值。</p><h2 id="23664738-a3cc-80c7-aafc-ffd348f1d6a3" class="">总结</h2><p id="23664738-a3cc-80aa-bbed-faf42f4edad4" class="">锐评完了以上七大点数系统，你学到了什么？相信你对各家银行的点数系统有了更深的认知。</p><p id="23664738-a3cc-805b-8dd1-e04dd2356fc6" class="">当你对信用卡钻研的越深，以为自己懂很多，就越有可能聪明反被聪明误。希望从今天以后，不要再被银行反薅了，大家还是要根据自己的消费习惯量力而行。</p><p id="23664738-a3cc-8075-8188-f89e8facf23a" class="">最后，按照楼主的观点将点数估值，实用性，使用方式进行排名：Bilt &gt; UR = TYP &gt; C1 &gt; MR，Boa和USbank不参与排名。</p><p id="23664738-a3cc-80c6-850b-d810158744ed" class="">
+</p><p id="23664738-a3cc-80f8-a19b-d5be471c3955" class="">本贴借鉴了部分评论，&quot;点数的使用应该是面向所有人且通用的消费方式，而不是某个人特定习惯&quot;。同样的点数，有些人能出高价值，有些人只能用出保底价值，有些人选择兑现。</p><p id="23664738-a3cc-8095-a71e-dc056c61bcac" class="">另外，在点数估值和使用方面，应该参考点数的保底价值，而不是上限。就像比如说你不会听到有人说UR和TYP难用吧？因为他们都能很简单1cpp兑换成现金。而MR保底价值仅有0.6cpp，整体评价非常褒贬不一。值的人觉得很值，不值得人那是真用不出去。不要将自己的消费兑换习惯强加于人。</p><p id="23664738-a3cc-80e3-8eca-df086af22832" class="">所以，Amex不仅信用卡饱受争议（之前的调查显示超六成的人觉得完全薅不回本），点数系统MR也争议巨大。至此，我不会向任何人推荐Amex，如果有人向你推荐，离他越远越好。</p><h2 id="23664738-a3cc-80fd-8ba5-f682ed07d5a4" class="">免责声明</h2><p id="23664738-a3cc-8078-ae4d-cc41a50062fa" class="">这种话题发出来，楼主也知道争议本身很大，而在很早已经有相关帖子讨论，本期也参考了一些内容和借鉴了一些评论。不同于各dalao讨论不同意见，XHS上很多用户还是一张白纸，楼主不希望你们被忽悠上贼船。</p><p id="23664738-a3cc-80de-9e96-f15212aa2e4c" class="">关于点数估值，1万个人可以有1万种不同的方法和想法，这很正常。楼主也碰到过太多争论“MR很值钱，然后讲一堆辩护”最后被拉黑。所以关于本帖，此类言论一概不接受，楼主不需要你告诉我“xx有多好多好之类的”话题。</p><p id="23664738-a3cc-80a8-b206-c55a811c66cc" class="">不仅如此，大多数人都会犯一个错误：将自己身上的情况强加于他人。因为我这么干成功了，在别人身上就一定行。这是非常错误且带偏见的想法，楼主经历太多了。所以纵观楼主所有的信用卡攻略贴，更多的是以适用大部分人群为出发点，无偏见，客观的评测。</p><p id="23664738-a3cc-802d-b676-d478acda2572" class="">至此，楼主不接受任何带偏见，将自己的情况强加于他人的评论。因为，每个人情况都不同。在评论前，考虑你要说的内容是“你个人的情况”，还是“适用大多数”。在读完本贴后，放下偏见，改变以往的认知，你会发现新的世界。</p><p id="23664738-a3cc-8071-9759-c295923701ad" class="">最后希望大家能对点数有更深层次的认知。</p><p id="23664738-a3cc-8041-866e-d2c36a99ab9c" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8029-a6fc-c1e7e9c3deac"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80dc-828b-c6ba657cb3b1" class="">XHS原文章</p><p id="23664738-a3cc-8080-83f7-d806a1865b4a" class=""><a href="http://xhslink.com/m/1ycPrQKJacw">http://xhslink.com/m/1ycPrQKJacw</a></p></div></figure><p id="23764738-a3cc-80da-9997-c3da129b3218" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

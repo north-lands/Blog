@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>如何做到信用卡奖励最大化？</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-802b-86b5-f0e3f0e18771" class="page serif"><header><h1 class="page-title">如何做到信用卡奖励最大化？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8003-b55d-f4a3b8b26e44"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-806c-aed7-f018b578a074" class="">【2025.07】1.5版本（XHS未发布）。更新了部分信息，添加了新卡进行比较</p><p id="23c64738-a3cc-8064-9a66-f2c3276892c8" class="">SYW已绝版，目前无法申请，已从表格中删除。</p><p id="23564738-a3cc-8026-979d-e94ec84d1ef9" class="">【2025.03】1.0版本发布。</p></div></figure><nav id="23564738-a3cc-8073-bb43-e44ed200c60f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80de-8856-e4493b837dce">介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8024-bdd2-f255c5d53862"><strong>日常</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8042-a643-ff40d22dce88"><strong>旅行</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80b4-967b-dc4bb7e4dd92"><strong>无脑一卡流</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8067-ab43-ca7022606b33">季度卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80ca-b49d-f3dd86ea3e2f">网购卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80c0-9821-f2608651e963">餐厅卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80e3-bc8a-c76472846341">超市卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-808a-983d-eefd313c673a">加油卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8024-9ddd-c13f1afd3700">一卡流总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80ad-9298-d265e8a17d3a">旅行卡总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8031-bb8f-ea164f0d541b">其他小众的卡</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8099-88f3-d4d886598ed9">免责声明</a></div></nav><h2 id="23564738-a3cc-80de-8856-e4493b837dce" class="">介绍</h2><p id="23564738-a3cc-8074-8605-cc89d56e2ee8" class="">玩卡的目的，就是在现有的消费结构下，通过不同的组合，实现奖励最大化。讲个笑话，有人说他两张卡就能走遍天下了，你信吗？（无奖竞猜）</p><p id="23564738-a3cc-80ba-a902-c4e2360ff8b7" class="">确实挺无语的。之前的对比是基于银行，那这个帖子就基于消费类别总结，奖励最大化。楼主将列出消费频率最高的消费结构，配上在这个结构下奖励最高的卡，完整的列表将在图片中列出。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-803f-889e-d4ffbf9d7b6e"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23764738-a3cc-8098-853d-e7f0a1fa4681" class="">表格中说明的&quot;三大金刚”指的是日常消费三大类：餐厅，超市，加油</p><p id="23764738-a3cc-80c1-8ac5-c1843e12cd39" class="">排序按照免年费从低到高。楼主认为，日常卡有年费的不值</p></div></figure><h3 id="23564738-a3cc-8024-bdd2-f255c5d53862" class=""><strong>日常</strong></h3><p id="23564738-a3cc-8050-a086-d06dfa7f1e87" class="">房租/房贷：Bilt</p><p id="23564738-a3cc-803d-b999-dfd5ec53fcdf" class="">网购：Boa123，BCE</p><p id="23564738-a3cc-8037-98da-d00b1af5a8f6" class="">餐厅&amp;超市&amp;加油：CFF，CC，Discover，Paypal Debit</p><p id="23564738-a3cc-806e-9c28-e4f74c85b142" class="">其他：CFU，DC</p><p id="23564738-a3cc-8013-ab6a-e5e697ba78b8" class="">各类别数量饭卡 &gt; 超市卡 &gt; 油卡 &gt; 网购卡</p><h3 id="23564738-a3cc-8042-a643-ff40d22dce88" class=""><strong>旅行</strong></h3><p id="23564738-a3cc-80ef-8560-d12712dce986" class="">机票酒店：CSR，Premier</p><p id="23564738-a3cc-80b2-ab7b-e4d07aa83b49" class="">其他旅行相关：CSP，VX，UAC</p><p id="23564738-a3cc-805b-9600-c7884cfc6817" class="">可以看到大约需要8张卡才能实现奖励最大化，也是楼主之前推荐的组合。两张卡怎么搞？</p><h3 id="23564738-a3cc-80b4-967b-dc4bb7e4dd92" class=""><strong>无脑一卡流</strong></h3><p id="23564738-a3cc-80be-8297-f384f3901312" class="">如果你不想把奖励最大化而图省事，那无脑一卡流也不是不行，只要结构还说的过去就行。</p><ul id="23564738-a3cc-80de-979b-e1bc0be86566" class="bulleted-list"><li style="list-style-type:disc">如果有大额存款：Boa全家桶</li></ul><ul id="23564738-a3cc-80e7-baba-e3f265719be9" class="bulleted-list"><li style="list-style-type:disc">如果没有大额存款，UAR绝对有资格可惜绝版了；最接近的应该是Robinhood gold，等效年费差不多可惜要waitlist。剩下的就是2x或1.5x的所有消费比如DC，VX，CFU。</li></ul><p id="23564738-a3cc-80d0-aa59-f1f8eb8a7f5c" class="">如果你是经常出差的商务人士，可以在此基础上增加几张常用的联名卡。所谓的一卡二卡流根本不存在，除非你根本不在乎点数奖励（任何一张信用卡都可以走天下）。</p><h2 id="23564738-a3cc-8067-ab43-ca7022606b33" class="">季度卡总结</h2><table id="23564738-a3cc-806c-a3fd-c79aaa2318de" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-80d8-b01e-f9ca0a16fbd9"><th id="R`vP" class="simple-table-header-color simple-table-header">信用卡</th><th id="~?RR" class="simple-table-header-color simple-table-header" style="width:63.99999237060547px">年费</th><th id=";vwK" class="simple-table-header-color simple-table-header" style="width:85.99999237060547px">返现结构</th><th id="y]T]" class="simple-table-header-color simple-table-header" style="width:295.99998474121094px">分析</th><th id="Xc\}" class="simple-table-header-color simple-table-header" style="width:117.8238525390625px">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-80eb-ac5e-ff4a28637bce"><th id="R`vP" class="simple-table-header-color simple-table-header">CFF</th><td id="~?RR" class="" style="width:63.99999237060547px">$0</td><td id=";vwK" class="" style="width:85.99999237060547px">5x季度</td><td id="y]T]" class="" style="width:295.99998474121094px">每年有相对较固定的4个类别：超市，加油，Amazon和Paypal</td><td id="Xc\}" class="" style="width:117.8238525390625px">季度$1500</td></tr><tr id="23564738-a3cc-8040-bccc-c8a2ebcdbd61"><th id="R`vP" class="simple-table-header-color simple-table-header">Custom Cash</th><td id="~?RR" class="" style="width:63.99999237060547px">$0</td><td id=";vwK" class="" style="width:85.99999237060547px">5x每月</td><td id="y]T]" class="" style="width:295.99998474121094px">每个月自动计算消费最高的类别5x（共有10个类别，包括三大金刚）</td><td id="Xc\}" class="" style="width:117.8238525390625px">每月$500</td></tr><tr id="23564738-a3cc-80c4-a2aa-dbd239292798"><th id="R`vP" class="simple-table-header-color simple-table-header">Discover</th><td id="~?RR" class="" style="width:63.99999237060547px">$0</td><td id=";vwK" class="" style="width:85.99999237060547px">5%季度</td><td id="y]T]" class="" style="width:295.99998474121094px">每年都有相对较固定的三大金刚。整体类别变动比CFF大</td><td id="Xc\}" class="" style="width:117.8238525390625px">季度$1500</td></tr><tr id="23564738-a3cc-80fa-9068-d89212d84835"><th id="R`vP" class="simple-table-header-color simple-table-header">Paypal Debit</th><td id="~?RR" class="" style="width:63.99999237060547px">$0</td><td id=";vwK" class="" style="width:85.99999237060547px">5%每月</td><td id="y]T]" class="" style="width:295.99998474121094px">能从6个类别里面自选，当然也包括了三大金刚，超市包括沃尔玛和仓储型超市，比较实用。这张不是信用卡</td><td id="Xc\}" class="" style="width:117.8238525390625px">每月$1000</td></tr><tr id="23564738-a3cc-8051-9040-ef3eed28a35d"><th id="R`vP" class="simple-table-header-color simple-table-header">Boa123</th><td id="~?RR" class="" style="width:63.99999237060547px">$0</td><td id=";vwK" class="" style="width:85.99999237060547px">3%自选</td><td id="y]T]" class="" style="width:295.99998474121094px">这张卡比较特殊，3%自选。严格意义上这不算5x季度卡</td><td id="Xc\}" class="" style="width:117.8238525390625px">3%和2%季度$2500</td></tr></tbody></table><p id="23564738-a3cc-80cb-bfc8-d033005e57c3" class="">各家的5x返现/返点结构基本都是每月/季度轮换，且消费上限标准设置大致相同。每月上限$500/季度上限$1500/年上限$6000。</p><p id="23564738-a3cc-8045-bb45-f623b8db8c08" class="">理论上来说，只要持有以上卡任意三张，即可满足餐厅，超市，加油三大日常类别返现最大化。对于大部分人来说，每人每年$6000在单类别上消费基本足够（前提是消费平均）。如果不够的话，可以从以下的表格中选。</p><h2 id="23564738-a3cc-80ca-b49d-f3dd86ea3e2f" class="">网购卡总结</h2><table id="23564738-a3cc-8042-9508-dc347bdabc6e" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-8012-9c77-c7198fbccbe1"><th id="d@}a" class="simple-table-header-color simple-table-header" style="width:141.2003662109375px">信用卡</th><th id="[lzv" class="simple-table-header-color simple-table-header" style="width:141.2003662109375px">年费</th><th id=";Y{k" class="simple-table-header-color simple-table-header" style="width:87.20001220703125px">返现结构</th><th id="oRMK" class="simple-table-header-color simple-table-header" style="width:221.20001220703125px">分析</th><th id="oovJ" class="simple-table-header-color simple-table-header" style="width:110.20001220703125px">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-80ee-9970-f2a503cc5ad4"><th id="d@}a" class="simple-table-header-color simple-table-header" style="width:141.2003662109375px">Boa123（需要选择网购）</th><td id="[lzv" class="" style="width:141.2003662109375px">$0</td><td id=";Y{k" class="" style="width:87.20001220703125px">3%</td><td id="oRMK" class="" style="width:221.20001220703125px">虽然3%和2%季度上限2500，但是大部分情况下有更好的超市卡，2500可以作为网购的上限</td><td id="oovJ" class="" style="width:110.20001220703125px">3%和2%季度$2500</td></tr><tr id="23564738-a3cc-804d-8579-f63431e87a5a"><th id="d@}a" class="simple-table-header-color simple-table-header" style="width:141.2003662109375px">Amex BCE</th><td id="[lzv" class="" style="width:141.2003662109375px">$0</td><td id=";Y{k" class="" style="width:87.20001220703125px">3%</td><td id="oRMK" class="" style="width:221.20001220703125px">接受程度实在是一言难尽</td><td id="oovJ" class="" style="width:110.20001220703125px">每年$6000</td></tr></tbody></table><p id="23564738-a3cc-8091-ad61-fd490ef0ceb7" class="">可以看见如今网购的卡只有两张，这个类别中卡最少的了。网购在日常中的使用频率丝毫不输于三大金刚，还是非常推荐入一张的。</p><p id="23564738-a3cc-8042-9b48-cd5b87a5d8ee" class="">冷知识：Boa的返现卡经常会四舍五入，所以每笔交易都能够多拿好几毛钱；而返点卡则没有这个待遇，是多少就是多少</p><h2 id="23564738-a3cc-80c0-9821-f2608651e963" class="">餐厅卡总结</h2><table id="23564738-a3cc-8058-9186-fc82df360814" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-8099-966e-c78c9089d6cc"><th id="X\qb" class="simple-table-header-color simple-table-header">信用卡</th><th id="MYOb" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">年费</th><th id="^@ML" class="simple-table-header-color simple-table-header" style="width:84.99999237060547px">返现结构</th><th id="}^^@" class="simple-table-header-color simple-table-header" style="width:312.90150451660156px">分析</th><th id="~SMq" class="simple-table-header-color simple-table-header">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-802d-ba46-c1e8b5669685"><th id="X\qb" class="simple-table-header-color simple-table-header">Freedom</th><td id="MYOb" class="" style="width:64.99999237060547px">$0</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">Freedom两剑客，就不用多说了吧</td><td id="~SMq" class="">--</td></tr><tr id="23564738-a3cc-807e-b226-f74f4cd6fc93"><th id="X\qb" class="simple-table-header-color simple-table-header">Savor</th><td id="MYOb" class="" style="width:64.99999237060547px">$0</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">C1著名的渣行，这么多饭卡为啥要选它？</td><td id="~SMq" class="">--</td></tr><tr id="23564738-a3cc-80d6-8de0-e5b14aec0089"><th id="X\qb" class="simple-table-header-color simple-table-header">Bilt</th><td id="MYOb" class="" style="width:64.99999237060547px">$0</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">房租卡同时也是饭卡，可惜点数会抹零。我还是选Chase三剑客</td><td id="~SMq" class="">--</td></tr><tr id="23564738-a3cc-80a0-a528-dc58c084aaaf"><th id="X\qb" class="simple-table-header-color simple-table-header">Altitude Go</th><td id="MYOb" class="" style="width:64.99999237060547px">$0</td><td id="^@ML" class="" style="width:84.99999237060547px">4%</td><td id="}^^@" class="" style="width:312.90150451660156px">返点3x，返现4%，你会怎么选？（注意有上限）</td><td id="~SMq" class="">季度$2000</td></tr><tr id="23564738-a3cc-800a-8091-c1715459a37f"><th id="X\qb" class="simple-table-header-color simple-table-header">Autograph</th><td id="MYOb" class="" style="width:64.99999237060547px">$0</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">WF的卡大家当返现卡用即可，而且也没那么好申请。3x太平庸了，Chase不香吗？</td><td id="~SMq" class="">--</td></tr><tr id="23564738-a3cc-80e3-812d-de4d2c0d3f84"><th id="X\qb" class="simple-table-header-color simple-table-header">CSP/R</th><td id="MYOb" class="" style="width:64.99999237060547px">$95</td><td id="^@ML" class="" style="width:84.99999237060547px">3.1x</td><td id="}^^@" class="" style="width:312.90150451660156px">CSP每年送10% Bonus。CSR虽然吃饭也有3x，那你真的会专门为了申请它当饭卡吗？</td><td id="~SMq" class="">--</td></tr><tr id="23564738-a3cc-80ed-9756-c014cc4895eb"><th id="X\qb" class="simple-table-header-color simple-table-header">Strata Premier</th><td id="MYOb" class="" style="width:64.99999237060547px">$95</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">最万金油的卡之一，三大金刚都有3x可惜要年费，花销不大的话完全不值</td><td id="~SMq" class="">--</td></tr><tr id="23664738-a3cc-807f-b397-f37126b7e8b3"><th id="X\qb" class="simple-table-header-color simple-table-header">Autograph Journey</th><td id="MYOb" class="" style="width:64.99999237060547px">$95</td><td id="^@ML" class="" style="width:84.99999237060547px">3x</td><td id="}^^@" class="" style="width:312.90150451660156px">同为旅行卡也给了3x餐厅，中规中矩吧</td><td id="~SMq" class="">--</td></tr><tr id="23664738-a3cc-805a-8d3b-fd222cec0c3a"><th id="X\qb" class="simple-table-header-color simple-table-header">Amex Gold</th><td id="MYOb" class="" style="width:64.99999237060547px">325</td><td id="^@ML" class="" style="width:84.99999237060547px">4x</td><td id="}^^@" class="" style="width:312.90150451660156px">性价比最低的饭卡</td><td id="~SMq" class="">--</td></tr></tbody></table><p id="23664738-a3cc-8059-ab7e-dc6424025860" class="">可以看到饭卡是所有类别中最多的，各家也是卯足了劲在竞争。如果每年$6000不够的话，楼主首推CSP，因为每年会额外送10%（考虑到CSP作为旅行必备长持卡，在这里顺便当饭卡使）</p><p id="23664738-a3cc-8073-9aad-ca74e1aecd60" class="">另外Premier也可以考虑当主力饭卡使用，前提是三大金刚消费相对均衡，不会一边倒</p><h2 id="23564738-a3cc-80e3-bc8a-c76472846341" class="">超市卡总结</h2><table id="23564738-a3cc-808e-b1f1-f77195ee0cbb" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-80a2-b0b7-f6448f8dc745"><th id=":v`Q" class="simple-table-header-color simple-table-header">信用卡</th><th id="KbVl" class="simple-table-header-color simple-table-header" style="width:65.99999237060547px">年费</th><th id="=bsA" class="simple-table-header-color simple-table-header" style="width:77.99999237060547px">返现结构</th><th id="&gt;w:X" class="simple-table-header-color simple-table-header" style="width:353.9791564941406px">说明</th><th id="gSl\" class="simple-table-header-color simple-table-header" style="width:86.99999237060547px">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-8093-ac08-c0e55f90bbd3"><th id=":v`Q" class="simple-table-header-color simple-table-header">Amex BCE</th><td id="KbVl" class="" style="width:65.99999237060547px">$0</td><td id="=bsA" class="" style="width:77.99999237060547px">3%</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">想不通，这居然都设上限，跟5x季度卡一个限制？自己的接受程度心里没点数吗</td><td id="gSl\" class="" style="width:86.99999237060547px">每年$6000</td></tr><tr id="23564738-a3cc-8023-98df-ff9c4970a645"><th id=":v`Q" class="simple-table-header-color simple-table-header">Savor</th><td id="KbVl" class="" style="width:65.99999237060547px">$0</td><td id="=bsA" class="" style="width:77.99999237060547px">3x</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">楼主差点把他忘了，你还真别说，3x的餐厅和超市性价比有的，可惜真的是渣行</td><td id="gSl\" class="" style="width:86.99999237060547px">--</td></tr><tr id="23564738-a3cc-8046-919b-d0654fae0a48"><th id=":v`Q" class="simple-table-header-color simple-table-header">Strata</th><td id="KbVl" class="" style="width:65.99999237060547px">$0</td><td id="=bsA" class="" style="width:77.99999237060547px">3x</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">这张就是低配版的Strata Premier，性价比很高，尤其现在超市卡不多的情况下</td><td id="gSl\" class="" style="width:86.99999237060547px">--</td></tr><tr id="23564738-a3cc-80e6-938e-e92a60fa6833"><th id=":v`Q" class="simple-table-header-color simple-table-header">Boa123</th><td id="KbVl" class="" style="width:65.99999237060547px">$0</td><td id="=bsA" class="" style="width:77.99999237060547px">2%</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">这个返现结构确实不亮眼，但是超市包括沃尔玛和仓储型超市，比较实用</td><td id="gSl\" class="" style="width:86.99999237060547px">3%和2%季度$2500</td></tr><tr id="23564738-a3cc-80db-9744-cfc22d9adc26"><th id=":v`Q" class="simple-table-header-color simple-table-header">CSP</th><td id="KbVl" class="" style="width:65.99999237060547px">$95</td><td id="=bsA" class="" style="width:77.99999237060547px">3x</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">超市仅针对网购, 每年送10% Bonus</td><td id="gSl\" class="" style="width:86.99999237060547px">--</td></tr><tr id="23564738-a3cc-8095-87d7-c6a26455ba10"><th id=":v`Q" class="simple-table-header-color simple-table-header">Strata Premier</th><td id="KbVl" class="" style="width:65.99999237060547px">$95</td><td id="=bsA" class="" style="width:77.99999237060547px">3x</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">三大金刚都有3x</td><td id="gSl\" class="" style="width:86.99999237060547px">--</td></tr><tr id="23564738-a3cc-80fe-b73f-e38e560ff646"><th id=":v`Q" class="simple-table-header-color simple-table-header">Amex BCP</th><td id="KbVl" class="" style="width:65.99999237060547px">$95</td><td id="=bsA" class="" style="width:77.99999237060547px">6%</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">有年费，且有消费上限，Amex你在想啥？ 5x的免年费超市卡不香吗？</td><td id="gSl\" class="" style="width:86.99999237060547px">每年$6000</td></tr><tr id="23564738-a3cc-8083-b7cc-c4903bd710aa"><th id=":v`Q" class="simple-table-header-color simple-table-header">Shopper Cash Rewards</th><td id="KbVl" class="" style="width:65.99999237060547px">$95</td><td id="=bsA" class="" style="width:77.99999237060547px">6%</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">只能选两个最常用的超市，好像有点鸡肋？还有消费上限...（注意这个卡有年费）</td><td id="gSl\" class="" style="width:86.99999237060547px">季度$1500</td></tr><tr id="23664738-a3cc-8045-b3d9-e9b36148af41"><th id=":v`Q" class="simple-table-header-color simple-table-header">Amex Gold</th><td id="KbVl" class="" style="width:65.99999237060547px">$325</td><td id="=bsA" class="" style="width:77.99999237060547px">4x</td><td id="&gt;w:X" class="" style="width:353.9791564941406px">性价比最低的超市卡</td><td id="gSl\" class="" style="width:86.99999237060547px">--</td></tr></tbody></table><p id="23664738-a3cc-80a0-8b6a-fb0d717f651e" class="">和饭卡相比大部都免年费，超市卡则以年费卡为主，实在是不够大方（毕竟下馆子比自己做饭贵多了）。如果要推荐的话，楼主推荐Strata（Premier），不想转点就用前者，想转点就用后者</p><p id="23664738-a3cc-8015-9ceb-ee7ddbbde567" class="">为什么说Amex金卡是性价比最低的饭卡和超市卡呢，核心问题还是在于年费过高，超六成的人表示Coupon Book薅不回本，且点数价值两极分化。不要杠。总的来说不推荐大家申请</p><hr id="23664738-a3cc-80f9-8c0b-d900dd6ff952"/><h2 id="23564738-a3cc-808a-983d-eefd313c673a" class="">加油卡总结</h2><table id="23564738-a3cc-8028-8d68-e61710208031" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-80f2-9f53-fa27f655ca5b"><th id="@E`g" class="simple-table-header-color simple-table-header">信用卡</th><th id="~j^c" class="simple-table-header-color simple-table-header" style="width:58.99999237060547px">年费</th><th id="RF:Z" class="simple-table-header-color simple-table-header" style="width:83.99999237060547px">返现结构</th><th id="uuz|" class="simple-table-header-color simple-table-header" style="width:290.89772033691406px">说明</th><th id="HjZx" class="simple-table-header-color simple-table-header">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-8018-89df-f47bb4009956"><th id="@E`g" class="simple-table-header-color simple-table-header">UAC</th><td id="~j^c" class="" style="width:58.99999237060547px">$0</td><td id="RF:Z" class="" style="width:83.99999237060547px">4%</td><td id="uuz|" class="" style="width:290.89772033691406px">很实用，是市面上能找到油卡高返现之一了</td><td id="HjZx" class="">季度$1000</td></tr><tr id="23564738-a3cc-804b-a410-e652c41e2283"><th id="@E`g" class="simple-table-header-color simple-table-header">Strata</th><td id="~j^c" class="" style="width:58.99999237060547px">$0</td><td id="RF:Z" class="" style="width:83.99999237060547px">3x</td><td id="uuz|" class="" style="width:290.89772033691406px">低配版的Strata Premier，在市面上油卡不多的情况下很良心了，配合TYP用简直是王炸</td><td id="HjZx" class="">--</td></tr><tr id="23564738-a3cc-8062-87e2-ea5af19e1d14"><th id="@E`g" class="simple-table-header-color simple-table-header">Autograph </th><td id="~j^c" class="" style="width:58.99999237060547px">$0</td><td id="RF:Z" class="" style="width:83.99999237060547px">3x</td><td id="uuz|" class="" style="width:290.89772033691406px">虽然也是3x加油，申请难度也不见得比Citi低，但WF点数太难用，大家就当返现卡用吧</td><td id="HjZx" class="">--</td></tr><tr id="23564738-a3cc-80a1-b797-e47d3c8febd8"><th id="@E`g" class="simple-table-header-color simple-table-header">Amex BCE/P</th><td id="~j^c" class="" style="width:58.99999237060547px">$0</td><td id="RF:Z" class="" style="width:83.99999237060547px">3%</td><td id="uuz|" class="" style="width:290.89772033691406px">根据需求来BCP也有3%的加油，但是你应该不会为了加油而专门申请这张卡吧</td><td id="HjZx" class="">每年$6000</td></tr><tr id="23664738-a3cc-80a8-82e8-ca4b94685d5a"><th id="@E`g" class="simple-table-header-color simple-table-header">Strata Premier</th><td id="~j^c" class="" style="width:58.99999237060547px">$95</td><td id="RF:Z" class="" style="width:83.99999237060547px">3x</td><td id="uuz|" class="" style="width:290.89772033691406px">三大金刚一个都没落下</td><td id="HjZx" class="">--</td></tr></tbody></table><p id="23664738-a3cc-807a-84da-de796d66a22b" class="">对于大部分人来说，加油应该是三大金刚里消费最低的类别，除非你是Uber司机。如果日常消费中加油最多，首推Strata（Premier）。不想转点就用前者，想转点就用后者，都没有消费上限，很良心了。</p><p id="23664738-a3cc-80d5-ac04-d189514eb2de" class="">不过考虑到加油应该是三大金刚中消费最低的一个级别了，对于大多数人来说应该足够。</p><h2 id="23564738-a3cc-8024-9ddd-c13f1afd3700" class="">一卡流总结</h2><table id="23564738-a3cc-806a-9d5f-c3b764b820b8" class="simple-table"><thead class="simple-table-header"><tr id="23564738-a3cc-80e4-afe3-d9eda3175c3e"><th id="iDmh" class="simple-table-header-color simple-table-header">信用卡</th><th id="PvTy" class="simple-table-header-color simple-table-header" style="width:84.99166870117188px">年费</th><th id="Yt;a" class="simple-table-header-color simple-table-header" style="width:75.99052429199219px">返现结构</th><th id="&gt;~L@" class="simple-table-header-color simple-table-header" style="width:296.14202880859375px">说明</th><th id="snWY" class="simple-table-header-color simple-table-header">消费上限</th></tr></thead><tbody><tr id="23564738-a3cc-80e8-b09f-c2bc1d5ccede"><th id="iDmh" class="simple-table-header-color simple-table-header">Double Cash</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">2x</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">首推这张</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-8087-a627-eae0d85c0720"><th id="iDmh" class="simple-table-header-color simple-table-header">CFU</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">1.5x</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">随着茶色在自家蓝宝石的功能削弱，1.5x实在是不够看</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-808a-a641-f60b4a22ac5a"><th id="iDmh" class="simple-table-header-color simple-table-header">Active Cash</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">2x</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">还是跟之前一样，楼主首推DC，这张卡各位当返现卡用</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-8025-a414-f54f90618a20"><th id="iDmh" class="simple-table-header-color simple-table-header">Boa银/蓝/黑卡</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">1.5%</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">可以通过存钱获取更大价值，除此之外性价比一般</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-801d-a603-c2d80d14582b"><th id="iDmh" class="simple-table-header-color simple-table-header">Quicksilver</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">1.5x</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">平平无奇的返现结构+渣行，你确定吗？（C1也不像Citi一样明知道竞争力不行，还不把返现结构改成2x）</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-8012-b800-f45d191c2c7d"><th id="iDmh" class="simple-table-header-color simple-table-header">SoFi</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">2%</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">必须有SoFi账户才能以1cpp兑现，一些情况下可以用出20%额外的价值</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-8062-a49b-ea7000842d0e"><th id="iDmh" class="simple-table-header-color simple-table-header">Apple Card</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">2%</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">除了颜值一无所有</td><td id="snWY" class="">--</td></tr><tr id="23664738-a3cc-8007-8505-f91b9af5ad2f"><th id="iDmh" class="simple-table-header-color simple-table-header">Smartly</th><td id="PvTy" class="" style="width:84.99166870117188px">$0</td><td id="Yt;a" class="" style="width:75.99052429199219px">2%</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">基础返现只有2%，如果想要加成必须得搬砖。这张卡有FTF。不过随着新版的削弱，大家还是继续玩Boa吧</td><td id="snWY" class="">--</td></tr><tr id="23564738-a3cc-8020-ab3a-f56670741129"><th id="iDmh" class="simple-table-header-color simple-table-header">Robinhood Gold</th><td id="PvTy" class="" style="width:84.99166870117188px">$60</td><td id="Yt;a" class="" style="width:75.99052429199219px">3%</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">继UAR之后，楼主认为最有资格成为无脑一卡流的卡，可惜不是每个人都能申请的下来</td><td id="snWY" class="">虽然官网没有标明，但是有DP显示大额消费不给过，怀疑玩不起</td></tr><tr id="23564738-a3cc-801b-96ad-f2f166c89265"><th id="iDmh" class="simple-table-header-color simple-table-header">Venture(X)</th><td id="PvTy" class="" style="width:84.99166870117188px">$95/$395</td><td id="Yt;a" class="" style="width:75.99052429199219px">2x</td><td id="&gt;~L@" class="" style="width:296.14202880859375px">这明明就是张旅行卡，只不过返现结构多了一卡流的资本</td><td id="snWY" class="">你不刷银行还不高兴呢</td></tr></tbody></table><p id="23664738-a3cc-8062-b0f7-f768d14a038a" class="">有的时候会有其他消费不属于任何一个常用类别，这个时候的确需要一张所有消费的卡来保底。不过想都不用想，这个类别肯定没有上限。</p><p id="23664738-a3cc-8035-920d-d2f6a4c7162d" class="">不过鉴于大部分日常消费类别已被覆盖，留给其他消费的空间其实较少，有大额消费（比如保险，税）直接开卡拿奖励更合算。所以楼主觉得此类别只需一张卡即可。后续如果考虑申请旅行卡Venture X，也潜在性的替代这个类别</p><p id="23664738-a3cc-80dc-a90e-d2b365ba14ad" class="">另外楼主列了一些不常见的卡在这里，比如SoFi，Apple，总的来说不推荐申请。不过如果想整一张卡回国刷，在国内尤其是MCC乱的情况下，除了Boa蓝卡和VX之外，SoFi和Apple也可以看看</p><hr id="23664738-a3cc-8017-b474-d86069717852"/><h2 id="23564738-a3cc-80ad-9298-d265e8a17d3a" class="">旅行卡总结</h2><table id="23664738-a3cc-8061-b3a7-d01f0cd082b8" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8061-9c1c-e25baa022688"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">信用卡</th><th id="U~cd" class="simple-table-header-color simple-table-header" style="width:99.00000762939453px">年费</th><th id="xD^A" class="simple-table-header-color simple-table-header" style="width:112.00000762939453px">返现结构</th><th id="gtgk" class="simple-table-header-color simple-table-header" style="width:390.0000305175781px">说明</th></tr></thead><tbody><tr id="23664738-a3cc-80fe-8db2-f6640619e198"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">UAC</th><td id="U~cd" class="" style="width:99.00000762939453px">$0</td><td id="xD^A" class="" style="width:112.00000762939453px">4%</td><td id="gtgk" class="" style="width:390.0000305175781px">零年费的旅行相关居然有4%，目测没有上限。除此之外还送4次满血PPS，香爆了</td></tr><tr id="23664738-a3cc-8038-8dff-dbd389295a0a"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">Autograph</th><td id="U~cd" class="" style="width:99.00000762939453px">$0</td><td id="xD^A" class="" style="width:112.00000762939453px">3x</td><td id="gtgk" class="" style="width:390.0000305175781px">无年费给3x，定义也很广，可以考虑</td></tr><tr id="23664738-a3cc-8010-adc4-cba3a5a61a25"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">CSP</th><td id="U~cd" class="" style="width:99.00000762939453px">$95</td><td id="xD^A" class="" style="width:112.00000762939453px">2x</td><td id="gtgk" class="" style="width:390.0000305175781px">即使有年费，也是非常适合长持的一张卡<br/>如果涉及到租车，肯定闭眼选CSP，唯一一张中端旅行卡提供Primary车险，剩下就只能在高端卡里选了。所以就不要在意返现结构了<br/></td></tr><tr id="23664738-a3cc-8002-8468-fbd45ada2171"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">Strata Premier</th><td id="U~cd" class="" style="width:99.00000762939453px">$95</td><td id="xD^A" class="" style="width:112.00000762939453px">3x机票&amp;酒店<br/>1x其他旅行<br/></td><td id="gtgk" class="" style="width:390.0000305175781px">由于在三大金刚方面给的返现诚意已经很足了，在旅行方面的结构就没有那么的广泛。但是3x的机票和酒店可以和CSR媲美了，毕竟都包含了大型支出</td></tr><tr id="23664738-a3cc-80a4-813c-e64965fc3a6d"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">Autograph Journey</th><td id="U~cd" class="" style="width:99.00000762939453px">$95</td><td id="xD^A" class="" style="width:112.00000762939453px">3x</td><td id="gtgk" class="" style="width:390.0000305175781px">有一个缺点就是相比于免年费的Autograph，旅行居然不包括Transit，有年费的定义反而还更窄</td></tr><tr id="23664738-a3cc-8061-a2ee-e8bacf60f904"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">Boa黑卡</th><td id="U~cd" class="" style="width:99.00000762939453px">$95/$550</td><td id="xD^A" class="" style="width:112.00000762939453px">2%</td><td id="gtgk" class="" style="width:390.0000305175781px">Boa有两张黑卡，都是2%的所有旅行相关，除此之外还有1.5%所有，算是弥补了一下缺点吧</td></tr><tr id="23664738-a3cc-8046-aebb-d19368f5eeae"><th id="Vz^:" class="simple-table-header-color simple-table-header" style="width:110.4666748046875px">Venture(X)</th><td id="U~cd" class="" style="width:99.00000762939453px">$95/$395</td><td id="xD^A" class="" style="width:112.00000762939453px">2x</td><td id="gtgk" class="" style="width:390.0000305175781px">这两张卡都是所有消费2x，在其他方面就没有3x了</td></tr></tbody></table><p id="23664738-a3cc-80bc-9929-d4f520a90daa" class="">对于大部分人来说，加油应该是三大金刚里消费最低的类别，除非你是Uber司机。如果日常消费中加油最多，首推Strata（Premier）。不想转点就用前者，想转点就用后者，都没有消费上限，很良心了。</p><p id="23664738-a3cc-8020-8323-c0126d3498a2" class="">不过考虑到加油应该是三大金刚中消费最低的一个级别了，对于大多数人来说应该足够。</p><h2 id="23564738-a3cc-8031-bb8f-ea164f0d541b" class="">其他小众的卡</h2><table id="23664738-a3cc-8033-ae28-ee192e83c78a" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8069-baba-dad0a1f96239"><th id="gOQ=" class="simple-table-header-color simple-table-header" style="width:109.00000762939453px">信用卡</th><th id="IuLz" class="simple-table-header-color simple-table-header" style="width:46.998104095458984px">年费</th><th id="mR&gt;f" class="simple-table-header-color simple-table-header" style="width:97.00000762939453px">返现结构</th><th id="Uxhv" class="simple-table-header-color simple-table-header" style="width:380.6250305175781px">说明</th><th id="?}QN" class="simple-table-header-color simple-table-header" style="width:83.00000762939453px">消费上限</th></tr></thead><tbody><tr id="23664738-a3cc-80cd-ad5f-f9f668d80ad6"><th id="gOQ=" class="simple-table-header-color simple-table-header" style="width:109.00000762939453px">Shop your Way<br/>（SYW）<br/></th><td id="IuLz" class="" style="width:46.998104095458984px">$0</td><td id="mR&gt;f" class="" style="width:97.00000762939453px">5%加油<br/>3%餐厅超市<br/></td><td id="Uxhv" class="" style="width:380.6250305175781px"><del>楼主真的差点把这张卡忘了...<br/>作为一个商店联名卡，居然把三大金刚都齐全了，自家商店的消费只有2x，还不要年费...<br/>而且最牛逼的还不是这个。如果持有该卡一段时间，大概率可以获得Target Offer，动不动就是8折9折，半神卡一张。<br/>但是如果你问我值不值得搞，楼主觉得先把CC+Premier搞下来吧，毕竟是点数卡，而Premier批卡难度客观存在。不搞下来就没机会了（另外这张卡我觉得应该就是为羊毛党准备的，你手上的卡多他也不在乎？）<br/>不过值得一提的是这张卡不能添加Mobile Wallet，就意味着你每次刷这张卡必须得随身带着，很麻烦。而且除了卡是Citi发行的，其他似乎跟Citi没有任何关系，也不会在App里面显示，还款有一个专门的网页<br/></del></td><td id="?}QN" class="" style="width:83.00000762939453px">加油餐厅超市每年合并$10000</td></tr><tr id="23664738-a3cc-80aa-a6a6-cfa3c69868e0"><th id="gOQ=" class="simple-table-header-color simple-table-header" style="width:109.00000762939453px">Kroger Rewards</th><td id="IuLz" class="" style="width:46.998104095458984px">$0</td><td id="mR&gt;f" class="" style="width:97.00000762939453px">5%移动支付<br/>2%店内购买<br/></td><td id="Uxhv" class="" style="width:380.6250305175781px">基本没有人提起，楼主也差点忘了。唯一的亮点是移动支付有5%返现。不过上限实在是太低，最多也就返15刀而已，感觉不值这个卡槽</td><td id="?}QN" class="" style="width:83.00000762939453px">每年$3000</td></tr><tr id="23664738-a3cc-80ff-a7c9-c820fc63714b"><th id="gOQ=" class="simple-table-header-color simple-table-header" style="width:109.00000762939453px">Cash+</th><td id="IuLz" class="" style="width:46.998104095458984px">$0</td><td id="mR&gt;f" class="" style="width:97.00000762939453px">5% Utility</td><td id="Uxhv" class="" style="width:380.6250305175781px">这张卡其他的返现结构楼主就不列了，唯一的亮点就是有5% Utility。扣掉手续费的3%，还能赚个2%左右。但是用Bilt也有1x，转点价值更高，这张卡定位似乎有点尴尬。你觉得值个卡槽吗？</td><td id="?}QN" class="" style="width:83.00000762939453px">--</td></tr></tbody></table><p id="23564738-a3cc-8016-87b9-fd835191c04e" class="">这里就列一些小众且比较好用的卡，非常冷门，你甚至都很少听人提到（因为不能refer）。虽然每张卡都有独自的亮点，但毕竟是信用卡，是占卡槽的，且总体性价比也不如之前几大类。所以如果要申请这类卡的话，建议把前面的好卡都申了差不多再来玩</p><h2 id="23564738-a3cc-8099-88f3-d4d886598ed9" class="">免责声明</h2><p id="23764738-a3cc-8087-b760-ccdd829eff9e" class="">仅作资讯分享，不做最后入坑建议。</p><p id="23764738-a3cc-8021-8a1a-c80acf4bab9a" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-805e-a516-fb14c948d4bd"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80bb-ae16-ffdb1034ba30" class="">XHS原文章</p><p id="23564738-a3cc-8079-9bd9-c57c5b38ce26" class=""><a href="http://xhslink.com/m/5eRKyxRJPIe">http://xhslink.com/m/5eRKyxRJPIe</a></p></div></figure><p id="23664738-a3cc-803e-b506-cc0332816a93" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>美国信用体系详解和推荐</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-8031-a1ba-f937cfcc2ea6" class="page serif"><header><h1 class="page-title">美国信用体系详解和推荐</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8076-930e-e50f69dfc9bd"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-809c-8453-c6bab88928d5" class="">【2025.07】1.0版本发布</p></div></figure><p id="23764738-a3cc-80df-8a4c-ef88fedd3520" class="">
+</p><nav id="23564738-a3cc-8045-88f6-d94ea28c69a3" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80fc-8214-cab199a39132">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80aa-8a24-f261d59419e3">主要因素</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-808b-ade7-e5fe7b69d0d8">需求推荐</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8036-9df1-eb52526a5c18">524逻辑</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-802f-bb56-d3ddcbe0ee19">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80bc-a8e6-f30425629008">介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8091-8375-e5cc4416196d">信用分（Credit score）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80e2-9500-da38a245a03b">付款历史记录（Payment history）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80b8-b1d8-c435e83dde2a">信用卡额度（Credit limit）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8072-8d60-f56bbaf3e2ef">使用额度（Credit card use或Utilization或Usage）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80a6-bbb4-d0e7a8af8a3e">不良记录（Derogatory marks）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8061-987f-fe02b7a12cd8">信用记录长度（Credit Length或Credit age）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80c8-854d-e0e7c77708c0">总账户数量（Total accounts）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8058-a108-cb9147749f44">硬拉（Hard inquiries也叫HP）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8088-84c0-f880973ae085">软拉（Soft inquiries也叫SP）</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8039-8046-e35d683f6b1f">银行立场</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8031-8360-e35f0cfa9bb1">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80bd-bd4d-dc17202d8533">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80cb-92be-c2bfc8e0b555">Citi&amp;C1&amp;Usbank&amp;Bilt</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-809a-abcb-e7b1fba8d8f1">寻求推荐</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8041-9200-c635096faa8d">通用推荐</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8083-a6c6-e5c32a9cbaf6">524逻辑</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8044-a5e4-f422c6334339">免责声明</a></div></nav><p id="23564738-a3cc-80e5-bf16-d1ea37b2892a" class="">
+</p><h2 id="23564738-a3cc-80fc-8214-cab199a39132" class="">简要介绍</h2><p id="23564738-a3cc-806e-9079-d00f81a30990" class="">之前楼主也整了一篇美卡推荐指南，不过由于赶工的原因质量和反馈确实一般。而且内容过于跳跃，很多人没读懂。所以这次楼主打算从头开始解释基础概念，手把手的教大家如何查阅自己的信用报告，以及在申卡过程中，银行看中哪些因素。</p><p id="23764738-a3cc-806e-b39e-eebd601ea9ed" class="">美国一共有三大信用局：Equifax(EQ), Experian(EX), TransUnion(TU)。其中EX应该是最大的，因为大多数的银行都喜欢Pull EX。相信很多喜欢玩卡的玩家，你的EX应该是最伤痕累累的那个吧...</p><p id="23764738-a3cc-8042-a970-f4d9f2032cea" class="">理论上如果你申卡，你只需要看到来自一个信用局的报告即可，唯一的变数就是不同信用局的HP数量不同。关于如何查信报，大家当然可以在三大信用局各自注册账号。不过这里楼主教大家一个更简单的方法，用第三方网站以及在银行App内就能看见。</p><h3 id="23564738-a3cc-80aa-8a24-f261d59419e3" class="">主要因素</h3><p id="23564738-a3cc-8016-a7f6-e22b4c90784a" class="">一般来说，能不能决定你获批一张信用卡或贷款，取决于你的信用报告上的多个因素。他们分别是：</p><ol type="1" id="23764738-a3cc-802d-a835-d36ef1a3aa6b" class="numbered-list" start="1"><li>信用分</li></ol><ol type="1" id="23764738-a3cc-8072-a3b7-ec9f0e3e4820" class="numbered-list" start="2"><li>付款历史记录</li></ol><ol type="1" id="23764738-a3cc-80aa-a21d-f0c470c189e9" class="numbered-list" start="3"><li>信用卡额度</li></ol><ol type="1" id="23764738-a3cc-8096-b0d7-db044960cf88" class="numbered-list" start="4"><li>使用额度</li></ol><ol type="1" id="23764738-a3cc-806a-8b04-fd774e3fc6e5" class="numbered-list" start="5"><li>不良记录</li></ol><ol type="1" id="23764738-a3cc-8020-8403-dd9e941ffee0" class="numbered-list" start="6"><li>信用记录长度</li></ol><ol type="1" id="23764738-a3cc-800f-9579-f4b825e8ddb4" class="numbered-list" start="7"><li>总账户数量</li></ol><ol type="1" id="23764738-a3cc-8067-9fd6-d79583d89d2b" class="numbered-list" start="8"><li>硬拉</li></ol><p id="23764738-a3cc-802c-9c33-c2b71fe4f947" class="">在文章中，楼主详细介绍了每个名词的意思以及如何找到他们，以及各个银行分别在乎你的哪些因素。</p><h3 id="23564738-a3cc-808b-ade7-e5fe7b69d0d8" class="">需求推荐</h3><p id="23564738-a3cc-8040-a763-f9e91d7fb1c5" class="">随着Chase三剑客的性价比持续走低，与此同时Citi三剑客性价比持续走高。所以本文在介绍完信用报告之后，楼主又深入研究了Citi的批卡策略，毕竟以后要经常打交道了。</p><p id="23764738-a3cc-80d6-a7e4-efc09cc9ce40" class="">Citi总体比较难下卡，楼主见到的悲剧非常多，Recon几乎没用。所以大家如果想要Citi的卡前期就一定要做好规划，不然很容易悲剧。</p><p id="23764738-a3cc-804d-b263-f5d26b4b6efc" class="">除此之外，如果大家想寻求关于美卡推荐，本文章介绍了两个因素需要大家提供：信用报告因素和需求部分。</p><h3 id="23564738-a3cc-8036-9df1-eb52526a5c18" class="">524逻辑</h3><p id="23564738-a3cc-8053-bf80-c3174e11f83a" class="">之前其实有讲过，但这里就讲的更直接一些。524的基本逻辑是“<strong>以最短的时间，最少数量的hp拿到最多的开卡奖励</strong>”，这些卡可能并不符合你的消费需求。那524之后呢？</p><ol type="1" id="23564738-a3cc-8023-8fdb-fd24f1877d6b" class="numbered-list" start="1"><li>如果你选择继续Citi（日常消费省心卡），那么你必然有很长时间的空窗期，这与前面的逻辑产生悖论。</li></ol><ol type="1" id="23564738-a3cc-8029-aa8a-d7b3b4f5c99e" class="numbered-list" start="2"><li>如果你放弃Citi/C1/USb/Bilt而转向Amex，那么你就需要投入大量的时间研究，开弓没有回头箭，很烦。大部分人并没有时间折腾，日常省心卡才是他们的选择。<br/>如果是这样，524意义何在呢？除非你就吃准了玩转Amex。<br/></li></ol><h2 id="23564738-a3cc-802f-bb56-d3ddcbe0ee19" class="">前言</h2><p id="23564738-a3cc-80c5-aa12-fdba085e0d0e" class="">楼主经常刷到很多帖子关于大家想要信用卡推荐，但一眼望去内容都是清一色的“什么卡好”，“下一张应该开什么卡”，而缺少基本信息。如果你不解释你的背景情况，那么别人怎么给你做出适合你的推荐？在你申请一张卡时，你有想过以你的信用记录，申请的下来吗？</p><p id="23564738-a3cc-80c9-80ca-d04e8c78b1c2" class="">正因如此，悲剧太多了。所以楼主希望大家在申信用卡时，不要只盯着开卡奖励不放。更重要的是了解自己的信用记录和需求，什么卡是自己的记录能申得下来的，什么卡更适合自己，都是需要考虑的问题。</p><p id="23564738-a3cc-807d-8675-eee63feee429" class="">考虑到还有很多新手对信报上的内容一无所知，那么本期楼主将进行系统讲解，以及最后附上推荐。</p><h2 id="23564738-a3cc-80bc-a8e6-f30425629008" class="">介绍</h2><p id="23564738-a3cc-8064-9d30-eb9663053234" class="">美国一共有三大信用局：Equifax(EQ), Experian(EX), TransUnion(TU)。其中EX应该是最大的，因为大多数的银行都喜欢Pull EX。相信很多喜欢玩卡的玩家，你的EX应该是最伤痕累累的那个吧...</p><p id="23564738-a3cc-805b-9543-d17ee43fadc8" class="">理论上如果你申卡，你只需要看到来自一个信用局的报告即可，唯一的变数就是不同信用局的HP数量不同。那么对于一些HP敏感的银行来说，如果能Pull到一个HP数量不是那么多的信用局，那么将大大增加批卡的概率。可惜银行只Pull他想Pull的，你无法控制。</p><p id="23564738-a3cc-8017-8c36-f5eca4583c56" class="">那么在查信报前，有一些关键的名词需要大家了解，他们构成了你的信用报告，接下来一个一个来讲解。</p><h3 id="23564738-a3cc-8091-8375-e5cc4416196d" class="">信用分（Credit score）</h3><p id="23564738-a3cc-80f5-b6a7-c7bb6e3743dd" class="">这个应该是最广为人知的一个因素了，顾名思义就是你的信用分数。一般来说在700分以上就可以随便申卡了。</p><h3 id="23564738-a3cc-80e2-9500-da38a245a03b" class="">付款历史记录（Payment history）</h3><p id="23564738-a3cc-80bd-9318-e19d4e722584" class="">每月是否有按时付款。值得一提的是各家银行并不会上报你每个月付了多少钱。所以理论上只要你付了minimum payment就没有问题。但是千万不要这么干因为利息会很高。</p><h3 id="23564738-a3cc-80b8-b1d8-c435e83dde2a" class="">信用卡额度（Credit limit）</h3><p id="23564738-a3cc-806d-ac9c-c3b29aae8ea1" class="">信用卡额度就是银行批给你一张卡后，你在这一张卡上面一共可以花的钱。</p><h3 id="23564738-a3cc-8072-8d60-f56bbaf3e2ef" class="">使用额度（Credit card use或Utilization或Usage）</h3><p id="23564738-a3cc-8079-85bb-ebabee1b0743" class="">使用额度指的是你在一个账单周期内花的钱除以你的信用卡总额度。比如你有5张卡，总额度为5w。你在上一个账单周期内花了5000，那么你的Usage就是10%。</p><h3 id="23564738-a3cc-80a6-bbb4-d0e7a8af8a3e" class="">不良记录（Derogatory marks）</h3><p id="23564738-a3cc-8009-bd5c-fbc21b08346e" class="">不良记录包括收藏（Collections）和公共记录（Public Records）。主要是看你有没有拖欠的账单没有还，有没有破产之类的信息。</p><h3 id="23564738-a3cc-8061-987f-fe02b7a12cd8" class="">信用记录长度（Credit Length或Credit age）</h3><p id="23564738-a3cc-808e-867e-cb4b38bdda9a" class="">总的信用长度，从第一张卡开始算。但是注意如果你的第1张卡在后续某个时间点被你关了，那么这段信用记录就不算在内，从你开第2张卡时开始计算。所以永远不要关闭自己的第1张信用卡！</p><p id="23764738-a3cc-80bf-9964-f6bd6d15a154" class="">另外还有一个平均信用长度的说法。就是把你总信用记录长度除以你手上卡的数量，得出你的平均用长度。</p><h3 id="23564738-a3cc-80c8-854d-e0e7c77708c0" class="">总账户数量（Total accounts）</h3><p id="23564738-a3cc-80fe-ad7b-fb1d978f752d" class="">总账户数量包括你开过的信用卡，也包括关闭的卡，如果你有贷款也会算入之内。</p><h3 id="23564738-a3cc-8058-a108-cb9147749f44" class="">硬拉（Hard inquiries也叫HP）</h3><p id="23564738-a3cc-80f8-8e1a-d17330b545a2" class="">每当你申请一张信用卡或贷款时，银行会对你的信用报告进行一次硬拉。HP的次数越少越好，而且会在账户上保留两年！</p><h3 id="23564738-a3cc-8088-84c0-f880973ae085" class="">软拉（Soft inquiries也叫SP）</h3><p id="23564738-a3cc-8025-aae1-d3e4fa0703dc" class="">相比于HP来说SP基本上不会影响你的信用分数，很多第三方应用也是通过SP来提供你的信用报告免费查看，大概率你的账户上会有几十次SP，但是没关系。</p><p id="23564738-a3cc-807a-8737-d0fd8256a842" class="">
+</p><p id="23564738-a3cc-8026-a0f4-f32fe0aa814d" class="">了解完了这些因素之后，去哪里查看自己的信用报告呢？你当然可以在三大信用局各自注册账号。不过这里楼主教大家一个更简单的方法，用第三方网站以及在银行App内就能看见。</p><p id="23564738-a3cc-80ab-9937-dded1fc78db8" class="">首先，推荐大家去Credit Karma（CK）注册一个账号，可以看到自己的信用记录。CK提供EQ和TU的信息，但是不提供EX。如果你想查看EX（毕竟是被Pull的最狠的一个），楼主体验下来最好用的应该还是Chase App叫Journey。</p><figure id="23564738-a3cc-8059-b453-d18cd0cbd53f"><a href="https://www.creditkarma.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Credit scores and much more - Intuit Credit Karma</div><div class="bookmark-description">Personalized recommendations, tools and insights from Intuit Credit Karma that help you optimize your money and grow it faster, to help you get ahead.</div></div><div class="bookmark-href"><img src="https://ck-assets.imgix.net/assets/1.97.6/favicons/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.creditkarma.com/</div></div><img src="https://creditkarmacdn-a.akamaihd.net/res/content/bundles/assets/1.151.108/homepage/ck_intuit_seo_update.png" class="bookmark-image"/></a></figure><p id="23564738-a3cc-8092-8777-c57849df6ca8" class="">只要注册好CK之后，在屏幕底下的工具栏选择左边第2个，Credit。映入眼帘就是你的信用分折线图。内容一共分为两个部分：Credit score和Accounts。大家可以尝试点击右边的Detail查看详情，相关的名词在上面已经解释过了，一一对应的英文。</p><h2 id="23564738-a3cc-8039-8046-e35d683f6b1f" class="">银行立场</h2><p id="23564738-a3cc-8084-a192-f2e09945de57" class="">相信你现在已经对自己的信报有所了解，那么站在银行的角度，他们最关心哪些因素呢？</p><p id="23564738-a3cc-80e2-a9cb-e9e4f210971b" class="">首当其冲的是你肯定不能有任何的不良记录，比如延迟付款，拖欠账单，破产等。不过楼主相信这些对于大多数华人都不是问题。</p><p id="23564738-a3cc-802c-ac8d-e9dce2a6d109" class="">另外信用分虽然重要，但是单凭信用分并不能说明什么。假设你没有不良记录，那么在剩下的因素中信用分反倒是权重最低的因素。</p><p id="23564738-a3cc-8051-b4b9-e4962d7d3ee9" class="">那么真正困扰大家的，分别是以下几个因素：</p><ul id="23564738-a3cc-80cc-a698-c87e0231a8c5" class="bulleted-list"><li style="list-style-type:disc">信用记录长度（Credit Length或Credit age）</li></ul><ul id="23564738-a3cc-8033-a709-fa8e8c65f788" class="bulleted-list"><li style="list-style-type:disc">使用额度（Credit card use或Utilization或Usage）</li></ul><ul id="23564738-a3cc-805e-94a9-eeb8e62b2682" class="bulleted-list"><li style="list-style-type:disc">持卡数量（Total number of cards）</li></ul><ul id="23564738-a3cc-80f5-9145-d0bc9a77fdcb" class="bulleted-list"><li style="list-style-type:disc">硬拉数量（HP）</li></ul><p id="23564738-a3cc-8006-b818-e0abb0510e5f" class="">那么在这其中，不同的银行侧重点也不同。上面楼主来简单介绍一下不同的银行最在乎哪些因素（根据不同DP经验总结）。</p><p id="23564738-a3cc-80d6-aca2-e6e3383188be" class="">另外提一手，除了C1之外，几乎所有的银行都希望你去搬砖（存钱）。因为搬砖，零信用记录下好卡的案例比比皆是。而C1只是油盐不进，搬砖对下卡没有任何帮助。</p><h3 id="23564738-a3cc-8031-8360-e35f0cfa9bb1" class="">Chase</h3><p id="23564738-a3cc-8023-ac53-ecd459720524" class="">对信用记录长度看中度适中，而茶色基本上是大家在新手阶段就接触到的银行所以在额度方面应该没有问题。相信大家都知道茶色有一个著名的524规则，所以很明显茶色对你的总账户数量很在乎。下卡难度仅次于Amex，第二简单。</p><h3 id="23564738-a3cc-80bd-bd4d-dc17202d8533" class="">Amex</h3><p id="23564738-a3cc-80b4-ab2f-e8e43874fdbf" class="">这个算是下卡难度最低的一个银行了，因为Amex是HP非常不敏感的一个银行。这里教大家一个小妙招：大家可以先申请BCE/BCP因为是信用卡，后续直接申请点数卡（因为是签账卡）所以没有HP。但是如果直接申请签账卡后续再反过来申请信用卡，仍然会有HP。不过还要提的一点就是，Amex虽然下卡难度低但仅针对老用户，首卡还是不好下的。</p><h3 id="23564738-a3cc-80cb-92be-c2bfc8e0b555" class="">Citi&amp;C1&amp;Usbank&amp;Bilt</h3><p id="23564738-a3cc-80a7-9be7-d21a66967642" class="">这三个银行丧心病狂，他们看中你的所有因素。只要有一个不符合他们口味，一律拒。他们不喜欢你过来薅羊毛，而是希望和你从头培养关系，只有你刷卡他们才有钱赚。</p><ul id="23564738-a3cc-8056-85ce-d24a40714f88" class="bulleted-list"><li style="list-style-type:disc">你的信用记录长度不长？直接拒！你的信用记录不长银行怎么判断你是否能按时还钱？</li></ul><ul id="23564738-a3cc-8054-9625-db3962e4a02a" class="bulleted-list"><li style="list-style-type:disc">你的使用额度太低？直接拒！手上有大量的可用额度却不怎么花钱，明显羊毛党，银行赚不到钱。</li></ul><ul id="23564738-a3cc-8097-a919-cb27c4a4c8bc" class="bulleted-list"><li style="list-style-type:disc">你的持卡数量太高？直接拒！手上已经有十几二十张卡还来申请，羊毛党特征之二，银行赚不到钱。</li></ul><ul id="23564738-a3cc-8087-931a-c7f124b95759" class="bulleted-list"><li style="list-style-type:disc">你的硬拉数量太多？直接拒！6个月/12个月HP数量太多，频繁申卡会被银行认为你缺钱。</li></ul><p id="23564738-a3cc-800f-921e-c55d9e0c6950" class="">所以这三个银行几乎是公认的最难下卡的三个银行，大家如果想要的话一定要提前规划。最佳申卡策略肯定是难申的卡先下，这就是为什么Amex放在最后的原因。如果你先着急下Amex，那么后续这些银行的卡你可能就申不下来了。</p><p id="23564738-a3cc-8054-964c-d8fd9211a0e6" class="">楼主在后台接到过很多求助，这三个银行的卡悲剧太多了。而当楼主深入分析情况时，总能找到被拒的原因。所以楼主在这里给一些建议，申之前一定要仔细评估！</p><p id="23564738-a3cc-802c-87f1-ddd17168225d" class="">首先根据之前的攻略，这三个银行的卡值得申请的只有Venture X，UAC和Citi三剑客（其中Venture X由于砍了福利楼主认为已经不适合申请，但如果你还想要的话一定要参考建议区间）。申请难度分别为Venture X &gt; Premier &gt; DC = CC = UAC。</p><p id="23564738-a3cc-80ba-843d-f652abfa090a" class="">
+</p><p id="23564738-a3cc-804d-bc82-e83052521b37" class=""><strong>以下是建议参考区间：</strong></p><p id="23564738-a3cc-80f6-b24b-e37d308ed680" class=""><strong>信用记录长度（Credit Length或Credit age）</strong></p><ul id="23564738-a3cc-8075-9c88-f3e7c4c57a51" class="bulleted-list"><li style="list-style-type:disc">Venture X：建议至少3~4年以上，搬砖对于下卡没有帮助</li></ul><ul id="23564738-a3cc-80c9-b045-c12e64767fca" class="bulleted-list"><li style="list-style-type:disc">Citi三剑客：建议至少2年以上（未搬砖），如有搬砖甚至可以零记录</li></ul><ul id="23564738-a3cc-807a-9ad4-cc4901c47bb2" class="bulleted-list"><li style="list-style-type:disc">Bilt: 建议至少1年以上，搬砖对于下卡没有帮助</li></ul><ul id="23564738-a3cc-80eb-aefe-c28a5d9d9270" class="bulleted-list"><li style="list-style-type:disc">UAC：建议至少2年以上，如有搬砖甚至可以零记录</li></ul><p id="23564738-a3cc-80bb-980a-f9ae3afbf84d" class=""><strong>使用额度（Credit card use或Utilization或Usage）</strong></p><ul id="23564738-a3cc-80e5-b881-cbb087e60323" class="bulleted-list"><li style="list-style-type:disc">保持在5%~10%最佳。低于5%也不是不能接受，但1%实在是太低，且手上的卡不能太多</li></ul><p id="23564738-a3cc-8014-ac93-d0cfe8dde902" class=""><strong>持卡数量（Total number of cards）</strong></p><ul id="23564738-a3cc-80b1-8115-cec4be88feaf" class="bulleted-list"><li style="list-style-type:disc">建议手上的卡不超过两位数。甚至有一些数据表明，如果12个月内开卡数量超过4张Citi就不给批卡了</li></ul><p id="23564738-a3cc-80ce-8c54-c657bf9f1840" class=""><strong>硬拉数量（HP）</strong></p><ul id="23564738-a3cc-8024-91cd-ef4f28a78c37" class="bulleted-list"><li style="list-style-type:disc">这些银行会看12个月的HP数量。建议6个月内小于3个，12个月内小于4个</li></ul><p id="23564738-a3cc-80b8-91a2-ddaa94ea3d8b" class="">所以现在大家知道这些银行批卡的条件有多苛刻了吧？建议大家可以参考以上这些数据来评估，但不是绝对，可以找楼主进一步评估。</p><h2 id="23564738-a3cc-809a-abcb-e7b1fba8d8f1" class="">寻求推荐</h2><p id="23564738-a3cc-80e2-98df-ca9a0814175c" class="">那么你现在对信用报告和银行在乎的因素有了基本了解。基于这些信息，你现在可以寻求关于信用卡推荐了。所以关于信用卡推荐，总体来说需要两部分信息：你的信用报告和你的需求。</p><p id="23564738-a3cc-8070-a38f-dcb0bf0d9811" class="">其中关于你的信用报告，你需要告知以下因素：</p><ul id="23564738-a3cc-8071-87eb-e54a3adaa7a9" class="bulleted-list"><li style="list-style-type:disc">信用分（Credit score）</li></ul><ul id="23564738-a3cc-80e4-b069-d7607babe829" class="bulleted-list"><li style="list-style-type:disc">使用额度（Credit card use或Utilization或Usage）</li></ul><ul id="23564738-a3cc-8040-93e6-c213ca4bdb46" class="bulleted-list"><li style="list-style-type:disc">信用记录长度（Credit Length或Credit age）</li></ul><ul id="23564738-a3cc-8040-80bf-f99f5cfcaece" class="bulleted-list"><li style="list-style-type:disc">持卡数量（Total number of cards）</li></ul><ul id="23564738-a3cc-8086-94bd-fedad98e8917" class="bulleted-list"><li style="list-style-type:disc">硬拉数量（6个月和12个月HP数量）</li></ul><ul id="23564738-a3cc-806a-8722-f32725935db2" class="bulleted-list"><li style="list-style-type:disc">开了哪些银行的Checking？搬了多少砖？</li></ul><p id="23564738-a3cc-8059-a883-c16492a3d84b" class="">需求部分，需要以下信息：</p><ul id="23564738-a3cc-80b4-8e9b-f315172a0baa" class="bulleted-list"><li style="list-style-type:disc">消费场景<br/>你每月花销主要集中在什么方面？买菜，餐厅，还是加油的多？旅游多还是房租多？<br/><p id="23564738-a3cc-80b3-9f9d-dc7da5d65544" class="">楼主一共把花销分以下七类，把这些花销从大到小进行排序：<br/>房租，买菜，餐厅，加油，网购，旅行，其他消费<br/></p></li></ul><ul id="23564738-a3cc-802d-bf96-dffcf4293c6b" class="bulleted-list"><li style="list-style-type:disc">其他需要补充的信息<br/>有没有什么其他的特殊信息需要补充？比如是否有一个高频的出行场景？信用报告上是否出现了某些异常？<br/></li></ul><h2 id="23564738-a3cc-8041-9200-c635096faa8d" class="">通用推荐</h2><p id="23564738-a3cc-8053-8f77-ff2af4e43a41" class="">如果看完了以上内容你还不懂怎么选择，那可以参考一下这部分。先上结论：如果你的背景描述不清楚，你一定适用楼主推荐的八卡组合：Boa123，CFF，CSP，Bilt，DC，CC，Premier，UAC，覆盖99%的消费场景，还专门分析过。详细内容移步《<a href="%E4%B8%A4%E5%B9%B4%E6%97%A0%E8%84%91%E9%80%9F%E9%80%9A%E7%BE%8E%E5%9B%BD%E4%BF%A1%E7%94%A8%E5%8D%A1(%E7%AC%AC%E4%BA%8C%E7%89%88)%2023564738a3cc801ba285ee71100e633f.html">两年无脑速通美卡</a>》。</p><p id="23564738-a3cc-80e0-afd5-fcbde9196df3" class="">理论上，你可以不用遵守推荐的顺序，根据自己的需求进行二次精简，刚需的先开（不过不同的卡由于下卡难度不同，初期选择受限，但搬砖可破）。</p><p id="23564738-a3cc-802e-a212-e5042b0208a8" class="">楼主在后台接到过很多求助，他们一开始都误以为自己需要联名卡。但是在楼主帮他们进行深入分析之后，得出的结论就是大部分人不需要联名卡。他们还是以日常为主，旅行为辅的消费场景。而众所周知联名卡的日常消费性价比很低，所以推荐大家以银行自营卡作为日常消费卡为主。</p><h2 id="23564738-a3cc-8083-a6c6-e5c32a9cbaf6" class="">524逻辑</h2><p id="23564738-a3cc-8062-ba47-ca864287ded5" class="">最后在这里来讲一下关于524逻辑，其实之前已经说过一次，这里就讲的更直接一点。</p><p id="23564738-a3cc-80c5-a8f0-d826d2ecd2c6" class="">524的基本逻辑是：<strong>用最短的时间，较低的下卡难度，最少数量的HP，拿到最多的开卡奖励，即使这些卡不适合你的需求。</strong></p><p id="23564738-a3cc-8086-9067-cc3c2594b9b8" class="">那么问题来了，524之后呢？你该何去何从？</p><ol type="1" id="23564738-a3cc-8009-9bc7-e22d7fae1f9b" class="numbered-list" start="1"><li>如果你选择继续攻克Citi（想要一张日常省心卡），那么你必然将面对①Citi下卡难度高②中间有很长时间的空窗期。既然空窗期长，很明显这和524逻辑相悖论，因为空窗期时你不能申卡，也没有开卡奖励。</li></ol><ol type="1" id="23564738-a3cc-809d-bae5-c835cf631163" class="numbered-list" start="2"><li>那如果选择Amex呢？选择Amex就代表着你基本放弃了Citi/C1/USBank/Bilt的卡，一头扎进Amex，开弓没有回头箭，你肯定要投入大量的时间和经历研究Amex，Coupon Book真的非常头疼，非常烦。所以并不是每个人都能玩转Amex，大多数人不是冲着收益最大化去的，他们没有精力玩，所以在这里524的逻辑对于大部分人是不成立的。<br/>如果是这样，524意义何在呢？除非你就吃准了玩转Amex。<br/></li></ol><p id="23564738-a3cc-807b-be26-d505cbd85fcc" class="">包括楼主在后台接受很多求助，大多数人还是想要一张日常消费的省心卡，长持，那Citi就非常合适。</p><h2 id="23564738-a3cc-8044-a5e4-f422c6334339" class="">免责声明</h2><p id="23564738-a3cc-808b-8c53-d96b4df4ec84" class="">本文帮大家分析了信用报告和申卡策略的逻辑本身，至于如何选择根据你自身的需求决定。仅作资讯分享，不做最后入坑建议。</p><p id="23564738-a3cc-80a8-91d4-eb9548cd9fdc" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8032-b665-f522a06f9188"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8067-8238-ca94c691b8e7" class="">XHS原文章</p><p id="23564738-a3cc-80fb-8059-eec374ba2403" class=""><a href="http://xhslink.com/m/7VAhNyOVOPz">http://xhslink.com/m/7VAhNyOVOPz</a></p></div></figure><p id="23864738-a3cc-8002-b304-effb70ff2856" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

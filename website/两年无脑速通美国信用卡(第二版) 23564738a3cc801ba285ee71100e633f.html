@@ -1,0 +1,683 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>两年无脑速通美国信用卡(第二版)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-801b-a285-ee71100e633f" class="page serif"><header><h1 class="page-title">两年无脑速通美国信用卡(第二版)</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8056-85bf-eca0b4da9f44"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-802b-bc21-df8920106d1c" class="">【2025.07】2.0版本发布</p></div></figure><nav id="23564738-a3cc-80f9-bc14-ffaf5cd4a462" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80ab-885a-e404155441bc">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80bd-a740-ffd0ed3ba3e0">推荐组合</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80dd-b6b8-fb08035ceb7a">细节分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8020-8846-d3bfbd6c449f">积累信用分注意事项</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80d7-9d29-e9fa99886b4c">第1个月：Boa123</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-808d-9211-e8f741477024">重要时间点一：开Boa，Chase Checking搬砖</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8078-bb1e-e4888ec4a9c4">第6个月：CFF</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80bd-85dc-d3af0c328f28">第9个月：CSP</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80af-b0a2-cbf29f06a121">重要时间点二：开Citi Checking搬砖</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80fc-8ece-dd63919e8251">第13个月：Bilt</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80db-a9ad-e005b9073b90">第15个月：Custom Cash</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8045-9232-c90fba344a25">第20个月：Strata Premier</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8055-a734-cd9eac4d095f">第22个月：Double Cash</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8082-9773-c41bd3805201">第24个月：UAC</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b3-863a-fb146b90959c">未来展望</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b3-92eb-d499a8a2d99d">结语</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8032-a050-f1b9f92def65">免责声明</a></div></nav><h2 id="23564738-a3cc-80ab-885a-e404155441bc" class="">前言</h2><p id="23564738-a3cc-80a0-9628-fcbd5ebe7f65" class="">不负众望，现在第二版更新也出了，很多应该都是老粉丝了吧。这种内容的初衷就是在看完很多文章之后，你可能会反而变得更疑惑了，到底开什么卡好？到底什么卡适合我？所以如果你没有思路，不妨参考一下本文。这些卡都是公认性价比最高，且绝对不会被反薅的卡。当然，你也不需要完全follow，有可能到一半时你对自己的需求有了清楚的认知，知道什么才最适合自己。那么恭喜你，晋级到了next level。</p><p id="23564738-a3cc-8005-b06a-e4a903620a62" class="">如果没看过第一版，建议看完了再来。第一版有更多的细节，且用词新手友好。第二版默认大家已有基础认知，内容简洁直奔主题。</p><h2 id="23564738-a3cc-80bd-a740-ffd0ed3ba3e0" class="">推荐组合</h2><p id="23564738-a3cc-8018-b6bb-db0c31450fae" class="">相信你已经在正文中看到结论了。两年八卡的组合，楼主新的推荐仅仅是把CFU换成了DC。不过关于时间线方面，楼主还是纠结了一下，毕竟Citi下卡难度总体比Chase大，如果还想快速通关需要大家多搬砖。如果某一个时间点被拒，请不要头铁继续申卡，而是及时复盘总结。<br/>第1个月：Boa123<br/>第6个月：CFF<br/>第9个月：CSP<br/>第13个月：Bilt<br/>第15个月：Custom Cash<br/>第20个月：Strata Premier<br/>第22个月：Double Cash<br/>第24个月：UAC (Connect)<br/></p><h2 id="23564738-a3cc-80dd-b6b8-fb08035ceb7a" class="">细节分析</h2><h3 id="23564738-a3cc-8020-8846-d3bfbd6c449f" class="">积累信用分注意事项</h3><ol type="1" id="23564738-a3cc-80b5-bbf7-d3a55feccf5f" class="numbered-list" start="1"><li>在攒前期信用时，按时还款和不超过总额度的30%非常重要，尤其是后者。如果花销确实大，在出账单前提前还掉一部分，使其总额度降至30%以下（10%左右最优）。但是注意不要全部还清，如果账单的数字为零会让银行认为你没有消费，不是一个有价值的客户。</li></ol><ol type="1" id="23564738-a3cc-80f3-b93e-fbfedbfe9dd0" class="numbered-list" start="2"><li>信用记录不够，搬砖来凑，没有一家银行不喜欢你去搬砖（存钱）。有非常多的DP显示，搬砖可以大大提升信用卡的获批概率，甚至零记录下CSP，Premier这种好卡的案例比比皆是。楼主会在下面建议搬砖时间点。</li></ol><h3 id="23564738-a3cc-80d7-9d29-e9fa99886b4c" class="">第1个月：Boa123</h3><p id="23564738-a3cc-806d-9d49-c34d9ec80797" class="">现在过去了这么久，楼主依然推荐Boa123作为你的第一张信用卡，哪怕是押金卡。3%的网购类别仍然实用，2%超市包括Walmart，Sams和Coscto，是除Robinhood gold在Coscto返现最高的Visa信用卡了。</p><p id="23564738-a3cc-8025-9008-c2c4cdea932b" class="">很多人可能会在想Discover。但问题是现在已被C1收购，且卡是需要SSN的，还会被随机抽查，很烦。前期卡槽很宝贵，还是算了吧。</p><p id="23564738-a3cc-8034-81f1-e3429edb83fa" class="">另外一张新手卡是CFR，大家可能听的比较少。同样需要SSN，然后茶色官网甚至还写明了搬砖能够提升获批的概率。不过最近随着蓝宝石系列改版，UR一言难尽。CFR这鸡肋卡，跳过吧。</p><p id="23564738-a3cc-8082-bca1-ca57ddd2b619" class="">另外还有一张卡是Paypal debit，很多人说Coscto用很划算。但首先他是debit卡，不如信用卡方便，dispute很麻烦。另外很多人pp账户经常被封控，转不进去钱。最后这卡其实有一个特殊用法，每月空手套白狼白拿$50。</p><h3 id="23564738-a3cc-808d-9211-e8f741477024" class="">重要时间点一：开Boa，Chase Checking搬砖</h3><p id="23564738-a3cc-8036-ab0d-f9f6cbda48d6" class="">首先推荐大家开Boa checking，总的来说他家的checking非常值得长持。大家可以开完之后再尝试申请Boa123，可以适当性的提升获批概率。<br/>另外再开Boa的同时，这个时间点建议大家立刻去开Chase checking搬砖，为后续开茶色的卡做准备。<br/></p><h3 id="23564738-a3cc-8078-bb1e-e4888ec4a9c4" class="">第6个月：CFF</h3><p id="23564738-a3cc-8066-9c30-d5197adca817" class="">如果你在第1个月已经开了Chase checking，只要搬的砖足够多，大概率在第3个月你就能看见pre approved offer了。但是保守起见楼主还是写6个月。这个时候下卡CFF没有任何难度。</p><p id="23564738-a3cc-808b-903a-f733fdf8544c" class="">另外楼主在这里移除了CFU，因为这次茶色改版之后，砍掉了CSP/CSR的1.25/1.5cpp的功能，保底价值变成了1cpp，说实话非常伤。而如果换现金的话，一卡流1.5%确实是不够看，行业平均都2%了。甚至Apple card某种程度上比CFU还要更好。</p><p id="23564738-a3cc-803a-b2f4-eb500cc78830" class="">而CFF则基本没有这个问题，5x的卡大家还是希望越多越好是不是？即使换现金也没有任何问题。</p><p id="23564738-a3cc-8026-a2b9-dd8114e7801d" class="">另外截止发稿前，茶色移除了CFF在七月份的网络申请。目前不确定发生什么，但目前CFF在Branch仍可申请。但根据小道消息，这卡可能彻底绝版。考虑到最近CSR和Ritz的改变，茶色似乎没有理由保留这个亏钱货。如果8月份起真绝版了，大家可以申请CFU后续转卡成老版CF既可。</p><h3 id="23564738-a3cc-80bd-85dc-d3af0c328f28" class="">第9个月：CSP</h3><p id="23564738-a3cc-8009-a6ce-dd688064f656" class="">正常来说，在没有搬砖的情况下，CSP需要一年信用记录。楼主把提到了第9个月实属无奈，也就默认大家会搬砖了（如果不搬砖两年估计通不了关）。</p><p id="23564738-a3cc-80ef-8495-f18e02b6a081" class="">削弱过后为什么还选择CSP？首先无损拿50酒店和Doordash报销已经负年费，另外还可以免费住Hyatt和Primary保险，所以仍然适合长持。虽然砍掉了核心功能，但Point Boost拥有非常大的竞争力，甚至比Hyatt还好。仍然是值得长持的一张卡。</p><p id="23564738-a3cc-80fd-83ed-feacb71ec742" class="">鉴于很多人说Bilt也可以做到这2点：但问题是Bilt的Primary保险仍为未知数（YMMV），茶色的保险更加成熟。另外虽然Bilt也可以转Hyatt，但攒点慢，应该优先考虑转AS。另外还保留了CSP砍掉的1.25cpp的功能，算是很良心了。</p><p id="23564738-a3cc-80c2-9f58-e89d70ae1009" class="">最后茶色变化这么大，值得长持的只有CFF+CSP，楼主也移除了原先的CSR。管他什么524，楼主这波对茶色心灰意冷了 -- 直接move on吧。</p><h3 id="23564738-a3cc-80af-b0a2-cbf29f06a121" class="">重要时间点二：开Citi Checking搬砖</h3><p id="23564738-a3cc-803c-a208-e622c1891266" class="">随着茶色的卡不断削弱，楼主也加快了把消费主力转到Citi上，也推荐大家这么做。所以提前给Citi搬砖很重要，赶紧搞好关系后续方便申卡。</p><h3 id="23564738-a3cc-80fc-8ece-dd63919e8251" class="">第13个月：Bilt</h3><p id="23564738-a3cc-80e3-9fba-d4e10ecf6572" class="">到Bilt了，楼主还是决定放在这里。Bilt前段时间频频传出消息，最近倒是没什么动静。<del>而2.0版本似乎也被搁置，可能没人喜欢吧</del>。</p><p id="23564738-a3cc-809d-b73d-d4ce85eab0ee" class="">把它放在了第13个月终其原因还是申请难度。虽然有少部分DP（大约10%）显示信用记录不足一年仍可下卡，但楼主还是推荐大家信用记录至少一年再申请，申请的时候最好把Utilization拉到10%左右（逻辑就是你在其他的卡上不花钱凭什么来薅我的羊毛）。另外根据现有DP来看，搬砖似乎对下Bilt帮助有限。</p><p id="23564738-a3cc-800c-835a-d2e783c3dba1" class="">其实关于Bilt的必要性一直有争论。其中有一个点是前段时间Bilt升级了：使用任何信用卡交房租通过Bilt portal也可以获得1x的bilt point（当然交房租的那张卡本身也有返现，只不过需要承担3%手续费）。不过似乎被玩烂了，后续可能会降到0.5x。</p><p id="23564738-a3cc-8007-b568-efced25ec88a" class="">大部分情况下来说用其他信用卡交房租是亏的。但是有几个例外比如Boa123和AS卡。Bilt有和阿拉斯加航空深度合作（也是阿拉斯加唯一转点伙伴），使用AS卡通过Bilt portal交房租可以获得3x AS点数和1x Bilt点数。如果你经常飞，那确实合算。不过有一个需要注意的点就是如果你是从私人房东租房，需要寄支票的话则必须使用Bilt，不可使用第三方卡。另外Bilt直接交房租确实省事，不用折腾很多乱七八糟的东西。通过这些信息你可以自行判断Bilt适不适合你。</p><h3 id="23564738-a3cc-80db-a9ad-e005b9073b90" class="">第15个月：Custom Cash</h3><p id="23564738-a3cc-805b-ae6e-cea3c7619c25" class="">终于到Citi了。同样是一张5x的卡，结构比CFF更加灵活，非常推荐。从CC开始是因为这张卡的难度较低（定位类似于Freedom），多花钱，搞好关系。</p><p id="23564738-a3cc-8093-8eb7-ec3c66b5bafd" class="">另外强烈不建议搞524+MDD。由于这波茶色的改版，楼主觉得Citi三剑客明显更值，不在乎524了。而冲突的点是，Citi非常hp敏感，如果你524+MDD那Citi必不能下卡或者需要休养很长时间。有好多人524+MDD结果悲剧非常多。你不要成为下一个！</p><h3 id="23564738-a3cc-8045-9232-c90fba344a25" class="">第20个月：Strata Premier</h3><p id="23564738-a3cc-802d-9da2-c6e39dc199fd" class="">这张卡的批卡难度仅次于VX，悲剧非常多，千万不能掉以轻心，Citi也说不赚钱。最近正好有在讨论，给大家一个概念难度有多高：首先信用长度得够；手上的卡数量不能太多（虽然也有少数手上有十几张卡然后还获批的概率）； Utilization不能太低也不能太高；6个月内乃至12个月的HP数量不能太多，其中3hp/6month基本是默认潜规则。具体可以参考这篇帖子《<a href="%E7%BE%8E%E5%9B%BD%E4%BF%A1%E7%94%A8%E4%BD%93%E7%B3%BB%E8%AF%A6%E8%A7%A3%E5%92%8C%E6%8E%A8%E8%8D%90%2023564738a3cc8031a1baf937cfcc2ea6.html">美国信用体系详解和推荐</a>》。</p><p id="23564738-a3cc-80fd-9155-db0786a1555a" class="">所以考虑其申请难度，所以楼主把这张卡的顺序放在了DC前面。总的来说这绝对是一张很优秀的卡，下卡难度不低，可以说是本篇文章里最难的一关了。申请前建议再三评估，最大程度的减少悲剧发生！</p><p id="23564738-a3cc-80c8-8a47-ffe70bdaf037" class="">另外有几个更新就是此卡换钱贬值了；但没关系，持DC/CC仍然可以1cpp换现金，没有削弱</p><p id="23764738-a3cc-80be-b4f3-d1539f1dbead" class="">还有无年费新卡Strata正式官宣，消费结构和这张卡非常像。如果要不到Renten或转点对你没什么用，那么降级到Strata显然是首要选择。</p><p id="23564738-a3cc-808a-b9eb-e62628843d94" class="">最后就是听说暑假会上Strata Elite新卡？是真难产，到现在一点消息都没有（而且面对CSR的重大更新，这张卡可能回炉重造）。Premier已经不赚钱了，Citi会怎么应对Elite呢？</p><h3 id="23564738-a3cc-8055-a734-cd9eac4d095f" class="">第22个月：Double Cash</h3><p id="23564738-a3cc-80a2-864c-e78e93b0957a" class="">适合一卡流的卡，还是建议来一张的，这样能保证日常的所有消费不低于2%。另外，2%的卡不少，但2x的卡可不多，只有这张和Venture。而Venture系列又不能1cpp换钱，再次体现了DC的价值所在。</p><p id="23564738-a3cc-806d-85c7-e9432294bb10" class="">另外还坚持CFU的，与其赌Point Boost的未来，还不如把现金拿在手里更划算。</p><h3 id="23564738-a3cc-8082-9773-c41bd3805201" class="">第24个月：UAC</h3><p id="23564738-a3cc-80ee-a343-f2740cb42057" class="">绝对是一张被低估的旅行卡。4x的加油和旅行相关，另外每年送4次满血PPS，没有年费，还要什么自行车？</p><p id="23564738-a3cc-8049-aed2-e418f9e2b9f8" class="">其中4x的加油应该是你能在市面上找到最高的了（季度卡除外）。需要转点的话可以考虑Strata系列的3x。</p><p id="23564738-a3cc-80f8-a62a-e0f9451c2f76" class="">另外4x的旅行相关也很香，覆盖的范围极广。随着CSR砍掉了3x，虽保留了CSP的2x但砍掉了自身的1.25cpp，那UAC的4x基本无敌了。</p><p id="23564738-a3cc-8050-8034-dac8491fac69" class="">最后是满血PPS。隔壁VX刚刚宣布砍PPS，这在无形中又增加了UAC的价值。4次适合轻度旅行者；如果是重度使用者可以考虑Boa Elite；就是不知道Strata Elite和AS新高端卡怎么样了。</p><h2 id="23564738-a3cc-80b3-863a-fb146b90959c" class="">未来展望</h2><p id="23564738-a3cc-80cd-94bb-c6868829e830" class="">那么成功通关了之后呢？楼主建议以下几个选项：</p><ol type="1" id="23564738-a3cc-800b-a14c-e0f5d8e98a9e" class="numbered-list" start="1"><li>申请联名卡。申请联名卡的核心要点是，你能用得上他的服务就申，千万不要被某一个石膏骗上车。通过两年八卡的经历，相信你已经基本能判断自己的需求所在。最后如果是想申请Chase联名卡需要注意524。</li></ol><ol type="1" id="23564738-a3cc-80c8-b479-e553a6a2e8a7" class="numbered-list" start="2"><li>养记录申Venture X。没什么技巧，需要耐心。但问题在于VX刚刚官宣砍福利，PPS仅适合单身狗使用，$300的报销还很难用，所以这卡已经正式跌落神坛。如果自己轻度旅游，那UAC足够；如果是家庭需要用，那Boa elite很明显是更优选。除此之外VX在砍了PPS此后毫无亮点，不推荐搞了。最后，这卡给的旅行保险非常抠抠搜搜，甚至还不如CSP（除了6小时延误险 特大好消息，CSP改成了6h，那还需要VX做什么用？）。</li></ol><ol type="1" id="23564738-a3cc-807c-8d93-d98ca3988fd5" class="numbered-list" start="3"><li>一些小众和好用的卡。之前有提到过，SYW，Robinhood gold，Cash+等。这里不再重复介绍，感兴趣的往前考古。</li></ol><ol type="1" id="23564738-a3cc-80e5-9799-c7e019a263ec" class="numbered-list" start="4"><li>转卡。这是楼主新研究的路，就是通过申请别的卡进行Product Change，从而可以获得多张一样的卡。举例：<ul id="23764738-a3cc-800a-9023-c40778e19d9b" class="bulleted-list"><li style="list-style-type:disc">通过转卡可以获得多张Boa123，无FTF的同时还可以多吃3%；</li></ul><ul id="23764738-a3cc-802f-a0a0-c16cbcc75878" class="bulleted-list"><li style="list-style-type:disc">通过转卡可以获得多张CF（老版CFF）或CC，尽可能的增加5x攒点卡。</li></ul><ul id="23764738-a3cc-8071-823c-cd0fde673821" class="bulleted-list"><li style="list-style-type:disc">通过转卡可以获得已绝版的粟子（这卡也被削弱了）。</li></ul><p id="23764738-a3cc-8004-a64a-c46ef6db77d7" class="">以上是几个常见选项，仅供参考。</p></li></ol><ol type="1" id="23564738-a3cc-8038-a87d-dd81e98d8a3c" class="numbered-list" start="5"><li>开始玩Amex。Amex是HP最友好的一个银行之一了，所以下卡难度最低。既然如此，最佳的申卡策略就是把Amex放在最后。</li></ol><p id="23564738-a3cc-80f6-b49f-efcfc7a4012b" class="">不过楼主在这里要提醒一句：一旦入坑Amex，没有回头路。虽然可以玩升降机，但如果你想薅一把羊毛就走的，你会发现Amex没有适合长持，旦能保留MR点数的卡。大佬的正确打开方式都是三个月一张NLL，点数全靠开卡奖励，玩的炉火纯青。入坑要谨慎！</p><p id="23564738-a3cc-8034-9935-ed5b7c02a8b5" class="">差不多就这些了，想要玩赚信用卡离不开强大的消费能力做支撑。</p><h2 id="23564738-a3cc-80b3-92eb-d499a8a2d99d" class="">结语</h2><p id="23564738-a3cc-804b-ac89-f179537dff17" class="">无论如何，再无脑的组合，也要确保满足自己的消费结构。希望大家在申一张卡前权衡利弊。</p><p id="23564738-a3cc-8085-954b-e5521d1b40ce" class="">虽说申请信用卡的目的是将奖励最大化，但是其实是指在你的消费能力范围内的奖励最大化。如果一味的追求点数奖励和报销，从而陷入消费陷阱，是非常不值得的。记住，你只是游戏的参与者，而不是规则的制定者。</p><p id="23564738-a3cc-807c-88f2-d7bf923e0ddd" class="">信用卡的操作远不止于此，还有更多高端的操作，本合集的攻略贴仅仅是入门。如果你有心思研究，那么信用卡肯定能够给你带来很高的价值。</p><h2 id="23564738-a3cc-8032-a050-f1b9f92def65" class="">免责声明</h2><p id="23564738-a3cc-808e-90ef-c83d008dc4b6" class="">每个人有不同的意见很正常，内容仅供参考。拒绝任何一切以偏概全，指责内容，但欢迎交流想法。</p><p id="23764738-a3cc-8070-b054-f2376b88a0fe" class="">本贴只提供针对信用卡申请的一般建议，时间线仅供参考，不构成最终入坑理由和法律建议，仅供参考。</p><p id="23564738-a3cc-8049-8eb2-fdb3b6d51d9f" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8061-8c78-f55f2f606c0c"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8093-b23e-c419375cdfbe" class="">XHS原文章</p><p id="23564738-a3cc-80ba-9e46-c0775d542f10" class=""><a href="http://xhslink.com/m/7RrgqHDgVI0">http://xhslink.com/m/7RrgqHDgVI0</a></p></div></figure><p id="23564738-a3cc-801b-a465-c9da2a0e11fd" class="">
+</p><p id="23564738-a3cc-8069-8c3f-ea2b56df36ac" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

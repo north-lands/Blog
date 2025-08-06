@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>云居民美卡申请指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-8004-a174-fed7d84e5c56" class="page serif"><header><h1 class="page-title">云居民美卡申请指南</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80b5-b59b-ed1441f3c21f"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8078-b1f0-dd6c60476233" class="">【2025.07】1.0版本发布</p></div></figure><p id="23b64738-a3cc-8064-808f-c0ad4f5c5f99" class="">
+</p><nav id="23b64738-a3cc-804d-b533-facd51ec4368" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-8031-84f4-f8f0c19f8b65">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23b64738-a3cc-8068-9197-e9dbede4f4c4">背景情况</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23b64738-a3cc-8049-92e8-cf89af1ff2cb">思路和原则</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23b64738-a3cc-808f-9e52-c3fcaf14311d">省流结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-80d5-a8c9-edcfc12a3aa9">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-8061-8f35-e16736bed01d">推荐思路</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-80a8-9add-c94d16373380">要求前提</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-80cf-be96-fe05844f1d6f">推荐组合</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-80c8-8b04-f545eea0b2ed">细节分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23b64738-a3cc-8058-b7d0-ca3826faa271">如果你不想申请SSN/ITIN</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23b64738-a3cc-805b-ba31-cf7f20416b2a">如果你想申请SSN/ITIN</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-804a-bb56-f3470022e2a2">组合分析</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-8058-9bca-e4a5b84663a8">结语</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23b64738-a3cc-8014-94ee-ca37a99a3961">免责声明</a></div></nav><h2 id="23b64738-a3cc-8031-84f4-f8f0c19f8b65" class="">简要介绍</h2><p id="23b64738-a3cc-806b-9f13-d4f30a6a28cf" class="">楼主写了这么多信用卡攻略发现也有很多云居民在关注，虽然大部分攻略并不是针对云居民而生。那么既然考虑到很多人有需求，楼主还是稍微研究了一下的。那么不负众望这份针对云居民的攻略诞生了。</p><h3 id="23b64738-a3cc-8068-9197-e9dbede4f4c4" class="">背景情况</h3><p id="23b64738-a3cc-8020-93ef-fbdcdf1af00a" class="">凡是长期生活在美国之外玩卡的，统称云居民。如果再往下细分，也有分大陆和非美国的西方。如何定义后者？比如加拿大，澳洲，欧洲，新加坡等。</p><p id="23b64738-a3cc-80b3-b534-da4abd39c1b8" class="">这些海外和大陆不同的是，主流的美国银行在这些地区也有服务。所以如果你在加拿大开了一张Amex卡，然后再回到美国开Amex，是可以同步信用记录的。那么当然如果你在大陆，由于和所有美国银行的服务不通，就得从头开始涨信用记录了。</p><p id="23b64738-a3cc-80b6-90ac-dcbd99429315" class="">不过根据楼主接触的案例来看，大部分的云居民还是以大陆为主。又或者是来美访问/留学一定时间，后续就不回美了。所以开卡建议以大陆云居民为主。</p><h3 id="23b64738-a3cc-8049-92e8-cf89af1ff2cb" class="">思路和原则</h3><p id="23b64738-a3cc-8036-a968-fbbe96993e5d" class="">首先要考虑，作为一个云居民，为什么要玩美卡？一定得把自己的需求想清楚。如果就想拿返现的话，那么Boa的卡最适合你。如果还想进一步薅羊毛的话，则需要办理ITIN/SSN。</p><p id="23b64738-a3cc-8084-9703-f9f28d0593ed" class="">另外，卡肯定得没有FTF。基本上大多数云居民都以联名卡为主，基本集中在Chase和Amex。所以相比于之前楼主不提倡524，对于云居民来说反而建议拉满524。</p><h3 id="23b64738-a3cc-808f-9e52-c3fcaf14311d" class="">省流结论</h3><p id="23b64738-a3cc-80e5-a6ac-e8a078139c2f" class="">【不想申请SSN/ITIN】<br/>第1个月：Boa蓝卡<br/>第6-12个月：Boa旅行卡<br/>第13个月及往后：Amex（可选）<br/></p><p id="23b64738-a3cc-80e4-8e89-f623fa74092e" class="">【申请SSN/ITIN】<br/>第1个月：Savor<br/>第9个月：Boa蓝卡（可选）<br/>第12个月：CSP<br/>第15-21个月：Hyatt，IHG，Marriott<br/>第24个月 UAC<br/>第27个月 Amex Hilton（可选）<br/>第36-48个月 Venture X<br/></p><h2 id="23b64738-a3cc-80d5-a8c9-edcfc12a3aa9" class="">前言</h2><p id="23b64738-a3cc-80ad-829c-fe01dc8832a9" class="">自从楼主写第一篇信用卡攻略开始本来也不是针对云居民的，但一路走过来发现云居民不少，也接到过许多求助。考虑到大家仍然有需求，那么楼主就做了一圈功课，把这份迟到的攻略补上。</p><p id="23b64738-a3cc-80a7-9008-da74f3d7a473" class="">考虑到云居民普遍跟本土居民不太一样，他们对美卡的理解可能是两个极端：要不就是非常懂，要不就是对其一无所知。那么这份攻略楼主也讲一些关于美卡的要点，如果你正在犹豫要不要入坑，不妨参考一下本文。</p><p id="23b64738-a3cc-8098-8eb7-e5f67f47d560" class="">提前说一下，你可能会看过楼主之前写的两版文章《两年速通美卡》。那么这份攻略将与之前不同，楼主将推翻之前主张的结论并且给云居民带来更加合适的方案。</p><h2 id="23b64738-a3cc-8061-8f35-e16736bed01d" class="">推荐思路</h2><p id="23b64738-a3cc-806a-8959-ce92ca3d4db1" class="">由于云居民和本地居民不一样，所以开卡策略相比较有很大的不同。其中，云居民几乎只能选择无FTF的卡，而这大部分都是有年费的。相较于本地居民开无年费的返现卡几乎没有性价比。所以本文的推荐思路主要集中在，银行自营的旅行卡和联名卡，而联名卡又主要分航空卡和酒店卡。</p><p id="23b64738-a3cc-8064-af64-e09791a82982" class="">联名卡方面，在国内用的多的肯定是酒店卡，各大酒店集团在国内挺好用的，选择很多。而航空卡整体而言比较鸡肋，因为云居民几乎很少用到美国国内飞行，美卡的积分也不能兑换国内航司航线。那么大部分人能用到的需求就是国际航班，比如中美，中日，这点待会会再提到。</p><p id="23b64738-a3cc-8089-8225-ff757d8378ab" class="">另外值得一提的是航空卡，只有以美国为主的航司，在美国发行的信用卡福利较好。其他不是以美国为主的航司，比如国泰，大韩，全日空等，虽然在美国有发行信用卡但整体福利一言难尽，还不如使用银行点数转点出票。</p><h2 id="23b64738-a3cc-80a8-9add-c94d16373380" class="">要求前提</h2><p id="23b64738-a3cc-80e7-8b97-dfe5280742b2" class="">对于云居民来说，玩美卡是有前提的，需要SSN/ITIN。不像本地居民，楼主已经默认了所有人有。当然也不是所有银行都需要SSN/ITIN，但是如果想玩转美卡的话，就必须有。那么在细节分析中，楼主将分开讨论。</p><h2 id="23b64738-a3cc-80cf-be96-fe05844f1d6f" class="">推荐组合</h2><p id="23b64738-a3cc-80e6-91c8-f6d64b8b9cca" class="">结论也有在正文中列出。相比于本地居民能在两年内速通美卡，云居民需要将战线拉得更长。一方面有一些卡确实很难下，另一方面云居民选择受限。</p><p id="23b64738-a3cc-8025-b5f5-f806003b271e" class="">时间线方面，楼主不能给予一个准确的月份，而是给大家一个时间区间作为参考，只需要在这个区间内完成开卡任务就行。</p><p id="23b64738-a3cc-80cf-95aa-ec0a89c71597" class=""><strong>如果你不想申请SSN/ITIN：</strong><br/>第1个月：Boa蓝卡<br/>第6-12个月：Boa旅行卡<br/>第13个月及往后：Amex（可选）<br/></p><p id="23b64738-a3cc-8049-9b86-fb928e2b3379" class=""><strong>如果你想申请SSN/ITIN：</strong><br/>第1个月：Savor<br/>第9个月：Boa蓝卡<br/>第12个月：CSP<br/>第15-21个月：Hyatt，IHG，Marriott<br/>第24个月 UAC<br/>第27个月 Amex Hilton（可选）<br/>第36-48个月 Venture X<br/></p><h2 id="23b64738-a3cc-80c8-8b04-f545eea0b2ed" class="">细节分析</h2><h3 id="23b64738-a3cc-8058-b7d0-ca3826faa271" class="">如果你不想申请SSN/ITIN</h3><p id="23b64738-a3cc-802b-aa67-cf20655fe8dd" class=""><strong>第1个月：Boa蓝卡</strong></p><p id="23b64738-a3cc-80e3-9cf9-f09f48590b85" class="">当下阶段，只有Boa和Amex这两家银行开卡不需要SSN/ITIN。所以如果你不想申请，那么也就意味着你的选择只能在这两家银行之间展开。</p><p id="23b64738-a3cc-8082-9847-ed1e785d2e02" class="">但是无论怎么说，第1张卡还是推荐从Boa开始，而不是Amex。楼主之前强推的红卡因为有FTF，所以这里就不推荐了。反倒是1.5x所有的蓝卡非常推荐，非常适合国内一卡流，且无FTF。</p><p id="23b64738-a3cc-801a-8b71-da9509cc5fef" class="">值得一提的是，Boa需要你亲自赴美，并且到线下网点开卡。</p><p id="23b64738-a3cc-80ec-8651-fb0a548ca17e" class=""><strong>第6-12个月：Boa黑卡</strong></p><p id="23b64738-a3cc-8034-94c3-c34959b04f03" class="">如果你坚定了不想申请SSN/ITIN的道路，再加上有旅行需求，那么第2张卡仍然适合Boa，因为美卡有各种隐形福利（包含旅行福利和购物福利，详细见上篇帖子）。虽然Boa三张无年费的卡没有任何福利，但是两张有年费的黑卡/旅行卡多多少少还是有提供一些福利保障。如果你使用美卡购买国内航班晚点了，那么可以向信用卡保险公司提出赔偿。</p><p id="23b64738-a3cc-8001-9474-d8560f9de06b" class="">返点结构方面，没有任何特色。Boa除了红卡都有1.5x所有。</p><p id="23b64738-a3cc-8075-b5b4-e59981913c68" class=""><strong>第13个月及往后：Amex（可选）</strong></p><p id="23b64738-a3cc-8018-b475-e02fa05140bc" class="">除了Boa，Amex也不需要SSN/ITIN。但是但凡你有做一些研究就会发现，Amex的卡非常Coupon化，在美国都有人吐槽很难用，更别说在国内了。所以绝对不推荐自家的Green/Gold/Platinum。</p><p id="23b64738-a3cc-805d-b0e4-feb4961a741c" class="">如果有大量住酒店的需求，可以考虑一下Amex联名的万豪中高端卡，以及希尔顿卡。其中持大聪明（Marriott Brilliant）就送白金会员，另外Aspire也被称为一大神卡。当然前提是你有住店的需求，各大酒店集团在国内还是很不错的。</p><p id="23b64738-a3cc-8054-9d83-d371b6abe63a" class="">除此之外你的美卡之路应该到此为止了，欢迎补充。</p><p id="23b64738-a3cc-8074-8766-c13bc0d9e1b2" class=""><strong>小结</strong></p><p id="23b64738-a3cc-8060-8c66-fc505828a9db" class="">云居民玩美卡，你一定要想清楚你需要什么。如果你不想办理SSN/ITIN，那楼主觉得你的目标应该不是玩透美卡，而是单纯的每笔消费赚点返现，那么你开完第1张卡蓝就够了，没必要往后进行。</p><h3 id="23b64738-a3cc-805b-ba31-cf7f20416b2a" class="">如果你想申请SSN/ITIN</h3><p id="23b64738-a3cc-80c0-a4fa-f9624bf1290e" class=""><strong>第1个月：Savor</strong></p><p id="23b64738-a3cc-803c-9e6a-d1787f468e65" class="">如果你可以申请SSN/ITIN那么选择就会比之前多一点。大部分云居民在美的信用记录起步分为以下两种情况：赴美线下开Boa，或在国内递交C1押金卡的申请，当然来美线下也可以申。</p><p id="23b64738-a3cc-8025-8fa4-e2aec41fa78a" class="">那么与之前不同的是，第一张卡楼主更加推荐Savor押金卡。虽然C1是渣行，但他是唯一一个银行所有的卡都没有FTF，自然也成为了大家的首选。另外提早发展跟C1的关系也很重要，有助于后续下卡。</p><p id="23b64738-a3cc-80d0-b59a-d948622d4db8" class="">值得一提的是Savor总体的返现结构也比Boa给力一点。国内大型连锁品牌比如山姆可以刷出Grocery的3x。</p><p id="23b64738-a3cc-80f4-ad5c-d64d51cd3a01" class=""><strong>第9个月 Boa蓝卡</strong></p><p id="23b64738-a3cc-8094-a47e-ddbc817a9119" class="">这张卡是可选的但楼主也推荐大家搞，而且这张卡是楼主认为在美成本获取最低，在国内最好用的卡。9个月的信用记录应该可以下这张卡了，能多拿一个开卡奖励的同时也多了一个一卡流结构。对于国内MCC编码混乱的情况下一卡流结构最省心了。不过值得一提的是Boa仍然需要赴美申请。</p><p id="23b64738-a3cc-80de-a5a7-f2dc4821754f" class=""><strong>第13个月：CSP</strong></p><p id="23b64738-a3cc-8072-acab-de2d2019adda" class="">作为神卡之一怎么能少得了CSP呢？相比较于其他的卡，楼主也推荐很多本地居民出国旅游时刷这张卡或者随身带着，不会乱封控。那么对于云居民来说更是必申的一张卡。</p><p id="23b64738-a3cc-8053-a2a9-e89b5b09b007" class="">一年信用记录左右，只要你在这一年内操作得当，那么下这张卡基本就没什么问题。唯一的问题是如果你不打算赴美，茶色对新客户特别容易封控，尤其你还不在美国。所以这个时候你就要做好拉锯战的准备：不停的打电话和递交材料。在网上能收到过非常多相似经历和应对的办法，推荐先研究一下。</p><p id="23b64738-a3cc-80a3-b8a5-d14283777690" class=""><strong>第16-21个月：Hyatt，IHG，Marriott</strong></p><p id="23b64738-a3cc-8062-acd2-d473250662e9" class="">下完CSP之后，与之前楼主推荐立马转Citi不同，这里推荐拉满524。首先不推荐云居民搞Citi，这点待会会提到。另外云居民真正想玩转美卡，感兴趣的肯定是各类联名卡，有FTF的日常返现卡对于他们来说没有意思。</p><p id="23b64738-a3cc-80d1-8e18-e33d0e9c964f" class="">茶色也是同时发行了美国三大酒店集团的卡，再加上这些酒店在国内很好使（在美国反而不好使），所以极力推荐大家申请。万豪方面，高端卡被Amex占去了。所以如果你需要白金会员那就考虑用大聪明替代（最好放在UAC之后申请）。</p><p id="23b64738-a3cc-8052-ae58-f6588720afed" class="">申请茶色的卡，大家要记住一个点就是心急吃不了热豆腐。慢慢来，如果下太快很容易被银行Sha。所以在这里时间线被拉得很宽，只要在第21个月前下完这三张卡即可。另外楼主推荐的间隔是茶色的卡申请间隔是三个月左右（毕竟完成开开奖励的时间也是三个月），申请最后一张卡时需要MDD（如果你前面没有申请Boa蓝卡则不需要MDD）。</p><p id="23b64738-a3cc-80bc-931a-da2444260f15" class=""><strong>第24个月 UAC</strong></p><p id="23b64738-a3cc-8089-acba-cf1ae138e7a5" class="">现在你有大概两年信用记录了，524也满了，那么茶色毕业了。UAC仍然是一张非常优秀的卡，非常值得一个卡槽，对于小银行USBank来说两年的记录也刚刚好。</p><p id="23b64738-a3cc-8095-9a7e-c7d3612ac004" class=""><strong>第27个月 Amex Hilton（可选）</strong></p><p id="23b64738-a3cc-806c-853f-f641bf52e401" class="">如果可以，Amex的卡永远是最后下。因为下卡难度最低，而最佳的策略永远是把比较难的卡先下。如果先下了简单的卡，到后面比较难下的卡就下不下来了，这个逻辑都懂了吧？</p><p id="23b64738-a3cc-8006-98ee-e2d71656e147" class="">Amex联名卡没有茶色多，有一个万豪的中高端卡和希尔顿。如果需要万豪白金会员或者经常住希尔顿，可以考虑在这个时间点下Amex。另外仍然不推荐自家的Green/Gold/Platinum，刚刚已经提到过。</p><p id="23b64738-a3cc-809c-9d44-d75baafe0222" class=""><strong>第36-48个月 Venture X</strong></p><p id="23b64738-a3cc-801d-bb13-e68d1a1ce369" class="">该来的还是来了。已经官宣砍过福利，反正楼主是认为在北美地区已经不值得申请。但是对于云居民来说就不一样了，PPS在亚洲比较好用，而且你需要Saver + Venture的组合。</p><p id="23b64738-a3cc-802a-862b-e0e2d8505841" class="">这张卡的特点就是出了的难下。楼主总结了一点就是首先申请的卡必须有一定长度的信用记录，然后你的手上还不能有太多的卡。那这不就逼你在信用记录的前几年不能开太多的卡吗？所以楼主的时间线从第27个月直接跳到了第36个月，然而即使是这样三年信用记录可能还下不了，有可能要4年，所以你一定会有很长一段时间的空档期，这是没办法的事。</p><p id="23b64738-a3cc-80c1-b9a8-e268e51cbe26" class="">如果你觉得不需要Venture X，可以考虑一下Venture甚至是没有年费的Venture One，至少把这个组合凑齐。不过很明显后两者肯定没有前者性价比高，但也是无奈的办法。</p><p id="23b64738-a3cc-802f-8297-c66a34f92852" class=""><strong>小结</strong></p><p id="23b64738-a3cc-8037-90cc-dab2ccc8706b" class="">可以看见在这一套组合中最难下的就是Venture X了。如果能下，那么你的美卡就开的差不多了，后续可以各种Amex NLL随便你整。没有什么技巧，就是需要时间和耐心。</p><p id="23b64738-a3cc-80b7-93f6-f61f71e21131" class="">另外每家酒店集团都有无免费的卡可以降级（除了Amex发行的万豪，你必须得刚需白金），如果酒店住的不多，那么一年后降级肯定是最好的选项。千万不要关卡！</p><h2 id="23b64738-a3cc-804a-bb56-f3470022e2a2" class="">组合分析</h2><p id="23b64738-a3cc-80ba-ba75-dee9c8ad9e68" class="">这套组合同时也能满足中美航班需求，主力就是C1可以转国泰，UR辅助，转CA/UA。考虑到如果大部分时间在国内的话，美航空卡的作用很有限，当然也取决于各人需求。如果有需求的话，后续可以考虑开AA和AS，性价比也很高。</p><p id="23b64738-a3cc-8031-a0e6-db5cd946ed26" class="">另外不推荐Citi的原因，原因之一就是封控比较迷，第二也没啥太大作用。毕竟没有FTF就Strata系列，但是3x餐厅可以用CSP代替，Grocery可以用Savor代替，加油可以用UAC代替，国内的加油站不支持外卡吧？所以Strata系列定位就有些尴尬，对于云居民来说并不是刚需。</p><p id="23b64738-a3cc-803d-909f-cb42c7ff082d" class="">另外楼主在这里提几张2%类别的卡：</p><ul id="23b64738-a3cc-801c-bf47-c0cd4e6babbc" class="bulleted-list"><li style="list-style-type:disc">Fidelity：所有返现2%，但是只接受SSN，不接受ITIN</li></ul><ul id="23b64738-a3cc-805f-8e38-ddc99c1b632a" class="bulleted-list"><li style="list-style-type:disc">Apple Card：只有使用Apple Pay才有2%，国内的支持度很明显不行，同样需要SSN</li></ul><ul id="23b64738-a3cc-80de-9db1-d3cea24ae66d" class="bulleted-list"><li style="list-style-type:disc">SoFi：所有返现2%，一些情况下可以用出更高价值，需要配合自家Checking。虽然说也有云居民搞这个，但是小银行不省心，大部分情况下肯定是Boa蓝卡更方便，门槛也更低。</li></ul><p id="23b64738-a3cc-8088-8e9f-dbee1a76cb5d" class="">那么从这几张卡看来，他们都是2%返现，主打在国内一卡流的卡，也就是应付日常消费而已。那楼主的建议还是看需求吧，毕竟花人民币以美元结算0.5%也差的不多。</p><h2 id="23b64738-a3cc-8058-9bca-e4a5b84663a8" class="">结语</h2><p id="23b64738-a3cc-80d6-bca5-c67f9dd81cd1" class="">无论如何，再无脑的组合，也要确保满足自己的消费结构。希望大家在申一张卡前权衡利弊。</p><p id="23b64738-a3cc-80bc-98c2-f7e24ed9867a" class="">虽说申请信用卡的目的是将奖励最大化，但是其实是指在你的消费能力范围内的奖励最大化。如果一味的追求点数奖励和报销，从而陷入消费陷阱，是非常不值得的。记住，你只是游戏的参与者，而不是规则的制定者。</p><p id="23b64738-a3cc-80d6-850c-cc3d8abf776f" class="">信用卡的操作远不止于此，还有更多高端的操作，本合集的攻略贴仅仅是入门。如果你有心思研究，那么信用卡肯定能够给你带来很高的价值。</p><h2 id="23b64738-a3cc-8014-94ee-ca37a99a3961" class="">免责声明</h2><p id="23b64738-a3cc-804c-bf03-ef334313fb52" class="">每个人有不同的意见很正常，内容仅供参考。拒绝任何一切以偏概全，指责内容，但欢迎交流想法。</p><p id="23b64738-a3cc-8056-bc7b-deb341c71840" class="">本贴只提供针对信用卡申请的一般建议，时间线仅供参考，不构成最终入坑理由和法律建议，仅供参考。</p><p id="23b64738-a3cc-800d-b54c-ec108fe3b8f4" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23b64738-a3cc-809d-8493-eb2474b08f2d"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23b64738-a3cc-8091-851b-c123bb302cc9" class="">XHS原文章</p><p id="23b64738-a3cc-80ef-9026-d0b713f4e063" class=""><a href="http://xhslink.com/m/8l8Y92mahxh">http://xhslink.com/m/8l8Y92mahxh</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

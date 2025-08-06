@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>信用卡全面对比整理</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-8037-b0a9-e0502648c371" class="page serif"><header><h1 class="page-title">信用卡全面对比整理</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80e3-88ba-e773163cee29"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-805c-bae0-d812221a0672" class="">【2025.07】2.5版本（XHS未发布），更新了银行的一些卡</p><p id="23c64738-a3cc-80b8-ab8a-eb90cdcce1d4" class="">SYW已绝版，目前无法申请</p><p id="23564738-a3cc-800a-8176-db98af812825" class="">【2025.05】2.0版本发布，更新了银行的一些卡</p><p id="23564738-a3cc-808e-9369-c38b8ed26517" class="">【2025.01】1.0版本发布</p></div></figure><p id="23564738-a3cc-80f8-ad38-df9dec4bec13" class="">
+</p><nav id="23564738-a3cc-801b-8508-f1a93965d2dc" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80bb-9afd-f9f3d57349f1">简介内容</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80b3-90af-ee9e64f7f454">结论分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-803a-8aca-d2d088072325">核心策略</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-809c-a031-c67e7d78ef17">注意事项</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80b9-98ce-e5e2e9a89081">Bank of America</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8057-b37e-e3a6b504930c">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80e3-876b-fcf2bc797dac">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8096-81a2-dbcffab147a2">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80d0-a1b0-d7777c49cf8f">Discover</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8026-a956-da3ea22fec62">Capital One</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-808e-b1d8-d8394f573a65">USBank</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80b1-b2a7-cc9e46e809e8">Well Fargo</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-807b-84b8-c7422d5dadbb">Special</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80cc-acaa-f82f0c899524">Co-Brand</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-805e-8d70-da70d46c47c0">其他联名卡航司&amp;酒店评价</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80c3-a8ab-e1a9a69aedeb">航空公司</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80cd-8255-f3ff94ca7713">酒店</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8080-8b4e-eb170b78672d">申请建议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-806e-bde6-c774c3866e87">免责声明</a></div></nav><h2 id="23564738-a3cc-80bb-9afd-f9f3d57349f1" class="">简介内容</h2><p id="23564738-a3cc-8062-9eea-e2dee910f47d" class="">六个月前，楼主总结了关于美国各大银行的信用卡。由于变化多端，很多信息难免过时。所以这期继续给大家总结更新，包括Bank of America，Chase，Citi，Amex，Discover，Capital One，USBank，Well Fargo。以后可能会不定时更新，但不对未来的改变负责。</p><h3 id="23564738-a3cc-80b3-90af-ee9e64f7f454" class="">结论分析</h3><p id="23564738-a3cc-80d1-be66-f8014a10f1e8" class="">由于信息更新，策略相对之前有所改变。标准分为有存款（10w）和其他。</p><p id="23564738-a3cc-80ba-9081-ca959110721a" class="">【有存款】</p><p id="23564738-a3cc-8037-99bd-c100f6ac392c" class="">推荐Boa全家桶即可（75%额外加成）。缺点就是没有Primary保险，再补一张CSP就够了。另外由于USBank进行削弱，不再推荐Smartly。</p><p id="23564738-a3cc-8078-8c7e-cdd59485ec27" class="">【无存款】</p><p id="23564738-a3cc-80e8-a3b7-c8ef46bf70d6" class="">八卡策略性价比仍然很高，感兴趣的可以去考古一下。省流：Boa123+Chase&amp;Citi三剑客+Bilt+UAC。另外随着Discover正式被C1收购，不再推荐作为信手卡申请。</p><h3 id="23564738-a3cc-803a-8aca-d2d088072325" class="">核心策略</h3><p id="23564738-a3cc-80e9-8863-df171985a8cd" class="">点数可以兑现，现金不能兑点。其中UR，TYP可以1cpp兑现，随意入。但Amex，C1兑现均低于1cpp，就需要考虑清楚点数是否能用得上了。</p><p id="23564738-a3cc-80ec-8aaf-c5df10d4720b" class="">如果觉得八卡还是太多，可以考虑根据自己的需求二次精简。首先要彻底了解自己的需求，八卡覆盖的类别是全但前期需要有取舍。清楚自己在哪个类别花销更大，就先下哪个类别对应的卡。</p><h3 id="23564738-a3cc-809c-a031-c67e7d78ef17" class="">注意事项</h3><ol type="1" id="23564738-a3cc-806f-9907-f320b63896a3" class="numbered-list" start="1"><li>本攻略只整理了各大银行自家发行的个人卡，并附上一些性价比高的卡，及各大航司/酒店评价。</li></ol><ol type="1" id="23564738-a3cc-8060-ae2b-f617f70776d4" class="numbered-list" start="2"><li>信息均来自官网。由于信息变化快，楼主不对未来的变化负责，仅供参考。</li></ol><ol type="1" id="23564738-a3cc-8051-925c-eb7e9f8dd58d" class="numbered-list" start="3"><li>很多卡有消费上限。比如5x的卡一般季度消费上限$1500，之后1x。</li></ol><ol type="1" id="23564738-a3cc-80ac-988a-c6c61b86c594" class="numbered-list" start="4"><li>本表格区别卡是返现（%）还是返点（x）。</li></ol><ol type="1" id="23564738-a3cc-80e4-83d4-e0f6e71f62ff" class="numbered-list" start="5"><li>所有在银行Portal购买旅行相关的产品消费结构均不计入此表格。</li></ol><ol type="1" id="23564738-a3cc-809e-b8d5-e614d9c2a29d" class="numbered-list" start="6"><li>不同卡的报销限制不同，建议前往官网查看具体条款。</li></ol><p id="23664738-a3cc-80a6-8479-fcdb2744cab5" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8040-a127-d6b385ad91bf"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8080-85d7-ca9025c4e97d" class="">由于Notion不支持合并单元格，所以只能放图片了</p></div></figure><h2 id="23664738-a3cc-80b9-98ce-e5e2e9a89081" class="">Bank of America</h2><figure id="23664738-a3cc-806d-90be-c6731eead185" class="image"><a href="image.png"><img style="width:709.99169921875px" src="image.png"/></a></figure><h2 id="23664738-a3cc-8057-b37e-e3a6b504930c" class="">Chase</h2><figure id="23664738-a3cc-80a7-aeee-e690a0197c91" class="image"><a href="image%201.png"><img style="width:709.99169921875px" src="image%201.png"/></a></figure><h2 id="23664738-a3cc-80e3-876b-fcf2bc797dac" class="">Citi</h2><figure id="23664738-a3cc-809a-9986-fb84a8f8bd77" class="image"><a href="image%202.png"><img style="width:709.99169921875px" src="image%202.png"/></a></figure><h2 id="23664738-a3cc-8096-81a2-dbcffab147a2" class="">Amex</h2><figure id="23664738-a3cc-8031-9dc6-c2e6419ede1e" class="image"><a href="image%203.png"><img style="width:710.0000610351562px" src="image%203.png"/></a></figure><h2 id="23664738-a3cc-80d0-a1b0-d7777c49cf8f" class="">Discover</h2><table id="23d64738-a3cc-8037-99ae-c2e63d343916" class="simple-table"><thead class="simple-table-header"><tr id="23d64738-a3cc-80ca-a226-d0358015f1e6"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px"></th><th id="n]PF" class="simple-table-header-color simple-table-header" style="width:252.99240112304688px">Discover it</th></tr></thead><tbody><tr id="23d64738-a3cc-8056-b630-ce854da678de"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">定位</th><td id="n]PF" class="" style="width:252.99240112304688px">新人卡，日常卡</td></tr><tr id="23d64738-a3cc-8023-a033-f42fc3742752"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">年费</th><td id="n]PF" class="" style="width:252.99240112304688px">$0</td></tr><tr id="23d64738-a3cc-8034-8851-f76634aaace9"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">奖励</th><td id="n]PF" class="" style="width:252.99240112304688px">$100</td></tr><tr id="23d64738-a3cc-8092-bbfc-ee872c5f82d4"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">消费</th><td id="n]PF" class="" style="width:252.99240112304688px">5%季度轮换<br/>1%其他<br/></td></tr><tr id="23d64738-a3cc-80cc-9247-d2b75e4b987f"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">报销</th><td id="n]PF" class="" style="width:252.99240112304688px">--</td></tr><tr id="23d64738-a3cc-80c3-9fee-ca8f2a2a98d5"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">建议</th><td id="n]PF" class="" style="width:252.99240112304688px">现在楼主不推荐Discover作为新人卡<br/>有一个缺点是他们会随机抽查，需要提供相关文件证明。如果拿不出来可能会被关户，这点挺烦的。<br/>另外的卡就不介绍了，没啥可玩性<br/></td></tr><tr id="23d64738-a3cc-80f6-8df4-fc733d7cefd1"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">更新内容</th><td id="n]PF" class="" style="width:252.99240112304688px">已正式被C1收购，以后恐怕是有臭名昭著的3HP了。想一想你是新手一上来就吃了3HP… 这还有得玩吗？</td></tr><tr id="23d64738-a3cc-8052-a7ba-d6fa57bf93e5"><th id="lNtv" class="simple-table-header-color simple-table-header" style="width:90.99999237060547px">推荐指数</th><td id="n]PF" class="" style="width:252.99240112304688px">低</td></tr></tbody></table><h2 id="23664738-a3cc-8026-a956-da3ea22fec62" class="">Capital One</h2><figure id="23664738-a3cc-8029-a627-cae7eddb3e45" class="image"><a href="image%204.png"><img style="width:709.9833984375px" src="image%204.png"/></a></figure><h2 id="23664738-a3cc-808e-b1d8-d8394f573a65" class="">USBank</h2><figure id="23664738-a3cc-80dc-9f89-f2e298763c4c" class="image"><a href="image%205.png"><img style="width:710.0000610351562px" src="image%205.png"/></a></figure><h2 id="23664738-a3cc-80b1-b2a7-cc9e46e809e8" class="">Well Fargo</h2><table id="23c64738-a3cc-8058-af2a-c03b52093afb" class="simple-table"><thead class="simple-table-header"><tr id="23c64738-a3cc-80aa-83ca-c335de815956"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px"></th><th id="EeZG" class="simple-table-header-color simple-table-header">Attune</th><th id="~LMM" class="simple-table-header-color simple-table-header">Active Cash</th><th id="y{xr" class="simple-table-header-color simple-table-header">Autograph</th><th id="YRZc" class="simple-table-header-color simple-table-header">Autograph Journey</th></tr></thead><tbody><tr id="23c64738-a3cc-80d3-8e9b-c28f36f5be93"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">定位</th><td id="EeZG" class="">日常卡</td><td id="~LMM" class="">日常卡</td><td id="y{xr" class="">日常卡</td><td id="YRZc" class="">中端旅行卡</td></tr><tr id="23c64738-a3cc-8002-9fdb-d89674f2962a"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">年费</th><td id="EeZG" class="">$0</td><td id="~LMM" class="">$0</td><td id="y{xr" class="">$0</td><td id="YRZc" class="">$95</td></tr><tr id="23c64738-a3cc-80f9-b2ca-e1d27e54336d"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">奖励</th><td id="EeZG" class="">$100</td><td id="~LMM" class="">$200</td><td id="y{xr" class="">20k</td><td id="YRZc" class="">60k</td></tr><tr id="23c64738-a3cc-8007-91c3-e0308ff32471"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">消费</th><td id="EeZG" class="">4%体育馆会员&amp;美容美发&amp;娱乐&amp;运动&amp;公共交通&amp;充电&amp;旧货店<br/>1%其他<br/></td><td id="~LMM" class="">2%所有</td><td id="y{xr" class="">3x餐厅&amp;旅行相关&amp;加油&amp;流媒体&amp;手机计划<br/>1x其他<br/></td><td id="YRZc" class="">5x酒店<br/>4x机票<br/>3x餐厅&amp;旅行相关<br/>1x其他<br/></td></tr><tr id="23c64738-a3cc-80d0-9b1e-e4cd265d43d8"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">报销</th><td id="EeZG" class="">--</td><td id="~LMM" class="">--</td><td id="y{xr" class="">--</td><td id="YRZc" class="">$50机票</td></tr><tr id="23c64738-a3cc-80c1-bbc4-d2b611bb97f8"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">建议</th><td id="EeZG" class="">消费结构独特程度仅此一张，这是给喜欢演唱会的人准备的吧？</td><td id="~LMM" class="">DC平替，你是有多想不开来申请这个？</td><td id="y{xr" class="">有点意思，也就这张性价比可以，有3x的加油，另外旅行相关的定义也比较广泛</td><td id="YRZc" class="">也就那样了，当返现卡用吧。值得一提的是履行相关不包括Transit，定义比Autograph窄</td></tr><tr id="23c64738-a3cc-8031-876a-ed5227980947"><th id="ByaY" class="simple-table-header-color simple-table-header" style="width:80.99241638183594px">推荐指数</th><td id="EeZG" class="">低</td><td id="~LMM" class="">低</td><td id="y{xr" class="">中</td><td id="YRZc" class="">中</td></tr></tbody></table><p id="23c64738-a3cc-80d2-96b3-e1ab1cc8a095" class="">你在网上大概都搜不到WF卡的介绍，实在是冷门到无人问津，第一版里面楼主甚至都没有包括。考虑到还是有需求所以添加了这个板块，总体看下来只有一张Autograph性价比不错。</p><p id="23c64738-a3cc-80e6-9629-c5173c1707b8" class="">另外转点伙伴方面，千万别对WF抱有太大期待。大家按照返现卡使用即可。</p><h2 id="23664738-a3cc-807b-84b8-c7422d5dadbb" class="">Special</h2><table id="23c64738-a3cc-80d5-a748-ef52cb894ffb" class="simple-table"><thead class="simple-table-header"><tr id="23c64738-a3cc-801e-89c7-c72daba34935"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px"></th><th id="&lt;G\m" class="simple-table-header-color simple-table-header" style="width:339.4052734375px">Bilt</th><th id="\:@B" class="simple-table-header-color simple-table-header" style="width:271.9942932128906px">Robinhood Gold</th></tr></thead><tbody><tr id="23c64738-a3cc-801c-a128-f9ada5b040e8"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">定位</th><td id="&lt;G\m" class="" style="width:339.4052734375px">日常卡(房租卡，中端旅行卡)</td><td id="\:@B" class="" style="width:271.9942932128906px">日常卡</td></tr><tr id="23c64738-a3cc-80c3-af0d-d6cc05539b87"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">年费</th><td id="&lt;G\m" class="" style="width:339.4052734375px">$0</td><td id="\:@B" class="" style="width:271.9942932128906px">$0（但是需要会员，年费$60）</td></tr><tr id="23c64738-a3cc-8024-99df-dda9e71728c4"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">奖励</th><td id="&lt;G\m" class="" style="width:339.4052734375px">$0</td><td id="\:@B" class="" style="width:271.9942932128906px">$0</td></tr><tr id="23c64738-a3cc-8086-a629-ef68af589e10"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">消费</th><td id="&lt;G\m" class="" style="width:339.4052734375px">3x吃饭<br/>2x旅行相关<br/>1x其他<br/></td><td id="\:@B" class="" style="width:271.9942932128906px">3%所有</td></tr><tr id="23c64738-a3cc-802d-a188-c12f2e58178c"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">发卡行</th><td id="&lt;G\m" class="" style="width:339.4052734375px">Well Fargo</td><td id="\:@B" class="" style="width:271.9942932128906px">--</td></tr><tr id="23c64738-a3cc-808f-a6be-d3b5e9302b30"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">建议</th><td id="&lt;G\m" class="" style="width:339.4052734375px">虽然没有开卡奖励，但作为市面上唯一的房租/房贷卡，还是很值的<br/>也支持以保底1.25cpp定旅行相关产品。不过要吐槽一下点数会去尾<br/></td><td id="\:@B" class="" style="width:271.9942932128906px">3%所有还无FTF国内刷非常香。但需要排队排很久，且只对gold会员开放。所以即使是没有年费但是会员一年$60<br/>另外CEO在接受采访时，不能保证未来18个月是否能有3%所有消费。<br/></td></tr><tr id="23c64738-a3cc-8063-9e14-d4b3ed3e27ec"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">更新内容</th><td id="&lt;G\m" class="" style="width:339.4052734375px">也就这短短几个月Bilt的变化很多。之前甚至更新了通过Bilt portal再不需要Bilt卡的情况下可获取1x Bilt积分+信用卡本身的积分，但是要付手续费。当然很明显已经被玩坏了，所以Bilt准备砍到0.5x。<br/>有些人觉得没有再申请Bilt的必要了，但是如果寄支票的话必须使用Bilt卡，而市面上也没有替代品（主要还是省事）<br/>另外WF已经赔了很多钱，想要尽早做甩手掌柜。预计2026年2月Bilt将迎来新发卡行，推出年费版本。但新发卡还真的很一言难尽<br/></td><td id="\:@B" class="" style="width:271.9942932128906px">很多人排队到天荒地老。这张卡的定位确实很尴尬，需要的时候decline，不需要的时候放抽屉。有人反映说交税之类的压根就不给点数，就是玩不起。总体来说适合中老年人一卡流，不然按照之前楼主的思路这张卡基本上没什么用。另外没有开卡奖励也是硬伤</td></tr><tr id="23c64738-a3cc-80f0-9c67-cb0a12b92c02"><th id="pM&lt;Y" class="simple-table-header-color simple-table-header" style="width:75.99810028076172px">推荐指数</th><td id="&lt;G\m" class="" style="width:339.4052734375px">高（对于有房租/房贷的人）<br/>低（对于没有房租/房贷的人）<br/></td><td id="\:@B" class="" style="width:271.9942932128906px">一般人申不到</td></tr></tbody></table><h2 id="23664738-a3cc-80cc-acaa-f82f0c899524" class="">Co-Brand</h2><table id="23c64738-a3cc-80ed-bb3e-f09b812c6737" class="simple-table"><thead class="simple-table-header"><tr id="23c64738-a3cc-80ce-adcf-e27cf92777d6"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px"></th><th id="bfMb" class="simple-table-header-color simple-table-header">Alaska</th><th id="tWxr" class="simple-table-header-color simple-table-header">AAdvantage Platinum Select</th><th id="K^zN" class="simple-table-header-color simple-table-header">Marriott Bonvoy Boundless</th><th id="cK\U" class="simple-table-header-color simple-table-header">World of Hyatt</th></tr></thead><tbody><tr id="23c64738-a3cc-80c2-acf4-d46e9ca303f1"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">定位</th><td id="bfMb" class="">旅行卡</td><td id="tWxr" class="">旅行卡</td><td id="K^zN" class="">旅行卡</td><td id="cK\U" class="">旅行卡</td></tr><tr id="23c64738-a3cc-802c-b880-e6564fe8b0a3"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">年费</th><td id="bfMb" class="">$95</td><td id="tWxr" class="">$99（首年免费）</td><td id="K^zN" class="">$99</td><td id="cK\U" class="">$95</td></tr><tr id="23c64738-a3cc-807a-bdf7-fd71edb3e19a"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">奖励</th><td id="bfMb" class="">60k</td><td id="tWxr" class="">50k</td><td id="K^zN" class="">3FN</td><td id="cK\U" class="">Up to 60k</td></tr><tr id="23c64738-a3cc-8092-8ba6-d222c73a39e2"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">消费</th><td id="bfMb" class="">3x Alaska<br/>2x加油&amp;交通&amp;网络&amp;订阅服务<br/>1x其他<br/></td><td id="tWxr" class="">2xAA&amp;餐厅&amp;加油<br/>1x其他<br/></td><td id="K^zN" class="">6x万豪酒店<br/>3x加油&amp;超市&amp;餐厅<br/>2x其他<br/>——<br/>17x最高万豪酒店消费（6x基础+10x部分万豪酒店+1x银卡会员）<br/></td><td id="cK\U" class="">4x凯悦酒店<br/>2x餐厅&amp;机票&amp;公共交通&amp;体育健身<br/>1x其他<br/>——<br/>9x最高（4x基础+5x会员身份）<br/></td></tr><tr id="23c64738-a3cc-80ef-acf2-f95ce8f61602"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">发卡行</th><td id="bfMb" class="">Bank of America</td><td id="tWxr" class="">Citi</td><td id="K^zN" class="">Chase</td><td id="cK\U" class="">Chase</td></tr><tr id="23c64738-a3cc-801c-b9fc-efeb70d64f4a"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">报销</th><td id="bfMb" class="">$100 Alaska Lounge+ Membership</td><td id="tWxr" class="">--</td><td id="K^zN" class="">--</td><td id="cK\U" class="">--</td></tr><tr id="23c64738-a3cc-8041-a5ae-c475fccdfdae"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">福利</th><td id="bfMb" class="">20%机上购买折扣<br/>每年奖励10%点数（需持有Boa checking）<br/>免费托运一件行李<br/></td><td id="tWxr" class="">25%机上购买折扣<br/>免费托运一件行李<br/></td><td id="K^zN" class="">1FN(Up to 35k)</td><td id="cK\U" class="">每年送FN x 1<br/>每年消费1.5w再送FN x 1<br/></td></tr><tr id="23c64738-a3cc-8083-bb74-ead03e11faf4"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">建议</th><td id="bfMb" class="">AS是最值钱的里程之一了，非常实用。自从收购夏威夷航空后，从7月份起Amex就不能再转点了，从此以后只接受Bilt。点数来源稀少。</td><td id="tWxr" class="">AA一共有三张联名卡，这张在中间。楼主认为性价比最高，也是大多数人开AA的首选。AA里程同样来源稀少且珍贵，据说明年接受TYP转点。没有报销，但是首年免年费，第2年不用了降级</td><td id="K^zN" class="">万豪的分本身不值钱，但是酒店数量最多，经常出差可以考虑。另外此卡一年之后可以考虑升级Ritz（粟子），也可以降级至无年费卡，比较灵活。</td><td id="cK\U" class="">每年只要交免费就送1FN cat 1-4, 相当于花$95购买了价值上限平均约$250的酒店，每年只要能住一晚就能负年费。<br/>另外酒店覆盖率不如万豪，优点是点数价值是所有酒店集团里最高的。大家应该攒了不少UR吧？毕竟是唯二把UR用出高价值的方式了。<br/></td></tr><tr id="23c64738-a3cc-806d-b4d3-ff356ac734d7"><th id="NLtU" class="simple-table-header-color simple-table-header" style="width:64.99999237060547px">更新内容</th><td id="bfMb" class="">最近有人能刷出75k的奖励。另外听说暑假要出一张高端卡，敬请期待</td><td id="tWxr" class="">截至发稿前，官网有80k石膏奖励。考虑到马上TYP就能转AA了，可预见的是贬值。楼主严重怀疑贬值前再圈一波钱。航空里程不能囤！</td><td id="K^zN" class="">截至发稿前，5FN的开卡奖励已过期。不过值得吐槽的是最近万豪点数又贬值了，很多人抱怨FN很难用</td><td id="cK\U" class="">联名卡的开卡奖励千变万化。截至发稿前，这张卡的开卡奖励变成了史低。看了这么多联名卡，真的也就只有Hyatt敢这样了</td></tr></tbody></table><p id="23c64738-a3cc-80a6-86c8-e34a4557260e" class="">既然楼主把这些联名卡挑出来并且放在了这里，证明都是性价比很高的联名卡。但是性价比高是建立在有需求的基础上，没有需求千万不要乱开联名卡！</p><h2 id="23664738-a3cc-805e-8d70-da70d46c47c0" class="">其他联名卡航司&amp;酒店评价</h2><h3 id="23664738-a3cc-80c3-a8ab-e1a9a69aedeb" class="">航空公司</h3><p id="23664738-a3cc-80c7-a440-e2807c8a4a2d" class=""><strong>达美航空</strong></p><p id="23664738-a3cc-802e-a548-fc0f5374746f" class="">空中冥币实至名归（回国经常需要百万里程）。另外之前出了一篇文章，达美居然使用Amex提供额度为11亿美元的信用卡购买航空燃油，每月付款。空中冥币的原因找到了...</p><p id="23664738-a3cc-80df-931b-d76c4a8cbfa4" class=""><strong>美联航</strong></p><p id="23664738-a3cc-8023-b646-d1fd53811312" class="">紧随其后，也快成为第2个空中冥币的公司了。不排除有时会找到性价比高的票，但在美国境内用出1.2cpp就很好了。另外UA信用卡最近刚改版，增加了年费和Coupon Book，非常讨厌。如果经常坐可以考虑，但是如果想冲着里程票去就放弃吧。</p><p id="23664738-a3cc-8060-a346-cf37004e0aff" class=""><strong>西南航空</strong></p><p id="23664738-a3cc-8097-a507-f07332ebd64d" class="">宣布取消了免费托运行李，泪奔。点数价值中规中矩。绝对刚需可以考虑（比如有人反映每周都要飞一次SW，如果需要免费托运行李办卡很有用）。</p><p id="23664738-a3cc-8059-9d37-cb987df2a980" class=""><strong>阿拉斯加航空&amp;美国航空</strong></p><p id="23664738-a3cc-809f-9e0d-efb885c4ff3a" class="">表格中已经介绍过。目前航空界最值钱的里程之二且来源稀少，也可以出其他航司的票，需要上车绝对不亏。</p><p id="23664738-a3cc-80b6-ba6a-c8bd9d6e0436" class=""><strong>加拿大航空</strong></p><p id="23664738-a3cc-8093-9215-e31acd586783" class="">由于引入了动态换票，褒贬不一。根据反馈，界面好用，价格也比UA划算（肯定的UA都不懂贬值到哪去了）。之前为了防止票代，系统默认屏蔽了飞往亚洲的票。不过现在好消息是解除了对中国内地和香港的部分机票的搜索屏蔽。劣势方面退票没有UA方便。鉴于星空应该是最团结的一个联盟，如果能用上这张卡性价比很高。</p><h3 id="23664738-a3cc-80cd-8255-f3ff94ca7713" class="">酒店</h3><p id="23664738-a3cc-80dc-8782-c80f595f333c" class=""><strong>万豪</strong></p><p id="23664738-a3cc-80af-b085-eb5985337f39" class="">点数价值低，尤其在美国境内贬值严重（根据反映美国之外还不错）。很多人都是冲着Ritz（栗子卡）去的。但是如果不住万豪，栗子卡的性价比也很低。</p><p id="23664738-a3cc-8055-bd42-d402afaa4be8" class=""><strong>凯悦</strong></p><p id="23664738-a3cc-80cc-81b5-e728554c1462" class="">点数价值最高的酒店没有之一，因为大多数为自营品牌所以质量普遍较高（但是就真实情况来看未必）。本身信用卡的性价比有，但最多就是95换1FN而已，Cat1-4在美国境内未必好用（根据反馈）。相信大家有非常多的UR，如果一年只旅行几次UR转点应该够用了（更何况大家不要老盯着转点，有时候Airbnb性价比更高）。</p><p id="23664738-a3cc-80ec-bf7f-f01f96134b8f" class=""><strong>洲际</strong></p><p id="23664738-a3cc-8049-b1ab-dd933361c52c" class="">点数价值同样一言难尽。根据网上反馈，IHG门店数量在美国其实不占优，主要分布在一些著名景区和国家公园。另外听说在欧洲是主场。如果从性价比的角度来说，联名卡的优先程度确实不如另外几家酒店。但是联名卡其实并没有性价比这一说，能用上就是最好的。</p><p id="23664738-a3cc-809a-9bf8-efa25c33c6c2" class=""><strong>希尔顿</strong></p><p id="23664738-a3cc-8097-8bea-d1913d79f128" class="">点数价值最低的酒店，再配上Amex恶心的Coupon Book。高端卡已经砍掉PPS，楼主认为性价比不高（对于大部分人，因为讨论度也不高）。但是好用的人是觉得真好用，这里不做评价。</p><h2 id="23664738-a3cc-8080-8b4e-eb170b78672d" class="">申请建议</h2><p id="23664738-a3cc-80a2-9a48-da6600bbd078" class="">虽然楼主在强调联名卡不适合大多数人，按需申请。但楼主本身确实对联名卡毫不感冒，也有可能是偏见或绝对的理智。如果你的两年八卡申完了，接下来可以怎么玩？楼主会申请一些别的卡然后通过转卡获得多张Boa123，CFF，CC等。如果Robinhood排到了可能会接...</p><h2 id="23664738-a3cc-806e-bde6-c774c3866e87" class="">免责声明</h2><p id="23664738-a3cc-8046-a559-d8b63e2e632c" class="">以上意见是在楼主采集了不同人的想法和翻阅许多文章得出的，不代表最后观点。联名卡的争议非常大，好用是真好用，不好用是真不行。自己用的舒服就行了，不接受对以上内容的争议。</p><p id="23664738-a3cc-807e-bce1-ce0eff6da6f0" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80d2-9298-c22b76f4492a"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-804c-b98d-d3b5e8b0b77b" class="">XHS原文章</p><p id="23664738-a3cc-8086-b01a-d28f03af3561" class=""><a href="http://xhslink.com/m/6JOpbS07ibk">http://xhslink.com/m/6JOpbS07ibk</a></p><p id="23664738-a3cc-80c6-b069-d58c98200a6f" class="">另外也可以参考1.0版本，未在博客发布</p><p id="23664738-a3cc-802f-9e1c-cd6c6041f0dc" class=""><a href="http://xhslink.com/m/46Oe6DdXxEx">http://xhslink.com/m/46Oe6DdXxEx</a></p></div></figure><p id="23564738-a3cc-806e-93df-c1a30bf24069" class="">
+</p><p id="23564738-a3cc-80f8-a1b0-c205557283c3" class="">
+</p><p id="23564738-a3cc-80d8-9e6c-decddcbabcc0" class="">
+</p><p id="23564738-a3cc-8046-a161-ddc0e97e27fc" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

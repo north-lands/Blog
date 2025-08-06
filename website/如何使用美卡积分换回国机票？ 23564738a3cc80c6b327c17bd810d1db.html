@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>如何使用美卡积分换回国机票？</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-80c6-b327-c17bd810d1db" class="page serif"><header><h1 class="page-title">如何使用美卡积分换回国机票？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8030-a953-eea54e7ddec1"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80a9-a2bd-e9a21624df4d" class="">【2025.07】小幅度更新过时内容</p><p id="23564738-a3cc-80b0-b7d2-dc767239b499" class="">【2025.04】1.0版本发布</p></div></figure><p id="23e64738-a3cc-8040-8257-e109ae6990ad" class="">
+</p><nav id="23564738-a3cc-8030-bf52-fd71122d55d2" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80ca-bd9d-ef5a71465ffb">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8099-95c0-c5a7dcd8562e">内容结构</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80af-aeb8-c61f63db1f49">省流结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8018-b664-e7f24938ddd0">反思</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8049-a1a4-fe67dd7dd5e5">里程票及航线介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80a0-b6c9-f63caf211f52">适用于大多数人：国泰航空，长荣航空（仅限单程）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-807a-acd5-c6a493fb627d">适合一部分人：星空联盟</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8009-80e6-ef415d8e00a5">适合极少数人：美国航空，达美航空，星宇航空</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8049-9f72-f20a7e278b44">几乎不适用：所有国内航空公司</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8086-ab05-d679dd9ff207">适用于所有人，不支持里程：大韩航空</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-803f-98d1-cf59e0a4194b">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8066-a6d9-c19f35f9476d">信用卡建议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b7-a09d-e60f1a4db57c">联名卡转点</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23764738-a3cc-80e0-9b29-c0e0fe0b559c">免责声明</a></div></nav><p id="23564738-a3cc-8080-a15a-c5b1ed23cac0" class="">
+</p><h2 id="23564738-a3cc-80ca-bd9d-ef5a71465ffb" class="">简要介绍</h2><p id="23564738-a3cc-80f1-99c8-da256cee479d" class="">最近看到大家还是有需求关于如何用信用卡积分换回国机票，毕竟大多数人是因为这个“羊毛”才入坑的点数卡。那么本人在上期关于锐评银行点数讲过，换里程票有各种各样的限制，学习成本高，并不是每个人都玩的来。</p><p id="23764738-a3cc-801e-988c-ee3a51aa9b01" class="">据楼主观察，很多人缺少基本常识，大多数问题一上来就是“回国怎么怎么换商务舱”，啥信息没有。坐标在哪？换哪一家公司？手上有哪些卡？妥妥三无产品。对于这种问题，从你发帖的那一刻起，就注定了你不适合这条路。如果你真的有认真做攻略，你怎么可能会问出这样的问题？动手能力强的人已经看攻略开干了。想要薅羊毛，又不想花时间研究，怎么可能呢？</p><p id="23764738-a3cc-8063-940b-ea9e57f31da5" class="">如果你真的有研究，那么正确的提问方式是把问题详细描述清楚，第一次做有几个实操细节不懂很正常，很多人还是很乐意解答的。</p><h3 id="23564738-a3cc-8099-95c0-c5a7dcd8562e" class="">内容结构</h3><p id="23564738-a3cc-8000-bf64-fb742d9730ec" class="">那么这一期就再来给大家科普一下基础的理论知识，虽然在之前介绍联名卡时有提到，这里再整理的更细节一点。<br/>这个帖子会告诉你<br/>✅理论部分：根据自己的坐标选择合适的航线，里程获取来源等<br/>不会告诉你<br/>❎实操部分：如何进行换票出票等。因为根本讲不完，需要花大量的时间研究，而在执行过程中也YMMV。<br/></p><h3 id="23564738-a3cc-80af-aeb8-c61f63db1f49" class="">省流结论</h3><p id="23564738-a3cc-8032-a2ae-f27b80c7eb30" class="">楼主在进行适用人群分类时，考虑到两个方面：里程获取来源和航线数量。理想状态下，当然是一家公司的里程获取来源越广越好，航线越多越好，这样能适用更多人群。</p><ol type="1" id="23564738-a3cc-80d6-960e-f66b76a45052" class="numbered-list" start="1"><li>适用于大多数人：国泰航空，长荣航空（仅限单程）</li></ol><ol type="1" id="23564738-a3cc-801b-ba79-d9e84d4bf1ba" class="numbered-list" start="2"><li>适合一部分人：星空联盟</li></ol><ol type="1" id="23564738-a3cc-806f-8343-f3d5f6f3dd51" class="numbered-list" start="3"><li>适合极少数人：美国航空，达美航空，星宇航空</li></ol><ol type="1" id="23564738-a3cc-8039-9621-ef566873b791" class="numbered-list" start="4"><li>几乎不适用：国内航空公司</li></ol><ol type="1" id="23564738-a3cc-8063-acf2-f3efea70c22d" class="numbered-list" start="5"><li>适用于所有人，不支持里程：大韩航空</li></ol><h2 id="23564738-a3cc-8018-b664-e7f24938ddd0" class="">反思</h2><p id="23564738-a3cc-80a0-915b-ecb1b5585d26" class="">在开始之前，回忆一下上个帖子中楼主提出的问题。想用点数换商务舱回国的票，你了解过以下情况吗？</p><ol type="1" id="23564738-a3cc-8054-b84c-ce81e80d3187" class="numbered-list" start="1"><li>打算换哪家航司，哪个航线？去哪里搜票？需要多少点数？</li></ol><ol type="1" id="23564738-a3cc-807e-8220-f7032434953b" class="numbered-list" start="2"><li>里程票兑换有哪些限制？你想兑换的航司放票规律是什么？</li></ol><ol type="1" id="23564738-a3cc-807a-9644-d9ea6159e091" class="numbered-list" start="3"><li>如何兑换这些票？换里程票有时可不是直接把点数转到对应航空公司这么简单，有的时候是需要通过A航司搜票，B航司的里程出C航司的票，有时则需要打电话才能出票。研究过吗？愿意花时间吗？</li></ol><ol type="1" id="23564738-a3cc-8038-85c2-c27b2c736440" class="numbered-list" start="4"><li>知道兑换细节吗？踩过哪些坑？有一些东西必须踩过坑才知道，没踩过的都不好意思说自己是高手。</li></ol><ol type="1" id="23564738-a3cc-80ab-b1f1-ea4fc6dc0130" class="numbered-list" start="5"><li>能不能给其他人出票？各家航司都有什么规定？</li></ol><p id="23564738-a3cc-80ec-b10f-e8910ac11928" class="">如果这还没有劝退你，那就证明你还是想薅大羊毛的。既然有想，那就要花时间做攻略，而不是指望人家把答案喂到嘴边。拒绝伸手党，从我做起。</p><p id="23564738-a3cc-80e9-b972-ff18d34f6bd9" class="">鉴于很多人缺乏基本的常识，这个帖子将做基础科普。根据你的坐标，选择合适的航线和航司，进一步选择里程来源信用卡。这个帖子会告诉你理论部分：根据自己的坐标选择合适的航线，里程获取来源等；不会告诉你实操部分：如何进行换票出票等，自行研究。</p><p id="23564738-a3cc-80e8-943e-eef9b2e924fb" class="">所以，丑话讲在前面：有什么不懂的，包括本文中提到的某些航司，自行做功课。</p><h2 id="23564738-a3cc-8049-a1a4-fe67dd7dd5e5" class="">里程票及航线介绍</h2><p id="23564738-a3cc-807b-ba82-c670b997a640" class="">在购买机票时，对于这些长途航线，有些人对两舱比较在意，而有些人则不在意。在实际换票过程中，经济舱肯定比商务舱更加容易。如果你对两舱并不在乎，那么使用积分换票总体来说还是一件比较简单的事情。</p><p id="23564738-a3cc-80a6-b125-c6390e83a889" class="">关于点数价值方面：如果是换经济舱，大部分情况下低于1.5cpp，所以可以考虑直接用CSR购买，比较省事。商务舱普遍可以换出2cpp左右，应该也是很多人薅羊毛的首选。既然你想要，别人肯定也想要，所以就意味着你需要做更多的功课。头等舱方面性价比可能没那么高，因人而异。</p><p id="23564738-a3cc-807d-af35-f6fb91753d7e" class="">另外一点需要考虑的就是时间。里程票的时间并不像现金票那么灵活，所以如果不是对自己的出行时间很有信心，里程票的退改普遍比较麻烦一点。建议参考兑换时间经济舱提前半年，商务舱提前一年，不过有些航司也会放临期票，出发前一个月左右多刷刷。</p><p id="23564738-a3cc-809a-913c-f8b205b62574" class="">楼主在进行适用人群分类时，考虑到两个方面：里程获取来源和航线数量。理想状态下，当然是一家公司的里程获取来源越广越好，航线越多越好，这样能适用更多人群。</p><h3 id="23564738-a3cc-80a0-b6c9-f63caf211f52" class="">适用于大多数人：国泰航空，长荣航空（仅限单程）</h3><p id="23564738-a3cc-80c8-b7d8-df0fc76f0480" class="">国泰作为中美主力航司之一，里程来源最广，航线较多，很明显是大多数人的首要选择。内地共有16个航点，美国有6个航点（旧金山，洛杉矶，达拉斯，芝加哥，纽约，波士顿），大概率总有一个适合你。<br/>里程来源：Amex, Citi, C1, Bilt<br/></p><p id="23564738-a3cc-8076-83e2-f2e4af25e5f5" class="">长荣航空本来也算是一个主力航司，内地和美国同时有6个航点（旧金山，洛杉矶，西雅图，休斯顿，芝加哥，纽约）。但有个问题就是中国大陆出发不可从台湾转机（美国公民除外），所以这个航线只能飞单程，比较尴尬。<br/>里程来源：Citi，C1（不推荐，比例低）<br/></p><h3 id="23564738-a3cc-807a-acd5-c6a493fb627d" class="">适合一部分人：星空联盟</h3><p id="23564738-a3cc-8065-9677-d6743f7363ee" class="">目前星空联盟经营中美航线的有美联航（LAX，SFO↔PVG，PEK，HKG），加拿大航空（YVR↔PVG，PEK，HKG），全日空，韩亚航空（已被大韩收购，退出星空加入天合后就换不了票了）。</p><ol type="1" id="23564738-a3cc-8079-8df3-e7b622324075" class="numbered-list" start="1"><li>美联航共有六条航线，连接的都是中美大城市，人群受众有限。</li></ol><ol type="1" id="23564738-a3cc-8022-9361-c27fd2eca19f" class="numbered-list" start="2"><li>加航仅有从温哥华国内直航，东边城市多伦多居然没有，只有到首尔。美国出发需要到温哥华转机，虽然温哥华能连接美国大部分城市，但是仅能飞到国内北京上海香港，和美联航航点一致，人群受众有限。</li></ol><ol type="1" id="23564738-a3cc-8064-83b2-d3c048079e16" class="numbered-list" start="3"><li>全日空基本都是幽灵票，需要跟黄牛斗智斗勇，换票非常困难。</li></ol><p id="23564738-a3cc-8029-8df2-dd748b0738ac" class="">里程来源：Chase, Amex, C1, Bilt</p><h3 id="23564738-a3cc-8009-80e6-ef415d8e00a5" class="">适合极少数人：美国航空，达美航空，星宇航空</h3><ol type="1" id="23564738-a3cc-80ec-84e1-c0297bbfb46e" class="numbered-list" start="1"><li>美国航空经营DFW↔PVG，里程来源自家信用卡，未来Citi可转</li></ol><ol type="1" id="23564738-a3cc-8041-bc5f-c1b10a7aa32c" class="numbered-list" start="2"><li>达美航空经营LAX，SEA，DTW↔PVG，LAX↔HKG，里程来源Amex，性价比极低，空中冥币，回国经常需要百万里程</li></ol><ol type="1" id="23564738-a3cc-803f-a064-e5f77d899362" class="numbered-list" start="3"><li>星宇航空经营LAX，ONT，SFO，SEA↔TPE，无内地航线，内地航段需单独购买。可以使用AS里程换票，台湾转机同样受限制。里程来源AS信用卡，Bilt</li></ol><p id="23564738-a3cc-804b-b6a0-f837d4b16925" class="">不同于星空联盟比较团结，且点数来源途径尚可较多，这三家情况就不同了。首先适用人群航线最少，里程来源途径也最少，不过优点就是里程比较值钱。由于航点相对固定，如果确定了回国只乘坐这些可以考虑办联名卡。</p><h2 id="23564738-a3cc-8049-9f72-f20a7e278b44" class="">几乎不适用：所有国内航空公司</h2><p id="23564738-a3cc-80c6-af10-fc5487efdc86" class="">国内航空公司包括东航南航国航海航，但问题是基本是连接中美大城市人群受限；二是国内的航空公司的里程基本靠国内的信用卡获得，美卡暂时没有什么途径。有几个例外比如说希尔顿的分可以转海航，不过根据DP有些人转了之后30天都没有到账，形同虚设。</p><h2 id="23564738-a3cc-8086-ab05-d679dd9ff207" class="">适用于所有人，不支持里程：大韩航空</h2><p id="23564738-a3cc-8088-938e-eea5a7ae3233" class="">作为另外一大主力航司之一，大韩航空在内地共有21个航点，美国共有10个航点（西雅图，旧金山，洛杉矶，拉斯维加斯，达拉斯，芝加哥，亚特兰大，华盛顿，纽约，波士顿）。所以理论上适合所有人。如果再不适合，那么你肯定位于某三四线小城市（比如佛罗里达），那就必须飞到最近的一个国际航点。</p><p id="24664738-a3cc-800d-8782-c5a8123562b9" class="">现在大韩无里程来源途径，自家的信用卡很拉，确实也很无奈。<del>楼主之前的建议是用CSR 1.5订</del> （现CSR已经移除1.5功能） ，其实对于所有航司来讲经济舱都适合直接掏现金。除此之外可以用其他航司的里程出大航的票（经济舱为主，商务舱基本没有或秒空），<del>但整体和CSP或CSR拉不开太大差距，甚至一些情况下CSR更加合算</del>。</p><h2 id="23564738-a3cc-803f-98d1-cf59e0a4194b" class="">结论</h2><p id="23564738-a3cc-809e-b7a3-f01eb3816414" class="">从以上信息可以得知，如果你不是住在北上广深这种大城市，不管是现金还是里程，国泰和大航还是首选。其中国泰换票相对简单，商务舱候补成功概率较高；而大航基本没有里程来源，虽然可以从其他航司出票，但也要考虑可用性：大韩并不会放给合作伙伴太多的票，且需要提前半年左右预定。</p><h2 id="23564738-a3cc-8066-a6d9-c19f35f9476d" class="">信用卡建议</h2><p id="23564738-a3cc-8076-9b48-d77c3cddd436" class="">在大家直观的了解完各大航线之后，再来看一看对应匹配的信用卡。Chase的强势在酒店，机票很弱；Citi和Amex的机票伙伴强一点，C1唯一值的可能就是换国泰了。所以按照楼主之前推荐的信用卡组合，八张卡横跨五个银行，已经可以满足几乎所有人大部分的日常和旅行需求了。</p><p id="23564738-a3cc-804c-bf2a-edf08a451ce3" class="">其中国泰航空里程来源最广，航线最多，且最容易换票，基本上是大家的首选。第2点和第3点大家按照根据自己的情况来。另外再提一手全日空，首先楼主告诫大家极难出票，需要通过A航司搜票，用B航司的里程打电话出C航司（全日空）的票，而且需要和黄牛斗智斗勇，虽然性价比很高但实现过程极其困难，不推荐新手。这里楼主就不说A和B是哪家了，自己做攻略。<br/>那这时候肯定还有人问了，Amex不是支持直接转点到全日空吗？为什么不推荐这么做，自己做攻略。<br/></p><p id="23564738-a3cc-806a-9fde-d6b0449e46c0" class="">所以，最推荐的机票卡是Bilt = Citi = Amex &gt; Chase = C1</p><ul id="23564738-a3cc-80b6-80a6-c45907f2266e" class="bulleted-list"><li style="list-style-type:disc">其中Citi必开Custom Cash和Premier，<del>Double Cash看人</del> 现在Double Cash必开，不建议CFU</li></ul><ul id="23564738-a3cc-801e-bbce-cee943f9bf09" class="bulleted-list"><li style="list-style-type:disc">C1考虑点数难用且只有国泰大部分人相对用得到，只考虑VX，薅完开卡奖励偶尔刷一刷即可</li></ul><ul id="23564738-a3cc-8038-a8bc-f3957530bd90" class="bulleted-list"><li style="list-style-type:disc"><del>为什么Chase机票弱但和Citi画等号？因为有CSR啊</del></li></ul><ul id="23564738-a3cc-805a-a8ce-f16e453ba884" class="bulleted-list"><li style="list-style-type:disc">Amex的点数上期已经讲过，点数来源主力不是通过刷卡，而是各种骚操作</li></ul><p id="23564738-a3cc-80f3-ac89-dd714858e7a0" class="">那么这时候肯定就有人问了，Amex拥有最多的转点伙伴，能不能直接Amex全家桶+骚操作一年就能获得百万点数，是不是只搞这个就够了？</p><p id="23564738-a3cc-80e8-8da6-f3b811944b60" class="">楼主回答，理论上可以，但不推荐。因为如果这样的话就代表着你放弃了Citi和C1，算下来并不值。而你如果先把Citi和C1开好，后续不影响你继续玩Amex。所以心急吃不了热豆腐，慢慢来。而且你如果真的把NLL玩的炉火纯青，那你恐怕永远都出不了524了。</p><h2 id="23564738-a3cc-80b7-a09d-e60f1a4db57c" class="">联名卡转点</h2><p id="23564738-a3cc-809a-ab15-e8cd5f2484c9" class="">另外楼主在这里提一手各大酒店联名卡，因为文章的信息里程来源都是基于各家银行自营的点数系统。</p><p id="23564738-a3cc-80bc-8d5e-da212df10790" class="">在这里楼主还是要强调联名卡的必要性及刚需性。有一点可以确定的是：申请联名卡代表你需要用他的服务，不然你申请干嘛？哪怕是薅SUB也要你去住店啊。所以这种情况其实并不适合大部分人。</p><p id="23564738-a3cc-808b-997f-c4f39d8c3b5d" class="">在之前的联名卡介绍对比贴中楼主有提到，各大酒店都有属于自己的点数系统，且可以通过一定比例转给航司。不同于银行自营一般以1:1比例转换，酒店点数一般是以M：1比例转换，虽然合作伙伴更多，但大多数情况下并不值。</p><p id="23564738-a3cc-8029-8aba-c3a1efbc0bd9" class="">如果硬要使用酒店转点，只有万豪相对合算一点，一般比例为3:1，其他酒店就算了。我们可以简单来计算一下：入门信用卡Boundless只有3x的加油超市餐厅，如果拿来住万豪酒店，按照估值0.8cpp计算，仅有2.4%的回报。如果拿来转点，只有1x的回报。那如果是这样的话为什么不使用银行的自营卡来攒点呢？联名卡日常攒点是很亏的，这也就是为什么之前楼主推荐如果不是刚需则先把日常卡备齐。</p><p id="23564738-a3cc-80a9-8c1c-f9f17f50d597" class="">
+</p><p id="23564738-a3cc-8069-b829-f6ee7e450ecf" class="">那应该怎么办？涨点速度相对比较快的方式还是靠住店。还是Boundless，住万豪酒店理论上最高可以达到17x，转点之后也有5.6x，这种是比较合算的。所以想使用联名卡，得保证你是真的刚需。</p><p id="23564738-a3cc-80a7-aa86-dbeb4201941d" class="">另外，酒店点数也可以通过银行点数获得。比如UR转万豪，正常是1:1，有时候有活动，送50%。但即使这样也比较亏：假设你有100点UR，转到万豪之后共有150点，在以3:1的比例转到航司，就变成50点了。你本来能以1:1的比例直接把UR转到航司，一番操作下来莫名其妙缩水一半。所以这种情况一般只适用于如果你需要订票但分差一点，千万别当主力搞。如果是住万豪，150点约等于$12（0.8cpp），鉴于成本是100点UR，这样只用出了1.2cpp的价值。所以即使额外送50%对大多数人不值，不过也不排除有大神能玩出花样，这里不展开讨论。</p><h2 id="23764738-a3cc-80e0-9b29-c0e0fe0b559c" class="">免责声明</h2><p id="23764738-a3cc-8093-a098-ee5285a65a7a" class="">实操案例YMMV，每个人的情况不同。内容仅作参考，有遗漏可补充和修正，不构成最后入坑建议。大家根据自己的坐标合理选择航线，关注里程来源，并且申请相对应的信用卡。</p><p id="23764738-a3cc-806d-b51f-f072d6144ad3" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8001-b926-c3cfd7c47374"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-802f-8307-fe89f69f8e0d" class="">XHS原文章</p><p id="23564738-a3cc-80a2-9309-c3cd87ebeb80" class=""><a href="http://xhslink.com/m/3y2IZSnc9XS">http://xhslink.com/m/3y2IZSnc9XS</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

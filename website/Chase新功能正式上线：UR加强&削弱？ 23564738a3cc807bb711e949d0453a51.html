@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Chase新功能正式上线：UR加强&amp;削弱？</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-807b-b711-e949d0453a51" class="page serif"><header><h1 class="page-title">Chase新功能正式上线：UR加强&amp;削弱？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8057-8542-ef731e099fd2"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8088-9417-f60f0f0354a6" class="">【2025.06】1.0版本发布</p></div></figure><p id="23e64738-a3cc-80ed-8331-e7acec338f1d" class="">
+</p><nav id="23664738-a3cc-8090-9da6-f6fa7917eddf" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ae-9604-c66c9e0ff946">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-804d-a941-fe0fb561ef10">介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8027-8522-fd5e09c8df33">实测体验</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80b0-a67c-c5409bb0396e">注意事项</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80f6-9033-cc1f9c7769d5">结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-806a-b5b1-e7e782878903">实测体验</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-809e-83e1-f173583654f9">案例一</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8079-8a47-e758070c8ef5">案例二</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80df-b4ce-eef7f5aecfeb">案例一&amp;案例二小结</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80ed-86e6-d867c1d8cec9">案例三</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8072-b6d8-f6906f6449ef">结论</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80a6-9a87-fae12408daf4">分析</a></div></nav><p id="23664738-a3cc-80aa-94b6-eb15130bd780" class="">
+</p><h2 id="23664738-a3cc-80ae-9604-c66c9e0ff946" class="">简要介绍</h2><p id="23664738-a3cc-80d8-b21e-c12b85cb1c7a" class="">Chase Point Boost已正式上线，楼主第一时间上手体验了一下，发现结果超出预期。如果想看结论的话，UR相比于之前多多少少还是加强的。</p><h3 id="23664738-a3cc-804d-a941-fe0fb561ef10" class="">介绍</h3><p id="23664738-a3cc-80db-b584-de8f0c55e902" class="">什么是Point Boost？茶色这次新推出的功能。取消了CSP&amp;CSR在portal固定兑换1.25&amp;1.5cpp的功能，改成了指定酒店&amp;航班up to 2cpp的兑换功能，不再区分卡本身。</p><h3 id="23664738-a3cc-8027-8522-fd5e09c8df33" class="">实测体验</h3><p id="23664738-a3cc-800e-8f74-ddba3f10d49f" class="">楼主搜了几个不同的酒店和机票，目前看来酒店可选性很多，机票则越来越少。还是有非常多酒店在Portal是没有溢价的，这波算是暖心升级了。</p><p id="23664738-a3cc-8071-a275-f02cdfd29847" class="">这波实际体验下来最大的感觉就是Hyatt兑换可能没有原先那么值了。因为本来Hyatt就是UR很值的方式。但问题是现在Hyatt本身贬值也严重，在之前的《锐评点数》中也讲到过Hyatt有1.5cpp即可考虑换。但毕竟是积分房，整体还有限制。现在Point Boost上线之后可用的选择更多，不再局限于Hyatt，而且相当于用分买现金房，目前看来大大强于预期。</p><h3 id="23664738-a3cc-80b0-a67c-c5409bb0396e" class="">注意事项</h3><ol type="1" id="23664738-a3cc-8085-97bc-cae2ec5fdd44" class="numbered-list" start="1"><li>酒店兑换确实大大加强，但更多的时候需要对比现金价格</li></ol><ol type="1" id="23664738-a3cc-80cf-9508-e18754970edb" class="numbered-list" start="2"><li>机票兑换进一步削弱，但是考虑到机票本身就是UR的弱项</li></ol><ol type="1" id="23664738-a3cc-8005-8453-d66d6ef945af" class="numbered-list" start="3"><li>另外在Portal买机票，根据过去众人的反馈如果不改行程还行，一旦涉及到退改非常麻烦，多边客服踢皮球。考虑到现在的的兑换情况，谨慎尝试</li></ol><ol type="1" id="23664738-a3cc-8061-85b3-c422478765bb" class="numbered-list" start="4"><li>目前这个福利看似很好，但包含不确定因素：以后不会砍？</li></ol><h3 id="23664738-a3cc-80f6-9033-cc1f9c7769d5" class="">结论</h3><p id="23664738-a3cc-8056-a180-cb72cb37c692" class="">就目前第一时间上手体验来看，这个功能是暖心升级的，而且被严重低估。如果抛开需求来讲，UR确实相比之前加强了，灵活性和功能性上比之前好，只不过偏科的更严重了。那么需求方面，你是酒店住的多还是飞的多？你更喜欢哪一种？这都是需要考虑的问题。</p><h2 id="23664738-a3cc-806a-b5b1-e7e782878903" class="">实测体验</h2><p id="23664738-a3cc-80e7-ad38-d3d5996651d2" class="">目前来说，只有指定的酒店&amp;航班可以享受这个功能，那么楼主就直接上实操，找几个案例给大家看一看。</p><p id="23664738-a3cc-8012-b1b7-d384f586b412" class="">先从酒店开始看起。为保证测试的统一性，这次搜索时间以2025年7月2号到3号，房型为标准房为基准，确保比较的公平性。</p><p id="23664738-a3cc-80a6-bd37-ed192186ef02" class="">首先在搜索界面，Chase加了一个选项：Points Boost only。这点说实话就很友好了，推荐打开。下面正式进入测评。</p><h3 id="23664738-a3cc-809e-83e1-f173583654f9" class="">案例一</h3><p id="23664738-a3cc-8033-8d58-ec705f9b9ea0" class="">楼主选了拉斯维加斯的ARIA Resort &amp; Casino。从Chase portal可以看到，最终含税价格在$220起。应用点数加成后，共需10506p+$62。那么我们可以计算出点数价值大约为1.5cpp，说实话非常可以了。但是这里有个坑就是，Chase portal上的价格是不是溢价严重？如果是，那么点数加成没有任何意义。如果不是，就真是暖心升级了。</p><figure id="23664738-a3cc-80d9-a797-c4d42529f0b2" class="image"><a href="image%2016.png"><img style="width:709.9620971679688px" src="image%2016.png"/></a></figure><p id="23664738-a3cc-8002-9cc9-c42ba7b877eb" class="">打开谷歌搜索相同酒店相同日期：</p><figure id="23664738-a3cc-806d-84de-c75c482cfd78" class="image" style="text-align:left"><a href="image%2017.png"><img style="width:288px" src="image%2017.png"/></a></figure><p id="23664738-a3cc-80b5-be74-eaf0223956e6" class="">可以看到第三方网站价格众多（价格已包括税的总价格），但总体来说和Chase差别不大，且不是所有的第三方网站都能信任，大家不要贪小便宜。那么目前来看针对这家酒店用UR是非常合算的。</p><h3 id="23664738-a3cc-8079-8a47-e758070c8ef5" class="">案例二</h3><p id="23664738-a3cc-800e-b0ee-e71b6955682f" class="">这次楼主选择了圣地亚哥的Omni San Diego Hotel。从Chase portal可以看到，最终含税价格在$362起。应用点数加成后，共需21661p。那么我们可以计算出点数价值大约为1.75cpp，非常合算。但是慢着！这家酒店的现金价格如何？</p><figure id="23664738-a3cc-8048-ad56-ff2e3e604090" class="image"><a href="image%2018.png"><img style="width:709.990478515625px" src="image%2018.png"/></a></figure><p id="23664738-a3cc-809c-b173-eb5a9b4833e9" class="">继续使用谷歌搜索：</p><figure id="23664738-a3cc-80eb-b10c-d4138e9294f1" class="image" style="text-align:left"><a href="image%2019.png"><img style="width:288px" src="image%2019.png"/></a></figure><p id="23664738-a3cc-8023-b9df-f7597e6a0ce2" class="">可以看到第三方网站的价格仍然参差不齐（显示价格已含税），但是最低的网站居然能做到大约$260每晚，比Chase低了$100左右。所以根据目前掌握的信息来看，至少这间酒店Chase溢价严重。不推荐使用UR兑换。</p><h3 id="23664738-a3cc-80df-b4ce-eef7f5aecfeb" class="">案例一&amp;案例二小结</h3><p id="23664738-a3cc-8027-bd81-e4ef99709a3e" class="">目前可以看来，有些酒店在Chase溢价严重，有些则没有。大家在定的时候一定要对比现金价格，千万不要被所谓的Point Boost麻痹了！</p><p id="23664738-a3cc-804d-85e1-c6ec738d64fe" class="">另外，楼主搜了一下可选的酒店还是蛮多的，基本上都能覆盖到大家正常的出行需求。</p><p id="23664738-a3cc-8014-9481-f83a8778b503" class="">看完了酒店，再来看看机票。根据Chase的说法，目前机票Points Boost仅在部分航司，且超经等级以上可用。根据一些人的反馈来看，目前集中在UA和BR。</p><h3 id="23664738-a3cc-80ed-86e6-d867c1d8cec9" class="">案例三</h3><p id="23664738-a3cc-80e0-8dda-dbc18a111d18" class="">楼主这次使用了洛杉矶纽约航线为例，根据Chase Portal可以看见：</p><figure id="23664738-a3cc-8087-b52b-ed1ef2aaf99c" class="image"><a href="image%2020.png"><img style="width:709.990478515625px" src="image%2020.png"/></a></figure><p id="23664738-a3cc-8061-afaf-e5a91b68c45f" class="">目前根据反馈，仅有UA，EK，QF，SQ，BR可以使用Points Boost，其他的均不行。但比较离谱的是，UA的超经居然需要$541，而底下的Jetblue和Delta的价格远远低于UA。楼主甚至都不用谷歌搜索，这种严重溢价的东西，大家真的会买吗？哪怕是个正常人，也会买下面两个吧，是不是？</p><p id="23664738-a3cc-8019-a66a-eb768079d73e" class="">后续不懂茶色会不会考虑添加新的航空伙伴，毕竟发行了SW，AC的信用卡，是不是要考虑一下？</p><h2 id="23664738-a3cc-8072-b6d8-f6906f6449ef" class="">结论</h2><p id="23664738-a3cc-801e-b59b-c267d053b442" class="">所以看完以上三个案例，现在我们可以对UR进行新的评价。</p><p id="23664738-a3cc-80c3-8bab-e8eded17dde6" class="">楼主给的观点是：<strong>UR在酒店上越来越强，机票越来越弱。总体来说，应该是加强了。</strong></p><h3 id="23664738-a3cc-80a6-9a87-fae12408daf4" class="">分析</h3><p id="23664738-a3cc-8004-9960-f8aafbc2a312" class="">原先的UR只能转给Hyatt来获得高价值，现在可以通过Portal来获得Points Boost，且可选的酒店范围大大增加，比原先实用的多（甚至比Hyatt还划算很多）。而且从Portal订的是现金房，不同于大家转点定的是积分房，更加灵活且可用性更好。</p><p id="23664738-a3cc-80bf-b943-de6601a07636" class="">在机票方面就不是很乐观了，相比于之前削弱了很多，不过机票一直以来都不是UR的强项。从以前固定兑换1.25&amp;1.5cpp，到现在指定航司且溢价严重，楼主认为整体来说不值。</p><p id="23664738-a3cc-80dd-844b-f37d62ad30e5" class="">那么关于这次UR的改动，楼主认为抛开需求来说，从功能性和灵活性上相比于之前好一点。不过这次的改动侧重也很明显，属于偏科生。如果加上你自己的需求，你还觉得UR对你好用吗？毕竟有些人更喜欢机票而不是酒店。</p><p id="23664738-a3cc-800c-a2b7-f68c16626278" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-807d-a004-df197fb104a8"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80d0-a212-d3a01f884973" class="">XHS原文章</p><p id="23664738-a3cc-80b0-a2fd-d079c001d0ea" class=""><a href="http://xhslink.com/m/7gOGzxImd6j">http://xhslink.com/m/7gOGzxImd6j</a></p></div></figure><p id="23664738-a3cc-80ec-ba57-c59e29e768a6" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

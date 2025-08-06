@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>美国信用卡常见问题</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-8044-8667-d9d46ae18f37" class="page serif"><header><h1 class="page-title">美国信用卡常见问题</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8023-8d55-c430c268e3ec"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23764738-a3cc-8073-a7c2-fc98ac48e436" class="">【2025.07】添加了一些内容</p><p id="23564738-a3cc-80b8-8b82-eff784c9b2e8" class="">【2025.04】1.0版本发布</p></div></figure><p id="23e64738-a3cc-8058-9688-e1ef0a7900fe" class="">
+</p><nav id="23564738-a3cc-8019-a52e-cc3a9a50de32" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-800f-baaa-c345d6a00a09">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80ae-aaf6-e51c43d82263">省流结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8047-870c-c1bf8816a0f7">Q：信用卡额度越多越好吗？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80dd-a3b0-fe003e633ab1">Q：为什么我在银行A，B，C有很高的额度，而申请了银行D的额度很低？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80d5-af8b-c294b2ea7746">Q：Utilization（Credit Usage）太高，提前全部还完行不行？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-801c-bb47-e0b5e60118fd">Q：没有SSN会有比较大的影响吗？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80cc-b06d-eb77731e424a">Q：楼主之前推荐的两年8张卡是什么逻辑？为什么不是哪张卡奖励高冲哪个？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8016-b027-eabf4916806c">Q：应该把Chase 524拉满再考虑其他的卡吗？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8059-ac95-f9458de8fd25">Q：如何判断自己是否刚需联名卡？如何定义“刚需”？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80e8-a1f4-c5e7ccdf1a58">Q：如何正确的进行MDD？适合哪些人？</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23764738-a3cc-800c-b832-ddf7588b10c3">免责声明</a></div></nav><h2 id="23564738-a3cc-800f-baaa-c345d6a00a09" class="">简要介绍</h2><p id="23564738-a3cc-8098-b059-f4ac5590bc8c" class="">这期来给大家总结一下美国信用卡的常见问题，属于是楼主在之前的帖子里没有提到的，或者比较碎片化的知识。</p><h3 id="23564738-a3cc-80ae-aaf6-e51c43d82263" class="">省流结论</h3><p id="23564738-a3cc-80df-b6df-e986c860d9ea" class="">如果想直接省流看结论，楼主总结了以下几点：</p><ol type="1" id="23564738-a3cc-8020-a48d-d8577c6213a4" class="numbered-list" start="1"><li>信用卡额度不是越高越好</li></ol><ol type="1" id="23564738-a3cc-800a-a0e5-ccc59a0e78e2" class="numbered-list" start="2"><li>没有SSN不影响积累信用记录，但是影响玩美卡</li></ol><ol type="1" id="23564738-a3cc-8047-adca-f947d3d263d2" class="numbered-list" start="3"><li>不建议大多数人拉满524和MDD</li></ol><h2 id="23564738-a3cc-8047-870c-c1bf8816a0f7" class="">Q：信用卡额度越多越好吗？</h2><p id="23564738-a3cc-80b8-9e4f-e3924b91bfc2" class="">A：不是。很多人觉得信用卡额度越多越好，可以吹嘘。但是事实上不是这样的，额度应该与自己的消费能力相匹配。</p><p id="23764738-a3cc-80f5-9d48-f9fbd864a4d3" class="">大家应该都知道总Utilization不应该超过30%，否则会极大的影响信用分。然而也不能太低（常年保持在1%~2%），否则被银行认为你不是一个有价值的客户，会潜在地影响后续申卡。</p><p id="23764738-a3cc-800d-a1e9-e225b16e7525" class="">比如，Citi，C1，USBank非常看重这点。这些银行的逻辑是“你都不在现有的信用卡上花钱，那你凭什么来薅我的羊毛”？你得刷卡银行才有钱赚啊。这也就是为什么很多人批卡之后却喜提地板额度（比如500），连完成开卡奖励都不够。</p><p id="23764738-a3cc-80c7-bd9c-c4115a55e741" class="">针对这种情况，如果额度太高，大家可以适当性的根据自己的消费能力把额度降一点，建议把Utilization保持在5%~10%左右最佳。</p><h2 id="23564738-a3cc-80dd-a3b0-fe003e633ab1" class="">Q：为什么我在银行A，B，C有很高的额度，而申请了银行D的额度很低？</h2><p id="23564738-a3cc-8067-a5bc-d41362066029" class="">A：首先这种情况不是绝对。如果发生了，跟你个人消费习惯有关系。一个常见的例子是银行D认为你已经在前面三个银行有了很高的信用额度而却不咋花钱，Utilization很低，所以不想给你高额度。</p><p id="23764738-a3cc-8086-b9b8-ecd4d1413134" class="">另外这跟银行承受能力也有关系。银行既然给你批这么多额度，就做好了你卷钱跑路的准备。只给你批500可能银行只能承受这么多的损失...</p><h2 id="23564738-a3cc-80d5-af8b-c294b2ea7746" class="">Q：Utilization（Credit Usage）太高，提前全部还完行不行？</h2><p id="23564738-a3cc-804a-9233-f69bee264d5d" class="">A：大家应该都知道每月的Utilization不应该超过30%，否则会极大程度的影响信用分。但是也不宜太低，甚至为零。</p><p id="23764738-a3cc-80aa-afa7-d6608e4443dc" class="">有一种错误的观念是，我每个月的花销很大，我在每月出账单前提前付清，可以避免Utilization过高而伤害信用记录。但是另一方面，如果Statement Balance为零，会被银行认为你不是一个有价值的客户，也会影响后续的申卡。所以最佳的方式是提前还钱，把Utilization控制在5%~10%左右最佳。</p><p id="23764738-a3cc-8089-a166-f8cfa4553622" class="">另外提一手，每个月提前还钱然后再刷卡，是属于典型的骑车行为，有风险。每个银行的风控也不同，Chase可能比较勉强，但你在USbank试试。</p><h2 id="23564738-a3cc-801c-bb47-e0b5e60118fd" class="">Q：没有SSN会有比较大的影响吗？</h2><p id="23564738-a3cc-8065-b749-d8e1c97a99cc" class="">A：没有SSN不影响信用，但是影响申请信用卡。一字之差，谬以千里。</p><p id="23764738-a3cc-80a7-879a-c986fc1a5dc1" class="">没有SSN不影响积累信用记录，大家放心开卡，信用记录越早开始越好，后续等SSN申请下来后会自动匹配信用记录。</p><p id="23764738-a3cc-8040-a89e-d4acc389cbea" class="">虽然不影响积累信用记录，但是影响申请信用卡。因为市面上大多数美卡都需要SSN/ITIN，所以如果没有SSN可以先开Boa。</p><p id="23764738-a3cc-80a9-8f46-c006b57ba8dd" class="">没有SSN影响玩美卡吗？虽然不绝对，但影响非常大，因为大多数美卡都需要。的确有人杀出了一条血路，但是你确定要学吗？不推荐。花点心思早点把SSN搞下来才是硬道理。</p><h2 id="23564738-a3cc-80cc-b06d-eb77731e424a" class="">Q：楼主之前推荐的两年8张卡是什么逻辑？为什么不是哪张卡奖励高冲哪个？</h2><p id="23564738-a3cc-80f9-8220-f0cd34ebd2fe" class="">A：楼主之前讲过，信用卡就分自营卡和联名卡两种。关于之前的推荐，是楼主从所有银行自营卡中，精心挑选了8张最值得拥有的卡。关于哪张卡奖励高冲哪个，这个并不是不行，但问题还在于联名卡日常涨点性价比太低（云居民当然不用考虑这一点），所以强烈建议把日常卡该备齐的备齐，之后就随意了，当然可以哪张卡奖励高冲哪个。</p><p id="23764738-a3cc-80d1-8184-fe0853f6379b" class="">另外在这里需要补充一点是，拉满524就是这种逻辑，用最短的时间，较低的下卡难度，最少数量的HP，拿到最多的开卡奖励，即使这些卡不适合你的需求。但这真是你想要的吗？根据楼主实测，大部分人不适合。详细见《<a href="%E7%BE%8E%E5%9B%BD%E4%BF%A1%E7%94%A8%E4%BD%93%E7%B3%BB%E8%AF%A6%E8%A7%A3%E5%92%8C%E6%8E%A8%E8%8D%90%2023564738a3cc8031a1baf937cfcc2ea6.html">美国信用体系详解和推荐</a>》524逻辑部分。</p><h2 id="23564738-a3cc-8016-b027-eabf4916806c" class="">Q：应该把Chase 524拉满再考虑其他的卡吗？</h2><p id="23564738-a3cc-8099-bf68-ffb94c02245b" class="">A：完全不需要。不知道为什么，仿佛所有人都在无脑告诉你应该先考虑524，这完全是非常荒唐，且被洗脑后的结果。楼主反复强调，一定要按照自己的需求申卡，各种联名卡，都不知道自己能不能用得到就乱申？在《<a href="%E9%94%90%E8%AF%84%E5%90%84%E5%A4%A7%E9%93%B6%E8%A1%8C%E7%82%B9%E6%95%B0%E7%B3%BB%E7%BB%9F%E5%8F%8A%E4%BC%B0%E5%80%BC%2023564738a3cc806bbe77d640201fc86f.html">锐评各大银行点数系统及估值</a>》帖子中楼主的引用原作者认为Chase值得长期的卡只有CFF一张和CSP值得商榷。这一点说实话有点极端也因人而异，楼主本人还是认为三剑客可以长持的。而综合考虑下，Citi明显要比Chase的卡好太多了。所以相比于524，应该尽快的把这些好卡搞下来。</p><p id="23764738-a3cc-80b7-8898-f85416707122" class=""> 有非常多的案例是，很多人524拉满之后导致Bilt，Citi，VX，USBank这些好卡批不下来，大多数原因都是“近期新账户或HP太多”（因为这些卡HP敏感），需要休养一段时间才能继续。而这些日常卡的性价比难道不比联名卡高很多吗？除非你是绝对刚需联名卡，楼主之前给大家规划的两年八卡性价比已经很高了，开好了再来搞联名卡也不迟。所以524远没有大家想象中那么可怕，只要把时间线规划好，基本不用太担心。</p><p id="23564738-a3cc-805b-9a2e-ff2527d158bb" class="">想一个问题：有多少人把524开满，结果因为近期HP太多而无法继续（Bilt，Citi，VX，USbank）？所以很明显这4家银行的日常卡远比Chase那两张联名卡的性价比要高的多得多（对于大多数人）。</p><h2 id="23564738-a3cc-8059-ac95-f9458de8fd25" class="">Q：如何判断自己是否刚需联名卡？如何定义“刚需”？</h2><p id="23564738-a3cc-80cc-99ff-d986503ee71f" class="">A：判断自己是否需要联名卡，主要就是看你是否会使用他们的服务。关于定义“刚需”，虽然没有一个明确的定义，但是大家可以根据自己的情况来。比如，每个月只住一次其实远达不到“刚需”，这个频率还是太低，通用旅行卡足够用了。真正刚需的人，比如一些商务人士，一年之中有1/4或一半的时间在出差，这种才叫刚需。</p><h2 id="23564738-a3cc-80e8-a1f4-c5e7ccdf1a58" class="">Q：如何正确的进行MDD？适合哪些人？</h2><p id="23564738-a3cc-8026-9cd4-fdcff7fb80c0" class="">A：综合考虑大部分人不应该拉满524，用理智的角度MDD不适合大多数人。如果你真的刚需某个航空酒店，那就去做吧，楼主并没有拦着你，你想好就行。另外绝对不推荐新手（一年信用记录左右）冲MDD。因为在这个过程中，如果你第1张卡没有过，那就不要申请第2张了。当你申请第二张时系统是输入相同的数据到同一个模型，所以肯定会被拒。综合来看，MDD只适合有一定信用记录的人（2~3年，近期HP不会太多）和刚需航空酒店的人。</p><h2 id="23764738-a3cc-800c-b832-ddf7588b10c3" class="">免责声明</h2><p id="23764738-a3cc-80ff-a28b-d8ee35ca43da" class="">最后，每个人的生活方式不同，适合的方式天差地别，无法使用同一套方式适合所有人。不可否认的是，争议必然出现。这些帖子可能无法改变你现有的观念，你喜欢怎么折腾随意。但是对于刚入门的人来说还是一张白纸，希望你们能形成正确的价值观而不是所谓的“盲目跟风”。内容仅作参考，不构成最后入坑建议。</p><p id="23564738-a3cc-80d5-b7fe-d16f7b127542" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-801e-904b-f6afb8252957"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-809a-8b14-ff242432217b" class="">XHS原文章</p><p id="23564738-a3cc-8036-a038-d8361228e7e4" class=""><a href="http://xhslink.com/m/1QP7UWMyZkE">http://xhslink.com/m/1QP7UWMyZkE</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

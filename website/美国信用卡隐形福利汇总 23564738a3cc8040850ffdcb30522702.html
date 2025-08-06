@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>美国信用卡隐形福利汇总</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="23564738-a3cc-8040-850f-fdcb30522702" class="page serif"><header><h1 class="page-title">美国信用卡隐形福利汇总</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80ed-84f1-cee7f25fc0ea"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8031-a03c-dadccb71f217" class="">【2025.07】1.0版本发布</p></div></figure><p id="23664738-a3cc-8005-8fa6-fd7dd2652185" class="">
+</p><nav id="23664738-a3cc-8018-814d-dfbac3560a85" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-802f-bf3c-c4b7b30d385f">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8061-8c18-c27ecefcaa63">主要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80e9-bfaa-e1ca794a744d">简要分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8030-a7f2-c1358a9ea70d">省流结论</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-803c-b58c-d4ceccf11bf6">彩蛋</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-807e-84dd-eeb18a049000">概要</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ee-8eb2-d69dea4636d1">核心观点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80f2-aa2c-e45af86cad47">旅行福利</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8087-84e7-d066754e9f11">购物福利</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8006-a500-c5a389ba0eb2">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80b7-86b6-ece1902a8e72">Freedom Unlimited</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80bb-a492-f42e04a1e38d">Freedom Flex</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8051-9d13-c4d824e95b37">Sapphire Preferred</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80da-af49-df168b506190">Sapphire Reserve</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-805b-a83c-fa5110413021">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-804b-81d1-d38c311aac5a"><strong>Citi Trifecta</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-804e-aadf-e76bbf07ab21">Bank of America</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-808b-b1c0-c815837d359d">Customized Cash, Unlimited Cash, Travel Rewards</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80a1-ac74-c3b5405a4d2e">Premium Rewards, Premium Rewards Elite</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80fd-8b97-ef1d7025f743">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-802f-b7f7-fa40a083f070">Other</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8034-8d57-da361e321101">彩蛋</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80b2-bf32-f8a068a318d7"><strong>1. Auto Rental Coverage</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80fc-9f5a-c416aa8fc8cd">2. <strong>Baggage Delay Insurance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8046-bfd6-d535b5f16f30">3. <strong>Lost Luggage Reimbursement</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8038-bfde-e1a524842acb">4. <strong>Trip Cancellation / Interruption Insurance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80b5-a860-cd70d347c93f">5. <strong>Trip Delay Reimbursement</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-809d-8a94-c32138bd9639">6. <strong>Travel Accident Insurance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-80ee-96b5-c88b52bb20b8">7. <strong>Travel &amp; Emergency Assistance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8002-be28-f16e575f0725">8. <strong>Roadside Assistance</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8038-92ed-d503d854a64b">9. <strong>Purchase Protection</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23664738-a3cc-8038-9696-e61d653fc4bc">10. <strong>Extended Warranty Protection</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80f5-bafd-f9637799ba9b">免责声明</a></div></nav><h2 id="23664738-a3cc-802f-bf3c-c4b7b30d385f" class="">简要介绍</h2><p id="23664738-a3cc-80fb-a3b9-e209732f2122" class="">每当大家收到新卡时，是不是沉浸在喜悦之中？但是喜悦之外，你有注意过信封内的其他材料吗？</p><p id="23764738-a3cc-807d-bbc2-fbbbe19ab564" class="">信封内除了新卡，一般还有一些纸质文件以及小册子。这些文件除了包含信用卡基本信息外，还有各类条款，以及一些隐形福利（英文名称Benefit Guide）。由于字数太多，相信大家肯定忽略懒得读（因为你此时肯定沉浸在收到新卡的开心，赶紧开刷准备拿奖励了）。但你知道他们写啥了吗？那么这期我们就来盘点一下这些卡的隐形福利。</p><h3 id="23664738-a3cc-8061-8c18-c27ecefcaa63" class="">主要介绍</h3><p id="23664738-a3cc-8026-8cb7-f68d74ba05fc" class="">大家都知道，信用卡发行机构在西方有两大巨头：Visa和Master，另外还有自建网络的Amex和Discover。由于后两者市场份额较低，隐形福利较少，所以不在本文的主要讨论范围内。</p><p id="23764738-a3cc-8048-81d4-d031423dbc30" class="">Visa一共分为五个等级：Visa Classic，Visa Gold，Visa Platinum，Visa Signature，Visa Infinite</p><p id="23764738-a3cc-80c9-8e73-e71dfd918852" class="">Master一共分为三个等级：Standard，World，World Elite</p><p id="23764738-a3cc-8053-9898-f677b558b969" class="">每个等级都有提供相应福利。等级越高，提供的福利越多。</p><p id="23764738-a3cc-8074-b744-fa376306abcd" class="">但有的时候也有例外：</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80d7-93c8-cb6a0fcaf558"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><p id="23664738-a3cc-8024-bb10-c03ffd83cf5a" class="">相应等级提供的福利只是相对的，最终要看银行愿不愿意提供。</p></div></figure><h3 id="23664738-a3cc-80e9-bfaa-e1ca794a744d" class="">简要分析</h3><p id="23664738-a3cc-80b6-b540-cf765259dd93" class="">这些卡提供的福利大概可以分为两种：旅行福利和购物福利。其中旅行福利包含各类保险，相信大家应当比较眼熟。而购物福利包括延长保修，退货保护等，大家平时听的应该也比较少。本文对比了不同银行不同的卡包含的隐形福利，重点已画。</p><h3 id="23664738-a3cc-8030-a7f2-c1358a9ea70d" class="">省流结论</h3><p id="23664738-a3cc-80e3-b389-f4b5401b5d3b" class="">经过一番对比，茶色拥有更好的旅行福利，Citi拥有更好的购物福利，其他银行则是抠抠搜搜。<br/>然后重点批评Amex，N头吃，也就是为什么盈利水平高的原因。<br/></p><h3 id="23664738-a3cc-803c-b58c-d4ceccf11bf6" class="">彩蛋</h3><p id="23664738-a3cc-800f-b0d7-df1c7e03857c" class="">本文其实是基于楼主之前的《CSP隐形福利讲解》的更细节版本。那么在这个版本之下，一定可以衍生出很多的细节问题有待讲解。但很遗憾楼主不可能一一阐述，后续可能会考虑挑出热度高的问题进行讲解。</p><h2 id="23664738-a3cc-807e-84dd-eeb18a049000" class="">概要</h2><p id="23664738-a3cc-804c-8f29-f6d3be21cd18" class="">目前在大部分在美国发行的信用卡分为两种：Visa和Master。其中Visa分为以下五种：Visa Classic, Visa Gold, Visa Platinum, Visa Signature, Visa Infinite。而Master分为以下三种：Standard, World, World Elite。每一个等级都提供了相应的隐形福利（英文名称Benefit Guide，一般会随着新卡一起寄来）。等级越高，福利越多。想要辩认也很简单：在Logo处会直接标注。但是需要注意一点：虽然说理论上发卡行提供这些福利，但最终要看银行愿不愿意给。</p><p id="23664738-a3cc-801a-8da8-c3e3885db66b" class="">除了Visa和Master之外，还有自建网络的Amex和Discover。另外比如还有国内的银联，日本的JCB。虽然这些不在本文的讨论内，但大家需要明白的一点是美卡的福利好是建立在发卡行能够收取商家较高的手续费之上的。其他比如国内的银联向商家收取的手续费极低（据说0.6%），所以根本无法撑起信用卡的奖励体系。</p><p id="23664738-a3cc-809d-ac20-f8fa08b98fd7" class="">顺便再提一手。市场份额方面，Visa大概在六成左右，紧接着是Master。就根据美国的银行发行情况来看，除了Citi全面拥抱Master，和CFF是Master，其他银行发行的卡均为Visa。另外值得一提的是，Bilt和Apple Card为Master。你觉得哪个logo更好看？</p><p id="23664738-a3cc-8069-8cd7-e9f870349738" class="">
+</p><p id="23664738-a3cc-80d8-b1aa-eef503669d85" class="">从Visa开始讲起。其中Classic, Gold, Platinum定位无年费的卡，比如Freedom系列；Signature定位入门年费旅行卡，比如CSP；而Infinite主要定位高端，高年费卡，比如CSR/Venture X。不过也有例外：比如Boa选择将自家的无年费卡升级至Signature，但很遗憾没有提供相应的福利，待会会展开。</p><p id="23664738-a3cc-804d-aa11-ff9c51ff4d34" class="">而Master整体就简单的多。正常来说，无年费的卡应当定位Standard或World，World Elite定位高端卡。但现实情况来看，很多银行还是愿意直接提供World Elite，比如Citi三剑客，Bilt，CFF，都是大家耳熟能详的卡。不过值得一提的是Apple Card，还有一些小银行提供无年费的卡，就不是World Elite了。所以一番比较下来（接下来也会有提到），Master在高端卡上确实打不过Visa。</p><h2 id="23664738-a3cc-80ee-8eb2-d69dea4636d1" class="">核心观点</h2><p id="23664738-a3cc-80e2-9f5f-d388b7af5ae8" class="">其实所谓的隐形福利，主要分为两个方面：旅行福利和购物福利。旅行福利大家应该比较耳熟，比如包括航班延误/取消，行李相关，以及租车保险相关。购物福利方面有退货保证，延长保修等。</p><p id="23664738-a3cc-80a4-994c-dcb260c0199a" class="">关于Visa和Master每个等级分别提供什么福利在这里就不细说了，因为最终能落实到顾客上来还要看银行愿不愿意提供。大家如果感兴趣可以自行上网搜索，楼主就直接跳过这步从不同银行的角度给大家分析。</p><p id="23664738-a3cc-805b-bea4-f083f8f77ac0" class="">那么在分析每张卡前，楼主先给大家科普一下基本定义：</p><h3 id="23664738-a3cc-80f2-aa2c-e45af86cad47" class="">旅行福利</h3><ul id="23664738-a3cc-8052-b200-d8d0eb2b7af5" class="bulleted-list"><li style="list-style-type:disc">Auto Rental Coverage: 为租赁车辆因碰撞或盗窃而造成的损害提供保险</li></ul><ul id="23664738-a3cc-808e-8ca3-ca04b858df67" class="bulleted-list"><li style="list-style-type:disc">Baggage Delay Insurance: 如果托运行李因公共承运商延误了指定的时间，可以报销购买衣物和洗漱用品等必需品的费用</li></ul><ul id="23664738-a3cc-80b7-bfad-e78290d69b30" class="bulleted-list"><li style="list-style-type:disc">Lost Luggage Reimbursement: 如果行李被承运人丢失或盗窃，提供价值赔偿</li></ul><ul id="23664738-a3cc-80f7-8354-eb8dcc19b66d" class="bulleted-list"><li style="list-style-type:disc">Roadside Assistance: 提供派遣人员帮助处理常见车辆故障，例如拖车、轮胎漏气或电池没电</li></ul><ul id="23664738-a3cc-80eb-bfbb-fc71980c087d" class="bulleted-list"><li style="list-style-type:disc">Travel Accident Insurance: 承保旅行期间发生意外死亡或残疾，该保险将提供大笔金钱赔偿</li></ul><ul id="23664738-a3cc-8073-94bb-d7af7b87a860" class="bulleted-list"><li style="list-style-type:disc">Travel and Emergency Assistance: 这是一条24/7热线，出门在外时，可以帮您联系当地的医疗、法律或其他紧急服务</li></ul><ul id="23664738-a3cc-8057-a2d6-cd8b7e25058f" class="bulleted-list"><li style="list-style-type:disc">Trip Cancellation and Interruption Insurance: 如果旅行因承保原因而取消或缩短，此保险将补偿您预付的, 不可退还的旅行费用</li></ul><ul id="23664738-a3cc-803f-bcbb-d8b34cec9e61" class="bulleted-list"><li style="list-style-type:disc">Trip Delay Reimbursement: 当旅行由于承保危险而延误很长时间时，此项补偿涵盖基本费用，例如餐费和住宿费</li></ul><h3 id="23664738-a3cc-8087-84e7-d066754e9f11" class="">购物福利</h3><ul id="23664738-a3cc-80c1-976a-c6fb7b4b6139" class="bulleted-list"><li style="list-style-type:disc">Extended Warranty Protection: 可延长您购买的符合条件的商品的原始制造商保修期</li></ul><ul id="23664738-a3cc-80d3-8c2e-d3b5eb90e3ed" class="bulleted-list"><li style="list-style-type:disc">Purchase Protection: 可在一定期限内（通常为 90-120 天）为您的新零售购买提供意外损坏或盗窃保护</li></ul><p id="23664738-a3cc-8095-8b4c-d5f671bc87f5" class="">以下的截图全部是来自银行官方的Benefit Guide，同时在大家收到新卡时会附带。这个册子里面的信息非常多，条款非常细，楼主不可能把每个点都讲清楚，只讲重点。如果你感兴趣，未必读完完整条款！因为这些所谓的隐形福利保险公司总有理由拒保，所以务必查看原文！</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-8040-8cd0-f3c5c8e8b7eb"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/clipping_purple.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80de-b4c2-d0c0f38cd80c" class="">如果想彻底吃透本文，一定要阅读原版小册子！</p></div></figure><h2 id="23664738-a3cc-8006-a500-c5a389ba0eb2" class="">Chase</h2><p id="23664738-a3cc-80df-9653-e56c6735f10d" class="">茶色的自营卡包括CFU, CFF, CSP, CSR等。对应的等级分别是Platinum, World Elite, Signature, Infinite。乍一看确实有点乱，所以茶色不同的卡的确有不同的Benefit Guide。</p><h3 id="23664738-a3cc-80b7-86b6-ece1902a8e72" class="">Freedom Unlimited</h3><p id="23664738-a3cc-80e8-b477-d5ba0d6b0f41" class="">根据目录来看，除了Freedom Unlimited之外，Freedom Rise和已经绝版的Freedom, Freedom Student同时共享这份Benefit Guide，证明他们的福利是一样的。那么底下加粗的字体表明，这些卡是Visa Platinum and Visa Signature。至于为什么同时会有两个等级网上有一个说法：额度5000以下为Platinum，以上则为Signature。不过不重要，别忘记了他们共享同一份福利文档，且提供什么由银行说了算。</p><figure id="23664738-a3cc-8047-8fb6-c1eccd038a6b" class="image"><a href="image%206.png"><img style="width:240px" src="image%206.png"/></a></figure><p id="23664738-a3cc-80ce-8a75-e10ac9a04c3a" class="">快速扫过目录后，发现没什么特别的。如果你去看完整册子，发现有很多字然后就觉得福利很多，停止这种危险的想法，要学会抓重点！旅行福利方面中规中矩，租车保险是Secondary</p><p id="23764738-a3cc-800a-8f55-cbd9928902bd" class="">大家旅行千万不要拿这些卡使！</p><p id="23664738-a3cc-8078-b52a-f13b8f4fd796" class="">购物福利方面，提供了额外一年的Warranty，中规中矩。购物福利则提供了120天的退货保护，纽约则为90天。</p><h3 id="23664738-a3cc-80bb-a492-f42e04a1e38d" class="">Freedom Flex</h3><p id="23664738-a3cc-804b-94b0-d869d5ff579c" class="">比较奇怪的是茶色几乎所有的卡都是Visa，仅CFF是Master，而且还给了World Elite。并且这一张卡使用这一份Benefit Guide。</p><figure id="23664738-a3cc-80cc-8852-e04a0c808d3a" class="image"><a href="image%207.png"><img style="width:240px" src="image%207.png"/></a></figure><p id="23664738-a3cc-80c5-9342-ebde13cce5c9" class="">那么从目录来看，大多数的福利与CFU相同。还像之前一样，旅行福利方面中规中矩，租车保险是Secondary。大家旅行千万不要拿这些卡使！</p><p id="23664738-a3cc-8073-981c-d2774a4a1d25" class="">不过值得说的是，CFF多了一个Cell Phone Protection。如果手机被盗或损坏，则可以获得维修或更换手机的费用补偿。要享受此保障，必须使用提供此卡支付每月的手机账单。</p><p id="23664738-a3cc-80e7-ac84-dac14d80da21" class="">另外还送一年租车会员，感兴趣自行搜索。</p><h3 id="23664738-a3cc-8051-9d13-c4d824e95b37" class="">Sapphire Preferred</h3><p id="23664738-a3cc-8089-b6b0-f275ce9e4a3c" class="">CSP固定是Signature。这张卡的旅行福利有多神就不说了吧，唯一一张提供primary租车保险的低年费卡，楼主之前还专门发帖子讲过。性价比非常高，推荐长持。</p><figure id="23664738-a3cc-80a8-bd69-d3efc88fcc3a" class="image"><a href="image%208.png"><img style="width:288px" src="image%208.png"/></a></figure><h3 id="23664738-a3cc-80da-af49-df168b506190" class="">Sapphire Reserve</h3><p id="23664738-a3cc-8057-8a9d-f3a5e164fd92" class="">另外这次楼主顺便还把CSR也找了出来。从目录可以看到作为Infinite，各方面的福利确实拉满。但是考虑到这次CSR大改版，楼主觉得没有必要为了这多来的福利承担很多根本用不出去的Coupon Book。</p><figure id="23664738-a3cc-8043-8686-fbf6a3140b06" class="image"><a href="image%209.png"><img style="width:288px" src="image%209.png"/></a></figure><p id="23664738-a3cc-80f1-ac67-da51c1badbc8" class="">购物福利方面，茶色所有的卡维持一致。</p><h2 id="23664738-a3cc-805b-a83c-fa5110413021" class="">Citi</h2><h3 id="23664738-a3cc-804b-81d1-d38c311aac5a" class=""><strong>Citi Trifecta</strong></h3><p id="23664738-a3cc-8033-9752-e480643b5b52" class="">Citi卡没有茶色那么复杂，自营的也就是三剑客而已，全部为Master。好消息是三剑客（CC+DC+Premier）全部为World Elite，真的非常大方。</p><p id="23664738-a3cc-8065-9cb4-d3a7c9f1c145" class="">所以根据此消息，这些卡同时共享同一个Benefit Guide，接下来看看。</p><figure id="23664738-a3cc-80fe-ad8e-d64b85349225" class="image"><a href="image%2010.png"><img style="width:288px" src="image%2010.png"/></a></figure><p id="23664738-a3cc-80bb-af65-d09d3e6d73f1" class="">从封面可以看到，生效日期为2024年5月份，这份Benefit Guide真的非常新。然后底下的小字还注明，所有Citi World Elite卡均可享受该福利。</p><figure id="23664738-a3cc-8050-9dd0-f5fc56f0ce42" class="image"><a href="image%2011.png"><img style="width:288px" src="image%2011.png"/></a></figure><p id="23664738-a3cc-809b-8895-d8eff1efba43" class="">继续看目录，Citi已经很贴心的把保险分成两类：旅行福利和购物福利。楼主直接给大家画重点：<strong>旅行福利中规中矩（与CSP基本相同，除了没有Primary保险，另外CSP定义更广，条款更宽松），亮点在购物福利。</strong></p><p id="23664738-a3cc-808d-a5f7-c101224ff5db" class="">其中购买保护，相比于茶色提供120天，Citi只提供了90天。但是！亮点在于延长保修。<br/>继续查看条款可以发现，Citi提供额外长达两年的延长保修，而一般同行只提供一年。而且相比于别家的文字描述，还在底下很贴心的用时间线做例子，更加直观。<br/></p><p id="23764738-a3cc-8021-87d5-eaaead4059af" class="">不过也有一些Exclusions。比如一些大件（汽车，房子），Labor，Used，植物/动物等不保。这要是能保汽车岂不亏炸了.... 不过总体来看还是非常良心，电子产品和家电似乎在范围内，且最高提供7年的保修。非常推荐去看下原版文件。</p><p id="23664738-a3cc-8067-b2f1-fcd946041aa1" class="">Citi绝对是被低估的一个银行，虽然他家的IT是真的一言难尽。楼主觉得在2024年前应该没有人会推荐Citi吧。随着Amex Everyday绝版，茶色学坏，Citi无论是在信用卡还是在福利方面成功后来居上。不过也幸亏IT不好，不然就跟茶色学坏了。</p><h2 id="23664738-a3cc-804e-aadf-e76bbf07ab21" class="">Bank of America</h2><p id="23664738-a3cc-8013-b63d-f1a90e81aa5e" class="">如果你想看省流，那么你可以到此为止了。茶色拥有最好的旅行福利，Citi拥有最好的购物福利。那么在这里楼主还想提一个银行，Boa。省流结论：Boa和C1相同，给的抠抠搜搜的。</p><h3 id="23664738-a3cc-808b-b1c0-c815837d359d" class="">Customized Cash, Unlimited Cash, Travel Rewards</h3><p id="23664738-a3cc-8024-a394-d073de2ae10c" class="">这里楼主可以直接告诉大家，Boa这三张无年费卡没有任何福利。对你没有看错，一个都没有。在官网上你找不到这个选项。这些操作真的很迷：既然一个福利都不愿意提供，那为啥Boa还要把它升级成Signature？撑门面吗？隔壁无年费的Freedom好歹提供一些基础福利，Citi全部拉满，Boa倒好，啥都不给。</p><h3 id="23664738-a3cc-80a1-ac74-c3b5405a4d2e" class="">Premium Rewards, Premium Rewards Elite</h3><p id="23664738-a3cc-80c3-88ac-f5a49ef0573e" class="">那么既然三张没有年费的卡啥也没有，也就没有讲的必要了。给大家快速过一遍这两张年费旅行卡吧。</p><p id="23664738-a3cc-809b-8f18-c6541d3c3e8d" class="">首先楼主并没有找到PR的Benefit Guide，只找到了PRE。来给大家感受一下目录。整个文件只有32页，只比隔壁的Freedom多了4页。大哥你是Infinite啊！而且封面上虽然写是PRE Benefit，整个文件读下来给楼主的感觉是在写杂志，而不是写条款。</p><figure id="23664738-a3cc-8066-8f37-e6e4344a87ff" class="image"><a href="image%2012.png"><img style="width:364.99554443359375px" src="image%2012.png"/></a></figure><p id="23664738-a3cc-80fd-8045-ff9bde4678d1" class="">虽然Benefit Guide不给力，但是在官网可以找到。以下给大家分别截图PR和PRE的福利。</p><figure id="23664738-a3cc-8027-8da6-c6f7e1a715ff" class="image"><a href="image%2013.png"><img style="width:384px" src="image%2013.png"/></a><figcaption>Premium Rewards</figcaption></figure><figure id="23664738-a3cc-8026-b575-ff7790be7460" class="image"><a href="image%2014.png"><img style="width:432px" src="image%2014.png"/></a><figcaption>Premium Rewards Elite</figcaption></figure><p id="23664738-a3cc-8087-83eb-e1dc60903396" class="">槽点来了：更高年费的PRE居然没有购物福利？？大哥你在开玩笑吗？另外PR的购物福利给的也很小气。别家都是直接 Extend one year warranty，PR是Double制造商给的Warranty，上限一年。你品，你细品。另外PR提供 Secondary保险，PRE提供Primary保险。</p><p id="23664738-a3cc-80ad-92e4-cf59cdee99e7" class=""><strong>总结：这福利约等于零。</strong></p><p id="23664738-a3cc-8072-9347-d2d3075da54a" class="">
+</p><p id="23664738-a3cc-80e0-8c5b-e390beaa7f22" class="">另外楼主想在这里提一点：因为Boa红卡有3%的网购，大家平时买产品是不是就下意识的掏出了红卡？然而现在看来，由于不提供购物福利，这样做可能很亏。如果大家网购电子产品，家电等比较昂贵的产品时，推荐使用DC。好了，Citi变得更神了。</p><p id="23664738-a3cc-80f3-b34d-c5f2fcd57aa2" class="">到这里文章的正式内容其实就介绍的差不多了。再来给大家拓展一些内容吧，顺便吐槽一下。</p><h2 id="23664738-a3cc-80fd-8b97-ef1d7025f743" class="">Amex</h2><p id="23664738-a3cc-8080-918e-e9421a9309db" class="">楼主最想吐槽的就是Amex了。由于Amex自建网络，所以不用给别人交过路费，手续费还比人家收的高，可谓是赚的盆满钵满。讲人话就是，既当裁判又当运动员。</p><p id="23664738-a3cc-8038-a99f-f0612dee125f" class="">那么回到本文主题，是介绍关于隐形福利的。由于Amex自己作为发行方，自然也不吃Visa/Master那一套。</p><p id="23664738-a3cc-80e9-b874-ec2511ff8bf2" class="">这里顺便拓展一个知识点：知道为什么很多地方不收Amex吗？楼主做了一圈功课，原因有以下几点：</p><ol type="1" id="23664738-a3cc-80a8-99b2-e7462dd4a41f" class="numbered-list" start="1"><li>Amex的Charge Back最厉害。只要顾客发起Dispute，Amex 必站在顾客一边。而Visa/Master起码还有争论余地。</li></ol><ol type="1" id="23664738-a3cc-8011-a093-d0b239fcea75" class="numbered-list" start="2"><li>手续费更高。Amex收的手续费比Visa/Master更高不是什么新鲜事。</li></ol><ol type="1" id="23664738-a3cc-8094-af36-c47a851d32d6" class="numbered-list" start="3"><li>结算更慢。商家需要保证现金流才能稳定经营。而根据DP反馈，Amex结算资金的周期比Visa/Master长很多。<br/>这要站在商家角度，谁愿意收Amex呢？反正市场份额又不大。<br/></li></ol><p id="23664738-a3cc-80a7-b41e-d9bb7eb338ab" class="">站在顾客角度呢？Amex开创了Coupon Book的先河，是所有顾客都厌恶的。两头吃，所以能赚钱不是没有原因的，其他的银行盯很久了。所以Amex就该NLL狠狠的薅一把羊毛然后跑路，长持你就输了。</p><p id="23664738-a3cc-804f-b684-e0f5f9817fce" class="">在2025年的今天不是你有Amex Plat就可以装bi了。这张卡不会给你带来任何特权，相反很有可能是你最大的累赘。</p><p id="23664738-a3cc-8008-a8ed-cba3d3c1ebad" class="">话讲回来，既做裁判又做运动员，Amex提供什么福利？楼主还真找了一份Amex Plat的Benefit Guide，话不多说直接看目录吧。</p><figure id="23664738-a3cc-80e4-b967-fe35f49cb2d8" class="image"><a href="image%2015.png"><img style="width:528px" src="image%2015.png"/></a></figure><p id="23664738-a3cc-8061-afc5-e7e2ffdd7757" class="">省流结论：非常垃圾。这么贵的高端卡居然没有Primary保险。用坛友的话讲就是，“Amex就保两项：这也不保那也不保”。没有延长保修。确实应该抵制。</p><h2 id="23664738-a3cc-802f-b7f7-fa40a083f070" class="">Other</h2><p id="23664738-a3cc-801f-9544-d22bcb5566e6" class="">其他的银行，顺便再提一手C1。话不多说直接上目录。他家感觉就是直接把Visa官网的福利搬过来，也不说卡名，就很广泛的列了一个Signature/Infinite卡可以用的Benefit Guide，很敷衍。其中Venture X应该是唯一值得的卡了吧，旅行保险也是给的抠抠搜搜。</p><p id="23664738-a3cc-8056-854b-d3ed0e3285da" class="">其他的银行不想查了，感兴趣自己上网搜索。Discover虽然自建网络但他家只有新手卡，度过新手期之后就放抽屉了，讨论这个没有意义。UAR/UAC的旅行保险也给的抠抠搜搜。所以结论已经很明显了：茶色拥有最好的旅行福利，Citi拥有最好的购物福利。</p><p id="23664738-a3cc-8026-b59e-fabaf52c14e3" class="">最后，一些Visa Signature和UAC提供海外eSIM流量的福利，感兴趣自行搜索。</p><h2 id="23664738-a3cc-8034-8d57-da361e321101" class="">彩蛋</h2><p id="23664738-a3cc-804f-9c37-c62621093efc" class="">本文其实是基于楼主之前的《CSP隐形福利讲解》的更全面版本。那么在这个全面版本之下，一定可以衍生出很多的细节问题有待讲解。但很遗憾楼主不可能一一阐述，后续可能会考虑挑出热度高的问题进行讲解。</p><p id="23664738-a3cc-8086-a634-fd1e8e8c75ca" class="">考虑到之前的的热度，那么楼主准备在这里加一个Bonus topic，出门旅行保险卡究竟应该用什么，另外全面对比一下CSP和Premier的旅行保险福利。</p><p id="23664738-a3cc-8089-8a9c-e98e4a686f7a" class="">那么这里楼主一共把两份来自银行官方的Benefit Guide让AI进行总结，以下表格仅供参考（可能有误，不构成最后建议！）：</p><h3 id="23664738-a3cc-80b2-bf32-f8a068a318d7" class=""><strong>1. Auto Rental Coverage</strong></h3><table id="23664738-a3cc-8042-a8eb-c4a803d5ee23" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-80b1-a343-e983b5c8413e"><th id="WT@Q" class="simple-table-header-color simple-table-header">Feature</th><th id="Y&lt;pO" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="OWPp" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-802d-bc0d-e2121964a758"><td id="WT@Q" class="">Coverage Type</td><td id="Y&lt;pO" class="">Primary</td><td id="OWPp" class="">Secondary</td></tr><tr id="23664738-a3cc-807c-a918-f68a2e3b76a8"><td id="WT@Q" class="">Max Coverage</td><td id="Y&lt;pO" class="">$60,000</td><td id="OWPp" class="">Not specified, but excludes expensive/luxury vehicles</td></tr><tr id="23664738-a3cc-809e-9874-d0cc0ba53d0a"><td id="WT@Q" class="">Covered Locations</td><td id="Y&lt;pO" class="">Worldwide</td><td id="OWPp" class="">Worldwide, except Ireland, Israel, Jamaica</td></tr><tr id="23664738-a3cc-80bf-af41-d71306123fc0"><td id="WT@Q" class="">Rental Period Limit</td><td id="Y&lt;pO" class="">31 days</td><td id="OWPp" class="">31 days</td></tr><tr id="23664738-a3cc-8003-b9a5-c6955918d0fb"><td id="WT@Q" class="">Exclusions</td><td id="Y&lt;pO" class="">Exotics (&gt;$125,000), trucks, vans (12+ seats), etc.</td><td id="OWPp" class="">Exotics, full-size vans, motorcycles, expensive/luxury, off-road vehicles, etc.</td></tr><tr id="23664738-a3cc-8018-af92-d21cbb6c2415"><td id="WT@Q" class="">Must Decline CDW?</td><td id="Y&lt;pO" class="">Yes</td><td id="OWPp" class="">Yes</td></tr></tbody></table><h3 id="23664738-a3cc-80fc-9f5a-c416aa8fc8cd" class="">2. <strong>Baggage Delay Insurance</strong></h3><table id="23664738-a3cc-8054-bc72-c1aad5f10948" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8093-a9af-caa6c2290904"><th id="DSdq" class="simple-table-header-color simple-table-header">Feature</th><th id="ACLj" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="O[Y|" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-807c-b95b-fb6cb7ea28f6"><td id="DSdq" class="">Min. Delay to Qualify</td><td id="ACLj" class="">6 hours</td><td id="O[Y|" class="">6 hours</td></tr><tr id="23664738-a3cc-80b6-a332-eff21dca5097"><td id="DSdq" class="">Max Benefit</td><td id="ACLj" class="">$100/day, up to 5 days ($500)</td><td id="O[Y|" class="">$100/day, up to 3 days ($300)</td></tr><tr id="23664738-a3cc-8074-a321-dc0e645e8a1d"><td id="DSdq" class="">Covered Items</td><td id="ACLj" class="">Essentials (toiletries, clothes, 1 charger/device)</td><td id="O[Y|" class="">Essentials (toiletries, clothes)</td></tr><tr id="23664738-a3cc-80ec-be11-fc0217ba4d62"><td id="DSdq" class="">Secondary Coverage</td><td id="ACLj" class="">Yes</td><td id="O[Y|" class="">Yes</td></tr></tbody></table><h3 id="23664738-a3cc-8046-bfd6-d535b5f16f30" class="">3. <strong>Lost Luggage Reimbursement</strong></h3><table id="23664738-a3cc-8000-b970-ce55fa853603" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8086-9e98-cdd07e6f2aab"><th id="f;^P" class="simple-table-header-color simple-table-header">Feature</th><th id="JXj~" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="Y@fM" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-80f0-97eb-d5e7eb83f017"><td id="f;^P" class="">Max Benefit</td><td id="JXj~" class="">$3,000 per traveler per trip</td><td id="Y@fM" class="">$3,000 per person per trip</td></tr><tr id="23664738-a3cc-8029-a887-d4e0a200427d"><td id="f;^P" class="">Sub-Limits</td><td id="JXj~" class="">$500 for jewelry &amp; electronics</td><td id="Y@fM" class="">$500 for jewelry &amp; electronics</td></tr><tr id="23664738-a3cc-804a-b360-e54490675b38"><td id="f;^P" class="">Baggage Types Covered</td><td id="JXj~" class="">Checked &amp; carry-on</td><td id="Y@fM" class="">Checked &amp; carry-on</td></tr><tr id="23664738-a3cc-80b7-ad40-e98fe2d10188"><td id="f;^P" class="">Secondary Coverage</td><td id="JXj~" class="">Yes</td><td id="Y@fM" class="">Yes</td></tr></tbody></table><h3 id="23664738-a3cc-8038-bfde-e1a524842acb" class="">4. <strong>Trip Cancellation / Interruption Insurance</strong></h3><table id="23664738-a3cc-8025-b99e-db6973b7ab57" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8046-aaa5-f1d9a356c0eb"><th id="rK:h" class="simple-table-header-color simple-table-header">Feature</th><th id="WS~;" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="esl@" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-8007-9e7b-e1803e5030ec"><td id="rK:h" class="">Max Coverage</td><td id="WS~;" class="">$10,000/trip; $20,000/year</td><td id="esl@" class="">$5,000 per covered traveler</td></tr><tr id="23664738-a3cc-80d8-8532-e8274a0adc80"><td id="rK:h" class="">Reasons Covered</td><td id="WS~;" class="">Illness, weather, jury duty, etc.</td><td id="esl@" class="">Injury, illness, severe weather, etc.</td></tr><tr id="23664738-a3cc-80d0-9393-fd98b1c72673"><td id="rK:h" class="">Secondary Coverage</td><td id="WS~;" class="">Yes</td><td id="esl@" class="">Yes</td></tr></tbody></table><h3 id="23664738-a3cc-80b5-a860-cd70d347c93f" class="">5. <strong>Trip Delay Reimbursement</strong></h3><table id="23664738-a3cc-80f7-9ac1-e1e3b67db825" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-80b1-a285-c6368483ffad"><th id="yxG&gt;" class="simple-table-header-color simple-table-header">Feature</th><th id="QGGT" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="wKGO" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-8092-8a41-eb59ac5fbb2a"><td id="yxG&gt;" class="">Min. Delay to Qualify</td><td id="QGGT" class="">12 hours or overnight</td><td id="wKGO" class="">6 hours</td></tr><tr id="23664738-a3cc-8007-a35c-d13fab793e90"><td id="yxG&gt;" class="">Max Benefit</td><td id="QGGT" class="">$500 per ticket</td><td id="wKGO" class="">$500 per trip</td></tr><tr id="23664738-a3cc-8031-853a-f28b4e0f10a4"><td id="yxG&gt;" class="">Expenses Covered</td><td id="QGGT" class="">Hotel, meals, toiletries, etc.</td><td id="wKGO" class="">Similar (meals, hotel)</td></tr></tbody></table><h3 id="23664738-a3cc-809d-8a94-c32138bd9639" class="">6. <strong>Travel Accident Insurance</strong></h3><table id="23664738-a3cc-809a-9afe-e31d3a25318f" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-804b-bdbd-e0c530145908"><th id="hY`r" class="simple-table-header-color simple-table-header">Feature</th><th id="ubQX" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="@^kM" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-805a-8f44-e2fb228861e4"><td id="hY`r" class="">Coverage Limit</td><td id="ubQX" class="">Not specified in full; includes loss of life, limb, sight</td><td id="@^kM" class="">$250,000 for accidental death</td></tr><tr id="23664738-a3cc-8048-b7b2-dbd6ed4c6034"><td id="hY`r" class="">Coverage Scope</td><td id="ubQX" class="">24/7 travel accident + common carrier</td><td id="@^kM" class="">Common carrier only</td></tr></tbody></table><h3 id="23664738-a3cc-80ee-96b5-c88b52bb20b8" class="">7. <strong>Travel &amp; Emergency Assistance</strong></h3><table id="23664738-a3cc-80ab-9a09-d20d0796b2dd" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-802e-9e93-e50eccd0afb9"><th id="ZSN[" class="simple-table-header-color simple-table-header">Feature</th><th id="WH`{" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="=uqb" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-8024-b864-f720d6ece918"><td id="ZSN[" class="">Type</td><td id="WH`{" class="">Referral &amp; coordination only (not insurance)</td><td id="=uqb" class="">Referral &amp; coordination only</td></tr><tr id="23664738-a3cc-80d5-9c92-e0dfb3a7d66a"><td id="ZSN[" class="">Includes</td><td id="WH`{" class="">Legal/medical referrals, lost luggage help, etc.</td><td id="=uqb" class="">Same</td></tr><tr id="23664738-a3cc-8011-a9dd-eb9ef1c880b4"><td id="ZSN[" class="">Cost</td><td id="WH`{" class="">You pay for services rendered</td><td id="=uqb" class="">Same</td></tr></tbody></table><h3 id="23664738-a3cc-8002-be28-f16e575f0725" class="">8. <strong>Roadside Assistance</strong></h3><table id="23664738-a3cc-8004-bcba-f3f749d2eab4" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-800f-bb92-f60b58add30b"><th id="OJtv" class="simple-table-header-color simple-table-header">Feature</th><th id="EnKP" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="jEdc" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-807a-8bb1-c577305246ee"><td id="OJtv" class="">Type</td><td id="EnKP" class="">Pay-per-use</td><td id="jEdc" class="">Pay-per-use</td></tr><tr id="23664738-a3cc-8014-ba5f-e1d3bf99b0c6"><td id="OJtv" class="">Services</td><td id="EnKP" class="">Towing (5 miles), jumpstart, tire change, fuel delivery, lockout</td><td id="jEdc" class="">Similar services</td></tr><tr id="23664738-a3cc-808d-9be2-f63042ccb583"><td id="OJtv" class="">Covered Area</td><td id="EnKP" class="">U.S. &amp; Canada</td><td id="jEdc" class="">U.S. &amp; Canada</td></tr></tbody></table><h3 id="23664738-a3cc-8038-92ed-d503d854a64b" class="">9. <strong>Purchase Protection</strong></h3><table id="23664738-a3cc-8072-97d8-c541e84d4650" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8058-ac2c-dfa10a0a7484"><th id="]KXv" class="simple-table-header-color simple-table-header">Feature</th><th id=";kH;" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="r_Iz" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-805f-ad9f-e3800156ad79"><td id="]KXv" class="">Coverage Period</td><td id=";kH;" class="">120 days (90 in NY)</td><td id="r_Iz" class="">90 days</td></tr><tr id="23664738-a3cc-8055-a914-c86602f5ad33"><td id="]KXv" class="">Max Coverage</td><td id=";kH;" class="">$500/item, $50,000/account</td><td id="r_Iz" class="">$10,000/item, $50,000/year</td></tr><tr id="23664738-a3cc-803e-a9c6-db75a0d783bf"><td id="]KXv" class="">Covered Events</td><td id=";kH;" class="">Theft, damage, accidental parting</td><td id="r_Iz" class="">Theft, damage</td></tr></tbody></table><h3 id="23664738-a3cc-8038-9696-e61d653fc4bc" class="">10. <strong>Extended Warranty Protection</strong></h3><table id="23664738-a3cc-8034-8f09-f522ae9bd99a" class="simple-table"><thead class="simple-table-header"><tr id="23664738-a3cc-8098-9b48-eea59059afd6"><th id="?Wmd" class="simple-table-header-color simple-table-header">Feature</th><th id="FqZX" class="simple-table-header-color simple-table-header"><strong>CSP</strong></th><th id="Y=Yz" class="simple-table-header-color simple-table-header"><strong>Citi</strong></th></tr></thead><tbody><tr id="23664738-a3cc-8050-a6e9-d30096ebbab5"><td id="?Wmd" class="">Extension Length</td><td id="FqZX" class="">+1 year on eligible U.S. warranties ≤3 yrs</td><td id="Y=Yz" class="">+24 months on warranties ≤5 yrs</td></tr><tr id="23664738-a3cc-806e-9a4a-c40fed747336"><td id="?Wmd" class="">Max Coverage</td><td id="FqZX" class="">$10,000/item, $50,000/account</td><td id="Y=Yz" class="">$10,000/item, $50,000/year</td></tr></tbody></table><p id="23764738-a3cc-807e-b56f-f62d6956382b" class="">那么看完对比大家可以发现，两者基本相同。主要的区别就在于CSP有Primary租车保险；另外CSP对于亲属的定义更广，个别赔偿项目CSP上限更高，赔偿接受的范围略广。</p><p id="23664738-a3cc-80c3-b563-fad8739d6c6c" class="">所以关于使用方面，Premier有机票/酒店3x，CSP则是所有Travel 2x。如果是给自己买机票或订酒店，可以考虑使用Premier，除此之外CSP。就是不懂理赔过程Citi的体验怎么样了。</p><p id="23664738-a3cc-80f0-9d58-c6e5c174ccc3" class="">所以对比完两张中端卡的旅行保险之后，那么他们与高端卡 Infinite的区别又是什么呢（另外可以参考评论区楼主之前发的全保险对比）？其实根本没有区别，CSP除了打不过自家的CSR，他已经和一众高端卡UAR/Venture X/Boa Elite持平，甚至还优于。所以在2025年的今天，你不需要一张高端卡来应付旅行保险，这两张中端卡已经足够优秀。那么还是原先的问题：长持高端卡对你而言的理由是？楼主估计只剩下PPS了。</p><h2 id="23664738-a3cc-80f5-bafd-f9637799ba9b" class="">免责声明</h2><p id="23664738-a3cc-8044-b3f2-ff1102a2e5c2" class="">本文内容基于银行提供的Benefit Guide，仅做简单分析，不构成最后入坑建议。如想获取详细信息，请务必读完原文！<br/>另外文中可能会有小错，欢迎讨论。<br/></p><p id="23664738-a3cc-80b7-903a-d9e9082aba78" class="">
+</p><p id="23664738-a3cc-8039-bdf1-e3566098e2eb" class="">最后，楼主把收集到的Benefit Guide全部放在这里了，如果感兴趣大家一定要看完原文件！</p><figure id="23664738-a3cc-809e-9cc2-fd0940cc9492"><div class="source"><a href="Benefits_Guide.zip">Benefits Guide.zip</a></div></figure><p id="23664738-a3cc-80cf-8c54-c19d7d3b0a27" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-804d-8793-fdf959d9abfb"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80e9-aa4c-fffb730b0943" class="">XHS原文章</p><p id="23664738-a3cc-809e-a399-c1488b10bde7" class=""><a href="http://xhslink.com/m/Acy45kHQA9k">http://xhslink.com/m/Acy45kHQA9k</a></p></div></figure><p id="23664738-a3cc-802a-9ffa-c1fb3f10f40b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
