@@ -1,0 +1,363 @@
+.gallery {
+  width: 100%;
+}
+
+.gallery-container {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  margin: 0 auto;
+  /* max-width: 1000px; */
+  position: relative;
+}
+
+.gallery-item {
+  height: 150px;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  width: 150px;
+  z-index: 0;
+}
+
+.gallery-item-1 {
+  left: 15%;
+  opacity: .4;
+  transform: translateX(-50%);
+}
+
+.gallery-item-2,
+.gallery-item-4 {
+  height: 200px;
+  opacity: 1;
+  width: 200px;
+  z-index: 1;
+}
+
+.gallery-item-2 {
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-3 {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+  height: 300px;
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  z-index: 2;
+}
+
+.gallery-item-4 {
+  left: 70%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-5 {
+  left: 85%;
+  opacity: .4;
+  transform: translateX(-50%);
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.gallery-controls button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 20px;
+  padding: 0 12px;
+  text-transform: capitalize;
+}
+
+.gallery-controls button:focus {
+  outline: none;
+}
+
+.gallery-controls-previous {
+  position: relative;
+}
+
+.gallery-controls-previous::before {
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: inline-block;
+  height: 4px;
+  left: -10px;
+  padding: 2px;
+  position: absolute;
+  top: 0;
+  transform: rotate(135deg) translateY(-50%);
+  transition: left 0.15s ease-in-out;
+  width: 4px;
+}
+
+.gallery-controls-previous:hover::before {
+  /* left: -18px; */
+}
+
+.gallery-controls-next {
+  position: relative;
+}
+
+.gallery-controls-next::before {
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  content: '';
+  display: inline-block;
+  height: 4px;
+  padding: 2px;
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: rotate(-45deg) translateY(-50%);
+  transition: right 0.15s ease-in-out;
+  width: 4px;
+}
+
+.gallery-controls-next:hover::before {
+  right: -18px;
+}
+
+.gallery-nav {
+  bottom: -15px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.gallery-nav li {
+  background: #ccc;
+  border-radius: 50%;
+  height: 10px;
+  margin: 0 16px;
+  width: 10px;
+}
+
+.gallery-nav li.gallery-item-selected {
+  background: #555;
+}
+
+
+
+
+/* ///////////////////// */
+.gallery-item-1 {
+  left: 30%;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+.gallery-item-5 {
+  left: 72%;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.gallery-item-3 {
+	box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+	height: 480px;
+	opacity: 1;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 775px;
+	z-index: 2;
+}
+.gallery-item-2, .gallery-item-4 {
+	height: 360px;
+	opacity: 1;
+	width: 470px;
+	z-index: 1;
+}
+.gallery-item-2 {
+	left: 25%;
+	transform: translateX(-50%);
+}
+.gallery-item-2 {
+	left: 25%;
+	transform: translateX(-50%);
+}
+.gallery-item-4 {
+	left: 77%;
+	transform: translateX(-50%);
+}
+.gallery-container {
+	align-items: center;
+	display: flex;
+	height: 400px;
+	margin: 0 auto;
+	/* max-width: 1250px; */
+	position: relative;
+}
+
+
+
+
+/* //////////-------- my custom css--------/////////// */
+.gallery-item-1 {
+  left: 30%;
+  opacity: 0;
+}
+.gallery-item-5 {
+  left: 72%;
+  opacity: 0;
+}
+
+.gallery-item-3 {
+	box-shadow: none;
+	/* height: 480px; */
+	height: auto;
+	opacity: 1;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 755px;
+	z-index: 2;
+}
+.gallery-item-2, .gallery-item-4 {
+	/* height: 360px; */
+	height: auto;
+	opacity: 1;
+	width: 550px;
+	z-index: 1;
+}
+.gallery-item-2 {
+	left: 23.6%;
+}
+.gallery-item-4 {
+	left: 76.5%;
+}
+.gallery-container {
+	align-items: center;
+	display: flex;
+	height: auto;
+	margin: 0 auto;
+	/* max-width: 100%; */
+  max-width: 100%;
+	position: relative;
+}
+.gallery-controls {
+	margin: 0;
+	top: -124px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.gallery-controls-add {
+	display: none;
+}
+.gallery-controls button {font-size: 0;padding: 8px;}
+.gallery-controls-previous::before,.gallery-controls-next::before {
+	border: 0;
+	border-width: 0;
+	left: -10px;
+	padding: 2px;
+	position: absolute;
+	top: 0;
+	transform: none;
+	transition: left 0.15s ease-in-out;
+	content: " \f177";
+	font-family: "Font Awesome 5 pro";
+	font-size: 32px;
+  color: #b8bac5;
+}
+.gallery-controls-next::before{content: "\f178";}
+.gallery-controls-previous:hover::before,.gallery-controls-next:hover::before{color: #6c63ff;}
+
+
+
+
+/* ----responsive css start---- */
+/* LG Device :992px. */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .gallery-item-3 {
+    width: 600px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    width: 436px;
+  }
+  .gallery-controls {
+    top: -72px;
+  }
+
+}
+
+/* MD Device :768px. */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .gallery-item-3 {
+    width: 440px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    width: 323px;
+  }
+  .gallery-controls {
+    top: -20px;
+  }
+
+}
+
+/* Extra small Device. */
+@media screen and (max-width: 767px) {
+  .gallery-item-3 {
+    width: 230px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    width: 155px;
+  }
+  .gallery-controls {
+    top: 20px;
+  }
+
+}
+
+/* SM Small Device :550px. */
+@media screen and (min-width: 601px) and (max-width: 767px) {
+  .gallery-item-2, .gallery-item-4 {
+    width: 238px;
+  }
+  .gallery-item-3 {
+    width: 345px;
+  }
+
+
+}
+
+/* SM Small Device :550px. */
+@media screen and (min-width: 500px) and (max-width:600px) {
+  .gallery-item-3 {
+    width: 315px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    width: 225px;
+  }
+  
+}
+
+
+/* SM Small Device :550px. */
+@media screen and (min-width: 400px) and (max-width: 499px) {
+  .gallery-item-3 {
+    width: 280px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    width: 185px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
