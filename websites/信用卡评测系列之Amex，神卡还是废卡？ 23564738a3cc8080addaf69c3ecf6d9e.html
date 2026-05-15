@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8080-adda-f69c3ecf6d9e" class="page serif"><header><h1 class="page-title">信用卡评测系列之Amex，神卡还是废卡？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8064-b10e-eeac797f47af"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80c5-9239-d0b4a12ac6a7" class="">【2025.02】1.0版本发布</p><p id="23664738-a3cc-807b-9b37-d1ff8151b11d" class="">同样作为早期攻略之一，Amex还是一如既往的稳定，文章评价同样适用。</p></div></figure><p id="23664738-a3cc-8070-a904-d83ffa6023c9" class="">
-</p><nav id="23664738-a3cc-80a6-aa61-e5281f87baf7" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8094-9f2b-c04d1fcb303a">基本情况</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80e1-b7f8-d9bdc6aec990">评价</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80f1-888c-feec4d08316a">反思</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8078-8f2d-e12bdcaf3317">结论</a></div></nav><p id="23664738-a3cc-80cb-b63d-d68d1e587fbf" class="">
-</p><p id="23664738-a3cc-8011-8606-e611db7c5116" class="">目前还没怎么讨论过Amex，只在之前的表格建议稍微提了一下。Amex向来两极分化，这个帖子来分析一下。</p><p id="23664738-a3cc-8010-81a2-e73b47d4391c" class="">首先，Amex的特色肯定是Coupon Book了。曾经是羊毛最丰厚的公司，收取的手续费最高。直到现在，开卡奖励也是所有银行中最高的，很多人就是因为这一点上了贼船，却忘了分析卡的利弊。由于免年费的攒点卡已经绝版，现在能涨点的卡只有三张：Green（$150），Gold（$325），Platinum（$695）。</p><h3 id="23664738-a3cc-8094-9f2b-c04d1fcb303a" class="">基本情况</h3><p id="23664738-a3cc-80fa-b49e-df1572bf33b7" class="">其中很多人持有的应该是金卡，4x的超市和餐厅。但$325年费也不低。报销项目：$120Uber，每月$10；$84Dunkin，每月$7；$100Resy，半年$50；$120吃饭（必须在合作餐厅），每月$10；$100酒店，必须至少订2晚。而Plat毫无攒点能力，报销项目更加眼花缭乱。</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8013-b1f5-f5fec177a91e"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><p id="23664738-a3cc-80d9-ab8f-f7a4bb6159c2" class="">以上报销如果当月不用完则过期，不会累计</p></div></figure><p id="23664738-a3cc-80b3-8f9e-cdbaa1149c22" class="">这些报销看着多，实际却很难用。基本上都是以每月的方式来给。假设你真去花费了，够吗？几乎100%的概率会超过这个数字。这就是变相消费啊！</p><h3 id="23664738-a3cc-80e1-b7f8-d9bdc6aec990" class="">评价</h3><p id="23664738-a3cc-806a-b7ec-f50f9396c168" class="">太多人无脑推荐金卡，但有想过报销项目用得上吗？这些消费是本来就有的，还是为了回本年费的被动消费？不要对自己很自信，大多数人都是后者。<br/>那么，金卡到底有没有那么神呢？4x的超市和餐厅，替代品不是没有。每年六个月CFF+CC都有超市和餐厅的5x（上限$6000），不够的话Premier，3x超市餐厅加油。假设报销用不上，金卡的年费比SP多$230，攒点仅多了1x，这就意味着你每年至少要消费（超市餐厅）230/1%+6000=$29000之后，金卡才有优势（如果能用上部分报销，你自己计算。SP也有酒店报销）。</p><h3 id="23664738-a3cc-80f1-888c-feec4d08316a" class="">反思</h3><p id="23664738-a3cc-8071-8714-ecdcee41be7c" class="">现在你看懂了吗？金卡基本就跟半废卡没区别（对于大部分人来讲，虽然有些高手能玩出价值）。如果你被盲目Refer而你没有研究，人家Refer完就拍屁股走人了。卡是你开的，年费是你交的，钱是你还的，信用记录也是你的。所以从你现在看完这个帖子之后，再有人主动给你Amex Refer，离他越远越好。Amex肯定推荐你自己做好功课之后再找人要Refer，不要盲目入坑！</p><h3 id="23664738-a3cc-8078-8f2d-e12bdcaf3317" class="">结论</h3><p id="23664738-a3cc-80c8-9dbd-c7b31b9e3a91" class="">综上，这就是Amex两极分化的原因，也是最容易被反薅的一个银行。核心问题还在于Coupon Book符不符合你的消费方式。一旦入坑，无法回头。而且Amex算是对HP最友好的一个银行了，开卡奖励终身一次，真心不急。把其他好卡开了再来。报销都是一个月一个月给，那年费为啥不也一个月一个月给？<br/>（文章进行客观分析不构成最终建议，本文的最终目的是请大家想好再开卡）</p><p id="23664738-a3cc-803c-a98f-c831f07a9a5d" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80d2-ba25-c446880aabb3"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-808f-9658-c063f8cb08d2" class="">XHS原文章</p><p id="23664738-a3cc-8064-ad67-d9a415ce51af" class=""><a href="http://xhslink.com/m/5VAMouXlgPE">http://xhslink.com/m/5VAMouXlgPE</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8080-adda-f69c3ecf6d9e" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之Amex，神卡还是废卡？</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8064-b10e-eeac797f47af"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-80c5-9239-d0b4a12ac6a7" class="">【2025.02】1.0版本发布</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-807b-9b37-d1ff8151b11d" class="">同样作为早期攻略之一，Amex还是一如既往的稳定，文章评价同样适用。</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8070-a904-d83ffa6023c9" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23664738-a3cc-80a6-aa61-e5281f87baf7" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8094-9f2b-c04d1fcb303a">基本情况</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80e1-b7f8-d9bdc6aec990">评价</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80f1-888c-feec4d08316a">反思</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8078-8f2d-e12bdcaf3317">结论</a></div></nav></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80cb-b63d-d68d1e587fbf" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8011-8606-e611db7c5116" class="">目前还没怎么讨论过Amex，只在之前的表格建议稍微提了一下。Amex向来两极分化，这个帖子来分析一下。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8010-81a2-e73b47d4391c" class="">首先，Amex的特色肯定是Coupon Book了。曾经是羊毛最丰厚的公司，收取的手续费最高。直到现在，开卡奖励也是所有银行中最高的，很多人就是因为这一点上了贼船，却忘了分析卡的利弊。由于免年费的攒点卡已经绝版，现在能涨点的卡只有三张：Green（$150），Gold（$325），Platinum（$695）。</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-8094-9f2b-c04d1fcb303a" class="">基本情况</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80fa-b49e-df1572bf33b7" class="">其中很多人持有的应该是金卡，4x的超市和餐厅。但$325年费也不低。报销项目：$120Uber，每月$10；$84Dunkin，每月$7；$100Resy，半年$50；$120吃饭（必须在合作餐厅），每月$10；$100酒店，必须至少订2晚。而Plat毫无攒点能力，报销项目更加眼花缭乱。</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8013-b1f5-f5fec177a91e"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-80d9-ab8f-f7a4bb6159c2" class="">以上报销如果当月不用完则过期，不会累计</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80b3-8f9e-cdbaa1149c22" class="">这些报销看着多，实际却很难用。基本上都是以每月的方式来给。假设你真去花费了，够吗？几乎100%的概率会超过这个数字。这就是变相消费啊！</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-80e1-b7f8-d9bdc6aec990" class="">评价</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-806a-b7ec-f50f9396c168" class="">太多人无脑推荐金卡，但有想过报销项目用得上吗？这些消费是本来就有的，还是为了回本年费的被动消费？不要对自己很自信，大多数人都是后者。<br/>那么，金卡到底有没有那么神呢？4x的超市和餐厅，替代品不是没有。每年六个月CFF+CC都有超市和餐厅的5x（上限$6000），不够的话Premier，3x超市餐厅加油。假设报销用不上，金卡的年费比SP多$230，攒点仅多了1x，这就意味着你每年至少要消费（超市餐厅）230/1%+6000=$29000之后，金卡才有优势（如果能用上部分报销，你自己计算。SP也有酒店报销）。</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-80f1-888c-feec4d08316a" class="">反思</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8071-8714-ecdcee41be7c" class="">现在你看懂了吗？金卡基本就跟半废卡没区别（对于大部分人来讲，虽然有些高手能玩出价值）。如果你被盲目Refer而你没有研究，人家Refer完就拍屁股走人了。卡是你开的，年费是你交的，钱是你还的，信用记录也是你的。所以从你现在看完这个帖子之后，再有人主动给你Amex Refer，离他越远越好。Amex肯定推荐你自己做好功课之后再找人要Refer，不要盲目入坑！</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-8078-8f2d-e12bdcaf3317" class="">结论</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80c8-9dbd-c7b31b9e3a91" class="">综上，这就是Amex两极分化的原因，也是最容易被反薅的一个银行。核心问题还在于Coupon Book符不符合你的消费方式。一旦入坑，无法回头。而且Amex算是对HP最友好的一个银行了，开卡奖励终身一次，真心不急。把其他好卡开了再来。报销都是一个月一个月给，那年费为啥不也一个月一个月给？<br/>（文章进行客观分析不构成最终建议，本文的最终目的是请大家想好再开卡）</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-803c-a98f-c831f07a9a5d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80d2-ba25-c446880aabb3"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-808f-9658-c063f8cb08d2" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8064-ad67-d9a415ce51af" class=""><a href="http://xhslink.com/m/5VAMouXlgPE">http://xhslink.com/m/5VAMouXlgPE</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

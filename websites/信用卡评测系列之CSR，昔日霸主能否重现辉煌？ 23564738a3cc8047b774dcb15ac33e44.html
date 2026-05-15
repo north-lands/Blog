@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,6 +740,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8047-b774-dcb15ac33e44" class="page serif"><header><h1 class="page-title">信用卡评测系列之CSR，昔日霸主能否重现辉煌？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8009-bf1c-d8c513249adc"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-800e-a43b-d0592cfd4ad6" class="">【2025.03】1.0版本发布</p><p id="23564738-a3cc-8041-a91e-f9a4325e8408" class="">随着CSR迎来重大更新，本文内容已<strong>彻底</strong>不适用，留作纪念。新版内容可参考《<a href="%E4%BF%A1%E7%94%A8%E5%8D%A1%E8%AF%84%E6%B5%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E6%96%B0%E7%89%88CSR%EF%BC%8C%E4%B8%80%E8%A8%80%E9%9A%BE%E5%B0%BD%2023564738a3cc80d0a165f385d9f6836e.html">信用卡评测系列之新版CSR，一言难尽</a>》</p></div></figure><p id="23664738-a3cc-80ca-86b8-f5f728096e5c" class="">
-</p><nav id="23564738-a3cc-80d9-853a-f34bb095dbfa" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8019-9794-e4339afe9404">基础玩法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80cb-9e52-fbe01ad703b0">进阶玩法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b8-aae3-d3dfeee3b988">结论</a></div></nav><p id="23664738-a3cc-8040-b793-f3cecefdd1e1" class="">
-</p><p id="23564738-a3cc-8017-8693-e2587c8e6aa5" class="">相比较于VX和Bilt，CSR的热度就并没有那么高了。涨过年费后，性价比持续走低，但也有可圈可点的地方。<br/>作为老牌高端旅行卡，奖励60k（有时75k），吃饭&amp;旅行相关3x。每年报销$300，年费$550。<br/><br/>虽然辉煌不再了，但是，它还是有几个可玩之处，也是VX所不具备的：点数价值更多，升降机，双重报销和轮转大法。</p><h3 id="23564738-a3cc-8019-9794-e4339afe9404" class="">基础玩法</h3><ol type="1" id="23564738-a3cc-804a-bdc4-e5b92d364649" class="numbered-list" start="1"><li>点数价值更多<p id="23564738-a3cc-8083-ba3c-c223fb9a0d29" class="">支持以保底1.5cpp的价值订购旅行相关。楼主推荐可以用在里程来源少且无溢价的航司，比如达美和大航（楼主帮你们测试过了，Chase Travel没有溢价）。<br/>大部分美国国内的航司转点价值都低于1.5cpp，如果直接用CSR定反而更合算。除了少数转点伙伴（如凯悦，哥伦比亚航空）能用出高于1.5cpp的价值。</p></li></ol><ol type="1" id="23564738-a3cc-808d-87b3-f4c608163546" class="numbered-list" start="2"><li>升降机<p id="23564738-a3cc-80a4-99fe-d3c2421af3c1" class="">如果在任何时间内你不想长持这张卡，可以降级至任何UR卡。哪天需要用了，再升级回来（注意升级时卡上的额度必须至少1w）。一般来说，操作间隔一年。</p></li></ol><h3 id="23564738-a3cc-80cb-9e52-fbe01ad703b0" class="">进阶玩法</h3><ol type="1" id="23564738-a3cc-8036-a9c4-c19884181903" class="numbered-list" start="3"><li>双重报销<p id="23564738-a3cc-80b1-b855-e1f0de811fbb" class="">双重报销指的是在一年之内可以拿两个$300的报销，从而达到年费$-50的效果。怎么操作呢？在年费post后30天以内降级，将全额退还。所以双重报销就是在你第1年内已经用掉了$300的情况下，等年费post后30天内再次用掉$300后降级。</p></li></ol><ol type="1" id="23564738-a3cc-8048-8ef1-cdae1d123fde" class="numbered-list" start="4"><li>轮转大法<p id="23564738-a3cc-80bf-845f-e0b75bcb1a70" class="">通俗一点的来说，就是你必须至少持有两张UR卡（额度必须超过1w），一张无年费，一张CSR，重复CSR双重报销的过程，第2年再互换。<br/>双重报销只适用于持CSR一年。如果想长持，可以试一下轮转大法。</p></li></ol><h3 id="23564738-a3cc-80b8-aae3-d3dfeee3b988" class="">结论</h3><p id="23564738-a3cc-805e-b8d9-cd28ae496967" class="">总的来说，相比于VX的无脑操作，CSR明显玩法更多。哪怕是基础玩法+双重报销，搭配人手都有的Freedom，都能值回本。楼主建议持CSR一年内，拿完双重报销并且烧完全部点数比较合算。至于轮转大法大家谨慎尝试，风险自担。</p><p id="23764738-a3cc-8013-9c9f-da203ce4bbdd" class="">最后，CSR长持的性价比还是要看人。如果是为了PPS，可以考虑栗子，Connect（楼主都没想明白为什么一张免年费的卡能有满血PPS），VX。但是，不排除有些人不爱折腾，$250也不是不能接受。（如果你仔细对比各高端旅行卡的保险，CSR完爆，多出的年费都付隐形福利了）<br/></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8075-a200-cadc6377c09d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80dc-99f2-fc6ede278f27" class="">XHS原文章</p><p id="23564738-a3cc-80f2-b97e-c80387ba42ae" class=""><a href="http://xhslink.com/m/65jSU2WrBU2">http://xhslink.com/m/65jSU2WrBU2</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8047-b774-dcb15ac33e44" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之CSR，昔日霸主能否重现辉煌？</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8009-bf1c-d8c513249adc"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-800e-a43b-d0592cfd4ad6" class="">【2025.03】1.0版本发布</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8041-a91e-f9a4325e8408" class="">随着CSR迎来重大更新，本文内容已<strong>彻底</strong>不适用，留作纪念。新版内容可参考《<a href="%E4%BF%A1%E7%94%A8%E5%8D%A1%E8%AF%84%E6%B5%8B%E7%B3%BB%E5%88%97%E4%B9%8B%E6%96%B0%E7%89%88CSR%EF%BC%8C%E4%B8%80%E8%A8%80%E9%9A%BE%E5%B0%BD%2023564738a3cc80d0a165f385d9f6836e.html">信用卡评测系列之新版CSR，一言难尽</a>》</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80ca-86b8-f5f728096e5c" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-80d9-853a-f34bb095dbfa" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8019-9794-e4339afe9404">基础玩法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80cb-9e52-fbe01ad703b0">进阶玩法</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b8-aae3-d3dfeee3b988">结论</a></div></nav></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8040-b793-f3cecefdd1e1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8017-8693-e2587c8e6aa5" class="">相比较于VX和Bilt，CSR的热度就并没有那么高了。涨过年费后，性价比持续走低，但也有可圈可点的地方。<br/>作为老牌高端旅行卡，奖励60k（有时75k），吃饭&amp;旅行相关3x。每年报销$300，年费$550。<br/><br/>虽然辉煌不再了，但是，它还是有几个可玩之处，也是VX所不具备的：点数价值更多，升降机，双重报销和轮转大法。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8019-9794-e4339afe9404" class="">基础玩法</h3></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-804a-bdc4-e5b92d364649" class="numbered-list" start="1"><li>点数价值更多<div style="display:contents" dir="auto"><p id="23564738-a3cc-8083-ba3c-c223fb9a0d29" class="">支持以保底1.5cpp的价值订购旅行相关。楼主推荐可以用在里程来源少且无溢价的航司，比如达美和大航（楼主帮你们测试过了，Chase Travel没有溢价）。<br/>大部分美国国内的航司转点价值都低于1.5cpp，如果直接用CSR定反而更合算。除了少数转点伙伴（如凯悦，哥伦比亚航空）能用出高于1.5cpp的价值。</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-808d-87b3-f4c608163546" class="numbered-list" start="2"><li>升降机<div style="display:contents" dir="auto"><p id="23564738-a3cc-80a4-99fe-d3c2421af3c1" class="">如果在任何时间内你不想长持这张卡，可以降级至任何UR卡。哪天需要用了，再升级回来（注意升级时卡上的额度必须至少1w）。一般来说，操作间隔一年。</p></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80cb-9e52-fbe01ad703b0" class="">进阶玩法</h3></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-8036-a9c4-c19884181903" class="numbered-list" start="3"><li>双重报销<div style="display:contents" dir="auto"><p id="23564738-a3cc-80b1-b855-e1f0de811fbb" class="">双重报销指的是在一年之内可以拿两个$300的报销，从而达到年费$-50的效果。怎么操作呢？在年费post后30天以内降级，将全额退还。所以双重报销就是在你第1年内已经用掉了$300的情况下，等年费post后30天内再次用掉$300后降级。</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-8048-8ef1-cdae1d123fde" class="numbered-list" start="4"><li>轮转大法<div style="display:contents" dir="auto"><p id="23564738-a3cc-80bf-845f-e0b75bcb1a70" class="">通俗一点的来说，就是你必须至少持有两张UR卡（额度必须超过1w），一张无年费，一张CSR，重复CSR双重报销的过程，第2年再互换。<br/>双重报销只适用于持CSR一年。如果想长持，可以试一下轮转大法。</p></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80b8-aae3-d3dfeee3b988" class="">结论</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-805e-b8d9-cd28ae496967" class="">总的来说，相比于VX的无脑操作，CSR明显玩法更多。哪怕是基础玩法+双重报销，搭配人手都有的Freedom，都能值回本。楼主建议持CSR一年内，拿完双重报销并且烧完全部点数比较合算。至于轮转大法大家谨慎尝试，风险自担。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-8013-9c9f-da203ce4bbdd" class="">最后，CSR长持的性价比还是要看人。如果是为了PPS，可以考虑栗子，Connect（楼主都没想明白为什么一张免年费的卡能有满血PPS），VX。但是，不排除有些人不爱折腾，$250也不是不能接受。（如果你仔细对比各高端旅行卡的保险，CSR完爆，多出的年费都付隐形福利了）<br/></p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8075-a200-cadc6377c09d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80dc-99f2-fc6ede278f27" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80f2-b97e-c80387ba42ae" class=""><a href="http://xhslink.com/m/65jSU2WrBU2">http://xhslink.com/m/65jSU2WrBU2</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

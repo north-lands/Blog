@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-802c-862c-c7e6d7421c98" class="page serif"><header><h1 class="page-title">信用卡旅行保险全面对比分析(Coming Soon)</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80c1-af54-f23ab0aa7355"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-8072-8fc8-f9caeff330ea" class="">此文章已决定变更为付费攻略</p></div></figure><p id="23664738-a3cc-80ad-8da4-cdfb1ee77799" class="">
-</p><nav id="23664738-a3cc-8033-bc3d-eba5a5a50270" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80f1-a154-e721feedb13e">初级卡保险比较</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ea-a281-e41809da248b">高端卡保险比较</a></div></nav><h2 id="23664738-a3cc-80f1-a154-e721feedb13e" class="">初级卡保险比较</h2><p id="23664738-a3cc-80ae-8c4e-e038fe957f5c" class="">预计进行旅行保险信用卡对比的有：</p><ul id="23664738-a3cc-8082-aca0-f477a206540f" class="bulleted-list"><li style="list-style-type:disc">Premium Rewards, CSP, Strata Premier, Venture, Autograph Journey, UAC, Bilt</li></ul><h2 id="23664738-a3cc-80ea-a281-e41809da248b" class="">高端卡保险比较</h2><p id="23664738-a3cc-803a-acb6-fab233d2e600" class="">预计进行旅行保险信用卡对比的有：</p><ul id="23664738-a3cc-8000-991a-f7fe3bf3185d" class="bulleted-list"><li style="list-style-type:disc">Premium Rewards Elite, CSR, Strata Elite, Venture X, Amex Platinum, HSBC Elite (UAR绝版不参与比较)</li></ul><p id="23664738-a3cc-80d8-9129-e4671fa32745" class="">
-</p><p id="23664738-a3cc-806e-a139-d85f02cb0076" class="">有更多的卡欢迎补充。<br/></p><p id="23664738-a3cc-80fe-b177-fd810739731f" class="">楼主本来还是想把所有的卡直接放在统一表格里对比，这样有更直观的比较。但是后续考虑到卡比较多，不同的卡年费不同，等级不同，放在同一表格里直接对比可能会不公平。但是楼主最后发现这样可能不现实，所以把以上的卡分为两个等级：初级卡和高端卡。</p><p id="23664738-a3cc-80a0-8b3a-d2679b893812" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8027-9793-da8a27e22447"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80fd-a622-df366dbfa631" class="">另外大家也可以参考之前比较零碎的保险对比XHS原贴：</p><p id="23664738-a3cc-80f5-ae85-fa502f0ef0e2" class="">《<a href="http://xhslink.com/m/3Aem0tyw3mg">保险对比：CSP和Bilt，谁更胜一筹？</a>》</p><p id="23664738-a3cc-808f-b0e6-d633a88729ae" class="">《<a href="http://xhslink.com/m/6W4GpSvmU01">高端旅行卡：CSR或VX？附全面保险对比</a>》</p></div></figure><p id="23664738-a3cc-807b-8cb3-dc4fd3eb01a2" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-802c-862c-c7e6d7421c98" class="page serif"><header><h1 class="page-title" dir="auto">信用卡旅行保险全面对比分析(Coming Soon)</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80c1-af54-f23ab0aa7355"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-8072-8fc8-f9caeff330ea" class="">此文章已决定变更为付费攻略</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80ad-8da4-cdfb1ee77799" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23664738-a3cc-8033-bc3d-eba5a5a50270" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80f1-a154-e721feedb13e">初级卡保险比较</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ea-a281-e41809da248b">高端卡保险比较</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="23664738-a3cc-80f1-a154-e721feedb13e" class="">初级卡保险比较</h2></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80ae-8c4e-e038fe957f5c" class="">预计进行旅行保险信用卡对比的有：</p></div><div style="display:contents" dir="auto"><ul id="23664738-a3cc-8082-aca0-f477a206540f" class="bulleted-list"><li style="list-style-type:disc">Premium Rewards, CSP, Strata Premier, Venture, Autograph Journey, UAC, Bilt</li></ul></div><div style="display:contents" dir="auto"><h2 id="23664738-a3cc-80ea-a281-e41809da248b" class="">高端卡保险比较</h2></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-803a-acb6-fab233d2e600" class="">预计进行旅行保险信用卡对比的有：</p></div><div style="display:contents" dir="auto"><ul id="23664738-a3cc-8000-991a-f7fe3bf3185d" class="bulleted-list"><li style="list-style-type:disc">Premium Rewards Elite, CSR, Strata Elite, Venture X, Amex Platinum, HSBC Elite (UAR绝版不参与比较)</li></ul></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80d8-9129-e4671fa32745" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-806e-a139-d85f02cb0076" class="">有更多的卡欢迎补充。<br/></p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80fe-b177-fd810739731f" class="">楼主本来还是想把所有的卡直接放在统一表格里对比，这样有更直观的比较。但是后续考虑到卡比较多，不同的卡年费不同，等级不同，放在同一表格里直接对比可能会不公平。但是楼主最后发现这样可能不现实，所以把以上的卡分为两个等级：初级卡和高端卡。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80a0-8b3a-d2679b893812" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8027-9793-da8a27e22447"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-80fd-a622-df366dbfa631" class="">另外大家也可以参考之前比较零碎的保险对比XHS原贴：</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80f5-ae85-fa502f0ef0e2" class="">《<a href="http://xhslink.com/m/3Aem0tyw3mg">保险对比：CSP和Bilt，谁更胜一筹？</a>》</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-808f-b0e6-d633a88729ae" class="">《<a href="http://xhslink.com/m/6W4GpSvmU01">高端旅行卡：CSR或VX？附全面保险对比</a>》</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-807b-8cb3-dc4fd3eb01a2" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

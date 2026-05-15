@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,9 +740,9 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23764738-a3cc-80b9-85c0-e708205821f4" class="page serif"><header><h1 class="page-title">信用卡评测系列之Strata Elite, 高开低走</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-808d-921d-c11c13818e5d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23764738-a3cc-80c6-936a-e6b5d32417be" class="">【2025.07】1.0版本发布</p></div></figure><p id="23e64738-a3cc-80f2-a587-fb8adeed9b50" class="">
-</p><nav id="23f64738-a3cc-80b7-875f-c3f9a14aaa43" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23f64738-a3cc-80d6-8107-fac169d1e49e">宏观分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80a5-9698-d159d4838d21">年费</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80b3-ad10-cd5ad096400a">返点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80fe-8d7e-efb256022e6b">报销</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-8017-9d0c-eda91a57e740">保险</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-8068-8372-f57d7c221b3c">小结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23f64738-a3cc-80b1-b5d9-ecddedc74853">未来展望</a></div></nav><p id="23f64738-a3cc-8083-9db4-f37223ecff3a" class="">
-</p><p id="23f64738-a3cc-80b3-9f2a-f253c481cb3d" class="">Strata Elite终于正式发布了，要知道大家此前对这张卡的期待值非常高。看完明细后，很多人都在讨论，真的没有见过一上新就如此一言难尽的卡。</p><h2 id="23f64738-a3cc-80d6-8107-fac169d1e49e" class="">宏观分析</h2><h3 id="23f64738-a3cc-80a5-9698-d159d4838d21" class="">年费</h3><p id="23f64738-a3cc-8092-943c-fe72912157d3" class="">年费595却只给80k奖励，Citi不是来开玩笑的吧？虽然Citigold能减免年费145，但需要搬20块砖。虽然每年给200会员报销，但大家要是真有这么多块砖放Boa不香吗？Boa只需要一半就够了，利息都不止每年200了。</p><p id="23f64738-a3cc-8097-9602-e0a9c96845e5" class="">不过现在有100k活动，如果信报够硬可以试一试。</p><h3 id="23f64738-a3cc-80b3-ad10-cd5ad096400a" class="">返点</h3><p id="23f64738-a3cc-806e-bcab-e615dc88553e" class="">返现结构，毫无亮点，都得在Portal订。除此之外还整了一个Citi Night，特定时间6x，挺奇葩的。除此之外3x餐厅和1.5x其他，非常鸡肋。</p><h3 id="23f64738-a3cc-80fe-8d7e-efb256022e6b" class="">报销</h3><ol type="1" id="23f64738-a3cc-809b-bdbb-c5852d3e97a7" class="numbered-list" start="1"><li>酒店：楼主起初以为是Portal任意旅行产品报销，没想到正式推出后Citi规定只能用于Portal购买酒店，至少两晚。而且Portal还溢价，真实价值打八折。说实话这应该是所有高端卡中最不灵活的Credit，很难用。</li></ol><ol type="1" id="23f64738-a3cc-8073-87e2-de2eaa37d841" class="numbered-list" start="2"><li>Splurge。可以选择两个特定的商户，购买然后获得报销。目前包括1stDibs，Live Notion，Tickmaster，Bestbuy，AA五个商家。</li></ol><ol type="1" id="23f64738-a3cc-807d-84ae-c0c63d28ccef" class="numbered-list" start="3"><li>Blacklane：豪华机场接送服务，每半年100。首先这种服务不便宜，北美地区大概率减去报销后比Uber还贵，也就亚洲地区用一用。非常鸡肋。</li></ol><p id="23f64738-a3cc-8019-a8f4-d065d666fef6" class="">总结：酒店报销不好用，Splurge比较好用，但即使这样也回本不了年费。要是同样花100买残血PPS，还不如满血的Boa Elite。</p><h3 id="23f64738-a3cc-8017-9d0c-eda91a57e740" class="">保险</h3><p id="23f64738-a3cc-809b-a810-f3ee5a3b2eac" class="">此卡应该是采用新推出的World Legend，保险对标应该可以参考Visa Infinite。购物福利比Visa好，6小时延误等旅行保险基本大差不差。但是根据目前已知信息似乎不提供Primary租车保险，那World Legend未免也太弱了。</p><h3 id="23f64738-a3cc-8068-8372-f57d7c221b3c" class="">小结</h3><p id="23f64738-a3cc-807b-bd04-fd0ad75bc1fa" class="">所以从以上分析可以看出，高端卡Coupon化是趋势，而且各家Coupon同质化严重：</p><ul id="23f64738-a3cc-80e0-9ee1-fe34fb7d2388" class="bulleted-list"><li style="list-style-type:disc">酒店：Amex给FHR，Chase给Edit，Citi给Reserve</li></ul><ul id="23f64738-a3cc-80f7-ac80-ebd7e203e41d" class="bulleted-list"><li style="list-style-type:disc">打车：Amex给Uber，Chase给Lyft，Citi给Blacklane</li></ul><ul id="23f64738-a3cc-8076-b001-f8e158e32482" class="bulleted-list"><li style="list-style-type:disc">娱乐：Amex给综合订阅服务，Chase给Apple Sub/StubHub，Citi给Live Notion/Tickmaster</li></ul><h2 id="23f64738-a3cc-80b1-b5d9-ecddedc74853" class="">未来展望</h2><p id="23f64738-a3cc-80d2-97e4-ee92a7ae964e" class="">毫无性价比，还是推荐Citi三剑客，完全打不过中端卡Premier。</p><p id="23f64738-a3cc-80fd-bec0-ccfc5f6a2809" class="">目前值得有争议的是，Strata系列，应该保留Strata，还是Strata Premier？返现结构都大差不差，区别就是后者需要支付年费购买满血转点功能。关于数学计算上期已经做过，放在图片里了。</p><p id="24364738-a3cc-8003-a18a-d8c2f2ab358f" class="">
-</p><blockquote id="24364738-a3cc-80d8-ac1c-eaa18c944fb0" class="">免年费的卡可以1:0.7的比例转，也可以1cpp换现金。付95的年费后可以以1:1的比例转，差了0.3。所以大家可以可以根据对转点伙伴的点数估值来计算，找出临界点。注意每个人对点数的估值不同。<p id="24364738-a3cc-808c-b788-c8431b87de34" class="">这里举个例子。假设你要转点，使用以上的比例，那么只需要稍微计算一下就能知道（根据不同转点伙伴的价值，仅为参考）：</p><ol type="1" id="24364738-a3cc-80d2-8f81-ec458c1ef9f7" class="numbered-list" start="1"><li>如果估值为2cpp，临界点为15833点；</li></ol><ol type="1" id="24364738-a3cc-802d-b81d-cb29eb636981" class="numbered-list" start="2"><li>如果估值为1.7cpp，临界点为18627点；</li></ol><ol type="1" id="24364738-a3cc-80b2-8851-d0e58ec58455" class="numbered-list" start="3"><li>如果估值为1.5cpp，临界点为21111点；</li></ol><ol type="1" id="24364738-a3cc-808f-9000-f2f2f37f8b13" class="numbered-list" start="4"><li>如果估值为1.3cpp，临界点为24359点；<br/>所以如果你每年需要转的点数超过临界点，那带年费的premier更合算。</li></ol><p id="24364738-a3cc-804b-9f4e-e7b94d27fa15" class="">其他的比例大家可以自行计算。通用公式就是<br/>年费=0.3N x (cpp估值)</p></blockquote><p id="23f64738-a3cc-80d0-8aef-cdc768843b87" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23e64738-a3cc-80ff-a24a-f5fdd72134fa"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23e64738-a3cc-800f-8207-c8a745f89ba1" class="">XHS原文章</p><p id="23e64738-a3cc-807f-ac3c-f2b68abd30a2" class=""><a href="http://xhslink.com/m/6baSTozW7xf">http://xhslink.com/m/6baSTozW7xf</a></p></div></figure><p id="23f64738-a3cc-80a3-b1a1-ea745ac8b70a" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23764738-a3cc-80b9-85c0-e708205821f4" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之Strata Elite, 高开低走</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23764738-a3cc-808d-921d-c11c13818e5d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23764738-a3cc-80c6-936a-e6b5d32417be" class="">【2025.07】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23e64738-a3cc-80f2-a587-fb8adeed9b50" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23f64738-a3cc-80b7-875f-c3f9a14aaa43" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23f64738-a3cc-80d6-8107-fac169d1e49e">宏观分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80a5-9698-d159d4838d21">年费</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80b3-ad10-cd5ad096400a">返点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-80fe-8d7e-efb256022e6b">报销</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-8017-9d0c-eda91a57e740">保险</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23f64738-a3cc-8068-8372-f57d7c221b3c">小结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23f64738-a3cc-80b1-b5d9-ecddedc74853">未来展望</a></div></nav></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-8083-9db4-f37223ecff3a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-80b3-9f2a-f253c481cb3d" class="">Strata Elite终于正式发布了，要知道大家此前对这张卡的期待值非常高。看完明细后，很多人都在讨论，真的没有见过一上新就如此一言难尽的卡。</p></div><div style="display:contents" dir="auto"><h2 id="23f64738-a3cc-80d6-8107-fac169d1e49e" class="">宏观分析</h2></div><div style="display:contents" dir="auto"><h3 id="23f64738-a3cc-80a5-9698-d159d4838d21" class="">年费</h3></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-8092-943c-fe72912157d3" class="">年费595却只给80k奖励，Citi不是来开玩笑的吧？虽然Citigold能减免年费145，但需要搬20块砖。虽然每年给200会员报销，但大家要是真有这么多块砖放Boa不香吗？Boa只需要一半就够了，利息都不止每年200了。</p></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-8097-9602-e0a9c96845e5" class="">不过现在有100k活动，如果信报够硬可以试一试。</p></div><div style="display:contents" dir="auto"><h3 id="23f64738-a3cc-80b3-ad10-cd5ad096400a" class="">返点</h3></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-806e-bcab-e615dc88553e" class="">返现结构，毫无亮点，都得在Portal订。除此之外还整了一个Citi Night，特定时间6x，挺奇葩的。除此之外3x餐厅和1.5x其他，非常鸡肋。</p></div><div style="display:contents" dir="auto"><h3 id="23f64738-a3cc-80fe-8d7e-efb256022e6b" class="">报销</h3></div><div style="display:contents" dir="auto"><ol type="1" id="23f64738-a3cc-809b-bdbb-c5852d3e97a7" class="numbered-list" start="1"><li>酒店：楼主起初以为是Portal任意旅行产品报销，没想到正式推出后Citi规定只能用于Portal购买酒店，至少两晚。而且Portal还溢价，真实价值打八折。说实话这应该是所有高端卡中最不灵活的Credit，很难用。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23f64738-a3cc-8073-87e2-de2eaa37d841" class="numbered-list" start="2"><li>Splurge。可以选择两个特定的商户，购买然后获得报销。目前包括1stDibs，Live Notion，Tickmaster，Bestbuy，AA五个商家。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23f64738-a3cc-807d-84ae-c0c63d28ccef" class="numbered-list" start="3"><li>Blacklane：豪华机场接送服务，每半年100。首先这种服务不便宜，北美地区大概率减去报销后比Uber还贵，也就亚洲地区用一用。非常鸡肋。</li></ol></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-8019-a8f4-d065d666fef6" class="">总结：酒店报销不好用，Splurge比较好用，但即使这样也回本不了年费。要是同样花100买残血PPS，还不如满血的Boa Elite。</p></div><div style="display:contents" dir="auto"><h3 id="23f64738-a3cc-8017-9d0c-eda91a57e740" class="">保险</h3></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-809b-a810-f3ee5a3b2eac" class="">此卡应该是采用新推出的World Legend，保险对标应该可以参考Visa Infinite。购物福利比Visa好，6小时延误等旅行保险基本大差不差。但是根据目前已知信息似乎不提供Primary租车保险，那World Legend未免也太弱了。</p></div><div style="display:contents" dir="auto"><h3 id="23f64738-a3cc-8068-8372-f57d7c221b3c" class="">小结</h3></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-807b-bd04-fd0ad75bc1fa" class="">所以从以上分析可以看出，高端卡Coupon化是趋势，而且各家Coupon同质化严重：</p></div><div style="display:contents" dir="auto"><ul id="23f64738-a3cc-80e0-9ee1-fe34fb7d2388" class="bulleted-list"><li style="list-style-type:disc">酒店：Amex给FHR，Chase给Edit，Citi给Reserve</li></ul></div><div style="display:contents" dir="auto"><ul id="23f64738-a3cc-80f7-ac80-ebd7e203e41d" class="bulleted-list"><li style="list-style-type:disc">打车：Amex给Uber，Chase给Lyft，Citi给Blacklane</li></ul></div><div style="display:contents" dir="auto"><ul id="23f64738-a3cc-8076-b001-f8e158e32482" class="bulleted-list"><li style="list-style-type:disc">娱乐：Amex给综合订阅服务，Chase给Apple Sub/StubHub，Citi给Live Notion/Tickmaster</li></ul></div><div style="display:contents" dir="auto"><h2 id="23f64738-a3cc-80b1-b5d9-ecddedc74853" class="">未来展望</h2></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-80d2-97e4-ee92a7ae964e" class="">毫无性价比，还是推荐Citi三剑客，完全打不过中端卡Premier。</p></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-80fd-bec0-ccfc5f6a2809" class="">目前值得有争议的是，Strata系列，应该保留Strata，还是Strata Premier？返现结构都大差不差，区别就是后者需要支付年费购买满血转点功能。关于数学计算上期已经做过，放在图片里了。</p></div><div style="display:contents" dir="auto"><p id="24364738-a3cc-8003-a18a-d8c2f2ab358f" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="24364738-a3cc-80d8-ac1c-eaa18c944fb0" class="">免年费的卡可以1:0.7的比例转，也可以1cpp换现金。付95的年费后可以以1:1的比例转，差了0.3。所以大家可以可以根据对转点伙伴的点数估值来计算，找出临界点。注意每个人对点数的估值不同。<div style="display:contents" dir="auto"><p id="24364738-a3cc-808c-b788-c8431b87de34" class="">这里举个例子。假设你要转点，使用以上的比例，那么只需要稍微计算一下就能知道（根据不同转点伙伴的价值，仅为参考）：</p></div><div style="display:contents" dir="auto"><ol type="1" id="24364738-a3cc-80d2-8f81-ec458c1ef9f7" class="numbered-list" start="1"><li>如果估值为2cpp，临界点为15833点；</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24364738-a3cc-802d-b81d-cb29eb636981" class="numbered-list" start="2"><li>如果估值为1.7cpp，临界点为18627点；</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24364738-a3cc-80b2-8851-d0e58ec58455" class="numbered-list" start="3"><li>如果估值为1.5cpp，临界点为21111点；</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24364738-a3cc-808f-9000-f2f2f37f8b13" class="numbered-list" start="4"><li>如果估值为1.3cpp，临界点为24359点；<br/>所以如果你每年需要转的点数超过临界点，那带年费的premier更合算。</li></ol></div><div style="display:contents" dir="auto"><p id="24364738-a3cc-804b-9f4e-e7b94d27fa15" class="">其他的比例大家可以自行计算。通用公式就是<br/>年费=0.3N x (cpp估值)</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-80d0-8aef-cdc768843b87" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23e64738-a3cc-80ff-a24a-f5fdd72134fa"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23e64738-a3cc-800f-8207-c8a745f89ba1" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23e64738-a3cc-807f-ac3c-f2b68abd30a2" class=""><a href="http://xhslink.com/m/6baSTozW7xf">http://xhslink.com/m/6baSTozW7xf</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23f64738-a3cc-80a3-b1a1-ea745ac8b70a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="29364738-a3cc-80d8-82d7-e25e36580c4d" class="page serif"><header><h1 class="page-title">点数系统评测之C1 Miles：美丽的陷阱？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29364738-a3cc-803f-868f-f6dc848e1f13"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="29364738-a3cc-804c-833b-e412d399d0f7" class="">【2025.10】1.0版本发布</p></div></figure><p id="29364738-a3cc-800e-8bae-f23ad48384da" class="">
-</p><nav id="29364738-a3cc-80f7-afa0-cf280d0e4035" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-8091-afc6-c5a7b7579f4b">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-808d-8f4d-d26e3077ca19">点数来源</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-80af-ad31-c0558d601afc">点数使用</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-8002-8b09-dced31539547">总结</a></div></nav><p id="29364738-a3cc-8074-a753-f218f381ea00" class="">
-</p><h2 id="29364738-a3cc-8091-afc6-c5a7b7579f4b" class="">前言</h2><p id="29364738-a3cc-80d6-9648-df2e531fd0e2" class="">本来这个系列只讨论三大点数系统，但楼主觉得非常有必要把C1拿出来单独讲一讲。本来这个点数系统很不好用，虽说经过改良后有所进步，但，仍然不好用。</p><h2 id="29364738-a3cc-808d-8f4d-d26e3077ca19" class="">点数来源</h2><p id="29364738-a3cc-8039-8115-f67fba4cedf8" class="">为什么把点数来源拿出来单独讲呢，先来盘点一下C1的情况：C1的卡确实很多，但问题是他会让你把这么多卡全部都开下来吗？别忘记C1有1/6的规则。那么也就是说在一年时间内你最多只能下两张C1卡，而相比之下同样时间极限情况你能下5张或以上Chase，Citi或Amex的卡，总之比两张多。</p><p id="29364738-a3cc-805b-b6cc-f4a0d9a77a19" class="">所以细看C1卡，基本上就是两张卡组合：Savor(系列)+Venture(系列)。开卡奖励作为点数来源的主要途径之一，大大受限；且两张卡的消费结构没什么亮点，2x不出众。所以相比之下，不管是开卡奖励还是消费结构，UR，TYP，MR的点数来源比C1要丰富的多。</p><h2 id="29364738-a3cc-80af-ad31-c0558d601afc" class="">点数使用</h2><p id="29364738-a3cc-8096-8608-ec80d27b2474" class="">关于点数使用，主力涨点卡Venture系列2x兑现只有0.5cpp，且点数不能转给Savor 1cpp兑现。具体其他的分析方式楼主之前已经分析过了，所以接下来注重关注C1的转点伙伴。</p><p id="29364738-a3cc-8076-83ef-ceef87b02734" class="">好消息是C1近期宣布了两个新的转点伙伴：JAL和Perfer Hotel。坏消息是JAL比例只有1:0.75，Perfer Hotel 1:2。相比之下Citi Premier Perfer Hotel转点比例1:4，其他Citi卡免年费卡1:2.8。哪怕JAL估值1.6cpp，转点过后只有1x0.75x1.6=1.2cpp的价值，这是来搞笑的吧。而且根据反馈JAL点数价值其实和国泰相当，YQ也差不多。</p><p id="29364738-a3cc-80a9-b9a1-f318b3d37e6f" class="">那么在没有宣布新转点伙伴前，比较值得一提的就是转点比例只有2:1.5的长荣了。也是一种很亏的方式。所以这么来看C1的2x everything就是一个笑话——贬值居然如此的严重，不愧是渣行。</p><h2 id="29364738-a3cc-8002-8b09-dced31539547" class="">总结</h2><p id="29364738-a3cc-80b0-8f9b-e461b8d8c904" class="">总结就是拉完了。C1不论是卡还是点数都毫无竞争力，大家没必要跟C1过不去吧？除了Venture X出了名的难下(应该是信用卡z难下的卡了，且已被削弱)，Savor也不见得好下，至少比Freedom难度高。所以大家完全可以绕开：甚至还有人表示新手应该先下C1，别吹了真的。</p><p id="29364738-a3cc-8064-ad60-d7bb8f157edf" class="">不过如果和MR比较，其实C1没有比MR更好用，甚至两边的点数是一模一样的情况。但C1胜在有无年费的卡可以挂壁，Amex没有。</p><p id="29364738-a3cc-80b5-8587-ccd9d0dfb5b4" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29364738-a3cc-8039-b9c7-e623331537aa"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="29364738-a3cc-80a9-b929-cab787749f3d" class="">XHS原文章</p><p id="29364738-a3cc-802e-8519-de01074e04ba" class=""><a href="http://xhslink.com/o/Ve7VJIbq16">http://xhslink.com/o/Ve7VJIbq16</a></p></div></figure><p id="29364738-a3cc-80f5-bc72-c8dbff8d5ba8" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="29364738-a3cc-80d8-82d7-e25e36580c4d" class="page serif"><header><h1 class="page-title" dir="auto">点数系统评测之C1 Miles：美丽的陷阱？</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29364738-a3cc-803f-868f-f6dc848e1f13"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="29364738-a3cc-804c-833b-e412d399d0f7" class="">【2025.10】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-800e-8bae-f23ad48384da" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="29364738-a3cc-80f7-afa0-cf280d0e4035" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-8091-afc6-c5a7b7579f4b">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-808d-8f4d-d26e3077ca19">点数来源</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-80af-ad31-c0558d601afc">点数使用</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29364738-a3cc-8002-8b09-dced31539547">总结</a></div></nav></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-8074-a753-f218f381ea00" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="29364738-a3cc-8091-afc6-c5a7b7579f4b" class="">前言</h2></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-80d6-9648-df2e531fd0e2" class="">本来这个系列只讨论三大点数系统，但楼主觉得非常有必要把C1拿出来单独讲一讲。本来这个点数系统很不好用，虽说经过改良后有所进步，但，仍然不好用。</p></div><div style="display:contents" dir="auto"><h2 id="29364738-a3cc-808d-8f4d-d26e3077ca19" class="">点数来源</h2></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-8039-8115-f67fba4cedf8" class="">为什么把点数来源拿出来单独讲呢，先来盘点一下C1的情况：C1的卡确实很多，但问题是他会让你把这么多卡全部都开下来吗？别忘记C1有1/6的规则。那么也就是说在一年时间内你最多只能下两张C1卡，而相比之下同样时间极限情况你能下5张或以上Chase，Citi或Amex的卡，总之比两张多。</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-805b-b6cc-f4a0d9a77a19" class="">所以细看C1卡，基本上就是两张卡组合：Savor(系列)+Venture(系列)。开卡奖励作为点数来源的主要途径之一，大大受限；且两张卡的消费结构没什么亮点，2x不出众。所以相比之下，不管是开卡奖励还是消费结构，UR，TYP，MR的点数来源比C1要丰富的多。</p></div><div style="display:contents" dir="auto"><h2 id="29364738-a3cc-80af-ad31-c0558d601afc" class="">点数使用</h2></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-8096-8608-ec80d27b2474" class="">关于点数使用，主力涨点卡Venture系列2x兑现只有0.5cpp，且点数不能转给Savor 1cpp兑现。具体其他的分析方式楼主之前已经分析过了，所以接下来注重关注C1的转点伙伴。</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-8076-83ef-ceef87b02734" class="">好消息是C1近期宣布了两个新的转点伙伴：JAL和Perfer Hotel。坏消息是JAL比例只有1:0.75，Perfer Hotel 1:2。相比之下Citi Premier Perfer Hotel转点比例1:4，其他Citi卡免年费卡1:2.8。哪怕JAL估值1.6cpp，转点过后只有1x0.75x1.6=1.2cpp的价值，这是来搞笑的吧。而且根据反馈JAL点数价值其实和国泰相当，YQ也差不多。</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-80a9-b9a1-f318b3d37e6f" class="">那么在没有宣布新转点伙伴前，比较值得一提的就是转点比例只有2:1.5的长荣了。也是一种很亏的方式。所以这么来看C1的2x everything就是一个笑话——贬值居然如此的严重，不愧是渣行。</p></div><div style="display:contents" dir="auto"><h2 id="29364738-a3cc-8002-8b09-dced31539547" class="">总结</h2></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-80b0-8f9b-e461b8d8c904" class="">总结就是拉完了。C1不论是卡还是点数都毫无竞争力，大家没必要跟C1过不去吧？除了Venture X出了名的难下(应该是信用卡z难下的卡了，且已被削弱)，Savor也不见得好下，至少比Freedom难度高。所以大家完全可以绕开：甚至还有人表示新手应该先下C1，别吹了真的。</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-8064-ad60-d7bb8f157edf" class="">不过如果和MR比较，其实C1没有比MR更好用，甚至两边的点数是一模一样的情况。但C1胜在有无年费的卡可以挂壁，Amex没有。</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-80b5-8587-ccd9d0dfb5b4" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29364738-a3cc-8039-b9c7-e623331537aa"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="29364738-a3cc-80a9-b929-cab787749f3d" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-802e-8519-de01074e04ba" class=""><a href="http://xhslink.com/o/Ve7VJIbq16">http://xhslink.com/o/Ve7VJIbq16</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29364738-a3cc-80f5-bc72-c8dbff8d5ba8" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="24a64738-a3cc-8033-b758-e5469d6a118d" class="page serif"><header><h1 class="page-title">USbank申卡经历实操分享</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-80bb-ae95-e4ccb809c17e"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-807c-a910-d242e4448264" class="">【2025.08】1.0版本发布</p></div></figure><p id="24a64738-a3cc-80b7-a197-e6e50fbbac2f" class="">
-</p><nav id="25e64738-a3cc-8031-9001-c593277eea73" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80b8-8a40-e96e909cb8c7">背景</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80bd-9be5-d1db6c669f36">实操过程</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-80df-9786-facdfadfb8f7">1. USbank到底pull哪个信用局？</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-8095-822c-d211681e3384">2. 出结果时间</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-805e-8bb9-ef582d3977f1">3. 申请过程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-8054-b85a-c17cc537c37f">结果和总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-801c-b5bd-d53180a842e9">延伸阅读</a></div></nav><p id="24a64738-a3cc-8080-98a4-fd943929a823" class="">
-</p><h2 id="25e64738-a3cc-80b8-8a40-e96e909cb8c7" class="">背景</h2><p id="25e64738-a3cc-80ff-be93-e23b48211d10" class="">UAC一直是一张很不错的卡，也是一张被低估的卡。作为之前八卡组合中楼主推荐的最后一张卡，虽然可能不是消费刚需，但也是一个锦上添花的存在。对于轻度旅行者来说足够用了。<br/>本来按照楼主的计划今年不申卡了，等到明年再申请。可是计划赶不上变化，正好这个月石膏了，所以就赶鸭子上架，强行申请。<br/>结果，悲剧了。</p><h2 id="25e64738-a3cc-80bd-9be5-d1db6c669f36" class="">实操过程</h2><p id="25e64738-a3cc-8064-a6a8-fcd2c48b4f89" class="">那天晚上楼主直接在网上尝试Pre，喜提7-10天。第2天楼主就冲到附近Branch，准备在Banker的帮助下一起申卡。</p><h3 id="25e64738-a3cc-80df-9786-facdfadfb8f7" class="">1. USbank到底pull哪个信用局？</h3><p id="25e64738-a3cc-8060-9686-e178895e7cb7" class="">当楼主向Banker询问这个问题时，Banker给的答复是&quot; We are pulling from multiple credit bureau&quot;(大概是这个意思)。那他这个意思是USbank会同时pull多家，还是不同的情况pull不同的bureau?<br/>总结：最后pull了一家，还是EX，欲哭无泪，应该先锁了再去申。(根据大部分dp USbank pull TU，最后还是pull了EX)</p><h3 id="25e64738-a3cc-8095-822c-d211681e3384" class="">2. 出结果时间</h3><p id="25e64738-a3cc-80ac-bfdb-fe89a589a1da" class="">大家应该都知道大部分银行都有一个批卡模型，填写你的资料点击申请后马上就会给出结果。但USB所有的application必须经过人工审批... 而且他们家的审核结果不发邮件，是寄信。很另类。</p><h3 id="25e64738-a3cc-805e-8bb9-ef582d3977f1" class="">3. 申请过程</h3><p id="25e64738-a3cc-8076-9c16-c2952849d8da" class="">之前楼主也去过Citi branch，15分钟丝滑搞定。然而这次坐了整整40分钟才出来，也从侧面可以看出USbank真的比其他银行还繁琐很多。<br/>从申请表所需的信息来看，除了个人信息Citi只需要填写收入和房租，而USBank在这个基础上还需要填你的工作类型，职业，和其他一堆信息。</p><h2 id="25e64738-a3cc-8054-b85a-c17cc537c37f" class="">结果和总结</h2><p id="25e64738-a3cc-8056-b9ac-de8dfbbdac86" class="">最后楼主也悲剧了。<br/>那来做个总结吧，USbank可比Citi难搞太多，从申请需要提供的信息就可以看出。更离谱的是在几乎所有银行都有模型的情况下，他们居然没有Instant approval，开什么国际玩笑(就差点把&quot;注重关系&quot;写在上了)。<br/>所以再反思一下，为什么要申请UAC？消费结构并不是刚需，主要就是4次免费PPS，属于锦上添花的存在。如果实在申不到可以考虑直接move on的，也没必要耗太多时间。</p><h2 id="25e64738-a3cc-801c-b5bd-d53180a842e9" class="">延伸阅读</h2><p id="25e64738-a3cc-809c-9f1e-ff59c3226c31" class="">好吧来为他们正明一下，Instant approval不是没有，而是几乎没用。如果你过不了Pre，那你的application一定会被人工review。而USBank的Pre也很难搞，基本没有秒过的...</p><p id="24a64738-a3cc-80a5-9e5d-caf80235f553" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8032-85fb-d6a9e201c9ad"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-8023-91b6-ef53be9b9bef" class="">XHS原文章</p><p id="25e64738-a3cc-808c-ab26-dd9b2f52a7b5" class=""><a href="http://xhslink.com/m/65t3MgkBm38">http://xhslink.com/m/65t3MgkBm38</a></p></div></figure><p id="24a64738-a3cc-8047-b06d-f1f586ba4c19" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="24a64738-a3cc-8033-b758-e5469d6a118d" class="page serif"><header><h1 class="page-title" dir="auto">USbank申卡经历实操分享</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-80bb-ae95-e4ccb809c17e"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-807c-a910-d242e4448264" class="">【2025.08】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-80b7-a197-e6e50fbbac2f" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="25e64738-a3cc-8031-9001-c593277eea73" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80b8-8a40-e96e909cb8c7">背景</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80bd-9be5-d1db6c669f36">实操过程</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-80df-9786-facdfadfb8f7">1. USbank到底pull哪个信用局？</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-8095-822c-d211681e3384">2. 出结果时间</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25e64738-a3cc-805e-8bb9-ef582d3977f1">3. 申请过程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-8054-b85a-c17cc537c37f">结果和总结</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-801c-b5bd-d53180a842e9">延伸阅读</a></div></nav></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8080-98a4-fd943929a823" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-80b8-8a40-e96e909cb8c7" class="">背景</h2></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-80ff-be93-e23b48211d10" class="">UAC一直是一张很不错的卡，也是一张被低估的卡。作为之前八卡组合中楼主推荐的最后一张卡，虽然可能不是消费刚需，但也是一个锦上添花的存在。对于轻度旅行者来说足够用了。<br/>本来按照楼主的计划今年不申卡了，等到明年再申请。可是计划赶不上变化，正好这个月石膏了，所以就赶鸭子上架，强行申请。<br/>结果，悲剧了。</p></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-80bd-9be5-d1db6c669f36" class="">实操过程</h2></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8064-a6a8-fcd2c48b4f89" class="">那天晚上楼主直接在网上尝试Pre，喜提7-10天。第2天楼主就冲到附近Branch，准备在Banker的帮助下一起申卡。</p></div><div style="display:contents" dir="auto"><h3 id="25e64738-a3cc-80df-9786-facdfadfb8f7" class="">1. USbank到底pull哪个信用局？</h3></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8060-9686-e178895e7cb7" class="">当楼主向Banker询问这个问题时，Banker给的答复是&quot; We are pulling from multiple credit bureau&quot;(大概是这个意思)。那他这个意思是USbank会同时pull多家，还是不同的情况pull不同的bureau?<br/>总结：最后pull了一家，还是EX，欲哭无泪，应该先锁了再去申。(根据大部分dp USbank pull TU，最后还是pull了EX)</p></div><div style="display:contents" dir="auto"><h3 id="25e64738-a3cc-8095-822c-d211681e3384" class="">2. 出结果时间</h3></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-80ac-bfdb-fe89a589a1da" class="">大家应该都知道大部分银行都有一个批卡模型，填写你的资料点击申请后马上就会给出结果。但USB所有的application必须经过人工审批... 而且他们家的审核结果不发邮件，是寄信。很另类。</p></div><div style="display:contents" dir="auto"><h3 id="25e64738-a3cc-805e-8bb9-ef582d3977f1" class="">3. 申请过程</h3></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8076-9c16-c2952849d8da" class="">之前楼主也去过Citi branch，15分钟丝滑搞定。然而这次坐了整整40分钟才出来，也从侧面可以看出USbank真的比其他银行还繁琐很多。</p></div><div style="display:contents" dir="auto"><p id="2da64738-a3cc-80a5-aaaa-ed6c1dbdf38b" class="">从申请表所需的信息来看，除了个人信息Citi只需要填写收入和房租，而USBank在这个基础上还需要填你的工作类型，职业，和其他一堆信息。</p></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-8054-b85a-c17cc537c37f" class="">结果和总结</h2></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8056-b9ac-de8dfbbdac86" class="">最后楼主也悲剧了。</p></div><div style="display:contents" dir="auto"><p id="2da64738-a3cc-8098-8c69-dd86c88d75bd" class="">那来做个总结吧，USbank可比Citi难搞太多，从申请需要提供的信息就可以看出。更离谱的是在几乎所有银行都有模型的情况下，他们居然没有Instant approval，开什么国际玩笑(就差点把&quot;注重关系&quot;写在上了)。</p></div><div style="display:contents" dir="auto"><p id="2da64738-a3cc-8097-b5d5-d496f412ca13" class="">所以再反思一下，为什么要申请UAC？消费结构并不是刚需，主要就是4次免费PPS，属于锦上添花的存在。如果实在申不到可以考虑直接move on的，也没必要耗太多时间。</p></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-801c-b5bd-d53180a842e9" class="">延伸阅读</h2></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-809c-9f1e-ff59c3226c31" class="">好吧来为他们正明一下，Instant approval不是没有，而是几乎没用。如果你过不了Pre，那你的application一定会被人工review。而USBank的Pre也很难搞，基本没有秒过的...</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-80a5-9e5d-caf80235f553" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8032-85fb-d6a9e201c9ad"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8023-91b6-ef53be9b9bef" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="25e64738-a3cc-808c-ab26-dd9b2f52a7b5" class=""><a href="http://xhslink.com/m/65t3MgkBm38">http://xhslink.com/m/65t3MgkBm38</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8047-b06d-f1f586ba4c19" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

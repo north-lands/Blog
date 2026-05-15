@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8070-ad3c-e6c74119fd95" class="page serif"><header><h1 class="page-title">点数系统评测之Chase UR：跌落神坛？</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8049-8ffe-fc9a325def58"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-808c-9c9b-de143efb0122" class="">【2025.06】1.0版本发布</p></div></figure><p id="23664738-a3cc-80d0-9183-e680c3910ed2" class="">
-</p><nav id="23664738-a3cc-80bb-a45c-e80b37331d8b" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ae-8610-f7891bac0582">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-800e-9b49-c4cd2d943130">评价反思</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8088-9443-eeec2f513b37">应对策略</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80d9-a06a-d8d0d1a3ade4">未来展望</a></div></nav><p id="23664738-a3cc-804f-8dc6-f8c4d9531933" class="">
-</p><h3 id="23664738-a3cc-80ae-8610-f7891bac0582" class="">前言</h3><p id="23664738-a3cc-801c-b74f-d013363017f0" class="">之前已经有了信用卡评测系列，但似乎楼主并没有过多的讲点数系统，只反思了一篇帖子。最近变化有点大，故新开此系列。目前Chase蓝宝石系列刚刚改版，所带来的结果就是UR跌落神坛。</p><h3 id="23664738-a3cc-800e-9b49-c4cd2d943130" class="">评价反思</h3><p id="23664738-a3cc-80a4-bcbf-ef6a4d3f939d" class="">首先大家应该知道消息了，茶色这次正式砍掉了CSP&amp;CSR的1.25&amp;1.5cpp兑换，取而代之的是特定旅行产品1.5-2cpp（大家自行去搜索一下哪些有）。之前楼主给UR的定位就是酒店强，航空弱，并且还赞赏了UR的灵活性。现在茶色正式砍掉了核心功能，成功的把卡砍废了。</p><p id="23664738-a3cc-806c-b56e-f347867dbbe0" class="">还记得之前锐评点数吗？楼主有提过，UR用出高价值的方式只有两种：Hyatt和CSR 1.5。如今后者被砍掉，全部拿来住Hyatt要住多久？Hyatt很多酒店在日本等级大大提升；米国也没那么好用，反倒比较利好大陆。大多数人出行应该是以经济实惠为主吧？Hyatt C3也只需要1.2w分而已。你是不是觉得点数酒店用不完，机票不够用？UR后续不适合作为攒点主力了，建议转TYP吧。</p><p id="23664738-a3cc-80bb-8786-f2c16c590fdc" class="">所以这次茶色取消Portal额外价值兑换功能，与Citi取消Reward+10%额外加成一样，银行在这上面应该亏了很多。所以现在明白了吧，现金为王，里程啥都是虚的，银行的购入成本低。</p><h3 id="23664738-a3cc-8088-9443-eeec2f513b37" class="">应对策略</h3><p id="23664738-a3cc-800e-88bd-f27f21fc51da" class="">改版之后UR反正是不行了，CFU也成为了鸡肋。大家千万不要因为某些特定旅行产品能兑出1.5cpp就简单的把回报计算成1.5x1.5…  DC甚至Apple Card都比CFU强。</p><p id="23664738-a3cc-80f7-841d-da1dd9628158" class="">所以接下来茶色值得长期的卡只有CFF+CSP了，前者还可以攒点5x，后者保留负年费，免费住Hyatt，DD报销和Primary保险，不适合攒点了。搞完之后早点转Citi吧。</p><p id="23664738-a3cc-807b-8c79-f2bfd75371ab" class="">目前不太清楚其他联名卡和粟子卡是否会做改动，毕竟UA已经Coupon化了。</p><h3 id="23664738-a3cc-80d9-a06a-d8d0d1a3ade4" class="">未来展望</h3><p id="23664738-a3cc-8084-bcf9-dded821c72e4" class="">虽然不同银行都各自有点数系统，但真正出名的就三个：UR，MR和TYP。至于其他的比如C1，Bilt，Boa，USbank都比较稳定，目前看来没有更新的必要。根据信息，Amex白金即将在下半年迎来大更新；Strata Elite可能在暑假上线。到时再给大家带来另外两个点数系统的评测。</p><p id="23664738-a3cc-807e-8fa9-da60dba2e79b" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80c3-8896-dcf8f36537d7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23664738-a3cc-80f4-8d78-d29867f8ce0f" class="">XHS原文章</p><p id="23664738-a3cc-80b1-ae9c-c6dcb408f26d" class=""><a href="http://xhslink.com/m/7hhfN8tVmDq">http://xhslink.com/m/7hhfN8tVmDq</a></p></div></figure><p id="23664738-a3cc-807f-a850-d276c2a53bc9" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8070-ad3c-e6c74119fd95" class="page serif"><header><h1 class="page-title" dir="auto">点数系统评测之Chase UR：跌落神坛？</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8049-8ffe-fc9a325def58"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-808c-9c9b-de143efb0122" class="">【2025.06】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80d0-9183-e680c3910ed2" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23664738-a3cc-80bb-a45c-e80b37331d8b" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80ae-8610-f7891bac0582">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-800e-9b49-c4cd2d943130">评价反思</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-8088-9443-eeec2f513b37">应对策略</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23664738-a3cc-80d9-a06a-d8d0d1a3ade4">未来展望</a></div></nav></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-804f-8dc6-f8c4d9531933" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-80ae-8610-f7891bac0582" class="">前言</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-801c-b74f-d013363017f0" class="">之前已经有了信用卡评测系列，但似乎楼主并没有过多的讲点数系统，只反思了一篇帖子。最近变化有点大，故新开此系列。目前Chase蓝宝石系列刚刚改版，所带来的结果就是UR跌落神坛。</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-800e-9b49-c4cd2d943130" class="">评价反思</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80a4-bcbf-ef6a4d3f939d" class="">首先大家应该知道消息了，茶色这次正式砍掉了CSP&amp;CSR的1.25&amp;1.5cpp兑换，取而代之的是特定旅行产品1.5-2cpp（大家自行去搜索一下哪些有）。之前楼主给UR的定位就是酒店强，航空弱，并且还赞赏了UR的灵活性。现在茶色正式砍掉了核心功能，成功的把卡砍废了。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-806c-b56e-f347867dbbe0" class="">还记得之前锐评点数吗？楼主有提过，UR用出高价值的方式只有两种：Hyatt和CSR 1.5。如今后者被砍掉，全部拿来住Hyatt要住多久？Hyatt很多酒店在日本等级大大提升；米国也没那么好用，反倒比较利好大陆。大多数人出行应该是以经济实惠为主吧？Hyatt C3也只需要1.2w分而已。你是不是觉得点数酒店用不完，机票不够用？UR后续不适合作为攒点主力了，建议转TYP吧。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80bb-8786-f2c16c590fdc" class="">所以这次茶色取消Portal额外价值兑换功能，与Citi取消Reward+10%额外加成一样，银行在这上面应该亏了很多。所以现在明白了吧，现金为王，里程啥都是虚的，银行的购入成本低。</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-8088-9443-eeec2f513b37" class="">应对策略</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-800e-88bd-f27f21fc51da" class="">改版之后UR反正是不行了，CFU也成为了鸡肋。大家千万不要因为某些特定旅行产品能兑出1.5cpp就简单的把回报计算成1.5x1.5…  DC甚至Apple Card都比CFU强。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80f7-841d-da1dd9628158" class="">所以接下来茶色值得长期的卡只有CFF+CSP了，前者还可以攒点5x，后者保留负年费，免费住Hyatt，DD报销和Primary保险，不适合攒点了。搞完之后早点转Citi吧。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-807b-8c79-f2bfd75371ab" class="">目前不太清楚其他联名卡和粟子卡是否会做改动，毕竟UA已经Coupon化了。</p></div><div style="display:contents" dir="auto"><h3 id="23664738-a3cc-80d9-a06a-d8d0d1a3ade4" class="">未来展望</h3></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8084-bcf9-dded821c72e4" class="">虽然不同银行都各自有点数系统，但真正出名的就三个：UR，MR和TYP。至于其他的比如C1，Bilt，Boa，USbank都比较稳定，目前看来没有更新的必要。根据信息，Amex白金即将在下半年迎来大更新；Strata Elite可能在暑假上线。到时再给大家带来另外两个点数系统的评测。</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-807e-8fa9-da60dba2e79b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-80c3-8896-dcf8f36537d7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-80f4-8d78-d29867f8ce0f" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80b1-ae9c-c6dcb408f26d" class=""><a href="http://xhslink.com/m/7hhfN8tVmDq">http://xhslink.com/m/7hhfN8tVmDq</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-807f-a850-d276c2a53bc9" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

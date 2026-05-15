@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="24a64738-a3cc-8096-9f52-cee891dcf14c" class="page serif"><header><h1 class="page-title">CFF手机保险理赔实战</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-80d1-9f82-ef5549c75912"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-806d-8636-d6eab8012b2c" class="">【2025.08】1.0版本发布</p></div></figure><p id="24d64738-a3cc-8066-b36a-f88a91d3aac4" class="">
-</p><nav id="24d64738-a3cc-806e-ba08-f24c2654e782" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8057-bd01-f35d9bde1a21">背景</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-80fa-8edb-d1a4c55a4ff7">理赔要求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8014-ad19-d452e9495d3b">理赔过程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8066-a427-c215bdacee09">提供材料</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-801e-8615-ebb9f60daaef">结果</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-804e-97af-e0f6b85bba0e">延伸阅读</a></div></nav><p id="24d64738-a3cc-801a-8a79-e906a27c087d" class="">
-</p><h2 id="24d64738-a3cc-8057-bd01-f35d9bde1a21" class="">背景</h2><p id="24d64738-a3cc-804c-8979-e6c7eec5f4fb" class="">相信你在前面已经知道了。本人一直自用S23U，然后手机突然黑屏，陷入无限重启。由于已经在网上看到过这款手机普遍存在虚焊，所以楼主猜测猜测可能就是这个原因。</p><p id="24d64738-a3cc-807e-82f4-f83dc94a4ec7" class="">第2天火速拿到授权店维修，下午被告知找不出原因，给了一个诊断单。因为无法诊断原因，没有维修方案自然也就没有具体报价单。</p><h2 id="24d64738-a3cc-80fa-8edb-d1a4c55a4ff7" class="">理赔要求</h2><p id="24d64738-a3cc-80cc-8355-e32792e46e50" class="">用信用卡交手机全额话费即可。</p><h2 id="24d64738-a3cc-8014-ad19-d452e9495d3b" class="">理赔过程</h2><p id="24d64738-a3cc-8060-ba81-fcd72be993ef" class="">由于之前一直是用CFF交手机话费，所以想到了使用保险理赔。楼主把手机从维修店取回后，就在网上申请了理赔。</p><ol type="1" id="24d64738-a3cc-804c-ad94-e4a24fcf0520" class="numbered-list" start="1"><li>打开手机理赔保险网站，这是Chase和第三方保险合作的项目。如果你是第1次理赔，点击底下的Verify Card &amp; Register，输入CFF卡号，并且填写信息。按照屏幕上的指示即可。</li></ol><figure id="24d64738-a3cc-8026-b922-ffab891710be"><a href="https://www.chasecardbenefits.com/dashboard/login" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">www.chasecardbenefits.com</div><div class="bookmark-description">Self service portal for filing claim, manage policies, products and view claim history</div></div><div class="bookmark-href"><img src="https://www.chasecardbenefits.com/dashboard/login#" class="icon bookmark-icon"/>https://www.chasecardbenefits.com/dashboard/login</div></div></a></figure><ol type="1" id="24d64738-a3cc-80d5-a279-eeaf72c1d01c" class="numbered-list" start="2"><li>注册完之后，就跳到了主页面Dashboard。点击File a Claim开始新的理赔。选择你要理赔的保险，按照屏幕指示填写信息即可。</li></ol><p id="24d64738-a3cc-8086-bd56-fc5f8a36158d" class="">注：如果授权用户使用CFF交手机话费也能享受和主卡相同的保险理赔资格，但是主副卡共享赔偿上限。</p><h2 id="24d64738-a3cc-8066-a427-c215bdacee09" class="">提供材料</h2><p id="24d64738-a3cc-8003-9973-f25d403a2eee" class="">材料提供方面，需要提供以下材料：</p><ol type="1" id="24d64738-a3cc-8029-9b0f-cc05bd699202" class="numbered-list" start="1"><li>上一个Statement的银行账单，同时需要登录你的套餐运营商，对账单记录进行截图，证明你用CFF付手机话费。</li></ol><ol type="1" id="24d64738-a3cc-80e8-8f05-f0f7fcedab43" class="numbered-list" start="2"><li>手机型号需要和话费套餐相关。楼主本人使用的是Visible，但Visible账户内并没有显示手机的型号和IMEI。但是楼主仍然给主页账户的截图，也通过了。</li></ol><ol type="1" id="24d64738-a3cc-8080-a993-df9bee2c8eaf" class="numbered-list" start="3"><li>来自维修店的维修报价账单。由于楼主的手机无法检测原因，所以就上传了诊断测试单，并且说明了维修店无法诊断原因。</li></ol><p id="24d64738-a3cc-80ee-a7b0-d165da4c95d7" class="">上面三项材料是楼主提供的。提交完之后大概过了一周时间就获批了，在这期间没有被要求补材料。</p><p id="24d64738-a3cc-807e-8d6d-f3db76b86a5f" class="">当然也有其他人在理赔的过程中要求提供额外材料，比如手机购买数据，手机维修后的收据等，可能比较YMMV。</p><h2 id="24d64738-a3cc-801e-8615-ebb9f60daaef" class="">结果</h2><p id="24d64738-a3cc-8080-96e9-f39af232ec8b" class="">一周后获批赔偿$570。说实话像这种情况无法诊断原因，也不知道他们是如何定损的。</p><h2 id="24d64738-a3cc-804e-97af-e0f6b85bba0e" class="">延伸阅读</h2><p id="24d64738-a3cc-80df-909e-c27bad9f90a4" class="">这次多亏有了CFF手机保险，才不至于那么大出血。关于信用卡手机保险的福利，楼主之前有专门写过。不是所有的信用卡都有提供手机保险。就目前性价比高的，CFF和Bilt是首选，无论是从申请难度，理赔上限， 还是deductible。</p><p id="24a64738-a3cc-80b3-805f-ffb23584a01b" class="">
-</p><figure id="24d64738-a3cc-80d3-9bdc-eb1cb46014af" class="image"><a href="iMarkup_20250809_142121.jpg"><img style="width:336px" src="iMarkup_20250809_142121.jpg"/></a></figure><figure id="24d64738-a3cc-80ef-bd09-cc981c11d50a" class="image"><a href="iMarkup_20250809_142220.jpg"><img style="width:336px" src="iMarkup_20250809_142220.jpg"/></a></figure><figure id="24d64738-a3cc-8090-9cd9-e7751d2af8d8" class="image"><a href="iMarkup_20250809_142341.jpg"><img style="width:336px" src="iMarkup_20250809_142341.jpg"/></a></figure><figure id="24d64738-a3cc-8074-ac1d-fd7cd172c86f" class="image"><a href="iMarkup_20250809_142433.jpg"><img style="width:336px" src="iMarkup_20250809_142433.jpg"/></a></figure><figure id="24d64738-a3cc-8029-a928-c9da9ef53089" class="image"><a href="iMarkup_20250809_142500.jpg"><img style="width:336px" src="iMarkup_20250809_142500.jpg"/></a></figure><p id="24a64738-a3cc-808c-939e-d5b62d6bc85d" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8074-904c-de90a2ed2a0f"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-801c-b9de-ededf853fc88" class="">XHS原文章</p><p id="24a64738-a3cc-8074-9bf3-c13a06a0a4e2" class=""><a href="https://xhslink.com/m/81Gf93YngPm">https://xhslink.com/m/81Gf93YngPm</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="24a64738-a3cc-8096-9f52-cee891dcf14c" class="page serif"><header><h1 class="page-title" dir="auto">CFF手机保险理赔实战</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-80d1-9f82-ef5549c75912"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-806d-8636-d6eab8012b2c" class="">【2025.08】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-8066-b36a-f88a91d3aac4" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="24d64738-a3cc-806e-ba08-f24c2654e782" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8057-bd01-f35d9bde1a21">背景</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-80fa-8edb-d1a4c55a4ff7">理赔要求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8014-ad19-d452e9495d3b">理赔过程</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-8066-a427-c215bdacee09">提供材料</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-801e-8615-ebb9f60daaef">结果</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24d64738-a3cc-804e-97af-e0f6b85bba0e">延伸阅读</a></div></nav></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-801a-8a79-e906a27c087d" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-8057-bd01-f35d9bde1a21" class="">背景</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-804c-8979-e6c7eec5f4fb" class="">相信你在前面已经知道了。本人一直自用S23U，然后手机突然黑屏，陷入无限重启。由于已经在网上看到过这款手机普遍存在虚焊，所以楼主猜测猜测可能就是这个原因。</p></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-807e-82f4-f83dc94a4ec7" class="">第2天火速拿到授权店维修，下午被告知找不出原因，给了一个诊断单。因为无法诊断原因，没有维修方案自然也就没有具体报价单。</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-80fa-8edb-d1a4c55a4ff7" class="">理赔要求</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-80cc-8355-e32792e46e50" class="">用信用卡交手机全额话费即可。</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-8014-ad19-d452e9495d3b" class="">理赔过程</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-8060-ba81-fcd72be993ef" class="">由于之前一直是用CFF交手机话费，所以想到了使用保险理赔。楼主把手机从维修店取回后，就在网上申请了理赔。</p></div><div style="display:contents" dir="auto"><ol type="1" id="24d64738-a3cc-804c-ad94-e4a24fcf0520" class="numbered-list" start="1"><li>打开手机理赔保险网站，这是Chase和第三方保险合作的项目。如果你是第1次理赔，点击底下的Verify Card &amp; Register，输入CFF卡号，并且填写信息。按照屏幕上的指示即可。</li></ol></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-8026-b922-ffab891710be"><a href="https://www.chasecardbenefits.com/dashboard/login" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">www.chasecardbenefits.com</div><div class="bookmark-description">Self service portal for filing claim, manage policies, products and view claim history</div></div><div class="bookmark-href"><img src="https://www.chasecardbenefits.com/dashboard/login#" class="icon bookmark-icon"/>https://www.chasecardbenefits.com/dashboard/login</div></div></a></figure></div><div style="display:contents" dir="auto"><ol type="1" id="24d64738-a3cc-80d5-a279-eeaf72c1d01c" class="numbered-list" start="2"><li>注册完之后，就跳到了主页面Dashboard。点击File a Claim开始新的理赔。选择你要理赔的保险，按照屏幕指示填写信息即可。</li></ol></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-8086-bd56-fc5f8a36158d" class="">注：如果授权用户使用CFF交手机话费也能享受和主卡相同的保险理赔资格，但是主副卡共享赔偿上限。</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-8066-a427-c215bdacee09" class="">提供材料</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-8003-9973-f25d403a2eee" class="">材料提供方面，需要提供以下材料：</p></div><div style="display:contents" dir="auto"><ol type="1" id="24d64738-a3cc-8029-9b0f-cc05bd699202" class="numbered-list" start="1"><li>上一个Statement的银行账单，同时需要登录你的套餐运营商，对账单记录进行截图，证明你用CFF付手机话费。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24d64738-a3cc-80e8-8f05-f0f7fcedab43" class="numbered-list" start="2"><li>手机型号需要和话费套餐相关。楼主本人使用的是Visible，但Visible账户内并没有显示手机的型号和IMEI。但是楼主仍然给主页账户的截图，也通过了。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="24d64738-a3cc-8080-a993-df9bee2c8eaf" class="numbered-list" start="3"><li>来自维修店的维修报价账单。由于楼主的手机无法检测原因，所以就上传了诊断测试单，并且说明了维修店无法诊断原因。</li></ol></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-80ee-a7b0-d165da4c95d7" class="">上面三项材料是楼主提供的。提交完之后大概过了一周时间就获批了，在这期间没有被要求补材料。</p></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-807e-8d6d-f3db76b86a5f" class="">当然也有其他人在理赔的过程中要求提供额外材料，比如手机购买数据，手机维修后的收据等，可能比较YMMV。</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-801e-8615-ebb9f60daaef" class="">结果</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-8080-96e9-f39af232ec8b" class="">一周后获批赔偿$570。说实话像这种情况无法诊断原因，也不知道他们是如何定损的。</p></div><div style="display:contents" dir="auto"><h2 id="24d64738-a3cc-804e-97af-e0f6b85bba0e" class="">延伸阅读</h2></div><div style="display:contents" dir="auto"><p id="24d64738-a3cc-80df-909e-c27bad9f90a4" class="">这次多亏有了CFF手机保险，才不至于那么大出血。关于信用卡手机保险的福利，楼主之前有专门写过。不是所有的信用卡都有提供手机保险。就目前性价比高的，CFF和Bilt是首选，无论是从申请难度，理赔上限， 还是deductible。</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-80b3-805f-ffb23584a01b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-80d3-9bdc-eb1cb46014af" class="image"><a href="iMarkup_20250809_142121.jpg"><img style="width:336px" src="iMarkup_20250809_142121.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-80ef-bd09-cc981c11d50a" class="image"><a href="iMarkup_20250809_142220.jpg"><img style="width:336px" src="iMarkup_20250809_142220.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-8090-9cd9-e7751d2af8d8" class="image"><a href="iMarkup_20250809_142341.jpg"><img style="width:336px" src="iMarkup_20250809_142341.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-8074-ac1d-fd7cd172c86f" class="image"><a href="iMarkup_20250809_142433.jpg"><img style="width:336px" src="iMarkup_20250809_142433.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="24d64738-a3cc-8029-a928-c9da9ef53089" class="image"><a href="iMarkup_20250809_142500.jpg"><img style="width:336px" src="iMarkup_20250809_142500.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-808c-939e-d5b62d6bc85d" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8074-904c-de90a2ed2a0f"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-801c-b9de-ededf853fc88" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8074-9bf3-c13a06a0a4e2" class=""><a href="https://xhslink.com/m/81Gf93YngPm">https://xhslink.com/m/81Gf93YngPm</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

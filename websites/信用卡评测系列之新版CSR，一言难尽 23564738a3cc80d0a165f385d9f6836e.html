@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-80d0-a165-f385d9f6836e" class="page serif"><header><h1 class="page-title">信用卡评测系列之新版CSR，一言难尽</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-808c-9fb5-dbe47e0b2b2d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23764738-a3cc-8054-8c66-dad432655f03" class="">【2025.07】更新了一些内容</p><p id="23564738-a3cc-80b0-b076-e9ef7e67e0df" class="">【2025.06】2.0版本发布</p></div></figure><p id="23564738-a3cc-80b4-afcc-f7db63d16fda" class="">
-</p><nav id="23564738-a3cc-802e-bc2e-d1198deb47fd" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80cf-8a4a-cc1d3fb71540">宏观分析</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8008-b4e9-ec00a03ccb33">细节分析及预测</a></div></nav><p id="23664738-a3cc-80d3-b8e7-df519a6ed3d5" class="">
-</p><p id="23564738-a3cc-808d-a560-f2585ced4500" class="">CSR的相关信息已经在官网上线，内容跟之前传言的差不多。是时候来做新的评测了，但真的一言难尽。</p><h3 id="23564738-a3cc-80cf-8a4a-cc1d3fb71540" class="">宏观分析</h3><ul id="23564738-a3cc-80e9-8f1b-ed56cff0a20b" class="bulleted-list"><li style="list-style-type:disc">$795的年费，即使还保留旧版的$300旅行报销，剩下的用不上等效年费$495。而且根据目前多数人的反馈来看，Edit和FHR差远了，Dining的报销也很难用，基本适用的餐厅都是人均100+，且不是每个地方都有。</li></ul><ul id="23564738-a3cc-808c-8b08-cb0bbfdbece3" class="bulleted-list"><li style="list-style-type:disc">改动后的新版，削弱了攒点，加厚了Coupon Book，茶色也逐渐Amex化。而恰恰消费者是最讨厌Coupon Book的。有人认为，银行不可能让所有人都满意，还不如把注意力专注于某一群体。虽然总持卡人数下降了，但利润不变，满意度就提高了。</li></ul><ul id="23564738-a3cc-802f-90a5-f0c33aedd8d1" class="bulleted-list"><li style="list-style-type:disc">另外根据评论区，轮转大法目测已经不再适用，茶色也学坏了</li></ul><p id="23664738-a3cc-8081-9b22-e2b8d49f14bb" class="">所以关于这次新版CSR，楼主和之前评测Amex的态度一样，Coupon Book不适合大多数人。</p><h3 id="23564738-a3cc-8008-b4e9-ec00a03ccb33" class="">细节分析及预测</h3><p id="23564738-a3cc-8011-8d71-f967d7db12ac" class="">另外这次取消了Portal 1.5cpp兑换，改成了特定旅行产品2cpp兑换，<del>总体可以说大幅削弱 </del>具体情况参考《<a href="Chase%E6%96%B0%E5%8A%9F%E8%83%BD%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%EF%BC%9AUR%E5%8A%A0%E5%BC%BA&amp;%E5%89%8A%E5%BC%B1%EF%BC%9F%2023564738a3cc807bb711e949d0453a51.html">Chase新功能正式上线：UR加强&amp;削弱？</a>》。另外对于UR来说，也将大幅度贬值。虽然Hyatt仍然很值，但没有需求不要创造需求。<del>如果用不完的话CSP 1.25cpp直接订就成为大优解, 只希望茶色以后不要砍掉这个功能吧，不然UR就真废了</del> CSP 1.25cpp的福利也已移除。</p><p id="23564738-a3cc-8033-9612-d31d5a2820b2" class="">UR一贬值，楼主觉得CFU就很鸡肋了。<del>即使配上CSP，1.5x1.25=1.875%</del> 还不如DC现金，楼主准备转DC了，CFU转CF。</p><p id="23564738-a3cc-8028-b9c4-fd2b20ae7a1c" class="">从这次改动可以看出Coupon Book为大势所趋。有能力发行高端卡的茶色逐渐Amex化，底蕴不足的C1选择砍福利，而其他银行更是难产。所以从高端卡的变化来看，地主家是真的没有余粮了。现在已经过了增量并进入存量时代，未来怕是基本没有神卡了。</p><p id="23564738-a3cc-8004-a62e-c6642f2f4f14" class="">最后，你觉得高端卡能给你的东西，哪些是中端卡不能给你的？换句话说，高端卡的哪些东西最吸引你？楼主认为仅剩PPS了。</p><p id="23564738-a3cc-80b4-8e0b-eedf3a9292e5" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-800d-9cd0-c897f85e24fe"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8012-8329-f497838f5e5b" class="">XHS原文章</p><p id="23564738-a3cc-8060-b1fd-e2feb787c840" class=""><a href="http://xhslink.com/m/Awag0BFifdI">http://xhslink.com/m/Awag0BFifdI</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-80d0-a165-f385d9f6836e" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之新版CSR，一言难尽</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-808c-9fb5-dbe47e0b2b2d"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23764738-a3cc-8054-8c66-dad432655f03" class="">【2025.07】更新了一些内容</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b0-b076-e9ef7e67e0df" class="">【2025.06】2.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b4-afcc-f7db63d16fda" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-802e-bc2e-d1198deb47fd" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80cf-8a4a-cc1d3fb71540">宏观分析</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8008-b4e9-ec00a03ccb33">细节分析及预测</a></div></nav></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80d3-b8e7-df519a6ed3d5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-808d-a560-f2585ced4500" class="">CSR的相关信息已经在官网上线，内容跟之前传言的差不多。是时候来做新的评测了，但真的一言难尽。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80cf-8a4a-cc1d3fb71540" class="">宏观分析</h3></div><div style="display:contents" dir="auto"><ul id="23564738-a3cc-80e9-8f1b-ed56cff0a20b" class="bulleted-list"><li style="list-style-type:disc">$795的年费，即使还保留旧版的$300旅行报销，剩下的用不上等效年费$495。而且根据目前多数人的反馈来看，Edit和FHR差远了，Dining的报销也很难用，基本适用的餐厅都是人均100+，且不是每个地方都有。</li></ul></div><div style="display:contents" dir="auto"><ul id="23564738-a3cc-808c-8b08-cb0bbfdbece3" class="bulleted-list"><li style="list-style-type:disc">改动后的新版，削弱了攒点，加厚了Coupon Book，茶色也逐渐Amex化。而恰恰消费者是最讨厌Coupon Book的。有人认为，银行不可能让所有人都满意，还不如把注意力专注于某一群体。虽然总持卡人数下降了，但利润不变，满意度就提高了。</li></ul></div><div style="display:contents" dir="auto"><ul id="23564738-a3cc-802f-90a5-f0c33aedd8d1" class="bulleted-list"><li style="list-style-type:disc">另外根据评论区，轮转大法目测已经不再适用，茶色也学坏了</li></ul></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-8081-9b22-e2b8d49f14bb" class="">所以关于这次新版CSR，楼主和之前评测Amex的态度一样，Coupon Book不适合大多数人。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8008-b4e9-ec00a03ccb33" class="">细节分析及预测</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8011-8d71-f967d7db12ac" class="">另外这次取消了Portal 1.5cpp兑换，改成了特定旅行产品2cpp兑换，<del>总体可以说大幅削弱 </del>具体情况参考《<a href="Chase%E6%96%B0%E5%8A%9F%E8%83%BD%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%EF%BC%9AUR%E5%8A%A0%E5%BC%BA&amp;%E5%89%8A%E5%BC%B1%EF%BC%9F%2023564738a3cc807bb711e949d0453a51.html">Chase新功能正式上线：UR加强&amp;削弱？</a>》。另外对于UR来说，也将大幅度贬值。虽然Hyatt仍然很值，但没有需求不要创造需求。<del>如果用不完的话CSP 1.25cpp直接订就成为大优解, 只希望茶色以后不要砍掉这个功能吧，不然UR就真废了</del> CSP 1.25cpp的福利也已移除。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8033-9612-d31d5a2820b2" class="">UR一贬值，楼主觉得CFU就很鸡肋了。<del>即使配上CSP，1.5x1.25=1.875%</del> 还不如DC现金，楼主准备转DC了，CFU转CF。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8028-b9c4-fd2b20ae7a1c" class="">从这次改动可以看出Coupon Book为大势所趋。有能力发行高端卡的茶色逐渐Amex化，底蕴不足的C1选择砍福利，而其他银行更是难产。所以从高端卡的变化来看，地主家是真的没有余粮了。现在已经过了增量并进入存量时代，未来怕是基本没有神卡了。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8004-a62e-c6642f2f4f14" class="">最后，你觉得高端卡能给你的东西，哪些是中端卡不能给你的？换句话说，高端卡的哪些东西最吸引你？楼主认为仅剩PPS了。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b4-8e0b-eedf3a9292e5" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-800d-9cd0-c897f85e24fe"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-8012-8329-f497838f5e5b" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8060-b1fd-e2feb787c840" class=""><a href="http://xhslink.com/m/Awag0BFifdI">http://xhslink.com/m/Awag0BFifdI</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-80d6-b8d3-e2601c00726b" class="page serif"><header><h1 class="page-title">美国银行各大高端卡横评</h1><p class="page-description"></p></header><div class="page-body"><h2 id="29d64738-a3cc-809e-ac8d-e1b7eb188a3e" class="">简要介绍</h2><p id="29d64738-a3cc-8076-840d-c74a39aa0b2b" class="">这篇文章楼主帮大家总结了美国各个银行发行的高端卡，将它们进行横向比较并且给出评价和建议。文章中比较的卡包括：</p><ol type="1" id="29d64738-a3cc-8027-946e-f44743fafb07" class="numbered-list" start="1"><li>Boa Premium Rewards Elite(PRE)</li></ol><ol type="1" id="29d64738-a3cc-8005-a13d-ef3a0b6a174a" class="numbered-list" start="2"><li>Chase Sapphire Reserve(CSR)</li></ol><ol type="1" id="29d64738-a3cc-8016-93f2-c8278906e714" class="numbered-list" start="3"><li>Citi Strata Elite</li></ol><ol type="1" id="29d64738-a3cc-807f-bdad-fb286e8a269d" class="numbered-list" start="4"><li>Venture X(VX)</li></ol><ol type="1" id="29d64738-a3cc-8053-b700-d3f2e74320e4" class="numbered-list" start="5"><li>Amex Platinum</li></ol><ol type="1" id="29d64738-a3cc-805f-aba6-f94b990ffd9c" class="numbered-list" start="6"><li>HSBC Elite</li></ol><ol type="1" id="29d64738-a3cc-807f-8fae-ca37ee8d2734" class="numbered-list" start="7"><li>US Bank Altitude Reserve(UAR)</li></ol><p id="29d64738-a3cc-8047-a4d0-e1d8a0c0384e" class="">不过请注意的是本文的评测仅限于各大银行自营的高端卡。对于联名高端卡，在本文不做提及。</p><p id="29d64738-a3cc-80cb-b024-c070d535bc85" class="">在评测基础上，楼主给大家整理更详细的细节，以及每个优惠券怎么用出去，有没有什么特殊技巧。在这篇重写的文章中，所有的信息已经更新到了最新。</p><p id="29d64738-a3cc-805c-8317-e8b6e70f31bc" class="">如果不确定需不需要购买此篇攻略，大家可以前往查看楼主的《信用卡评测系列》，基本上都是以高端卡为主。那么这篇付费攻略在此基础上，带来了更详细的分析和评测，以及一些特殊技巧不方便对外公开。</p><h2 id="29d64738-a3cc-8004-8637-db8a583ff367" class="">文章信息</h2><p id="29d64738-a3cc-80ec-8f37-dcc8a1dfd41c" class="">页数：20</p><p id="29d64738-a3cc-8031-a56f-e143bb6fc2ca" class="">字数：1w+</p><p id="29d64738-a3cc-80df-9d98-e4e5e5c9645e" class="">文件预览：</p><figure id="29d64738-a3cc-80e6-9c21-e0fbb2a4649e" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0001.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0001.jpg"/></a></figure><figure id="29d64738-a3cc-806d-909d-c5f1ad64681a" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0002.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0002.jpg"/></a></figure><figure id="29d64738-a3cc-80b5-9a34-c938070dd34d" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0003.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0003.jpg"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29d64738-a3cc-80b4-af14-e0b96ef1ccd7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/exclamation-mark_red.svg"/></div><div style="width:100%"><p id="29d64738-a3cc-8082-abcd-e37ace2b8fc7" class="">版权所有@北岛land，内容严禁转载！</p><p id="29d64738-a3cc-8019-90ee-eb7751f7b68c" class="">购买文章即代表获取向楼主免费咨询讨论的权利。</p></div></figure><h2 id="29d64738-a3cc-8078-a711-e657bf64cf7e" class="">购买链接</h2><figure id="29d64738-a3cc-80f4-a2a6-fdb56ca037e8"><a href="https://ko-fi.com/s/323d13dcf7" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">美国银行各大高端卡横评</div><div class="bookmark-description">简要介绍
+</style></head><body><article id="23564738-a3cc-80d6-b8d3-e2601c00726b" class="page serif"><header><h1 class="page-title" dir="auto">美国银行各大高端卡横评</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="29d64738-a3cc-809e-ac8d-e1b7eb188a3e" class="">简要介绍</h2></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-8076-840d-c74a39aa0b2b" class="">这篇文章楼主帮大家总结了美国各个银行发行的高端卡，将它们进行横向比较并且给出评价和建议。文章中比较的卡包括：</p></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-8027-946e-f44743fafb07" class="numbered-list" start="1"><li>Boa Premium Rewards Elite(PRE)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-8005-a13d-ef3a0b6a174a" class="numbered-list" start="2"><li>Chase Sapphire Reserve(CSR)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-8016-93f2-c8278906e714" class="numbered-list" start="3"><li>Citi Strata Elite</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-807f-bdad-fb286e8a269d" class="numbered-list" start="4"><li>Venture X(VX)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-8053-b700-d3f2e74320e4" class="numbered-list" start="5"><li>Amex Platinum</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-805f-aba6-f94b990ffd9c" class="numbered-list" start="6"><li>HSBC Elite</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29d64738-a3cc-807f-8fae-ca37ee8d2734" class="numbered-list" start="7"><li>US Bank Altitude Reserve(UAR)</li></ol></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-8047-a4d0-e1d8a0c0384e" class="">不过请注意的是本文的评测仅限于各大银行自营的高端卡。对于联名高端卡，在本文不做提及。</p></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-80cb-b024-c070d535bc85" class="">在评测基础上，楼主给大家整理更详细的细节，以及每个优惠券怎么用出去，有没有什么特殊技巧。在这篇重写的文章中，所有的信息已经更新到了最新。</p></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-805c-8317-e8b6e70f31bc" class="">如果不确定需不需要购买此篇攻略，大家可以前往查看楼主的《信用卡评测系列》，基本上都是以高端卡为主。那么这篇付费攻略在此基础上，带来了更详细的分析和评测，以及一些特殊技巧不方便对外公开。</p></div><div style="display:contents" dir="auto"><h2 id="29d64738-a3cc-8004-8637-db8a583ff367" class="">文章信息</h2></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-80ec-8f37-dcc8a1dfd41c" class="">页数：20</p></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-8031-a56f-e143bb6fc2ca" class="">字数：1w+</p></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-80df-9d98-e4e5e5c9645e" class="">文件预览：</p></div><div style="display:contents" dir="ltr"><figure id="29d64738-a3cc-80e6-9c21-e0fbb2a4649e" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0001.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0001.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="29d64738-a3cc-806d-909d-c5f1ad64681a" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0002.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0002.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="29d64738-a3cc-80b5-9a34-c938070dd34d" class="image"><a href="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0003.jpg"><img style="width:709.9810180664062px" src="%E7%BE%8E%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%90%84%E5%A4%A7%E9%AB%98%E7%AB%AF%E5%8D%A1%E6%A8%AA%E8%AF%84_page-0003.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29d64738-a3cc-80b4-af14-e0b96ef1ccd7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/exclamation-mark_red.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="29d64738-a3cc-8082-abcd-e37ace2b8fc7" class="">版权所有@北岛land，内容严禁转载！</p></div><div style="display:contents" dir="auto"><p id="29d64738-a3cc-8019-90ee-eb7751f7b68c" class="">购买文章即代表获取向楼主免费咨询讨论的权利。</p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="29d64738-a3cc-8078-a711-e657bf64cf7e" class="">购买链接</h2></div><div style="display:contents" dir="ltr"><figure id="29d64738-a3cc-80f4-a2a6-fdb56ca037e8"><a href="https://ko-fi.com/s/323d13dcf7" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">美国银行各大高端卡横评</div><div class="bookmark-description">简要介绍
 这篇文章楼主帮大家总结了美国各个银行发行的高端卡，将它们进行横向比较并且给出评价和建议。文章中比较的卡包括：
 Boa Premium Rewards Elite(PRE)
 Chase Sapphire Reserve(CSR)
@@ -721,4 +758,4 @@ US Bank Altitude Reserve(UAR)
 
 版权所有@北岛land，内容严禁转载！
 购买文章即代表获取向楼主免费咨询讨论的权利。
-</div></div><div class="bookmark-href"><img src="https://media.ko-fi.com/api/CircularMask?url=https://storage.ko-fi.com/cdn/useruploads/post/a138ec63-67d2-4cd8-af36-65f635201ddf_aa3a7904-a2de-423a-a2a1-ee3a3e86ab8d.png" class="icon bookmark-icon"/>https://ko-fi.com/s/323d13dcf7</div></div><img src="https://storage.ko-fi.com/cdn/useruploads/post/edcbb01f-ac85-485a-a5fc-b1d445043233_vancedcardcomparepaid.png" class="bookmark-image"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</div></div><div class="bookmark-href"><img src="https://media.ko-fi.com/api/CircularMask?url=https://storage.ko-fi.com/cdn/useruploads/post/a138ec63-67d2-4cd8-af36-65f635201ddf_aa3a7904-a2de-423a-a2a1-ee3a3e86ab8d.png" class="icon bookmark-icon"/>https://ko-fi.com/s/323d13dcf7</div></div><img src="https://storage.ko-fi.com/cdn/useruploads/post/edcbb01f-ac85-485a-a5fc-b1d445043233_vancedcardcomparepaid.png" class="bookmark-image"/></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-80c9-be1c-ffa3d1067510" class="page serif"><header><h1 class="page-title">点数系统评测之Amex MR: 一如既往</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80ee-a091-edc44e65f993"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-803d-bef2-d8a4a5a135f8" class="">【2025.10】1.0版本发布</p></div></figure><p id="29964738-a3cc-80d5-832f-cb1789f57542" class="">
-</p><nav id="29964738-a3cc-8076-ac13-f68db8f4c62d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8081-9672-cd9f18982826">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-80bb-bc6a-df3608c3fed6">点数来源</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-80fa-a8da-dde9e8d9ca93">主要争议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-806d-8c44-c1c6f52a3a10">主要更新</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8017-8371-d3d1f506592f">保点途经</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8096-b05e-c7245b3130bd">结论</a></div></nav><h2 id="29964738-a3cc-8081-9672-cd9f18982826" class="">前言</h2><p id="29964738-a3cc-807a-9f28-ca1f086bb0c6" class="">作为三大点数系统之一，MR曾经也是新手首选，然后到现在充满争议。没有必要去过于批判，只是客观评价。其实在之前锐评点数系统时已经讲过了，MR一直是争议z大的点数没有之一。</p><h2 id="29964738-a3cc-80bb-bc6a-df3608c3fed6" class="">点数来源</h2><p id="29964738-a3cc-8078-b127-fafda2d9e707" class="">由于这是关于点数系统的评测，所以关于卡的内容就不做多介绍。MR基本上是靠NLL来获取大量点数，如果单靠刷卡的话效率太低了。再加上现在免年费的点数卡已经绝版，造成点数持有成本变高。</p><h2 id="29964738-a3cc-80fa-a8da-dde9e8d9ca93" class="">主要争议</h2><p id="29964738-a3cc-80fe-b2a2-c6fa394e2dcd" class="">MR的主要争议无非就是两点：0.6cpp兑现和真实点数价值。关于真实点数价值在每个人的心里都不同：好用的是真好用，不好用的是真用不出去。在之前锐评点数系统时已经讲过，MR想要用处大于1cpp的价值，留给你的路只有转点一条。且目前NLL已经基本实效，(除非大佬开发出新的玩法)Amex已经没有可玩性。</p><h2 id="29964738-a3cc-806d-8c44-c1c6f52a3a10" class="">主要更新</h2><p id="29964738-a3cc-8068-817d-c6d98337075c" class="">关于转点的变化，从6月底开始不能转点跟夏威夷航空，而夏威夷航空可以1:1转变给AS。随着合作结束，AS目前仅接受Bilt转点。</p><p id="29964738-a3cc-80f2-b76f-e73d12efae66" class="">另外在几天前，继上次Amex 4-5月大规模S全家，Amex又进行了一次大规模S全家。而且比较稀奇的是目前此事件大多数发生在国人身上，英文讨论很少。目前猜测可能是上个月Amex封堵了NLL的漏洞，然后进行倒查，属于秋后算账。在Amex卡Coupon漫天飞，性价比如此低的时候，再加上连续几波的大规模S全家，让未来充满不确定性。所以目前来看的话大家完全没必要过着急玩Amex，先观望一阵再说，有可能下一个中招的就是你。</p><h2 id="29964738-a3cc-8017-8371-d3d1f506592f" class="">保点途经</h2><p id="29964738-a3cc-8032-8bd2-fc82205625a9" class="">如果你觉得年费太高想关卡，但点数正好没用完，可以考虑以下两个方式：</p><ol type="1" id="29964738-a3cc-80a6-8232-db2ec65b7c02" class="numbered-list" start="1"><li>开CS帐户1.1cpp兑现。</li></ol><ol type="1" id="29964738-a3cc-8088-8887-c45dc31d34a6" class="numbered-list" start="2"><li>开Amex Reward Checking保留点数，且该Checking账户仍然保留转点功能。与信用卡区别的是，Checking账户的转点伙伴有限。不过对于大多数人来讲应该是够用了，完整列表包括：<ol type="a" id="29964738-a3cc-80ab-a740-dbd2973b5c64" class="numbered-list" start="1"><li>Air Canada Aeroplan</li></ol><ol type="a" id="29964738-a3cc-8020-80ac-cbecd2ce540b" class="numbered-list" start="2"><li>British Airways Executive Club</li></ol><ol type="a" id="29964738-a3cc-80b1-a18c-f99f0e4b791f" class="numbered-list" start="3"><li>Cathay Pacific</li></ol><ol type="a" id="29964738-a3cc-8025-beac-f7aaef174c33" class="numbered-list" start="4"><li>Choice Privileges</li></ol><ol type="a" id="29964738-a3cc-807b-9209-e4218c2f809f" class="numbered-list" start="5"><li>Delta SkyMiles</li></ol><ol type="a" id="29964738-a3cc-80b1-8e5e-d493830c962e" class="numbered-list" start="6"><li>Etihad Guest</li></ol><ol type="a" id="29964738-a3cc-80b9-9bad-cce9e69edebb" class="numbered-list" start="7"><li>Hilton Honors</li></ol><ol type="a" id="29964738-a3cc-8001-b9a8-fa0e5fee09a9" class="numbered-list" start="8"><li>Iberia Plus</li></ol><ol type="a" id="29964738-a3cc-8069-953b-f208b130e5e9" class="numbered-list" start="9"><li>Marriott Bonvoy</li></ol><ol type="a" id="29964738-a3cc-8013-a204-ca3f4b674316" class="numbered-list" start="10"><li>Qatar Airways Privilege Club</li></ol><ol type="a" id="29964738-a3cc-80f9-a2e1-e9714fb3bcf4" class="numbered-list" start="11"><li>Singapore Airlines | KrisFlyer</li></ol><ol type="a" id="29964738-a3cc-8017-befe-e33aafcccb0f" class="numbered-list" start="12"><li>Virgin Atlantic Flying Club</li></ol></li></ol><h2 id="29964738-a3cc-8096-b05e-c7245b3130bd" class="">结论</h2><p id="29964738-a3cc-802a-a6ee-f1a7afd010be" class="">当你看到很多大佬愿意把MR转到AC然后进行1.25 pyb最后被银行S全家，你就知道MR的真实价值了。你当然可以转点，也可以反驳MR的真实价值；但当你玩卡的热度过去后，你会发现你简单的兑现都成了奢望。</p><p id="24a64738-a3cc-8016-b99f-c0c1a125ae53" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8064-a73f-db611f1c688a"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-8000-8ca3-fb196f2adc65" class="">XHS原文章</p><p id="24a64738-a3cc-8038-95f0-ea84bda4f8cb" class=""><a href="http://xhslink.com/o/2BLAWwk4RMC">http://xhslink.com/o/2BLAWwk4RMC</a></p></div></figure><p id="24a64738-a3cc-80eb-89cf-fb822cd025e5" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-80c9-be1c-ffa3d1067510" class="page serif"><header><h1 class="page-title" dir="auto">点数系统评测之Amex MR: 一如既往</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80ee-a091-edc44e65f993"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-803d-bef2-d8a4a5a135f8" class="">【2025.10】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-80d5-832f-cb1789f57542" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="29964738-a3cc-8076-ac13-f68db8f4c62d" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8081-9672-cd9f18982826">前言</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-80bb-bc6a-df3608c3fed6">点数来源</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-80fa-a8da-dde9e8d9ca93">主要争议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-806d-8c44-c1c6f52a3a10">主要更新</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8017-8371-d3d1f506592f">保点途经</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29964738-a3cc-8096-b05e-c7245b3130bd">结论</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-8081-9672-cd9f18982826" class="">前言</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-807a-9f28-ca1f086bb0c6" class="">作为三大点数系统之一，MR曾经也是新手首选，然后到现在充满争议。没有必要去过于批判，只是客观评价。其实在之前锐评点数系统时已经讲过了，MR一直是争议z大的点数没有之一。</p></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-80bb-bc6a-df3608c3fed6" class="">点数来源</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-8078-b127-fafda2d9e707" class="">由于这是关于点数系统的评测，所以关于卡的内容就不做多介绍。MR基本上是靠NLL来获取大量点数，如果单靠刷卡的话效率太低了。再加上现在免年费的点数卡已经绝版，造成点数持有成本变高。</p></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-80fa-a8da-dde9e8d9ca93" class="">主要争议</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-80fe-b2a2-c6fa394e2dcd" class="">MR的主要争议无非就是两点：0.6cpp兑现和真实点数价值。关于真实点数价值在每个人的心里都不同：好用的是真好用，不好用的是真用不出去。在之前锐评点数系统时已经讲过，MR想要用处大于1cpp的价值，留给你的路只有转点一条。且目前NLL已经基本实效，(除非大佬开发出新的玩法)Amex已经没有可玩性。</p></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-806d-8c44-c1c6f52a3a10" class="">主要更新</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-8068-817d-c6d98337075c" class="">关于转点的变化，从6月底开始不能转点跟夏威夷航空，而夏威夷航空可以1:1转变给AS。随着合作结束，AS目前仅接受Bilt转点。</p></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-80f2-b76f-e73d12efae66" class="">另外在几天前，继上次Amex 4-5月大规模S全家，Amex又进行了一次大规模S全家。而且比较稀奇的是目前此事件大多数发生在国人身上，英文讨论很少。目前猜测可能是上个月Amex封堵了NLL的漏洞，然后进行倒查，属于秋后算账。在Amex卡Coupon漫天飞，性价比如此低的时候，再加上连续几波的大规模S全家，让未来充满不确定性。所以目前来看的话大家完全没必要过着急玩Amex，先观望一阵再说，有可能下一个中招的就是你。</p></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-8017-8371-d3d1f506592f" class="">保点途经</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-8032-8bd2-fc82205625a9" class="">如果你觉得年费太高想关卡，但点数正好没用完，可以考虑以下两个方式：</p></div><div style="display:contents" dir="auto"><ol type="1" id="29964738-a3cc-80a6-8232-db2ec65b7c02" class="numbered-list" start="1"><li>开CS帐户1.1cpp兑现。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="29964738-a3cc-8088-8887-c45dc31d34a6" class="numbered-list" start="2"><li>开Amex Reward Checking保留点数，且该Checking账户仍然保留转点功能。与信用卡区别的是，Checking账户的转点伙伴有限。不过对于大多数人来讲应该是够用了，完整列表包括：<div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-80ab-a740-dbd2973b5c64" class="numbered-list" start="1"><li>Air Canada Aeroplan</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8020-80ac-cbecd2ce540b" class="numbered-list" start="2"><li>British Airways Executive Club</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-80b1-a18c-f99f0e4b791f" class="numbered-list" start="3"><li>Cathay Pacific</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8025-beac-f7aaef174c33" class="numbered-list" start="4"><li>Choice Privileges</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-807b-9209-e4218c2f809f" class="numbered-list" start="5"><li>Delta SkyMiles</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-80b1-8e5e-d493830c962e" class="numbered-list" start="6"><li>Etihad Guest</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-80b9-9bad-cce9e69edebb" class="numbered-list" start="7"><li>Hilton Honors</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8001-b9a8-fa0e5fee09a9" class="numbered-list" start="8"><li>Iberia Plus</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8069-953b-f208b130e5e9" class="numbered-list" start="9"><li>Marriott Bonvoy</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8013-a204-ca3f4b674316" class="numbered-list" start="10"><li>Qatar Airways Privilege Club</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-80f9-a2e1-e9714fb3bcf4" class="numbered-list" start="11"><li>Singapore Airlines | KrisFlyer</li></ol></div><div style="display:contents" dir="auto"><ol type="a" id="29964738-a3cc-8017-befe-e33aafcccb0f" class="numbered-list" start="12"><li>Virgin Atlantic Flying Club</li></ol></div></li></ol></div><div style="display:contents" dir="auto"><h2 id="29964738-a3cc-8096-b05e-c7245b3130bd" class="">结论</h2></div><div style="display:contents" dir="auto"><p id="29964738-a3cc-802a-a6ee-f1a7afd010be" class="">当你看到很多大佬愿意把MR转到AC然后进行1.25 pyb最后被银行S全家，你就知道MR的真实价值了。你当然可以转点，也可以反驳MR的真实价值；但当你玩卡的热度过去后，你会发现你简单的兑现都成了奢望。</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8016-b99f-c0c1a125ae53" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8064-a73f-db611f1c688a"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8000-8ca3-fb196f2adc65" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8038-95f0-ea84bda4f8cb" class=""><a href="http://xhslink.com/o/2BLAWwk4RMC">http://xhslink.com/o/2BLAWwk4RMC</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-80eb-89cf-fb822cd025e5" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,6 +740,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-801b-b300-ca32302e16da" class="page serif"><header><h1 class="page-title">心痛，别在陷入信用卡refer陷阱了！</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-804b-9203-c86c83059a2e"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80a5-b453-c7958e594f02" class="">【2025.07】删减了过时内容</p><p id="23564738-a3cc-80ae-b331-f813ceb0e226" class="">【2025.02】1.0版本发布</p></div></figure><p id="23e64738-a3cc-80fa-a6c8-eb632779c4dc" class="">
-</p><nav id="23564738-a3cc-802f-a8b2-d80f3f8e11de" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80c5-8f11-ee36790c6e0f">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-809f-bd1e-e785027e9ec1">申卡策略</a></div></nav><h2 id="23564738-a3cc-80c5-8f11-ee36790c6e0f" class="">简要介绍</h2><p id="23564738-a3cc-806c-82bb-f91f743bf501" class="">实在是看到了太多信用卡refer惨案，各位伙伴们不要再受骗了！没办法才写下此贴。</p><ol type="1" id="23564738-a3cc-804d-8a25-f25f06d8322d" class="numbered-list" start="1"><li>不了解一张信用卡的情况下就被人骗上了贼船，&quot;用我的refer就行了，没事”，&quot;你直接申请就好了” ….. 我打赌对面也一知半解</li></ol><ol type="1" id="23564738-a3cc-8015-9939-d709e4c481c5" class="numbered-list" start="2"><li>用了别人的链接申请了之后被拉黑/拒分bonus</li></ol><ol type="1" id="23564738-a3cc-8002-a419-e4bfd5d7b5c9" class="numbered-list" start="3"><li>被拒而别人直接一问三不知</li></ol><p id="23564738-a3cc-80f1-ba12-c30ee0c5fe91" class="">这个人说的是不是就是你？！<br/><br/>要知道refer一个人没有成本，他们广撒网，把link丢给你就完事了，甩手掌柜。反正发出去10个能成功5个这分白赚。</p><p id="23764738-a3cc-8027-86ed-efa77c539bf8" class="">那你呢？无缘无故的情况下吃hp？被别人骗上了贼船然后才发现完全回不了本，被银行反薅？（没错说的就是amex）</p><p id="23764738-a3cc-80c8-b104-c355cd5fb52c" class="">要知道就算是recon，也推荐在有经验的人指导下进行或者自行查找攻略之后再去尝试，理论上来说是不需要额外hp的，然而就有很多人不懂结果白吃了两个hp！</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8011-a8ca-f9038450b519"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><p id="23664738-a3cc-80ee-921b-ed45c6bbbb95" class="">冷知识：refer别人的收入需要交税</p></div></figure><p id="23664738-a3cc-80b2-bfab-e55878f89d23" class="">大部分人非常缺少Critical thinking，而且出于未知和对同胞潜在的信任，就用了别人的refer。你真以为人家那么好吗？申请前不了解吗？</p><p id="23764738-a3cc-80d9-9935-d62815aa3870" class="">惨案实在是太多了。我不希望你成为下一个韭菜，好吗？</p><h2 id="23564738-a3cc-809f-bd1e-e785027e9ec1" class="">申卡策略</h2><p id="23564738-a3cc-804c-a7c2-c0329743fbf9" class="">一如既往，amex最不推荐早申请，最佳策略往往是放在最后。虽然通过refer能拿到稳定石膏，但是如果银行发现你这个客户不值可能会直接拒绝，想清楚！（楼主没有amex refer不了）</p><p id="23764738-a3cc-8035-b925-c84c0eeb7bb1" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-801a-930e-e3c5ba4cbcdc"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8030-9e9f-f09401b35fe2" class="">XHS原文章</p><p id="23564738-a3cc-80b4-8525-c49c7f2c40ab" class=""><a href="http://xhslink.com/m/7ClLPDvbXov">http://xhslink.com/m/7ClLPDvbXov</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-801b-b300-ca32302e16da" class="page serif"><header><h1 class="page-title" dir="auto">心痛，别在陷入信用卡refer陷阱了！</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-804b-9203-c86c83059a2e"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80a5-b453-c7958e594f02" class="">【2025.07】删减了过时内容</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80ae-b331-f813ceb0e226" class="">【2025.02】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23e64738-a3cc-80fa-a6c8-eb632779c4dc" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-802f-a8b2-d80f3f8e11de" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80c5-8f11-ee36790c6e0f">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-809f-bd1e-e785027e9ec1">申卡策略</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-80c5-8f11-ee36790c6e0f" class="">简要介绍</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-806c-82bb-f91f743bf501" class="">实在是看到了太多信用卡refer惨案，各位伙伴们不要再受骗了！没办法才写下此贴。</p></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-804d-8a25-f25f06d8322d" class="numbered-list" start="1"><li>不了解一张信用卡的情况下就被人骗上了贼船，&quot;用我的refer就行了，没事”，&quot;你直接申请就好了” ….. 我打赌对面也一知半解</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-8015-9939-d709e4c481c5" class="numbered-list" start="2"><li>用了别人的链接申请了之后被拉黑/拒分bonus</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-8002-a419-e4bfd5d7b5c9" class="numbered-list" start="3"><li>被拒而别人直接一问三不知</li></ol></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80f1-ba12-c30ee0c5fe91" class="">这个人说的是不是就是你？！<br/><br/>要知道refer一个人没有成本，他们广撒网，把link丢给你就完事了，甩手掌柜。反正发出去10个能成功5个这分白赚。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-8027-86ed-efa77c539bf8" class="">那你呢？无缘无故的情况下吃hp？被别人骗上了贼船然后才发现完全回不了本，被银行反薅？（没错说的就是amex）</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80c8-b104-c355cd5fb52c" class="">要知道就算是recon，也推荐在有经验的人指导下进行或者自行查找攻略之后再去尝试，理论上来说是不需要额外hp的，然而就有很多人不懂结果白吃了两个hp！</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23664738-a3cc-8011-a8ca-f9038450b519"><div style="font-size:1.5em"><span class="icon">❗</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23664738-a3cc-80ee-921b-ed45c6bbbb95" class="">冷知识：refer别人的收入需要交税</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23664738-a3cc-80b2-bfab-e55878f89d23" class="">大部分人非常缺少Critical thinking，而且出于未知和对同胞潜在的信任，就用了别人的refer。你真以为人家那么好吗？申请前不了解吗？</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80d9-9935-d62815aa3870" class="">惨案实在是太多了。我不希望你成为下一个韭菜，好吗？</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-809f-bd1e-e785027e9ec1" class="">申卡策略</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-804c-a7c2-c0329743fbf9" class="">一如既往，amex最不推荐早申请，最佳策略往往是放在最后。虽然通过refer能拿到稳定石膏，但是如果银行发现你这个客户不值可能会直接拒绝，想清楚！（楼主没有amex refer不了）</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-8035-b925-c84c0eeb7bb1" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-801a-930e-e3c5ba4cbcdc"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-8030-9e9f-f09401b35fe2" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b4-8525-c49c7f2c40ab" class=""><a href="http://xhslink.com/m/7ClLPDvbXov">http://xhslink.com/m/7ClLPDvbXov</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

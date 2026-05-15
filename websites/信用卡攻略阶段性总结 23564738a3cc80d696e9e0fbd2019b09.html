@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,9 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-80d6-96e9-e0fbd2019b09" class="page serif"><header><h1 class="page-title">信用卡攻略阶段性总结</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80de-97c2-c562f0c72163"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80bb-aaa1-f528f9c9527d" class="">Coming Soon</p></div></figure><p id="24a64738-a3cc-8052-b5bd-f8a86bff8779" class="">
-</p><p id="24a64738-a3cc-80f9-a134-c2f031bef6b4" class="">
-</p><p id="24a64738-a3cc-8050-a125-ceda8629aa9f" class="">
-</p><p id="24a64738-a3cc-80de-8c5a-f98286bcf2f9" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8041-af47-c557d4c80404"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="24a64738-a3cc-807d-856f-e7592da71121" class="">XHS原文章</p><p id="24a64738-a3cc-806a-a518-e61b307fd665" class="">
-</p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-80d6-96e9-e0fbd2019b09" class="page serif"><header><h1 class="page-title" dir="auto">信用卡攻略阶段性总结</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80de-97c2-c562f0c72163"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80bb-aaa1-f528f9c9527d" class="">【2025.11】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8005-b449-f75f3e44fdb2" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80db-a1a7-f7c2a85fd583" class="">1</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8090-8fbe-ff9194fb0004" class="">到了这个时间点信用卡攻略发的确实差不多了，是时候该做总结了，给大家讲一些真心话了。写多了大家也审美疲劳了，在某一个时间点热度达到最高点，然后下降。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80cd-a188-cc828ff8fe99" class="">关于楼主写这些攻略的出发点，都是以大部分人群为出发点，无偏见，客观的评测，不被银行返薅，整体推荐偏向新手向。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-800b-8a31-d7f68ad03cdf" class="">写了一年，回报是什么？零星几个Bilt refer和仅有一个Chase refer。很多人问问题关注也不点，说实话累了，所以接下来就佛系发帖。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80e3-a450-f5e2cabdc81e" class="">2</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80f7-ada4-d6413673c3d8" class="">如果你是老粉，楼主主要介绍各大银行的自营卡，很少涉及联名卡。为什么？因为它的适用人群实在是太窄了。如果你真的出差多，那你完全可以研究他们的联名卡和各种会员。有人发了两个引流贴粉丝涨得比楼主还快，结果最后直接删贴跑路了。只能说搞流量不是楼主的长项。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-808b-9c58-ef273856d564" class="">还有，本来想只是在帖里表达一下自己的客观想法，结果有很多&quot;自以为是&quot;的人跑到底下评价乱七八糟的东西。首先楼主绝对是玩得起的；当楼主发文介绍说某样东西不尽人意的时候，总有人想教育楼主这个有多好用多好用。你觉得好用你就用着呗，但是我不需要你来告诉我xxx有多好用。所以有的时候说真话挺难的。对于这种完全不在同一个频道上的辩解，不喜欢就划走，没办法沟通。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-8037-8c4d-e7091558cc77" class="">3</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80b1-8654-ec5531f39a61" class="">楼主也知道，所推荐的观点并非主流。从对524唱反调，提醒大家理性开卡，再反思所谓的“点数价值最大化”，都不是主流观点，也不火。想一下你去开联名卡，是为了开这个卡而被迫去使用服务，还是原本就有这个需求才开的卡？</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-800f-97ce-c3d8e97cbf93" class="">很多人冲着信用卡来，就是为了所谓的大羊毛，点数换酒店和机票而来，这些内容肯定z火。而LZ就是单纯的分享信用卡的知识和策略，可能没那么火，就是想发啥发啥，没想到也有挺多人支持。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8090-aa38-f01014a1e849" class="">对于攻略贴精心写的文案和设计的图片，有的时候还甚至不如一个随手写的资讯贴来的受欢迎。不过如今信用卡的攻略lz的确已经写差不多了，后续就以更新咨讯贴为主。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8045-94bb-d3e22e127167" class="">信用卡的攻略也迎来尾声，感谢大家一路的支持和陪伴。虽然攻略发完了，但是以后还是会向大家更新相关资讯。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-8057-9459-d15f80f86ead" class="">4</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-800e-b82e-d3707e0fe522" class="">楼主决定重新对烂尾楼进行施工，接下来会有全面化的万字攻略，但不会发布在这里了。大家敬请期待吧！</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-8050-a125-ceda8629aa9f" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="24a64738-a3cc-8041-af47-c557d4c80404"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="24a64738-a3cc-807d-856f-e7592da71121" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="24a64738-a3cc-806a-a518-e61b307fd665" class=""><a href="http://xhslink.com/o/4KNQNU5thqm">http://xhslink.com/o/4KNQNU5thqm</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8036-9506-cc559b1f1ce1" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

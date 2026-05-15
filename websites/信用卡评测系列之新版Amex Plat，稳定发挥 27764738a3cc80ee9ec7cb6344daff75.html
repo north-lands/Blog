@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="27764738-a3cc-80ee-9ec7-cb6344daff75" class="page serif"><header><h1 class="page-title">信用卡评测系列之新版Amex Plat，稳定发挥</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="27764738-a3cc-8061-a0c0-f84beeab36e6"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="27764738-a3cc-80c2-b9a8-edde80622403" class="">【2025.09】1.0版本发布</p></div></figure><p id="27764738-a3cc-8025-be5c-c94037705501" class="">
-</p><p id="27764738-a3cc-803c-8cb8-e21a66d9ccb9" class="">目前全新改版的白金卡已经上线。总而言之就是Amex明显被CSR刺激到了，在年费上被别人压了一头很不爽，所以一定要扳回来。楼主之前做其他的信用卡评测评价纬度比较广，但Amex没必要，点数系统单独开一篇出来讲，本文注重卡本身。</p><p id="27764738-a3cc-8051-b98d-e0d10ae68c76" class="">Amex适不适合你的逻辑很简单：Coupon能不能用得上。你可以这么理解：花了895买了一大堆优惠券，而卡本身并不能够给你带来任何特权。另外，虽然目前来看白金卡拥有将近3k的coupon，但很多其实来自于老卡，所以这些老卡的福利可能明年就取消了。</p><p id="27764738-a3cc-8011-9b1b-c60b6269b382" class="">值得一提的是，虽然卡更新了，年费涨了，但是奖励却没有变，还是as high as 175k，真的是一坨。另外Amex还堵上了NLL的漏洞，以后怕不是没得玩了。</p><p id="27764738-a3cc-80b7-abe6-dddb98bb08d1" class="">来看看这些优惠券你能不能用得上：</p><ol type="1" id="27764738-a3cc-8041-b05a-c5dc5adfeb21" class="numbered-list" start="1"><li>600 FHR：喜欢的人爱不释手(真实value肯定打折)，不喜欢的value为零。</li></ol><ol type="1" id="27764738-a3cc-8001-8654-fae4b72b5dea" class="numbered-list" start="2"><li>200 Uber：虽然可以点外卖，但本身外卖溢价也高，真实value打折。</li></ol><ol type="1" id="27764738-a3cc-8073-b3e4-e4273f4ae524" class="numbered-list" start="3"><li>200 Airline：暂且就算大部分人能用完吧。</li></ol><ol type="1" id="27764738-a3cc-80ee-8e73-d55bbde4d390" class="numbered-list" start="4"><li>400 Resy：这个重点讲一下。你现在可以去下载app，看一下你家附近有几个resy餐厅？以大LA地区为例，只有在市中心，好莱坞，海滩，尔湾这几个地方比较集中，整个LA根本就没有餐厅。逻辑很简单：只在人多的地方有。你觉得适合你吗？</li></ol><ol type="1" id="27764738-a3cc-80b4-9208-f89e0364ae4a" class="numbered-list" start="5"><li>300 娱乐：加了油管所以默认能拿满。</li></ol><ol type="1" id="27764738-a3cc-80e4-a58a-cb03d8867d90" class="numbered-list" start="6"><li>300 lulu：一言难尽。</li></ol><ol type="1" id="27764738-a3cc-80ee-8ec4-e9192a0a3a7c" class="numbered-list" start="7"><li>200 Oura ring：目前第三代已经卖断货。为什么？因为卖199。要不是有报销，谁会买这个?</li></ol><p id="27764738-a3cc-805e-ae6e-ed73cf0d5de1" class="">剩下的报销明年估计就取消了。大家不要太关注某一个报销项目，核心逻辑就是本文开头提到的coupon到底适不适合你，因为银行想重塑你的消费。结论就是只有少数人适合。就算以上的报销能用上，在计算value的时候，也要考虑一些项目的现金优惠，返现平台，各类offer以及点数，所以真实value恐怕更低。</p><p id="27764738-a3cc-8030-9215-faf0600f93a8" class="">结论：对于大部分人来讲，每年能用得上的报销小于等于年费。那要这个干什么？</p><p id="27764738-a3cc-8065-be23-eac8f826555b" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="27764738-a3cc-805a-82fb-cf9ebe635671"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="27764738-a3cc-8020-9526-e893a117ca7b" class="">XHS原文章</p><p id="27764738-a3cc-804e-9671-fdbb9e932802" class=""><a href="http://xhslink.com/o/2jP9ZwJC2Hu">http://xhslink.com/o/2jP9ZwJC2Hu</a></p></div></figure><p id="27764738-a3cc-8071-8754-f3e7566b5d20" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="27764738-a3cc-80ee-9ec7-cb6344daff75" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之新版Amex Plat，稳定发挥</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="27764738-a3cc-8061-a0c0-f84beeab36e6"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="27764738-a3cc-80c2-b9a8-edde80622403" class="">【2025.09】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8025-be5c-c94037705501" class="">
+</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-803c-8cb8-e21a66d9ccb9" class="">目前全新改版的白金卡已经上线。总而言之就是Amex明显被CSR刺激到了，在年费上被别人压了一头很不爽，所以一定要扳回来。楼主之前做其他的信用卡评测评价纬度比较广，但Amex没必要，点数系统单独开一篇出来讲，本文注重卡本身。</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8051-b98d-e0d10ae68c76" class="">Amex适不适合你的逻辑很简单：Coupon能不能用得上。你可以这么理解：花了895买了一大堆优惠券，而卡本身并不能够给你带来任何特权。另外，虽然目前来看白金卡拥有将近3k的coupon，但很多其实来自于老卡，所以这些老卡的福利可能明年就取消了。</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8011-9b1b-c60b6269b382" class="">值得一提的是，虽然卡更新了，年费涨了，但是奖励却没有变，还是as high as 175k，真的是一坨。另外Amex还堵上了NLL的漏洞，以后怕不是没得玩了。</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-80b7-abe6-dddb98bb08d1" class="">来看看这些优惠券你能不能用得上：</p></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-8041-b05a-c5dc5adfeb21" class="numbered-list" start="1"><li>600 FHR：喜欢的人爱不释手(真实value肯定打折)，不喜欢的value为零。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-8001-8654-fae4b72b5dea" class="numbered-list" start="2"><li>200 Uber：虽然可以点外卖，但本身外卖溢价也高，真实value打折。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-8073-b3e4-e4273f4ae524" class="numbered-list" start="3"><li>200 Airline：暂且就算大部分人能用完吧。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-80ee-8e73-d55bbde4d390" class="numbered-list" start="4"><li>400 Resy：这个重点讲一下。你现在可以去下载app，看一下你家附近有几个resy餐厅？以大LA地区为例，只有在市中心，好莱坞，海滩，尔湾这几个地方比较集中，整个LA根本就没有餐厅。逻辑很简单：只在人多的地方有。你觉得适合你吗？</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-80b4-9208-f89e0364ae4a" class="numbered-list" start="5"><li>300 娱乐：加了油管所以默认能拿满。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-80e4-a58a-cb03d8867d90" class="numbered-list" start="6"><li>300 lulu：一言难尽。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="27764738-a3cc-80ee-8ec4-e9192a0a3a7c" class="numbered-list" start="7"><li>200 Oura ring：目前第三代已经卖断货。为什么？因为卖199。要不是有报销，谁会买这个?</li></ol></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-805e-ae6e-ed73cf0d5de1" class="">剩下的报销明年估计就取消了。大家不要太关注某一个报销项目，核心逻辑就是本文开头提到的coupon到底适不适合你，因为银行想重塑你的消费。结论就是只有少数人适合。就算以上的报销能用上，在计算value的时候，也要考虑一些项目的现金优惠，返现平台，各类offer以及点数，所以真实value恐怕更低。</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8030-9215-faf0600f93a8" class="">结论：对于大部分人来讲，每年能用得上的报销小于等于年费。那要这个干什么？</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8065-be23-eac8f826555b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="27764738-a3cc-805a-82fb-cf9ebe635671"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="27764738-a3cc-8020-9526-e893a117ca7b" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-804e-9671-fdbb9e932802" class=""><a href="http://xhslink.com/o/2jP9ZwJC2Hu">http://xhslink.com/o/2jP9ZwJC2Hu</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="27764738-a3cc-8071-8754-f3e7566b5d20" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

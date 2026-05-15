@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,6 +740,6 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8000-9f93-e09ebb4cde73" class="page serif"><header><h1 class="page-title">信用卡评测系列之Chase&amp;Citi三剑客</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80ff-ad3c-c61e3d981a1c"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80af-bd25-eff72e071ff3" class="">【2025.07】增加了一些内容</p><p id="23564738-a3cc-80f3-9148-cd54c0482097" class="">【2025.05】1.0版本发布</p></div></figure><p id="23e64738-a3cc-800b-aa99-efc37666cde6" class="">
-</p><nav id="23564738-a3cc-801d-9539-f279208f5b42" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-807f-ade6-d0b5680d77b9">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80a8-a374-ec0abc606952">卡片列表</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80dd-a405-cfe53fdb027e">开卡奖励限制</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b4-8410-f866245b08d7">内容介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-800e-bc4c-e5fdf8448621">转点伙伴</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-809f-8c70-c77d6cbdb03d">功能</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80cf-9e32-d65d99731c89">申请顺序</a></div></nav><h2 id="23564738-a3cc-807f-ade6-d0b5680d77b9" class="">简要介绍</h2><p id="23564738-a3cc-8022-b606-d22206c19985" class="">Chase和Citi三剑客，相信大家很熟悉，六张卡撑起了信用卡的半边江山。为什么会写这篇内容呢，因为楼主觉得大家还是有需求，之前默认大家都懂了，这次单独拿出来说。</p><p id="23764738-a3cc-802b-9d22-f00c996ee8b5" class="">最早楼主提到三剑客，还是发第一篇信用卡攻略的时候。现在已经过去5个多月了，还是要感慨一下。</p><h3 id="23564738-a3cc-80a8-a374-ec0abc606952" class="">卡片列表</h3><p id="23564738-a3cc-806c-964b-cc395cd18332" class="">Chase三剑客：CFU+CFF+CSP<br/>Citi三剑客：DC+CC+Premier<br/>冷知识：Citi Strata Premier缩写也是CSP… 名字也要竞争吗</p><h3 id="23564738-a3cc-80dd-a405-cfe53fdb027e" class="">开卡奖励限制</h3><p id="23564738-a3cc-8023-8c36-c1ea6feb3c39" class="">Freedom系列需间隔24个月，系列内不受影响<br/><del>Sapphire系列需间隔48个月，系列内受影响</del><br/>随着新版CSR的推出，茶色更改了规则：蓝宝石系列奖励终身只能拿一次，都跟Amex学坏了</p><p id="23564738-a3cc-8008-8570-d6cd84162bcc" class="">Citi所有卡时间隔48个月，各卡互相不受影响</p><h2 id="23564738-a3cc-80b4-8410-f866245b08d7" class="">内容介绍</h2><p id="23564738-a3cc-80ae-9347-ff461a250113" class="">很多人有在问关于他们的必要性，以及他们是否形成竞争。楼主的观点是，对于银行来说是竞争，但对于消费者不是。不用做选择，全部都要。可以从两个角度分析：转点伙伴和信用卡功能。</p><h3 id="23564738-a3cc-800e-bc4c-e5fdf8448621" class="">转点伙伴</h3><p id="23564738-a3cc-8053-97c1-c8eac0c523fa" class="">转点伙伴方面，如果你仔细看UR，TYP伙伴列表，基本不重复，根本不愁用不出去。</p><h3 id="23564738-a3cc-809f-8c70-c77d6cbdb03d" class="">功能</h3><p id="23564738-a3cc-80e1-98da-e8d0abd44916" class="">信用卡功能方面，一张一张的对比：</p><ol type="1" id="23564738-a3cc-804d-898f-dd563bd3ee85" class="numbered-list" start="1"><li>CFF vs Custom Cash（CC）<br/>首先就是两张5x的卡。完整不冲突，大家肯定是希望5x的卡越多越好，是不是？</li></ol><ol type="1" id="23564738-a3cc-804b-9848-c61aa672f6f6" class="numbered-list" start="2"><li>CSP vs Premier<br/>表面重复，仔细研究未必。CSP强项在于旅游相关，无论是保险还是涨点。不过相对在日常方面就弱。而Premier恰好相反，日常使用非常强劲，旅游方面为辅，3x的机票酒店，唯一转点卡。综合比较这两张卡必开。</li></ol><ol type="1" id="23564738-a3cc-8022-85e6-d5db91ffdcf4" class="numbered-list" start="3"><li>CFU vs Double Cash（DC）<br/>这两张定位都是一卡流的卡，主要用来处理一些边缘消费，说实话定位就有些尴尬了。因为边缘消费总体较少（如果比较多比如交汽车保险建议直接开新卡更划算），所以这两张选一张就够了。<del>主要是看UR和TYP哪个对你更有用</del> 现在大力推荐DC， 不推荐CFU。不过等到后续无卡可申时，可以考虑补上这一张。 另外，后续如果考虑VX，全部2x无FTF也可以替代此类别，缺点换现金只有0.5cpp。</li></ol><h3 id="23564738-a3cc-80cf-9e32-d65d99731c89" class="">申请顺序</h3><p id="23564738-a3cc-803a-9dfc-fa693ecb9654" class="">然后就是关于申请顺序。因为有多个记录显示Chase的卡更好下，再加上524规则，所以毫无疑问优先下Chase。这个时候不建议MDD，直接冲Citi就完事了。</p><p id="23764738-a3cc-80ba-92d9-ca48c26c3f2f" class="">默认申请顺序楼主在之前的帖子里有建议，实际大家可以按照自己的情况调整。<br/><br/>所以综合来看这6张卡撑起了信用卡的半边江山，定位就是人手一张。楼主认为非常值，放心入。</p><p id="23564738-a3cc-80cf-9cf4-feb6ec0066f5" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-804d-9d59-c4062cdb8d42"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80b9-abb2-f162cdc42252" class="">XHS原文章</p><p id="23564738-a3cc-800a-9020-ce525df85c7c" class=""><a href="http://xhslink.com/m/3McTRIT70nF">http://xhslink.com/m/3McTRIT70nF</a></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8000-9f93-e09ebb4cde73" class="page serif"><header><h1 class="page-title" dir="auto">信用卡评测系列之Chase&amp;Citi三剑客</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80ff-ad3c-c61e3d981a1c"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80af-bd25-eff72e071ff3" class="">【2025.07】增加了一些内容</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80f3-9148-cd54c0482097" class="">【2025.05】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23e64738-a3cc-800b-aa99-efc37666cde6" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-801d-9539-f279208f5b42" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-807f-ade6-d0b5680d77b9">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80a8-a374-ec0abc606952">卡片列表</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80dd-a405-cfe53fdb027e">开卡奖励限制</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80b4-8410-f866245b08d7">内容介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-800e-bc4c-e5fdf8448621">转点伙伴</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-809f-8c70-c77d6cbdb03d">功能</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80cf-9e32-d65d99731c89">申请顺序</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-807f-ade6-d0b5680d77b9" class="">简要介绍</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8022-b606-d22206c19985" class="">Chase和Citi三剑客，相信大家很熟悉，六张卡撑起了信用卡的半边江山。为什么会写这篇内容呢，因为楼主觉得大家还是有需求，之前默认大家都懂了，这次单独拿出来说。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-802b-9d22-f00c996ee8b5" class="">最早楼主提到三剑客，还是发第一篇信用卡攻略的时候。现在已经过去5个多月了，还是要感慨一下。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80a8-a374-ec0abc606952" class="">卡片列表</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-806c-964b-cc395cd18332" class="">Chase三剑客：CFU+CFF+CSP<br/>Citi三剑客：DC+CC+Premier<br/>冷知识：Citi Strata Premier缩写也是CSP… 名字也要竞争吗</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80dd-a405-cfe53fdb027e" class="">开卡奖励限制</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8023-8c36-c1ea6feb3c39" class="">Freedom系列需间隔24个月，系列内不受影响<br/><del>Sapphire系列需间隔48个月，系列内受影响</del><br/>随着新版CSR的推出，茶色更改了规则：蓝宝石系列奖励终身只能拿一次，都跟Amex学坏了</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8008-8570-d6cd84162bcc" class="">Citi所有卡时间隔48个月，各卡互相不受影响</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-80b4-8410-f866245b08d7" class="">内容介绍</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80ae-9347-ff461a250113" class="">很多人有在问关于他们的必要性，以及他们是否形成竞争。楼主的观点是，对于银行来说是竞争，但对于消费者不是。不用做选择，全部都要。可以从两个角度分析：转点伙伴和信用卡功能。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-800e-bc4c-e5fdf8448621" class="">转点伙伴</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8053-97c1-c8eac0c523fa" class="">转点伙伴方面，如果你仔细看UR，TYP伙伴列表，基本不重复，根本不愁用不出去。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-809f-8c70-c77d6cbdb03d" class="">功能</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80e1-98da-e8d0abd44916" class="">信用卡功能方面，一张一张的对比：</p></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-804d-898f-dd563bd3ee85" class="numbered-list" start="1"><li>CFF vs Custom Cash（CC）<br/>首先就是两张5x的卡。完整不冲突，大家肯定是希望5x的卡越多越好，是不是？</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-804b-9848-c61aa672f6f6" class="numbered-list" start="2"><li>CSP vs Premier<br/>表面重复，仔细研究未必。CSP强项在于旅游相关，无论是保险还是涨点。不过相对在日常方面就弱。而Premier恰好相反，日常使用非常强劲，旅游方面为辅，3x的机票酒店，唯一转点卡。综合比较这两张卡必开。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="23564738-a3cc-8022-85e6-d5db91ffdcf4" class="numbered-list" start="3"><li>CFU vs Double Cash（DC）<br/>这两张定位都是一卡流的卡，主要用来处理一些边缘消费，说实话定位就有些尴尬了。因为边缘消费总体较少（如果比较多比如交汽车保险建议直接开新卡更划算），所以这两张选一张就够了。<del>主要是看UR和TYP哪个对你更有用</del> 现在大力推荐DC， 不推荐CFU。不过等到后续无卡可申时，可以考虑补上这一张。 另外，后续如果考虑VX，全部2x无FTF也可以替代此类别，缺点换现金只有0.5cpp。</li></ol></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80cf-9e32-d65d99731c89" class="">申请顺序</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-803a-9dfc-fa693ecb9654" class="">然后就是关于申请顺序。因为有多个记录显示Chase的卡更好下，再加上524规则，所以毫无疑问优先下Chase。这个时候不建议MDD，直接冲Citi就完事了。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80ba-92d9-ca48c26c3f2f" class="">默认申请顺序楼主在之前的帖子里有建议，实际大家可以按照自己的情况调整。<br/><br/>所以综合来看这6张卡撑起了信用卡的半边江山，定位就是人手一张。楼主认为非常值，放心入。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80cf-9cf4-feb6ec0066f5" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-804d-9d59-c4062cdb8d42"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b9-abb2-f162cdc42252" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-800a-9020-ce525df85c7c" class=""><a href="http://xhslink.com/m/3McTRIT70nF">http://xhslink.com/m/3McTRIT70nF</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,7 +740,7 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8055-a3a8-f42820ba27d1" class="page serif"><header><h1 class="page-title">各家银行信用卡申请规则汇总</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-805b-a548-f3c9e89c1276"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80ef-bbe8-ef6652b119bd" class="">【2025.07】1.0版本发布</p></div></figure><nav id="23564738-a3cc-80fb-aba2-c7adbb273768" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8081-b018-dbd56d4a29bb">申请规则</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80fe-9942-e8690235df17">Boa</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80ab-9ffb-dcbfaa21b54b">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80c4-9645-d081f9c0d27f">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8017-bed0-ebfa825380c4">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8054-903d-c30aaaafab5f">Capital One</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-804d-857f-c3247f16debe">USbank</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80df-993d-cfd1ad2237fe">Well Fargo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8017-9f95-ed5c9c153c8f">其他隐形限制</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8096-89ae-d4f565724ed7">其他更新内容</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8029-8803-e310927ef1d6">应对策略</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80de-bca7-c34858f69b01">免责声明</a></div></nav><p id="23564738-a3cc-80bd-ad96-d79b2ddbcce4" class="">
-</p><p id="23564738-a3cc-808d-b2c6-efde1728b8e4" class="">不同的银行有不同的信用卡产品，银行一般会添加申请信用卡的限制。其中最出名的莫过于Chase的524。但是除此之外，其他银行也有相应的规则，大家开卡前应当检查，确保没有违反。这期就来盘点一下，商业卡不算。</p><h2 id="23564738-a3cc-8081-b018-dbd56d4a29bb" class="">申请规则</h2><h3 id="23564738-a3cc-80fe-9942-e8690235df17" class="">Boa</h3><p id="23564738-a3cc-803b-8ef1-c7bec556efdf" class="">2/3/4：2个月内最多批准2张boa卡，12个月内最多批准3张boa卡，24个月内最多批准4张boa卡<br/>7/12：如果已是Boa客户，12个月内最多允许7张卡（包括任意银行）<br/>3/12：如果不是Boa客户，12个月内最多允许3张卡（包括任意银行）</p><h3 id="23564738-a3cc-80ab-9ffb-dcbfaa21b54b" class="">Chase</h3><p id="23564738-a3cc-8044-8294-d6126a6249f0" class="">2/30：30天内最多批两张Chase卡<br/>2/90：90天内最多开两张Chase卡<br/>5/24：24个月之内最多允许5张卡（包括任意银行）</p><h3 id="23564738-a3cc-80c4-9645-d081f9c0d27f" class="">Citi</h3><p id="23564738-a3cc-8020-9b32-de42a0d9bff7" class="">1/8：8天内只能提交一个申请<br/>2/65：65天内只能提交两个申请<br/>6/6：6个月内最多6HP（任何途径都算）<br/>3/6：6个月内最多3HP（疑似Strata系列独有）</p><h3 id="23564738-a3cc-8017-bed0-ebfa825380c4" class="">Amex</h3><p id="23564738-a3cc-8084-add2-edba9254dd71" class="">1/90：两次申请同一系列的信用卡间隔必须大于90天<br/>2/90：90天内最多批两张Amex卡（Charge card不算）<br/>5/10：最多持有5张Amex信用卡，10张Amex签账卡</p><h3 id="23564738-a3cc-8054-903d-c30aaaafab5f" class="">Capital One</h3><p id="23564738-a3cc-8016-9eb2-ec3348fd50bc" class="">1/6：6个月内只能申请一张C1的卡</p><h3 id="23564738-a3cc-804d-857f-c3247f16debe" class="">USbank</h3><p id="23564738-a3cc-8007-806d-cddd775a8b17" class="">5/12：12个月内不可以开超过5张卡</p><h3 id="23564738-a3cc-80df-993d-cfd1ad2237fe" class="">Well Fargo</h3><p id="23564738-a3cc-805a-951f-cc5078495ed5" class="">1/6：6个月内只能申请一张WF的卡</p><h3 id="23564738-a3cc-8017-9f95-ed5c9c153c8f" class="">其他隐形限制</h3><p id="23564738-a3cc-806f-a137-fe8279cef01f" class="">Bilt和VX极大可能有soft 524规则，如果需要的话务必做好规划。</p><h2 id="23564738-a3cc-8096-89ae-d4f565724ed7" class="">其他更新内容</h2><p id="23564738-a3cc-809e-8732-ece65b8afbe0" class="">随着新CSR的发布，Chase似乎更改了规则：即使你在524之内，也可以开出Chase的卡，只是不能拿开卡奖励。（再观望一阵）</p><p id="23764738-a3cc-80e7-9215-dda5770baf4b" class="">说实话这也是一个进步了。对于真正刚需联名卡的人，他们可能并不在乎开卡奖励。至少给了你一个选项，524内可以开Chase的卡了。楼主相信有很多人是因为石膏才开的联名卡，而你们使用该酒店/航司的频率如何，想必各位自己心里都有数。</p><p id="23764738-a3cc-80e7-ae46-dadbb4dcdde7" class="">看到这里不要急着评论，适合自己才是最好的。有些人刚需联名卡就可以不要SUB，没必要争。</p><h2 id="23564738-a3cc-8029-8803-e310927ef1d6" class="">应对策略</h2><p id="23564738-a3cc-8034-b73d-fc6151631d39" class="">除了Chase524规则最出名，限制大家最多之外，其他规则基本大家都很少触及。不过值得一提的是C1&amp;WF限制最严，6个月内居然只能申请一张卡。</p><p id="23764738-a3cc-80a6-9ca0-d135e4fd07dc" class="">另外关于524之前已经有很多讨论。还是按照楼主之前推荐的两年八卡策略，不要把鸡蛋放在同一个篮子里的同时也能顾及到各方面，从而最大程度规避风险。</p><h2 id="23564738-a3cc-80de-bca7-c34858f69b01" class="">免责声明</h2><p id="23564738-a3cc-8092-9c68-e8d4cb871a4a" class="">有些规则可能矛盾，因为某些规则并不是官方公布，而是通过大量DP得来，所以本文同时纳入。内容仅供参考，不构成最后入坑建议。</p><p id="23564738-a3cc-8049-bb7b-c061a87d1f04" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80d4-9d48-c70ca20ca000"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8067-8c23-d7d6430ca41b" class="">XHS原文章</p><p id="23564738-a3cc-80c3-8ed7-c0e5d727d29e" class=""><a href="http://xhslink.com/m/4WPNaZtgh29">http://xhslink.com/m/4WPNaZtgh29</a></p></div></figure><p id="23564738-a3cc-8047-930c-ebe66ff45e86" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8055-a3a8-f42820ba27d1" class="page serif"><header><h1 class="page-title" dir="auto">各家银行信用卡申请规则汇总</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-805b-a548-f3c9e89c1276"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80ef-bbe8-ef6652b119bd" class="">【2025.07】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-80fb-aba2-c7adbb273768" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8081-b018-dbd56d4a29bb">申请规则</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80fe-9942-e8690235df17">Boa</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80ab-9ffb-dcbfaa21b54b">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80c4-9645-d081f9c0d27f">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8017-bed0-ebfa825380c4">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8054-903d-c30aaaafab5f">Capital One</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-804d-857f-c3247f16debe">USbank</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80df-993d-cfd1ad2237fe">Well Fargo</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8017-9f95-ed5c9c153c8f">其他隐形限制</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8096-89ae-d4f565724ed7">其他更新内容</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-8029-8803-e310927ef1d6">应对策略</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80de-bca7-c34858f69b01">免责声明</a></div></nav></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80bd-ad96-d79b2ddbcce4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-808d-b2c6-efde1728b8e4" class="">不同的银行有不同的信用卡产品，银行一般会添加申请信用卡的限制。其中最出名的莫过于Chase的524。但是除此之外，其他银行也有相应的规则，大家开卡前应当检查，确保没有违反。这期就来盘点一下，商业卡不算。</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-8081-b018-dbd56d4a29bb" class="">申请规则</h2></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80fe-9942-e8690235df17" class="">Boa</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-803b-8ef1-c7bec556efdf" class="">2/3/4：2个月内最多批准2张boa卡，12个月内最多批准3张boa卡，24个月内最多批准4张boa卡<br/>7/12：如果已是Boa客户，12个月内最多允许7张卡（包括任意银行）<br/>3/12：如果不是Boa客户，12个月内最多允许3张卡（包括任意银行）</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80ab-9ffb-dcbfaa21b54b" class="">Chase</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8044-8294-d6126a6249f0" class="">2/30：30天内最多批两张Chase卡<br/>2/90：90天内最多开两张Chase卡<br/>5/24：24个月之内最多允许5张卡（包括任意银行）</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80c4-9645-d081f9c0d27f" class="">Citi</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8020-9b32-de42a0d9bff7" class="">1/8：8天内只能提交一个申请<br/>2/65：65天内只能提交两个申请<br/>6/6：6个月内最多6HP（任何途径都算）<br/>3/6：6个月内最多3HP（疑似Strata系列独有）</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8017-bed0-ebfa825380c4" class="">Amex</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8084-add2-edba9254dd71" class="">1/90：两次申请同一系列的信用卡间隔必须大于90天<br/>2/90：90天内最多批两张Amex卡（Charge card不算）<br/>5/10：最多持有5张Amex信用卡，10张Amex签账卡</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8054-903d-c30aaaafab5f" class="">Capital One</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8016-9eb2-ec3348fd50bc" class="">1/6：6个月内只能申请一张C1的卡</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-804d-857f-c3247f16debe" class="">USbank</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8007-806d-cddd775a8b17" class="">5/12：12个月内不可以开超过5张卡</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80df-993d-cfd1ad2237fe" class="">Well Fargo</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-805a-951f-cc5078495ed5" class="">1/6：6个月内只能申请一张WF的卡</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8017-9f95-ed5c9c153c8f" class="">其他隐形限制</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-806f-a137-fe8279cef01f" class="">Bilt和VX极大可能有soft 524规则，如果需要的话务必做好规划。</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-8096-89ae-d4f565724ed7" class="">其他更新内容</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-809e-8732-ece65b8afbe0" class="">随着新CSR的发布，Chase似乎更改了规则：即使你在524之内，也可以开出Chase的卡，只是不能拿开卡奖励。（再观望一阵）</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80e7-9215-dda5770baf4b" class="">说实话这也是一个进步了。对于真正刚需联名卡的人，他们可能并不在乎开卡奖励。至少给了你一个选项，524内可以开Chase的卡了。楼主相信有很多人是因为石膏才开的联名卡，而你们使用该酒店/航司的频率如何，想必各位自己心里都有数。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80e7-ae46-dadbb4dcdde7" class="">看到这里不要急着评论，适合自己才是最好的。有些人刚需联名卡就可以不要SUB，没必要争。</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-8029-8803-e310927ef1d6" class="">应对策略</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8034-b73d-fc6151631d39" class="">除了Chase524规则最出名，限制大家最多之外，其他规则基本大家都很少触及。不过值得一提的是C1&amp;WF限制最严，6个月内居然只能申请一张卡。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-80a6-9ca0-d135e4fd07dc" class="">另外关于524之前已经有很多讨论。还是按照楼主之前推荐的两年八卡策略，不要把鸡蛋放在同一个篮子里的同时也能顾及到各方面，从而最大程度规避风险。</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-80de-bca7-c34858f69b01" class="">免责声明</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8092-9c68-e8d4cb871a4a" class="">有些规则可能矛盾，因为某些规则并不是官方公布，而是通过大量DP得来，所以本文同时纳入。内容仅供参考，不构成最后入坑建议。</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8049-bb7b-c061a87d1f04" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-80d4-9d48-c70ca20ca000"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-8067-8c23-d7d6430ca41b" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80c3-8ed7-c0e5d727d29e" class=""><a href="http://xhslink.com/m/4WPNaZtgh29">http://xhslink.com/m/4WPNaZtgh29</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8047-930c-ebe66ff45e86" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

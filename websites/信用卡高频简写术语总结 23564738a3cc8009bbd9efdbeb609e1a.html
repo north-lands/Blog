@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="23564738-a3cc-8009-bbd9-efdbeb609e1a" class="page serif"><header><h1 class="page-title">信用卡高频简写术语总结</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8048-a3cf-ed4198ae5cc0"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-80b4-a380-d0945ffcc1a0" class="">【2025.07】1.0版本发布</p></div></figure><p id="23e64738-a3cc-80ac-bdd7-e2e7da18c2a7" class="">
-</p><nav id="23564738-a3cc-802b-9215-e704e507b751" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80f9-87a7-f24b9357907c">相关简写</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-802f-b0b6-e72bf5534379">银行&amp;信用局类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80f0-96f2-f265371a4cd5">信用卡类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8055-a677-e95f267d2a31">点数类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-801e-b450-cc2c012e95ad">其他一般类</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-805b-b8c0-d6e02672c915">其他有用的信息</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80e5-a83c-d240e3a6da4d">免责声明</a></div></nav><p id="23564738-a3cc-8085-8b68-f9b3e5596d80" class="">
-</p><h2 id="23564738-a3cc-80f9-87a7-f24b9357907c" class="">相关简写</h2><p id="23564738-a3cc-8039-86b8-d25fdb325d28" class="">讲实话吧，写了这么多攻略，大部分人肯定没有看完合集，甚至一些缩写看不懂。那么这期楼主就回头盘点一下信用卡相关简写。</p><h3 id="23564738-a3cc-802f-b0b6-e72bf5534379" class="">银行&amp;信用局类</h3><p id="23564738-a3cc-8001-9524-e0a074176fae" class="">Boa: Bank of America<br/>Amex: American Express<br/>C1: Capital One<br/>USB: USBank<br/>WF: Well Fargo<br/>EQ: Equifax, 美国三大信用局之一<br/>EX: Experian, 美国三大信用局之一<br/>TU: TransUnion, 美国三大信用局之一<br/>茶色: Chase</p><h3 id="23564738-a3cc-80f0-96f2-f265371a4cd5" class="">信用卡类</h3><p id="23564738-a3cc-80d1-9c39-d86299a7ff6d" class="">CC: Credit Card<br/>Biz: business缩写<br/>CL: Credit Lines，信用卡额度<br/><strong>Boa</strong><br/>Boa123: Boa Customized Cash Rewards<br/>PR: Boa Premium Rewards<br/>PRE: Boa Premium Rewards Elite<br/><strong>Chase</strong><br/>CFR: Chase Freedom Rise<br/>CFF: Chase Freedom Flex<br/>CFU: Chase Freedom Unlimited<br/>CSP: Chase Sapphire Preferred<br/>CSR: Chase Sapphire Reserve<br/>CIC: Chase Ink Cash<br/>CIP: Chase Ink Preferred<br/>CIU: Chase Ink Unlimited<br/><strong>Citi</strong><br/>DC: Double Cash<br/>CC: Custom Cash<br/>Permier: Strata Premier<br/>SYW: Shop Your Way<br/><strong>Amex</strong><br/>BCE: Blue Everyday Cash<br/>BCP: Blue Everyday Perferred<br/><strong>USB</strong><br/>UAR: USBank Altitude Reserve<br/>UAC: USBank Altitude Connect</p><h3 id="23564738-a3cc-8055-a677-e95f267d2a31" class="">点数类</h3><p id="23564738-a3cc-809d-9bd4-e3ed804d0be8" class="">CPP: Cents per points. 每点数值多少美分<br/>UR: Ultimate Rewards，Chase点数系统<br/>MR: Membership Rewards，Amex点数系统<br/>TYP: Thank You Points，Citi点数系统</p><h3 id="23564738-a3cc-801e-b450-cc2c012e95ad" class="">其他一般类</h3><p id="23564738-a3cc-8041-aa24-fe1241853264" class="">AF: Annual Fee年费<br/>AU: Authorized User副卡<br/>CB: Cash Back返现<br/>CK: Credit Karma，可以查信用的网站<br/>DD: Direct Deposit<br/>FTF: Foreign Transaction Fee手续费<br/>GC: Gift Card 礼品卡<br/>PP: PayPal<br/>SP: Soft Pull<br/>HP: Hard Pull<br/>PC: Product Change转卡<br/>PPS: Priority Pass Select高端卡赠送的机场休息室<br/>一砖：1万美元。</p><h2 id="23564738-a3cc-805b-b8c0-d6e02672c915" class="">其他有用的信息</h2><p id="23564738-a3cc-8086-bf72-de4984ba307c" class="">大家也可以参考这个链接，有更完整的简写列表</p><figure id="23564738-a3cc-8036-ac34-dd5f0db884b1"><a href="https://www.uscreditcardguide.com/abbreviations/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">银行、信用卡、航空、酒店、点数常用缩写汇总【2022年全面更新】 - 美国信用卡指南</div><div class="bookmark-description">各位可以直接点击文中的链接了解详情，也欢迎大家帮我们补充完善这个列表~ Contents信用卡、银行相关缩写酒店相关缩写航空相关缩写航空代码机场代码其他缩写 信用卡、银行相关缩写 5/24: Chase 5/24 规则 AF: Annual Fee 年费 AU: Authorized User 副卡 AGC: AmEx Gift Card 或 Amazon Gift Card 需要根据上下文辨析 ...Read more</div></div><div class="bookmark-href"><img src="https://www.uscreditcardguide.com/favicon.ico" class="icon bookmark-icon"/>https://www.uscreditcardguide.com/abbreviations/</div></div><img src="https://www.uscreditcardguide.com/wp-content/uploads/2015/08/texting-abbreviation-resized.jpg" class="bookmark-image"/></a></figure><h2 id="23564738-a3cc-80e5-a83c-d240e3a6da4d" class="">免责声明</h2><p id="23564738-a3cc-80d8-a379-c140f2569fa8" class="">以上就是部分高频简写。仅作初级科普，不构成法律建议。</p><p id="23764738-a3cc-8002-8af2-d2b7dd382f0b" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-801c-8168-f56ea17b8153"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="23564738-a3cc-8028-931a-dc215a08d833" class="">XHS原文章</p><p id="23564738-a3cc-8057-a2a2-d0f8e2e37cfb" class=""><a href="http://xhslink.com/m/6jIfYOgjytB">http://xhslink.com/m/6jIfYOgjytB</a></p></div></figure><p id="23564738-a3cc-8008-b24a-e631874f64a2" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="23564738-a3cc-8009-bbd9-efdbeb609e1a" class="page serif"><header><h1 class="page-title" dir="auto">信用卡高频简写术语总结</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-8048-a3cf-ed4198ae5cc0"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-80b4-a380-d0945ffcc1a0" class="">【2025.07】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23e64738-a3cc-80ac-bdd7-e2e7da18c2a7" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="23564738-a3cc-802b-9215-e704e507b751" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80f9-87a7-f24b9357907c">相关简写</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-802f-b0b6-e72bf5534379">银行&amp;信用局类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-80f0-96f2-f265371a4cd5">信用卡类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-8055-a677-e95f267d2a31">点数类</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#23564738-a3cc-801e-b450-cc2c012e95ad">其他一般类</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-805b-b8c0-d6e02672c915">其他有用的信息</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23564738-a3cc-80e5-a83c-d240e3a6da4d">免责声明</a></div></nav></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8085-8b68-f9b3e5596d80" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-80f9-87a7-f24b9357907c" class="">相关简写</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8039-86b8-d25fdb325d28" class="">讲实话吧，写了这么多攻略，大部分人肯定没有看完合集，甚至一些缩写看不懂。那么这期楼主就回头盘点一下信用卡相关简写。</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-802f-b0b6-e72bf5534379" class="">银行&amp;信用局类</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8001-9524-e0a074176fae" class="">Boa: Bank of America<br/>Amex: American Express<br/>C1: Capital One<br/>USB: USBank<br/>WF: Well Fargo<br/>EQ: Equifax, 美国三大信用局之一<br/>EX: Experian, 美国三大信用局之一<br/>TU: TransUnion, 美国三大信用局之一<br/>茶色: Chase</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-80f0-96f2-f265371a4cd5" class="">信用卡类</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80d1-9c39-d86299a7ff6d" class="">CC: Credit Card<br/>Biz: business缩写<br/>CL: Credit Lines，信用卡额度<br/><strong>Boa</strong><br/>Boa123: Boa Customized Cash Rewards<br/>PR: Boa Premium Rewards<br/>PRE: Boa Premium Rewards Elite<br/><strong>Chase</strong><br/>CFR: Chase Freedom Rise<br/>CFF: Chase Freedom Flex<br/>CFU: Chase Freedom Unlimited<br/>CSP: Chase Sapphire Preferred<br/>CSR: Chase Sapphire Reserve<br/>CIC: Chase Ink Cash<br/>CIP: Chase Ink Preferred<br/>CIU: Chase Ink Unlimited<br/><strong>Citi</strong><br/>DC: Double Cash<br/>CC: Custom Cash<br/>Permier: Strata Premier<br/>SYW: Shop Your Way<br/><strong>Amex</strong><br/>BCE: Blue Everyday Cash<br/>BCP: Blue Everyday Perferred<br/><strong>USB</strong><br/>UAR: USBank Altitude Reserve<br/>UAC: USBank Altitude Connect</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-8055-a677-e95f267d2a31" class="">点数类</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-809d-9bd4-e3ed804d0be8" class="">CPP: Cents per points. 每点数值多少美分<br/>UR: Ultimate Rewards，Chase点数系统<br/>MR: Membership Rewards，Amex点数系统<br/>TYP: Thank You Points，Citi点数系统</p></div><div style="display:contents" dir="auto"><h3 id="23564738-a3cc-801e-b450-cc2c012e95ad" class="">其他一般类</h3></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8041-aa24-fe1241853264" class="">AF: Annual Fee年费<br/>AU: Authorized User副卡<br/>CB: Cash Back返现<br/>CK: Credit Karma，可以查信用的网站<br/>DD: Direct Deposit<br/>FTF: Foreign Transaction Fee手续费<br/>GC: Gift Card 礼品卡<br/>PP: PayPal<br/>SP: Soft Pull<br/>HP: Hard Pull<br/>PC: Product Change转卡<br/>PPS: Priority Pass Select高端卡赠送的机场休息室<br/>一砖：1万美元。</p></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-805b-b8c0-d6e02672c915" class="">其他有用的信息</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8086-bf72-de4984ba307c" class="">大家也可以参考这个链接，有更完整的简写列表</p></div><div style="display:contents" dir="ltr"><figure id="23564738-a3cc-8036-ac34-dd5f0db884b1"><a href="https://www.uscreditcardguide.com/abbreviations/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">银行、信用卡、航空、酒店、点数常用缩写汇总【2022年全面更新】 - 美国信用卡指南</div><div class="bookmark-description">各位可以直接点击文中的链接了解详情，也欢迎大家帮我们补充完善这个列表~ Contents信用卡、银行相关缩写酒店相关缩写航空相关缩写航空代码机场代码其他缩写 信用卡、银行相关缩写 5/24: Chase 5/24 规则 AF: Annual Fee 年费 AU: Authorized User 副卡 AGC: AmEx Gift Card 或 Amazon Gift Card 需要根据上下文辨析 ...Read more</div></div><div class="bookmark-href"><img src="https://www.uscreditcardguide.com/favicon.ico" class="icon bookmark-icon"/>https://www.uscreditcardguide.com/abbreviations/</div></div><img src="https://www.uscreditcardguide.com/wp-content/uploads/2015/08/texting-abbreviation-resized.jpg" class="bookmark-image"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="23564738-a3cc-80e5-a83c-d240e3a6da4d" class="">免责声明</h2></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-80d8-a379-c140f2569fa8" class="">以上就是部分高频简写。仅作初级科普，不构成法律建议。</p></div><div style="display:contents" dir="auto"><p id="23764738-a3cc-8002-8af2-d2b7dd382f0b" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="23564738-a3cc-801c-8168-f56ea17b8153"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="23564738-a3cc-8028-931a-dc215a08d833" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8057-a2a2-d0f8e2e37cfb" class=""><a href="http://xhslink.com/m/6jIfYOgjytB">http://xhslink.com/m/6jIfYOgjytB</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="23564738-a3cc-8008-b24a-e631874f64a2" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

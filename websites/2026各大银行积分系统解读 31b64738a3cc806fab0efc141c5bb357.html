@@ -1,0 +1,747 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2026各大银行积分系统解读</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="31b64738-a3cc-806f-ab0e-fc141c5bb357" class="page serif"><header><h1 class="page-title" dir="auto">2026各大银行积分系统解读</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="31b64738-a3cc-8048-a706-d994e74ef848"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="31b64738-a3cc-809f-9174-c15dba9b3574" class="">【2026.03】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8095-9366-f386926d831b" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="31b64738-a3cc-8007-92e3-e1c10cb25e4c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-806b-8137-cd3a7b3f738d"><strong>前言</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-804e-9028-e6370145dea7"><strong>基本介绍</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-8021-b1aa-ef5c643f8bc0"><strong>Bank of America点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-80e4-a699-c6fa4c1b675e"><strong>Chase点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-80f0-a141-ea46c97ef1b7"><strong>Amex点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-8042-8126-d3bcbe0ce2a8"><strong>Citi点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-8057-a3ae-e16eabbb7c63"><strong>Capital One点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-804e-aaa1-f19081a17640"><strong>Bilt点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-80a6-a66e-f3e3a96613e2"><strong>WF点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-8064-904a-e309b8508bba"><strong>USBank点数分析</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-80f8-a69c-e33f2fe8c3f9"><strong>总结</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#31b64738-a3cc-8091-9c7f-dbb49a60cb05"><strong>免责声明</strong></a></div></nav></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-800a-8dc2-f946eaf105a5" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-806b-8137-cd3a7b3f738d" class=""><strong>前言</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8057-9949-cea25ee2b84f" class="">从2025开始，步入2026，经济逐渐变差已经成为不争的事实，各家也在疯狂的削福利。而且相信最近关于各大银行的改动大家应该都知道了，哀嚎一片。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-804d-8130-cd3673c4cf0c" class="">整体来说确实计划不如变化快，到这个节骨眼上楼主之前关于点数评测的帖子(包括《锐评各大银行点数系统及估值》《点数评测系列》)都基本过时了。由于变化实在是太大，所以楼主就干脆直接开新坑了，之前的就留给大家考古吧。那么在各大银行基本已经官宣改变之后，之前已经发布了2026年高性价比美卡推荐，那么今天楼主就写一篇2026银行积分系统的解读和估值。后续也会有2026信用卡对比和整理，以后可能年更了。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-804e-9028-e6370145dea7" class=""><strong>基本介绍</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80de-9e29-fa8fab8c739b" class="">鉴于楼主完全抛弃之前的写法且还想让本文新手友好，所以就额外加一个介绍吧。相比于以前新版的内容删除了很多细节，只概括整体；如果你想了解更多欢迎去考古《锐评各大银行点数系统及估值》。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-800a-90b3-cc7987da38eb" class="">在进行分析之前，以下是各大银行的点数系统和名称(简称)：</p></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-80ef-958a-f26a1c7c48bf" class="bulleted-list"><li style="list-style-type:disc">Bank of America: 没有点数系统</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-809d-a5b5-e819485ff5a8" class="bulleted-list"><li style="list-style-type:disc">Chase: Unlimited Rewards(UR)</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-80ff-ae3f-d637963b4a6e" class="bulleted-list"><li style="list-style-type:disc">Amex: Member Rewards(MR)</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-8000-865f-eae4eecae6ca" class="bulleted-list"><li style="list-style-type:disc">Citi: Thank You Points(TYP)</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-8012-b098-e4f548705dbf" class="bulleted-list"><li style="list-style-type:disc">Capital One: C1 Miles</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-80ab-8c62-ffe0bd67d76d" class="bulleted-list"><li style="list-style-type:disc">Bilt: Bilt points</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-8029-9579-cdba585e5366" class="bulleted-list"><li style="list-style-type:disc">Well Fargo: WF points</li></ul></div><div style="display:contents" dir="auto"><ul id="31b64738-a3cc-807e-9dc3-c7d7111d700a" class="bulleted-list"><li style="list-style-type:disc">USBank: 没有点数系统</li></ul></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80cf-ab63-ce10380227e1" class="">在这些点数系统里，UR，MR和TYP是目前公认的三大点数系统。其他一些小的系统整体表现，估值和灵活性不如这三大系统；但Bilt可能是个例外，待会会提到。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-8021-b1aa-ef5c643f8bc0" class=""><strong>Bank of America点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-800a-a1d7-fa82bb7cc90b" class="">就像之前介绍说的那样，这个银行没有点数系统，更确切的来说是没有任何转点伙伴，因为旅行卡的返现其实是以点数的形式存在。但是由于不能转点只能兑现，所以这两种说法没有什么本质上的区别。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80b4-a215-e78867a5da65" class="">不过有一个例外是使用高端卡PRE在银行网站购买机票可以打8折。但根据一些人的反馈有些票搜不到并且会溢价。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80da-bddd-da9c89da8aac" class="">还有前段时间的改动相信你们也知道了，Boa大幅提升信用卡加成需要搬砖的数量。不过由于这个改动与本篇内容无关，所以就暂时跳过。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-80e4-a699-c6fa4c1b675e" class=""><strong>Chase点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8014-8fa4-ff3df5360306" class="">作为三大点数系统的龙头，UR在早年间非常具有竞争性。但是最近一年来其性价比逐渐走低，直到前段时间Hyatt的贬值官宣成为压倒骆驼的最后一根稻草。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80cc-ac81-de725c301c1a" class="">如果你有看过之前的深度锐评，或者只要你稍微关注一下相关资讯，你基本就会知道UR想用出高价值基本上就两种方法：Portal加成和Hyatt。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80e0-be72-ef9a9e607e37" class="">首先说第1个吧，用CSP/CSR在Chase Portal上订旅行产品分别可以把点数用出1.25cpp/1.5cpp的价值。但很不幸的是在2025年Chase把这个功能给砍了，被Point Boost取而代之。当时楼主给的评价是整体可能有稍微加强，但不能忽略Portal上的溢价。但不管怎么说，固定兑换价值1.25cpp/1.5cpp的功能已经成为历史，不会再有了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8036-b0ec-e68cbc2ef3c1" class="">再来说第2个，Hyatt。你们知道有多少人吹这个吗？不管怎么样你肯定听过这个方式，且很多人把UR和Hyatt做深度绑定。结果呢？最近Hyatt也是正式官宣了，兑换需要的点数贬值20%~37%不等。这也就意味着说如果原先你对UR的估值有1.7cpp，那么Hyatt贬值后UR的估值就只有1.07cpp-1.36cpp了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80f5-b6a1-ee4215fd5438" class="">那这么来看的话UR的价值就直接被腰斩了，因为本来就是靠Hyatt撑着。Hyatt一旦贬值，你还不如换现金。当说到换现金，Chase从三月底开始不允许将点数的现金兑换到除Chase之外的银行。说白了就是加限制，不让你这么轻易的换出来了，虽然也是1cpp。隔壁Citi也是，待会会提到。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80d2-b5c2-e454ebe776d2" class="">还有吗？除了这两种之外就是一些烂大街的伙伴，AC，VA，AF，BA这些。因为这些里程获取来源广，基本上每一家银行都可以兑换，所以整体来说不痛不痒。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80d7-a71c-ed958f67e4ee" class="">所以结论很明显了，目前两种方式已经基本被堵死，UR的价值已经全面崩塌。从之前主流估值1.7cpp降至1.3cpp(楼主评价)。从某种程度上来说，没有必要all in chase了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80f1-bc40-e2a73e1db118" class="">基于以上分析，如何给UR估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80b5-a798-f05fe0549cdb" class="">兑现1cpp；转点能用出的主流价值1.1-1.4cpp；购买苹果产品1.25cpp/1.5cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-80f0-a141-ea46c97ef1b7" class=""><strong>Amex点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80e5-ba11-ff5a3f13bf88" class="">作为另一个点数系统巨头，MR早年也是获取方式快，推荐新手入坑的一个系统。但近年来Amex越来越不当人所以MR也不行了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80c3-b77b-ee673e094a9f" class="">关于这个银行真的是又爱又恨。因为是一个点数评测的帖子所以咱们目前不讨论他家的卡和各种烦人的Coupon。如果单从点数来看，请问MR的风评什么时候好过？一直以来MR两极分化：好用的是真好用，不好用的是真不好用；和最近的经济下行无关(经济下行只会让MR变得更难用)。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8096-a0ee-e45704f0ee90" class="">关于这部分倒是建议大家去考古一下之前的深度锐评。那么楼主就用一句话概括之前的内容：有那么多大佬愿意把MR转AC然后1.25cpp PYB Chase card结果被Chase杀全家，你就能知道1.25cpp对于MR来说已经是一个很不错的使用价值了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8004-bcda-d62d5115be84" class="">最近有一个大的改变就是Amex正式贬值CX，而且接下来也不建议大家MR转CX了。那请问MR还能怎么用？很遗憾没有什么其他好用的方式了：跟UR相同，剩下的都是那些烂大街的伙伴。而酒店方面一直都不是MR的强项。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-804f-9ae5-ca36c5e43ce9" class="">如果你手上真的有很多MR用不出去，那么楼主建议开一个CS Checking 1.1cpp兑现。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80c8-9a17-eaa784c2d718" class="">所以结论呢？MR贬值CX而UR不能转CX，两个半斤八两；UR支撑的大梁一倒，现在UR和MR已经是面临相同的情况，只有那几个烂大街的伙伴可以用。所以现在楼主认为可以给予MR和UR同等估值，只不过MR兑现比例降低。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8097-9d75-effdf43ba93e" class="">基于以上分析，如何给MR估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-806e-ae7e-eb2a76d90dd9" class="">兑现0.6cpp；转点能用出的主流价值1.1-1.4cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-8042-8126-d3bcbe0ce2a8" class=""><strong>Citi点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8085-8ab7-f954ebc419aa" class="">这是三大点数系统存在感最低的了，但由于前面两个变得拉胯反而利好TYP，真的全靠同行衬托。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-800e-af3e-e7ea21743a23" class="">Citi对于TYP的整体架构和路线其实没有UR和MR那么突出，但也没有非常拉垮，整体给人的感觉就是稳定但缺乏鲜明特点。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8074-ba79-d17462820dec" class="">纵观TYP转点伙伴，它不像UR给人的印象深度绑定Hyatt；而是一种比较自由奔放的感觉。虽然没有某一个伙伴特别的突出，但Citi胜在伙伴多且一些很不错，比如AA(独家)，CX，<del>Choice，Preferred Hotels</del>(这两伙伴的比例已经官宣降低了所以可能不好用)还有BR(这个真的很好用)都是一些性价比非常高的伙伴。覆盖人群也比较广，哪里需要就转哪里。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80a9-a149-f7fc451837c7" class="">另外换现金的话也是有限制的，必须持有Double/Custom Cash才能1cpp兑现；除此之外0.75cpp。但总的来说TYP还是很厚道的，即使那些性价比高的伙伴一个都用不上也有保底1cpp兑现。而且近一年其他银行都公布了一些大的改变，唯独Citi没有什么大动作。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8045-adbb-fc2148c9a99e" class="">虽然文章到这里还没有写完，但其实基本可以下结论了。就现阶段来看，TYP确实是所有点数系统中性价比最高的，还是推荐大家入的。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80db-82c2-ec0b366e2af3" class="">基于以上分析，如何给TYP估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80d7-bf3d-cfd3eb0ce29f" class="">兑现1cpp；转点能用出的主流价值1.3-1.6cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-8057-a3ae-e16eabbb7c63" class=""><strong>Capital One点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8031-a206-c2885833ef00" class="">从这里开始就是小点数系统了，不过C1 Miles应该是第4大点数系统。很早以前是基本不能用状态；后来改过一次才达到了现在的水平，算作勉强能用吧。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80e1-80ee-f94dcc022f60" class="">有C1 Miles的人，应该手上只有一张卡Venture X吧。但不管怎么说这两者的风评也都五五开：好用是真好用，不好用是真不行。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80a9-a1db-fbf5e77bf6ca" class="">纵观C1的转点伙伴，确实有几个比较好用的但是好用的伙伴转点比例都低。BR，JAL 1:0.75,也就是说2x变成了1.5x的回报，相当于一个无FTF的CFU。另外还有一个国人比较常用的伙伴就是CX。不过随着MR贬值CX有很多人甚至认为C1 Miles都要好过MR了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80dd-b100-f921aea280ba" class="">如果想要换现金怎么办？Venture系列兑现0.5cpp。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8040-8ee7-d55d5ff97d75" class="">但总体来说就那样了，总共就只有那么几个好用的伙伴然后比例还低，所以这个点数系统局限性是很大的。如果你真的刚需JAL，BR，可以当做对于TYP的补充；另外就是不要对2x everything寄予太大的希望，当个无FTF的CFU用用得了。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8034-8908-c28ccb42f81d" class="">总结一下，文章写到这里UR，MR，C1 Miles已经是一个德性了，这三个点数系统已经高度相似，都是烂大街的转点伙伴，再加上几个不痛不痒的独家：UR→UA，Hyatt；MR→DL；C1→CX, JAL, BR(CX不是独家，但UR转不了MR转贬值, 后两者比例低)。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8086-a535-dc9734b6226c" class="">基于以上分析，如何给C1 Miles估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-807d-b36d-f21cdbcbee26" class="">兑现0.5cpp；特殊技巧兑现1cpp；转点能用出的主流价值1.1-1.4cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-804e-aaa1-f19081a17640" class=""><strong>Bilt点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8015-ab17-f792d45675f9" class="">Bilt之前推出了新卡2.0，在网上闹得沸沸扬扬。但改变主要是针对卡，点数方面没有什么太大的改变。目前来看，Bilt point整体估值似乎没有受到影响。唯一的变化可能就是之前也有很多人把Bilt默认绑定了Hyatt，结果这波贬值导致Bilt转Hyatt性价比急速降低，所以就不建议了。这是Hyatt的变化，不是Bilt。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8004-87c4-d4383fc26e5f" class="">除此之外Bilt高性价比的伙伴应该就只有AS和JAL了，至少在这一点上没有太大变化；但未来不保证就一定没有变化。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8070-80eb-ffd50af2ebc6" class="">所以看下来对Bilt point估值看似影响不大，但问题是你怎么获取呢？90%的来源都来自自家Bilt卡，而2.0又非常恶心很多人都放弃了。你可能会说用AS卡交房租但本质上是你付3%的手续费换来的。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80a5-a78c-d5377f2d8761" class="">基于以上分析，如何给Bilt points估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-805b-b9a1-eecd3a5e575a" class="">兑现0.55cpp；Portal购买旅行产品1.25cpp；转点能用出的主流价值1.3-1.6cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-80a6-a66e-f3e3a96613e2" class=""><strong>WF点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80f2-b004-d80a38fa3c91" class="">WF的点数没有什么太大变化，他们家的点数系统存在感一直很低，一直不好用。由于没有任何变化所以楼主认为就没有必要分析，比较好用的伙伴有Jetblue/UA和Choice。不过由于WF伙伴确实太少且适配人群也不多，大家就把他家的卡默认当做返现卡用吧。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80c9-856f-d09f44321628" class="">即使是返现卡，大家在这个节骨眼也千万不要看不起。因为点数必定会贬值，并且每个人能用出的价值也不一样。比如Autograph这张卡之前楼主分析过，3x general travel基本没有替代。而相比之下2x general travel的CSP意味着你需要把UR用出1.5cpp的价值才能和Autograph持平。但问题是Hyatt刚贬值，你一定能保证用出1.5cpp吗?</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-808d-aa5b-c32001043b95" class="">基于以上分析，如何给WF points估值？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8092-a325-f0a2807f7ee9" class="">兑现1cpp；转点能用出的主流价值1.1-1.4cpp。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-8064-904a-e309b8508bba" class=""><strong>USBank点数分析</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8011-bab5-cb8d48d228eb" class="">这个银行本来是没有点数系统的；由于削弱了UAR，所以USBank不得不端出了这个功能。但颇具讽刺性的是，从25年7月份就官宣会有转点伙伴，结果到现在大半年过去了还是coming soon。而且目前尚不清楚这个转点伙伴是只有UAR能用还是自家所有的卡都能用。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8053-bd77-f41efd0e0412" class="">目前有传言UAR的转点伙伴可能会是Air Canada 1:1, Avianca 1:1, British Airways 1:1, Emirates 1:1, Turkish Airlines 1:1, Virgin Atlantic 1:1, Global Hotel Alliance 1:1。不过这个列表楼主还是存疑因为Emirates前段时间才刚要求各大银行降低他家的转点, USbank居然可以做到1:1? 除此之外也是一些烂大街的伙伴，所以不见得会比前面那几个好。不过由于一切还没有官宣，不好评价，具体以发布时为准。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80de-bccb-dca59876ec26" class="">当然还有一个猜想是能不能转点KE。考虑到KE目前并不接受任何一个银行转点，但USbank作为发行联名卡的银行还是有机会能谈下来的。但楼主怎么感觉这个希望很渺茫呢？</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-805f-b18c-f2f8aff93812" class="">还有一点需要注意的是目前这个转点功能不清楚是不是只针对UAR，其他的卡比如UAC，Altitude Go赚取的点数能不能转点，合并也是个未知数。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-80f8-a69c-e33f2fe8c3f9" class=""><strong>总结</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80c0-8faf-d3e75079bf67" class="">文章到尾声，分析了所有银行的点数系统和估值，我们已经可以近似得出这样一个结论(对点数系统进行排名)：</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-800f-845e-cc28b73dfc02" class="">第一梯队：TYP, Bilt points</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80b9-8263-f5335530ce50" class="">第二梯队：UR, MR, C1 Miles</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80be-b289-eaccbae973e8" class="">第三梯队：WF points, USBank points</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80a1-b025-dd714cfb7c20" class="">另外再看银行的动作，银行其实不希望你们换现金，即使可以要不就是比例低或者加一些限制。目前来看从转点获取的甜点越来越少，建议大家把注意力转移到兑现吧。或者至少不要对转点估值过于乐观，好日子一去不复返了。在经济下行的今天，羊毛只会越来越少。</p></div><div style="display:contents" dir="auto"><h2 id="31b64738-a3cc-8091-9c7f-dbb49a60cb05" class=""><strong>免责声明</strong></h2></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8049-ac00-cb5c9048aaa9" class="">关于点数在每个人心中的估值肯定是不同的，本文仅根据一般情况讨论。内容仅供参考，不构成最后建议。</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-80b1-a831-f32c434cb0b9" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="31b64738-a3cc-8052-b730-dd5a0374eba7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8063-95d1-c732386846ca" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="31b64738-a3cc-8002-8392-d2c0178ddd21" class="">
+</p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

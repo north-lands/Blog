@@ -47,6 +47,13 @@ h3 {
 	margin-bottom: 0;
 }
 
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
 .page-title {
 	font-size: 2.5rem;
 	font-weight: 700;
@@ -119,10 +126,35 @@ img {
 		max-height: 100vh;
 		object-fit: contain;
 	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
 }
 
 @page {
 	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
 }
 
 .collection-content {
@@ -136,19 +168,16 @@ img {
 
 .column-list {
 	display: flex;
-	justify-content: space-between;
+	gap: 46px;
 }
 
 .column {
-	padding: 0 1em;
+	min-width: 0;
+	overflow: hidden;
 }
 
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
 .table_of_contents-item {
@@ -180,10 +209,10 @@ table,
 th,
 td {
 	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
 }
 
 table {
+	border-collapse: collapse;
 	border-left: none;
 	border-right: none;
 }
@@ -244,6 +273,14 @@ ul > li {
 
 ol {
 	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
@@ -514,14 +551,14 @@ blockquote.quote-large {
 	margin-top: 0.25em;
 }
 
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
 .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
 .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
 .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
 .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
 .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
 .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
@@ -703,8 +740,8 @@ blockquote.quote-large {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="25e64738-a3cc-8054-b403-e700356bacf2" class="page serif"><header><h1 class="page-title">商业信用卡全面对比整理</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="25e64738-a3cc-809d-838f-ea9c4bc1beda"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="25e64738-a3cc-8008-bbde-f60df1c729fe" class="">【2025.09】1.0版本发布</p></div></figure><p id="26664738-a3cc-80fb-87ed-e2347b54922e" class="">
-</p><nav id="26664738-a3cc-8070-b4c9-dba551581599" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80a2-9144-ccac9a09b00d">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-804e-94c4-cd9803f4d577">背景</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-80d3-8451-f5cf25751cec">知识要点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-80c1-9098-ee91b88d2cac">注意事项</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-8065-8d1f-fe52ad441869">结论</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-8027-a4e4-f91c56f863aa">免责声明</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80fb-925a-fc0d1b2a3cf1">Bank of America</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-8015-8548-f999cbc3dd3f">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80ce-a12d-f076de66291f">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80e4-8d30-d04937cae60d">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-8041-8aeb-c920c2ed4dae">Capital One</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-8049-9118-ca1248d8f845">Well Fargo</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-805f-9fee-d8a2b7bd1f81">USBank</a></div></nav><h2 id="25e64738-a3cc-80a2-9144-ccac9a09b00d" class="">简要介绍</h2><h3 id="26664738-a3cc-804e-94c4-cd9803f4d577" class="">背景</h3><p id="26664738-a3cc-8046-a21c-de511284b024" class="">年初，楼主总结了美国各银行的信用卡的对比整理，目前已经更新到2.5版本。但之前都针对于个人卡，所以这次楼主整理了各大主流银行商业信用卡的选择。不同于个人信用卡，商业信用卡的选择范围不够广泛。</p><p id="26664738-a3cc-80d0-8e8c-fb3ff6fc00d4" class="">写这篇攻略的目的是给大家一个商业卡入门，如果需要申请怎么选择。单从结构来看没有单独开攻略的需求，因为结果非常明显。</p><h3 id="26664738-a3cc-80d3-8451-f5cf25751cec" class="">知识要点</h3><p id="26664738-a3cc-80f9-834f-ce603e116094" class="">❓为什么要申请商业卡？</p><p id="26664738-a3cc-80d2-b204-dbde658eacc7" class="">如果你开了一个公司或者创业，那么其重要性不言而喻。不过有一些人玩商业卡是为了更高的开卡奖励。因为商业卡并不一定代表开公司，平时在平台上卖卖东西也算商业行为，也可以申请。</p><p id="26664738-a3cc-80db-82ab-df24319185d4" class="">❗底线</p><p id="26664738-a3cc-8033-9a51-f87da1a4813e" class="">商业卡只推荐有身份的申请，否则后果自负！即使你有身份，也推荐你把个人卡申请的差不多了再了解商业卡。</p><ol type="1" id="26664738-a3cc-8066-a708-e551f3c7dbfa" class="numbered-list" start="1"><li>很多商业年费卡不像个人年费卡提供报销，可能是考虑到商业卡消费大，所以需要靠消费回本年费。</li></ol><ol type="1" id="26664738-a3cc-8068-8f86-dffc658d3f03" class="numbered-list" start="2"><li>个人卡方面Visa数量远远多于MS。但商业卡方面，只有Chase和USbank是Visa，其他都是MS。主要区别就是MS Coscto用不了，如果需要目前更优方案可能还是Ink Unlimited。</li></ol><h3 id="26664738-a3cc-80c1-9098-ee91b88d2cac" class="">注意事项</h3><ol type="1" id="26664738-a3cc-8034-83e5-f1ab9f337650" class="numbered-list" start="1"><li>本攻略只整理了各大银行自营商业卡，不包括联名商业卡。</li></ol><ol type="1" id="26664738-a3cc-801c-b6c4-f72e0854c569" class="numbered-list" start="2"><li>信息均来自官网。由于信息变化快，楼主不对未来的变化负责，仅供参考。</li></ol><ol type="1" id="26664738-a3cc-80bd-9b16-cf050cdd23f0" class="numbered-list" start="3"><li>一些卡有消费上限。</li></ol><ol type="1" id="26664738-a3cc-80d9-ae29-da25cf5d38fe" class="numbered-list" start="4"><li>本表格区别卡是返现（%）还是返点（x）。</li></ol><ol type="1" id="26664738-a3cc-800c-830e-f750cabce4ca" class="numbered-list" start="5"><li>所有在银行Portal购买旅行相关的产品消费结构均不计入此表格。</li></ol><h3 id="26664738-a3cc-8065-8d1f-fe52ad441869" class="">结论</h3><ol type="1" id="26664738-a3cc-80d2-97e8-e90da35d495f" class="numbered-list" start="1"><li>除Chase和C1的商业卡有一套完整的体系之外，其他银行的商业卡要不就是阉割严重，要不就是根本没有。而仅有的两个银行有完整的体系，也出现了高度重复。</li></ol><ol type="1" id="26664738-a3cc-80a0-814b-fd7edb3a7ac3" class="numbered-list" start="2"><li>关于推荐，优先推荐Ink三剑客。由于选择不多也没有办法像个人卡那样做到消费最大化。而不同的商业有不同的主力消费类别，所以楼主也不好做判断。另外还有一个情况是如果边缘消费比较多，可以考虑入一张WF无年费2%所有的卡。另外如果能搬满十块砖，Boa也是非常不错的选择(不过再次强调大家一定要记得按时手付款！)。</li></ol><ol type="1" id="26664738-a3cc-80ba-9325-e81f6b5c5db9" class="numbered-list" start="3"><li>关于联名商业卡，其实跟个人联名卡是一样的。如果大家能用得到的申，用不到就不要申。</li></ol><h3 id="26664738-a3cc-8027-a4e4-f91c56f863aa" class="">免责声明</h3><p id="26664738-a3cc-80ec-a5e4-c6cd63b083f8" class="">内容仅供参考，不构成最终入坑理由。</p><p id="26664738-a3cc-80a4-8829-e1ac3cda87e3" class="">
-</p><h2 id="26664738-a3cc-80fb-925a-fc0d1b2a3cf1" class="">Bank of America</h2><figure id="26664738-a3cc-8046-ba6e-d4aa7a03eff4" class="image"><a href="image%206.png"><img style="width:709.9810180664062px" src="image%206.png"/></a></figure><h2 id="25e64738-a3cc-8015-8548-f999cbc3dd3f" class="">Chase</h2><figure id="26664738-a3cc-80df-9871-edbc09cde30d" class="image"><a href="image%207.png"><img style="width:709.990478515625px" src="image%207.png"/></a></figure><h2 id="26664738-a3cc-80ce-a12d-f076de66291f" class="">Citi</h2><p id="26664738-a3cc-8010-9a98-ffbf19a1a244" class="">Surprise！Citi没有发行任何自营的商业卡。<br/>说实话在个人卡方面现在Citi应该是最能打的了，而在商业卡上面则完全空白。</p><h2 id="26664738-a3cc-80e4-8d30-d04937cae60d" class="">Amex</h2><figure id="26664738-a3cc-80b7-9a32-e7896eeaeb02" class="image"><a href="image%208.png"><img style="width:709.990478515625px" src="image%208.png"/></a></figure><h2 id="26664738-a3cc-8041-8aeb-c920c2ed4dae" class="">Capital One</h2><figure id="26664738-a3cc-8094-965a-f9534b3305f0" class="image"><a href="image%209.png"><img style="width:709.990478515625px" src="image%209.png"/></a></figure><h2 id="26664738-a3cc-8049-9118-ca1248d8f845" class="">Well Fargo</h2><table id="26664738-a3cc-80fa-9089-c4a1d2829fb8" class="simple-table"><tbody><tr id="26664738-a3cc-806a-94b2-f76e15d2ea28"><td id="p^|N" class=""></td><td id="]hky" class="">Signify Business Cash</td></tr><tr id="26664738-a3cc-80c1-bd82-f44e9be593ce"><td id="p^|N" class="">定位</td><td id="]hky" class="">日常卡</td></tr><tr id="26664738-a3cc-8099-9ced-c27305e5d411"><td id="p^|N" class="">年费</td><td id="]hky" class="">$0</td></tr><tr id="26664738-a3cc-8052-8d31-dde00aec3d78"><td id="p^|N" class="">奖励</td><td id="]hky" class="">$500</td></tr><tr id="26664738-a3cc-8086-95bc-c6c491c09de0"><td id="p^|N" class="">消费</td><td id="]hky" class="">2%所有</td></tr><tr id="26664738-a3cc-8005-bfca-fbf2ac04a870"><td id="p^|N" class="">建议</td><td id="]hky" class="">WF只有一张商业卡，本来个人卡就不出众，商业卡也是没得选。可惜这张卡是Mastercard，Coscto用不了。本来觉得2%所有不错，但这点很伤</td></tr><tr id="26664738-a3cc-809d-9e5f-e508b4d68936"><td id="p^|N" class="">推荐指数</td><td id="]hky" class="">低-中</td></tr></tbody></table><h2 id="26664738-a3cc-805f-9fee-d8a2b7bd1f81" class="">USBank</h2><figure id="26664738-a3cc-8077-9994-d48321e3501e" class="image"><a href="image%2010.png"><img style="width:709.9715576171875px" src="image%2010.png"/></a></figure><p id="26664738-a3cc-808b-ad7f-f6908bf8cdad" class="">
-</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="25e64738-a3cc-8052-a116-d37d98051917"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><p id="25e64738-a3cc-8043-ac3d-f05b7c735ba2" class="">XHS原文章</p><p id="26664738-a3cc-80ef-8340-c5a064073140" class=""><a href="http://xhslink.com/m/78ld3Vzyrs9">http://xhslink.com/m/78ld3Vzyrs9</a></p></div></figure><p id="26664738-a3cc-80e4-b52a-ea405788b3d9" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="25e64738-a3cc-8054-b403-e700356bacf2" class="page serif"><header><h1 class="page-title" dir="auto">商业信用卡全面对比整理</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="25e64738-a3cc-809d-838f-ea9c4bc1beda"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8008-bbde-f60df1c729fe" class="">【2025.09】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80fb-87ed-e2347b54922e" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="26664738-a3cc-8070-b4c9-dba551581599" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-80a2-9144-ccac9a09b00d">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-804e-94c4-cd9803f4d577">背景</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-80d3-8451-f5cf25751cec">知识要点</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-80c1-9098-ee91b88d2cac">注意事项</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-8065-8d1f-fe52ad441869">结论</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#26664738-a3cc-8027-a4e4-f91c56f863aa">免责声明</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80fb-925a-fc0d1b2a3cf1">Bank of America</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#25e64738-a3cc-8015-8548-f999cbc3dd3f">Chase</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80ce-a12d-f076de66291f">Citi</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-80e4-8d30-d04937cae60d">Amex</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-8041-8aeb-c920c2ed4dae">Capital One</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-8049-9118-ca1248d8f845">Well Fargo</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26664738-a3cc-805f-9fee-d8a2b7bd1f81">USBank</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-80a2-9144-ccac9a09b00d" class="">简要介绍</h2></div><div style="display:contents" dir="auto"><h3 id="26664738-a3cc-804e-94c4-cd9803f4d577" class="">背景</h3></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-8046-a21c-de511284b024" class="">年初，楼主总结了美国各银行的信用卡的对比整理，目前已经更新到2.5版本。但之前都针对于个人卡，所以这次楼主整理了各大主流银行商业信用卡的选择。不同于个人信用卡，商业信用卡的选择范围不够广泛。</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80d0-8e8c-fb3ff6fc00d4" class="">写这篇攻略的目的是给大家一个商业卡入门，如果需要申请怎么选择。单从结构来看没有单独开攻略的需求，因为结果非常明显。</p></div><div style="display:contents" dir="auto"><h3 id="26664738-a3cc-80d3-8451-f5cf25751cec" class="">知识要点</h3></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80f9-834f-ce603e116094" class="">❓为什么要申请商业卡？</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80d2-b204-dbde658eacc7" class="">如果你开了一个公司或者创业，那么其重要性不言而喻。不过有一些人玩商业卡是为了更高的开卡奖励。因为商业卡并不一定代表开公司，平时在平台上卖卖东西也算商业行为，也可以申请。</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80db-82ab-df24319185d4" class="">❗底线</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-8033-9a51-f87da1a4813e" class="">商业卡只推荐有身份的申请，否则后果自负！即使你有身份，也推荐你把个人卡申请的差不多了再了解商业卡。</p></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-8066-a708-e551f3c7dbfa" class="numbered-list" start="1"><li>很多商业年费卡不像个人年费卡提供报销，可能是考虑到商业卡消费大，所以需要靠消费回本年费。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-8068-8f86-dffc658d3f03" class="numbered-list" start="2"><li>个人卡方面Visa数量远远多于MS。但商业卡方面，只有Chase和USbank是Visa，其他都是MS。主要区别就是MS Coscto用不了，如果需要目前更优方案可能还是Ink Unlimited。</li></ol></div><div style="display:contents" dir="auto"><h3 id="26664738-a3cc-80c1-9098-ee91b88d2cac" class="">注意事项</h3></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-8034-83e5-f1ab9f337650" class="numbered-list" start="1"><li>本攻略只整理了各大银行自营商业卡，不包括联名商业卡。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-801c-b6c4-f72e0854c569" class="numbered-list" start="2"><li>信息均来自官网。由于信息变化快，楼主不对未来的变化负责，仅供参考。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-80bd-9b16-cf050cdd23f0" class="numbered-list" start="3"><li>一些卡有消费上限。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-80d9-ae29-da25cf5d38fe" class="numbered-list" start="4"><li>本表格区别卡是返现（%）还是返点（x）。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-800c-830e-f750cabce4ca" class="numbered-list" start="5"><li>所有在银行Portal购买旅行相关的产品消费结构均不计入此表格。</li></ol></div><div style="display:contents" dir="auto"><h3 id="26664738-a3cc-8065-8d1f-fe52ad441869" class="">结论</h3></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-80d2-97e8-e90da35d495f" class="numbered-list" start="1"><li>除Chase和C1的商业卡有一套完整的体系之外，其他银行的商业卡要不就是阉割严重，要不就是根本没有。而仅有的两个银行有完整的体系，也出现了高度重复。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-80a0-814b-fd7edb3a7ac3" class="numbered-list" start="2"><li>关于推荐，优先推荐Ink三剑客。由于选择不多也没有办法像个人卡那样做到消费最大化。而不同的商业有不同的主力消费类别，所以楼主也不好做判断。另外还有一个情况是如果边缘消费比较多，可以考虑入一张WF无年费2%所有的卡。另外如果能搬满十块砖，Boa也是非常不错的选择(不过再次强调大家一定要记得按时手付款！)。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="26664738-a3cc-80ba-9325-e81f6b5c5db9" class="numbered-list" start="3"><li>关于联名商业卡，其实跟个人联名卡是一样的。如果大家能用得到的申，用不到就不要申。</li></ol></div><div style="display:contents" dir="auto"><h3 id="26664738-a3cc-8027-a4e4-f91c56f863aa" class="">免责声明</h3></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80ec-a5e4-c6cd63b083f8" class="">内容仅供参考，不构成最终入坑理由。</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80a4-8829-e1ac3cda87e3" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-80fb-925a-fc0d1b2a3cf1" class="">Bank of America</h2></div><div style="display:contents" dir="ltr"><figure id="26664738-a3cc-8046-ba6e-d4aa7a03eff4" class="image"><a href="image.png"><img style="width:709.9810180664062px" src="image.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="25e64738-a3cc-8015-8548-f999cbc3dd3f" class="">Chase</h2></div><div style="display:contents" dir="ltr"><figure id="26664738-a3cc-80df-9871-edbc09cde30d" class="image"><a href="image%201.png"><img style="width:709.990478515625px" src="image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-80ce-a12d-f076de66291f" class="">Citi</h2></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-8010-9a98-ffbf19a1a244" class="">Surprise！Citi没有发行任何自营的商业卡。<br/>说实话在个人卡方面现在Citi应该是最能打的了，而在商业卡上面则完全空白。</p></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-80e4-8d30-d04937cae60d" class="">Amex</h2></div><div style="display:contents" dir="ltr"><figure id="26664738-a3cc-80b7-9a32-e7896eeaeb02" class="image"><a href="image%202.png"><img style="width:709.990478515625px" src="image%202.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-8041-8aeb-c920c2ed4dae" class="">Capital One</h2></div><div style="display:contents" dir="ltr"><figure id="26664738-a3cc-8094-965a-f9534b3305f0" class="image"><a href="image%203.png"><img style="width:709.990478515625px" src="image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-8049-9118-ca1248d8f845" class="">Well Fargo</h2></div><div style="display:contents" dir="ltr"><table id="26664738-a3cc-80fa-9089-c4a1d2829fb8" class="simple-table"><tbody><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-806a-94b2-f76e15d2ea28"><td id="p^|N" class=""></td><td id="]hky" class="">Signify Business Cash</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-80c1-bd82-f44e9be593ce"><td id="p^|N" class="">定位</td><td id="]hky" class="">日常卡</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-8099-9ced-c27305e5d411"><td id="p^|N" class="">年费</td><td id="]hky" class="">$0</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-8052-8d31-dde00aec3d78"><td id="p^|N" class="">奖励</td><td id="]hky" class="">$500</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-8086-95bc-c6c491c09de0"><td id="p^|N" class="">消费</td><td id="]hky" class="">2%所有</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-8005-bfca-fbf2ac04a870"><td id="p^|N" class="">建议</td><td id="]hky" class="">WF只有一张商业卡，本来个人卡就不出众，商业卡也是没得选。可惜这张卡是Mastercard，Coscto用不了。本来觉得2%所有不错，但这点很伤</td></tr></div><div style="display:contents" dir="ltr"><tr id="26664738-a3cc-809d-9e5f-e508b4d68936"><td id="p^|N" class="">推荐指数</td><td id="]hky" class="">低-中</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h2 id="26664738-a3cc-805f-9fee-d8a2b7bd1f81" class="">USBank</h2></div><div style="display:contents" dir="ltr"><figure id="26664738-a3cc-8077-9994-d48321e3501e" class="image"><a href="image%204.png"><img style="width:709.9715576171875px" src="image%204.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-808b-ad7f-f6908bf8cdad" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="25e64738-a3cc-8052-a116-d37d98051917"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="25e64738-a3cc-8043-ac3d-f05b7c735ba2" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80ef-8340-c5a064073140" class=""><a href="http://xhslink.com/m/78ld3Vzyrs9">http://xhslink.com/m/78ld3Vzyrs9</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="26664738-a3cc-80e4-b52a-ea405788b3d9" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
