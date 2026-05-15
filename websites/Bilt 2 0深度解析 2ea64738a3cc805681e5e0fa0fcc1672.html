@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Bilt 2.0深度解析</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2ea64738-a3cc-8056-81e5-e0fa0fcc1672" class="page serif"><header><h1 class="page-title" dir="auto">Bilt 2.0深度解析</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ea64738-a3cc-8010-8897-e5b854e90f7c"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2f064738-a3cc-8095-9dfe-c756ee1d42ef" class="">【2026.01.21】四次更新，增加了关于Bilt cash的用途分析，绝对刷新下限。</p></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-80b5-b333-ffe2cdc5ff07" class="">【2026.01.19】三次更新，增加了关于分析银行立场。在计算数学题的同时，也要注意其政策稳定性。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ec-a303-fc791c1b8c72" class="">【2026.01.16】二次更新，增加内容分析了关于Bilt的新方案，并且楼主添加了自己的想法和给Bilt的建议。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-804b-8d4c-f6c1dcb26b3a" class="">【2026.01.15】解析首发，深度分析了关于Bilt新推出的Bilt cash体系。</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8066-a933-e346972fbcf2" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="2ea64738-a3cc-80a2-958d-e19117276157" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80cc-a5f1-c67cb85ce15d">写在前面</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-8025-8d6b-ebe1e4359515">基本信息</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2eb64738-a3cc-80a7-9fb6-cc52e81a2558">Blue</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2eb64738-a3cc-80b0-ad7a-de6b041639b1">Obsidian</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2eb64738-a3cc-8061-9de0-def4646c86e8">Palladium</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80d2-8850-dd86cb65692a">深入分析</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2eb64738-a3cc-8076-bddb-f195ff7ca88e">方案一：围绕Bilt Cash</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2eb64738-a3cc-805c-b5e4-c4854b1c8c5c">抵扣手续费</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2eb64738-a3cc-804a-82a2-d5288d33d5d6">在合作伙伴处使用</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2eb64738-a3cc-80a6-9c8f-c168397b8c15">相对性结论</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2eb64738-a3cc-80b5-84bb-e84828324e22">方案二：移除Bilt Cash</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#2eb64738-a3cc-808e-b747-fc38a8316aee">相对性结论</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-8031-9ee7-f433f532b813">点数讲解</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80be-872e-d8b6a1724baf">推荐方案</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80c6-be3b-dfb06f1a3529">商业建议</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80a4-aab3-d6e7f0cfedea">截止日期</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2eb64738-a3cc-80b9-8800-ea75479fd88b">结语</a></div></nav></div><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8009-8a05-c36598d963ec" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80cc-a5f1-c67cb85ce15d" class="">写在前面</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8056-80cc-d6ada3974357" class="">Bilt 2.0一出，全网都在哀嚎。其实在去年就讨论过了这种经济模式是不可持续的，真的也是抱着当一天和尚敲一天钟的心态，反正羊毛能薅一天是一天。现在随着2.0正式发布，这头羊被薅死了。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80da-8289-f2428cb6f515" class="">昨天算是新卡正式发布第1天，但其实相关细节早在一周前就被爆了，结果等正式发布时一模一样。这一次的机制之复杂甚至于很多老玩家的意见不能统一，所有人各执一词。那么今天楼主就来深度分析一下，这张卡要不要升级，到底适不适合你，把背后的数学帮你算清楚。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-801f-9244-d7b3db185c54" class="">戏剧性的是，就在正式会发布的第2天，可能是看到舆论太过于猛烈，CEO居然临时在论坛上发帖给大家提供新方案。如此的朝令夕改，这其中暴露出了很多问题。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8022-8b50-cacac55bde46" class="">这应该是你能看到目前全网关于Bilt 2.0分析最详细的一篇文章。</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-8025-8d6b-ebe1e4359515" class="">基本信息</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8058-8fea-e483f1d447e6" class="">这一次的新卡一共有三张，分别是Blue，Obsidian和Palladium。</p></div><div style="display:contents" dir="auto"><h2 id="2eb64738-a3cc-80a7-9fb6-cc52e81a2558" class="">Blue</h2></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80e4-a41a-c58b4ea48e20" class="bulleted-list"><li style="list-style-type:disc">年费0</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8035-bd87-d0e22fdb9366" class="bulleted-list"><li style="list-style-type:disc">所有消费1x point和4x bilt cash</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80c4-aa0f-e12f86a63873" class="bulleted-list"><li style="list-style-type:disc">开卡奖励100 bilt cash</li></ul></div><div style="display:contents" dir="auto"><h2 id="2eb64738-a3cc-80b0-ad7a-de6b041639b1" class="">Obsidian</h2></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8085-b6dd-c7cefa34688d" class="bulleted-list"><li style="list-style-type:disc">年费95</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8011-8c91-df197a69fd23" class="bulleted-list"><li style="list-style-type:disc">超市或餐厅(二选一) 3x point和4x bilt cash</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80b2-bfac-c9dcd3c3bf2f" class="bulleted-list"><li style="list-style-type:disc">旅行消费2x point和4x bilt cash(范围很窄，聊胜于无)</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80fd-be13-fd91e6de37a3" class="bulleted-list"><li style="list-style-type:disc">所有消费1x point和4x bilt cash</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8092-88bc-e68ebd909034" class="bulleted-list"><li style="list-style-type:disc">年度100 bilt hotel</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80d9-bc05-d161c8779d7f" class="bulleted-list"><li style="list-style-type:disc">开卡奖励200 bilt cash</li></ul></div><div style="display:contents" dir="auto"><h2 id="2eb64738-a3cc-8061-9de0-def4646c86e8" class="">Palladium</h2></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80ed-b85b-eb02e52bdd6c" class="bulleted-list"><li style="list-style-type:disc">年费495</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8053-965b-f7a0ec4dc837" class="bulleted-list"><li style="list-style-type:disc">所有消费2x point和4x bilt cash</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8051-9809-cc4dffb0ea21" class="bulleted-list"><li style="list-style-type:disc">年度400 bilt hotel和200 bilt cash</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80e5-94e1-c60dc2a4a1b6" class="bulleted-list"><li style="list-style-type:disc">开卡奖励300 bilt cash和5w points</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8041-b85e-c51a2e7ee348" class="bulleted-list"><li style="list-style-type:disc">PPS不包括餐厅，残血版</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80e1-b1b0-fc4f8008bdc6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80cb-bb64-fa956b0d7ccc" class="">关于这三张卡的温馨提醒：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-804d-aef5-f0431613ed7a" class="bulleted-list"><li style="list-style-type:disc">Obsidian的100 hotel credit分为两次50块给，每次必须订满两晚及以上(真实价值基本为零)；</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80ec-a93b-de7507b2fbfa" class="bulleted-list"><li style="list-style-type:disc">Palladium的400 hotel credit分为两次200块给，每次必须订满两晚及以上(真实价值打6折)；</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8004-91fe-dee8b95aa9d7" class="">考虑到bilt portal肯定会溢价，且必须订满两晚，不要想肯定被反薅，基本上用不回本。真实的价值打6折，所以以下的讨论基于年费纯成本。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80cd-b861-c162d5c90595" class="">Bilt cash：会过期。最多保留100到下一个日历年。而且一些特定交易比如房租，交税，gift card，各种特殊技巧通通拿不到。必须是organic spending。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-809d-a277-e1769b0bb65f" class="">另外，这次新的三张卡去除了Primary租车保险，Secondary取而代之。对你没有看错：包括最高端卡Palladium用的World Legend，和Strata Elite一样都是Secondary。</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80d2-8850-dd86cb65692a" class="">深入分析</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8086-bfbf-d242f5f2c887" class="">截止到发稿前Bilt又推出了新的方案，所以接下来逐一分析。</p></div><div style="display:contents" dir="auto"><h2 id="2eb64738-a3cc-8076-bddb-f195ff7ca88e" class="">方案一：围绕Bilt Cash</h2></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-801a-a74e-eb6c549f9c6b" class="">这个方案就是发布会上介绍的原始方案。那么总结下来这张卡的核心讨论就是交房租/房贷需要手续费，并且Bilt引入了一个新概念叫Bilt cash。所以我们接下来计算也围绕Bilt cash。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8055-a08a-eb1bece6ceb0" class="">首先什么是Bilt cash？就是Bilt推出的可以在自家生态系统使用的货币，包括可以在合作伙伴使用，或者抵消房租/房贷的手续费。可以使用的伙伴包括Bilt portal, neighborhood dining, hotel, fitness, lyft等。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8093-9976-e61e080d201d" class="">不过关于Bilt cash的真实用途非常存疑，虽然官方宣称可以在合作伙伴使用，但整体路线特别不明朗。所以接下来我们分为两部分讨论：Bilt cash用来抵扣手续费(大多数人关心)和在合作伙伴使用。</p></div><div style="display:contents" dir="auto"><h3 id="2eb64738-a3cc-805c-b5e4-c4854b1c8c5c" class="">抵扣手续费</h3></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-803a-830d-c8185c935a78" class="">大部分人应该最关心拿来抵扣房租/房贷手续费，所以接下来的计算默认大家用Bilt cash抵扣手续费, 那么我们从无年费的卡开始算起。每笔消费获得1x point和4x bilt cash，Bilt cash又可以抵扣房租/房贷手续费，抵扣完之后可以攒点。那么相应的回报该怎么计算呢？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-800a-a8d3-c182cff3c2b9" class="">看到这里请暂停一下。先不要着急往下看答案，思考一下回报率是多少？你可能已经知道了这个数字，但你知道是怎么得来的吗？如果你连这点数学都算不清楚，那么就反薅警告了。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-806f-ae69-c692be7c3791" class="">现在来公布答案：假设你的房租是1000元。现在已知你每月必须在卡上花费75%才能全额抵消手续费，那么你每个月需要产生750元的消费。那么计算过程是这样的：消费750元获得750分；再加上获得的750x4%=30 Bilt cash，抵扣了1000元房租的手续费，获得了1000分。收入总支出为750，收入为1750分，回报率大约1750/750=2.33x。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8085-b425-e7b45a277160" class="">2.33x的回报表面上比Double Cash, CFU更高，但是是有前提并且伴随苛刻的条件。如果有其中一个不符合，那么Bilt会瞬间变得不如Double Cash。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8003-a33b-d9b8b1a2673e" class=""><strong>前提一：黄金比例</strong></p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80a0-9fff-c1d946d26314" class="">要获得2.33x的回报，你的消费必须是黄金比例，也就是不超过每月房租/房贷的75%。一旦超过75%，那么每笔的回报会显著降低，边际效应会迅速递减。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80b3-97ef-d5be81f02aed" class="">举例：假设房租相同，但你每个月花了2000而不是750。这个时候你获得了80 Bilt cash，但是你只用了其中的30抵扣手续费。剩下50由于Bilt cash价值有限(没什么用)，这里归零计算。所以你一共获得了3000分，算下来回报率仅1.5%。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80f7-8bf1-ec3746bbfbef" class="">为什么会这样？因为你多刷了钱，产生多余的“无用”Bilt cash，拉低了整体回报率。此时 Bilt已经输给了Double Cash。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ee-9665-ffd2aaa11fb6" class=""><strong>前提二：&quot;现金价值&quot;必须是旅行</strong></p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-802f-80b7-f25063f12055" class="">前面我们基于的是1分=$0.01的计算。但CFU, DC给的可是正儿八经的真钱，虽然他们也可以转点给伙伴。但Bilt分换现金价值只有0.55cpp，这很明显拉低了整体回报。所以确保分你能用得上，不然一切都是空谈。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8009-a2e9-f1446384d83a" class="">不过也可以说在Bilt portal可以以8折的优惠把分用出去，这里可以说Bilt分的保底价值1.25cpp。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-802c-9123-e7cd7e2a8ef5" class="">所以要达到2.33x回报，首先需要确定阈值，且每个月只能花这么多钱。达成以上两个前提，才能获得超额2.33x回报。如果每个月都这么计算，你不累吗？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-802b-9544-ff924d575c7c" class="">按照此逻辑，我们可以计算出Obsidian的餐厅/超市真实回报是4.33x(成本95年费)，Palladium所有3.33x(成本495年费)。不过Palladium自带200 Bilt cash所以每年可以覆盖6666的房租/房贷，对应6666分。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80f8-b6c1-c07416700e01" class="">那么这时还会有人说，我每个月只要能花到房租/房贷的75% 2.33x回报，稳赚不赔啊。但你注意了，这些消费忽略了特定类别，目前的结论也是基于和DC，CFU这样一卡流的比较得出的。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80f7-b3a8-f7699bda1108" class="">一般来说，如果你房租1000块，那么楼主相信你每个月的非房租花费肯定有750块。但问题是，这750块全部是无类别吗？不可能吧。目前常见的消费类别包括但不限于吃饭，餐厅，加油，网购，旅行，酒店，机票等你全部能找到对应类别的卡，底线是3x，还不用做复杂的计算。所以这里的问题是大多数人每个月不会有75%的其他花费的。即使有，拿来做开卡奖励不香吗？一年开2-3张卡也够了。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80d2-a143-c39ea8e4cf6e" class="">Obsidian的4.44x的回报也同理：首先超市和餐厅只能选一个，超市还有25k上限。同级别的卡竞争有无年费的Custom Cash 5x；Chase的卡都有餐厅3x。虽然可能比不上，但你别忘记了这张有95年费的成本；多1.44x的回报，意味着你每年需要在这个特定类别上刷大约$6600才能与前者持平。太夸张了，超市上限都有25k。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8038-8cd6-f465496fcc05" class="">然后就是Palladium的3.33x所有。等效年费减去240真实hotel credit价值，白拿6666房租/房贷point(等效价值84)，所以最终为$170。比较无年费的2x DC，你大约每年需要多刷1.2-1.3w才能平衡，每月大约1k。你真的有那么多无类别消费吗？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ab-885c-f1f0959697fb" class="">所以看到最后，大家一定要记住买的不如卖的精。这些所谓的2.33x所有，3.33x所有，都是表面上看起来很友好，实际根本不是。在日常生活中的大部分消费类别你都能找到高倍数返现，整体收益比2.33x，3.33x高得多，更何况他们还是建立在额外的Bilt cash上。3.33x所谓的一卡流比无年费的2x也就多了1.33x，很难补上年费。Bilt既然敢这么玩，那一定是算死了。不管你们怎么算，Bilt都有钱赚。</p></div><div style="display:contents" dir="auto"><h3 id="2eb64738-a3cc-804a-82a2-d5288d33d5d6" class="">在合作伙伴处使用</h3></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-80e4-9655-f776be587bf5" class="">如果不考虑把Bilt cash拿来抵扣手续费呢？楼主其实看了非常多相关讨论，有些人认为大家的讨论陷入了思维定势：那就是必须抵扣手续费，所以才有2.33x, 3.33x诸如此类的计算。那么Bilt cash的真实价值到底为几何？</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-8079-ba19-e2a86c633cd9" class="">在21号的下午，Bilt官方给全体成员发邮件公布了关于Bilt cash的具体用途。条款一出，大家纷纷刷屏&quot;刷新了下限&quot;。</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-808b-ac51-c19cd4a911b6" class="">虽然官方号称每年可以用出最多4500+ Bilt cash(bc)，但是楼主随便挑了几个：</p></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-80b8-9597-e83420503165" class="bulleted-list"><li style="list-style-type:disc">Grubhub：每年最高兑换120 bc，每月10 bc(必须delivery, 不允许pickup)；</li></ul></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-8029-8a92-c1d2735d8cc2" class="bulleted-list"><li style="list-style-type:disc">Bilt Dining partners：每年最高兑换300 bc，每月25 bc；</li></ul></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-80c3-95a5-e89c3bfd7ccb" class="bulleted-list"><li style="list-style-type:disc">Lyft：每年最高兑换120 bc，每月10 bc；</li></ul></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-8081-9ba1-ea67eca4c71f" class="bulleted-list"><li style="list-style-type:disc">Walgreens：每年最高兑换120 bc，每月10 bc；</li></ul></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-804d-8abd-f0970b1f72ae" class="">怎么样，这个套路不是很熟？那如果楼主把Chase和Amex拿出来比较呢？</p></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-806e-98e8-ef8c015cde69" class="bulleted-list"><li style="list-style-type:disc">Doordash: CSP每年$120 credit，每月$10；</li></ul></div><div style="display:contents" dir="auto"><ul id="2f064738-a3cc-80ff-abc0-e7e814800cf0" class="bulleted-list"><li style="list-style-type:disc">Uber: Amex gold每年$120 credit，每月$10 ；</li></ul></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-80af-bf7e-c1088a264874" class="">人家Coupon起码直接给，Bilt倒好，让你刷钱自己攒Coupon，真的是刷新了下限，不忍直视。怎么可以这么不要脸？</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-80ef-844a-d68fd2cc52e4" class="">所以这次的改动总结就是，Bilt除了逼你做计算题之外，可谓是学到了Amex的精髓： 非常恶心的monthly coupon。楼主之前就告诉大家Bilt不可能让你这么简单，没有限制的把BC兑换出来！</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-80cd-b312-ed22664c8aa6" class="">所以关于这次Bilt cash的真实价值，楼主直接建议归零处理；即使有的话你拿来抵扣手续费是最省事的了。</p></div><div style="display:contents" dir="auto"><h3 id="2eb64738-a3cc-80a6-9c8f-c168397b8c15" class="">相对性结论</h3></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-801a-9e0c-e01ddc3c19b4" class="">由于合作伙伴的拉垮，所以Bilt cash最省事的用途还得是抵扣手续费。但是从本质上来看这波就是3%的手续费买1x的分，Bilt稳赚不赔。只有在交房租的情况下才能相近的得出额外1.33x的回报值。但是大家有这些消费开别的新卡拿奖励不香吗，非要耗死在Bilt上？这波改动连很多精明的人都没有算清楚，更别说那些老美了。发布会当天XHS帖子已经满天飞了，很多人还在分享他觉得Bilt 2.0有多值多值。如果你是其中一员，那你必被反薅；官方这话术就是能忽悠一个忽悠一个。你想骑在Bilt头上薅羊毛，想的美。</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-8023-8901-f6d8c2c96c95" class="">所以分析到这里目前似乎陷入了某种悖论。有人认为我们不应该陷入只能交房租/房贷的思维定势，Bilt cash可能在合作伙伴处更有价值。但是你如果不把它房租卡用的话，很明显市面上有很多同类别，高返现的卡更适合。但也有人认为如果不交房租/房贷那谁还用Bilt? Bilt cash就是为交房租/房贷服务的。但是经过官方新公布的方案，我们可以看见Bilt cash在合作伙伴处毫无使用价值。</p></div><div style="display:contents" dir="auto"><p id="2f064738-a3cc-80f7-a5bf-c40a2ef4e37d" class="">但不管怎么说，花1w字只分析这一张卡绝对也创下了信用卡界的记录。如果你看见这篇文章的内容有重复或者有某些笔误，那么就是楼主也被绕进去了。</p></div><div style="display:contents" dir="auto"><h2 id="2eb64738-a3cc-80b5-84bb-e84828324e22" class="">方案二：移除Bilt Cash</h2></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8056-a269-ecb00ffb2965" class="">可能是觉得之前的方案太复杂，大家觉得与1.0的落差太大，舆论非常汹涌。所以在正式发布的第3天，CEO在论坛上新发布了这个方案，并且通过邮件抄送给了所有人。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80fd-ac8f-efb5ba5fcee6" class="">新的方案相比于之前的方案，确实更简洁了一些。这个版本完全抛弃了Bilt cash(其他信息者一样)，取而代之的是采用房租/房贷的消费百分比来确定。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-805d-9f07-fd02202350cc" class="">具体的细节是：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8064-967c-dfcd3c95f501" class="bulleted-list"><li style="list-style-type:disc">花销达到房租的25%，拿0.5x房租/房贷分；</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8074-ada4-ec8196b5f836" class="bulleted-list"><li style="list-style-type:disc">花销达到房租的50%，拿0.75x房租/房贷分；</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-806a-b44f-ffbdc115a5fc" class="bulleted-list"><li style="list-style-type:disc">花销达到房租的75%，拿1x房租/房贷分；</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80d9-ba39-dc6632464d9a" class="bulleted-list"><li style="list-style-type:disc">花销达到房租的100%，拿1.25x房租/房贷分；</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80f1-a52b-d61282e36397" class="">如果你的花销没有达到最低标准(25%)，那么你每个月将自动获得250分(还有这个只是目前，万一以后砍掉呢？)。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-809f-b10f-e78e8600d429" class="">相比于原先的方案，这个确实更加简单粗暴。假设你的房租仍然是1000元，25%也就是你只需要花费250元即可赚取500房租/房贷分。再加上消费本身的250分，所以总收益是750/250=3x。也就是说你能够得到每笔无差别3x的回报。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-803e-a6d6-c5c10a47e44e" class="">但乍一看反直觉的是，当你的花销越大，占房租的百分比越多，每笔的收益反而下降了。当消费占房租比例50%时，收益仅有2.5x；75%时，收益为2.33x；100%时，2.25x。怎么花的越多收益反而下降了呢？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80a6-b5cc-cc39de5fb127" class="">所以经过这个简单的计算我们可以得知，每月消费占房租比例25%时收益最高。那这个时候很多人就要说了，无差别3x的回报看起来也不错啊，有资格和市面上其他的卡比较了，至少持平了对吧。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8011-bbb0-e57c2789c19c" class="">但大家需要注意的是这里面仍然存在机会成本。就拿消费常用类别之一的餐厅举例：很多卡也能提供3x，对吧? 问题在于，你如果用其他卡吃饭，你能立马获得3x points。但是方案二可不是这样的，3x是建立在你能花到25%的基础上。万一你哪天计算出错了，只花到了24%怎么办？那就立马被反薅。即使你刷到了，但是你一不留神哪天刷多了，一旦超过了25%，回报就会逐渐下降。所以这个卡就是每天逼你做数学题。楼主敢在这里保证，一定有人会计算出错，或者嫌麻烦，到最后总会出各种各样的岔子，远不如直接拿市面上大部分卡的3x合算。</p></div><div style="display:contents" dir="auto"><h3 id="2eb64738-a3cc-808e-b747-fc38a8316aee" class="">相对性结论</h3></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8089-b660-f33d0a6949fb" class="">可以看见Bilt确实认真的读了大家的反馈，新出的方案确实也比之前简单。但总体来说还是非常耗脑细胞，3x也就是仅仅持平而已。为了这一点羊毛去花这么多时间，未必合算。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80b1-a380-cb2c68670de1" class="">之前还有很多人拿Bilt和CSP比较，在楼主的观点看来就是纯搞笑。Bilt这么一个未经商业认证的模式，一群草台班子，这种模式根本就不可持续。现在好了，福利大砍，Primary保险也没了，被CSP不懂甩了几条街。不懂现在那些当初选择关掉CSP的人有没有后悔，毕竟524这个东西，关掉就很难再开了。那些觉得Bilt对你来说可能还很值得，你要记住，小银行没有底线，有可能哪一天就那个了对吧。</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-8031-9ee7-f433f532b813" class="">点数讲解</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80e6-8f2c-f7af16e5e5d7" class="">大家为什么还会再纠结？因为Bilt点数确实蛮值钱的。如果说大家不打算把它当做房租卡使用，那么Bilt仿佛就是在告诉你：我的点数可以转Hyatt，JAL和AS，你要不要来？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ce-a204-cf8f2d76af8f" class="">那肯定是不来啊。因为Bilt点数并非那么的无懈可击：如果真要使用，只建议大家看JAL和AS两个伙伴。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8070-8ad5-c3f74b9fcce3" class="">为什么？Hyatt可以用Chase替代；AA, CX可以用Citi替代。而且这些银行的卡都是一套组合，哪个不比Bilt强？目前只有JAL和AS点数来源不多，而AS点数或许可以考虑办联名卡。所以如果你是JAL和AS的刚需，那可能还能考虑一下；如果不是的话就没必要了。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-802f-89be-dc3547d39f8c" class="">另外关于用AS卡付房租，只能用来付房租不能房贷；而且Bilt cash不能抵消手续费。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ae-bff0-c9e244a6eb7f" class="">而且现在还有个什么问题呢：就是Bilt出来澄清了，他们就是做个中间人；从2.0版本开始所有的房租直接从checking划走，不再记在信用卡上。可以说是非常的鸡贼因为从checking划走从头到尾就没有手续费，Bilt还美其名曰的收3%手续费，也就是逼你用3%换1x point。恶不恶心？</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80be-872e-d8b6a1724baf" class="">推荐方案</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8099-ae8f-c340549fa418" class="">这一套分析组合拳下来，其实三张卡一张都没有长持的必要。而且如果你要真接受了新卡，这可不是转卡那么简单。由于新卡还要占一个new account且不是每个人都能批，楼主建议大家养一养。相比较于hp, new account更恶心。那到时候3.0是不是又要来？Amex老用户批卡也没有hp，难道这也是转卡吗？就是重新申请一张卡。只能说拉完了：小银行玩不起的。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80aa-ab4e-ce3677f15c90" class="">如果你还想继续陪他们玩，那么唯一有性价比而言的方案恐怕就是接受Palladium然后第2年关卡。首先5w分的开卡奖励已经超过年费，portal定的价值也有625，credit就当送的，能用得上血赚，用不上不亏。另外再获得300+200共500Bilt cash，再加上3.33x不是很差的一卡流消费，首年也能获得大约2w的房租/房贷的分。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-805b-a79d-de0033450f35" class="">另外Cardless被传出升降机不友好，所以大家第2年就正常关卡即可。因为第2年没有了开卡奖励性价比明显很低，所以正确玩法就是再开一年第2年关卡跑路。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-801d-abf1-e3f4b2c5a05f" class="">如果确定要接这张卡，请一定仔细反复阅读本文，评估两种方案：哪一种对你更有利。如果两个都不行，那就果断不接受。</p></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-804d-84a5-f95e57a25ad2" class="">这一套分析组合拳下来，其实三张卡一张都没有长持的必要。而且如果你要真接受了新卡，这可不是转卡那么简单。由于新卡还要占一个new account且不是每个人都能批，楼主建议大家养一养。相比较于hp, new account更恶心。那到时候3.0是不是又要来？Amex老用户批卡也没有hp，难道这也是转卡吗？就是重新申请一张卡。</p></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-808b-bac5-e5f2c89c9b76" class="">如果你还想继续陪他们玩，那么唯一有性价比而言的方案恐怕就是接受Palladium然后第2年关卡。首先5w分的开卡奖励已经超过年费，portal定的价值也有625，credit就当送的，能用得上血赚，用不上不亏。另外再获得300+200共500Bilt cash，再加上3.33x不是很差的一卡流消费，首年也能获得大约2w的房租/房贷的分。</p></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-8091-aa00-e7f1883da9ec" class="">但是！所有以上的分析和楼主给的这次推荐方案都是基于理论的数学计算，在实际过程中大家需要考虑到银行的政策稳定性。由于这次是小银行Cardless，所以也带来了很多不确定因素。</p></div><div style="display:contents" dir="auto"><ol type="1" id="2ed64738-a3cc-80d2-8703-c011c70b1dce" class="numbered-list" start="1"><li>第一个不确定因素是不清楚一年后卡能不能降级。目前论坛上有的讨论，有的说可以，有的说不行，有的说TBD。说实话TBD就很恐怖，因为你无法预料到一年后会发生什么。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ed64738-a3cc-8034-8030-dbb00915dd0a" class="numbered-list" start="2"><li>第二个不确定因素是如果第2年你想关卡跑路，小银行会不会退年费。之所以大家默认会，是因为许多大银行提供这个政策，他算持卡人的福利之一。但是小银行可不会这样，他们的时间往往算的更紧，也有可能压根不退。目前论坛上的讨论，已经有dp显示Cardless发行的另外一张卡第2年年费post的情况下银行不给退；当然也有人找出了条款指出年费post后一个月内可以退。但谁知道？临时改政策呢？而且大家需要把时间算清楚，如果错过了就被反薅了。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2ed64738-a3cc-8020-8bb0-fa0bdc6d1a38" class="numbered-list" start="3"><li>第三个不确定因素是小银行的政策不稳定。不像大银行各方面相对稳定，且如果要改变都有很长时间的提前通知。小银行可不是这样的，很多福利说砍就砍。比如现在官方说的很美：即使没有刷够每个月白嫖250点。那如果说过一段时间发现亏本随时就给你砍了呢？Bilt cash一开始没有限制，后来发现上量的人多了，给你加个限制你怎么办？目前的政策行不通，明年再给你搞个3.0你怎么办？</li></ol></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-8082-aa67-d052bc65ca96" class="">所以综合各种数学题和诸多不确定因素，其实楼主并不建议入坑小银行。更何况Cardless可是有先例的。你猜为什么叫card less? 提示：注意空格。</p></div><div style="display:contents" dir="auto"><p id="2ed64738-a3cc-80b2-bb0b-fa5dd42eecbe" class="">如果确定要接这张卡，请一定仔细反复阅读本文，评估两种方案：哪一种对你更有利。如果两个都不行，那就果断不接受。</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80c6-be3b-dfb06f1a3529" class="">商业建议</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8037-a1ff-eee6bbe4c401" class="">关于这次的2.0，CEO特地在论坛上亲自下场抨击&quot;四根香蕉&quot;人群，&quot;如果会员只购买四根香蕉并获得免费租金积分，我们就无法为每个人维持如此丰厚的价值主张。&quot;</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8043-9517-e937396d3149" class="">这绝对在意料之中。因为这个商业模式不可持续，Bilt找不到赚钱的切入点。所以1.0的行为我们可以理解为Bilt在扩张市场。市场扩张差不多了，从增量期进入存量期，那公司就要调整政策开始赚钱了。完全可以理解。而且我们也看到了Bilt的努力：试图推出不同政策来吸引人们刷卡，并且找到中间的平衡点。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-804a-aa48-c5f323e9c08f" class="">但以楼主的观点来看，目前给的两个方案都很拉垮。当然楼主也理解目前Bilt的商业模式不可持续，free rent points将一去不复返。所以楼主会建议一个可能能找到平衡点的想法，就是增加高返现消费类别。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8043-ba36-ec84d4058498" class="">首先我们可以看，这次的三张卡年费分别为0，95，495，对应的分别是哪些卡？</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80a2-9e0e-ead349247658" class="bulleted-list"><li style="list-style-type:disc">0年费卡包括CFU, Double Cash, Boa123等</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80b0-bb35-c3119b21ea43" class="bulleted-list"><li style="list-style-type:disc">95年费卡包括CSP，Premier等</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8043-9dd7-f94cfd6d1c6f" class="bulleted-list"><li style="list-style-type:disc">495年费卡包括Venture X, Premium Reward Elite, Strata Elite等</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8089-b91f-f0511703d814" class="">那么Bilt为什么不从这些卡上吸取一些优点呢？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80b0-b8ca-d9219db96ebb" class="">所以在目前公开的基础上，可以考虑这么改：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8050-b4df-d739f5a851e0" class="bulleted-list"><li style="list-style-type:disc">Blue：所有1.5x</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80d8-8b70-fccb4445a210" class="bulleted-list"><li style="list-style-type:disc">Obsidian：餐厅超市加油3x，其他1x</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80f8-a24a-dd26b90e0e28" class="bulleted-list"><li style="list-style-type:disc">Palladium：所有2x，并且增加Coupon灵活性</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-803b-bdd0-f5dbd344f83b" class="">经过这么一改屏幕前的你是不是更愿意在Bilt上花钱了？因为高倍数回报多啊，所以每个月花到房租75%应该不是什么难事吧。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80b1-a183-ee3ee3a9eaf8" class="">其实这个方案跟25年初Bilt发的那个调查很像，上面楼主的建议只是做参考。如果Bilt真的想让人们在这张卡上花钱，总体大方向应该是增加高返现消费结构，而不是在手续费上做文章。其实一开始就错了。为什么？你申请一张信用卡的理由，除了开卡奖励外，最大的动力难道不是这张卡在你需要的这个消费类别提供高倍数回报吗？</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80a4-aab3-d6e7f0cfedea" class="">截止日期</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8033-95a9-d7430ed18ba5" class="">因为这一次时间较紧，新卡发布1月30号之前就必须作出决定，所以楼主把这篇分析快马加鞭的赶出来。有几个截止日期和重要事项大家记一下：</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8045-b951-efb0fc38d00b" class="">现在Bilt 1.0可以一直用到2月7号；如果想要最后薅一把的，一次性交半年一年的房租，最后的截止日期是2月3号。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-802e-9157-e6c81ef2d222" class="">如果两张卡都要：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80d0-bae0-d9c84a3c854c" class="bulleted-list"><li style="list-style-type:disc">1月30号之前选择一张新卡，没有HP：在这之后重新申请则需要HP。老卡将自动转成Autograph，无需任何动作。</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8005-9beb-ca2befb94fcf" class="">如果两张卡都不要：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80b0-9e1e-fa4dbd765e49" class="bulleted-list"><li style="list-style-type:disc">不要接受Bilt 2.0；然后打电话给WF申请关卡，记得还清所有余额。</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-801e-9e37-f71da9d7a7ef" class="">如果只要一张卡：</p></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-8080-991b-f73d5a709124" class="bulleted-list"><li style="list-style-type:disc">只想要Autograph：不接受2.0，旧卡自动转换；</li></ul></div><div style="display:contents" dir="auto"><ul id="2eb64738-a3cc-80e9-9a61-d5fa12e93db1" class="bulleted-list"><li style="list-style-type:disc">只想要2.0：1月30号前接受新卡，打电话给WF申请关卡。</li></ul></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8015-9307-d3118b4bc69f" class="">如果不接受2.0新卡，点数仍然会保留在账户中；因为是跟账户走不是跟卡走，大家需要点数的时候再转走即可。</p></div><div style="display:contents" dir="auto"><h1 id="2eb64738-a3cc-80b9-8800-ea75479fd88b" class="">结语</h1></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-800e-8caa-d4e2c1f96d3b" class="">&quot;21% 的美国人是“功能性文盲”(无法充分识别或理解基本的英语单词/文本以完成日常任务)&quot;</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-800c-b024-fe979dfdafe8" class="">&quot;54% 的美国成年人数学水平低于六年级&quot;</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-808f-add9-ddd3f91dfee4" class="">CEO确实抓住了很多美国人当下的痛点。但是，既然涉及到房租房贷，这个群体必然比较精明，大部分人应该会算帐。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80fe-a4fa-f0ac133fff4a" class="">就在昨天这个消息刚发布时，很多人居然还天真的以为&quot;交房租/房贷不用手续费&quot;。楼主只能说官方的话术太具有迷惑性了，韭菜这么旺盛，Bilt想不赚钱都难。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-8052-b31a-c92542545007" class="">不管怎么说，在经济下行的时候，各家都在疯狂砍福利。2025年已经很黑暗了，2026年刚开头就发生如此改动，继续往下怕不是情况要更糟。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80d3-8ff3-c3b5b6cdcaa7" class="">最后就是呢，给大家做这些计算是基于一般情况，你的情况可能不同。如果你写一大段话包括一堆计算来反驳我，说实话我看着都头大，不想看。你觉得有用就留着，不必听我的。这篇文章是给那些不了解情况的，或者不知道怎么选的人准备的。</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-80ce-9401-cde9017fa4c7" class="">可能屏幕前的你还在疯狂找漏洞，不放过任何一个可以薅羊毛的机会。但你要记住，所有的这些方法见光即死，一定会被堵上。小银行玩不起的，明年要是万一再整个3.0呢？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-800a-a5ba-ccf0efd6a319" class="">从这两天官方的动态来看，从不确定Bilt cash的具体用途，到临时推出一套新的方案尝试捕获人心，我们可以看出甚至连官方自己都不知道未来应该怎么办，想要成为什么。新的方案只是表面看上去好，但也伴随着不小的机会成本。为了这一点收益想破头脑，真的值吗？</p></div><div style="display:contents" dir="auto"><p id="2eb64738-a3cc-809f-8cb0-ef2a364d98ab" class="">另外在这里给大家做个预告是Boa Preferred Rewards也将在年中迎来改动，改动后将会大幅度提升存款要求。要知道Boa的产品将近10年没有怎么改变；而在经济下行时，最终还是撑不住了。</p></div><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8061-8fc6-e02ee9939b11" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ea64738-a3cc-80d1-b607-d7f3d2fb854b"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8035-b49b-d38aca26d9b0" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8095-8caa-e91cf5a96baf" class=""><a href="http://xhslink.com/o/1soEScRy1Rm">http://xhslink.com/o/1soEScRy1Rm</a></p></div></div></figure></div><div style="display:contents" dir="auto"><p id="2ea64738-a3cc-8038-8894-de60dcc34e78" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

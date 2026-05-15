@@ -1,0 +1,747 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>信用卡奇淫技巧总结</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="29f64738-a3cc-80d8-9325-ef447dadb855" class="page serif"><header><h1 class="page-title" dir="auto">信用卡奇淫技巧总结</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29f64738-a3cc-8011-a65e-ea211ebd6cd6"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80ec-9b25-c24bd901e224" class="">相关内容很早以前上过小红书，不过由于各种原因楼主最后选择下架。现在楼主把部分不敏感的内容放在博客，但不会在小红书里发布了。</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8039-a819-e8d482587814" class="">
+</p></div><div style="display:contents" dir="ltr"><nav id="29f64738-a3cc-8037-acf6-cb5dbd152e84" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-80b5-8690-faad9e0e22cc">简要介绍</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-80b7-84ac-f1fd2874c134"><strong>制造消费MS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-80f3-a6aa-e574b526b3b0"><strong>信用卡黑车</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-8065-a30d-fbc538cc83b5"><strong>信用卡申请MDD</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-80bf-a591-e878d99a2018"><strong>信用卡升降机&amp;高年费卡最大回报</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-8054-99fd-f3393a37a732"><strong>Amex骚操作</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29f64738-a3cc-809a-b1a2-cc5b771c04b6">后退大法</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29f64738-a3cc-80c0-925b-eb5bc14670a1">破解弹窗技巧</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29f64738-a3cc-8030-8df9-ebd9154fc34b">NLL（No Lifetime Language）链接</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#29f64738-a3cc-80e8-8076-e505a4031552">最新消息</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29f64738-a3cc-80ef-bab8-c33389dde86a">免责声明</a></div></nav></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80b5-8690-faad9e0e22cc" class="">简要介绍</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8074-b1c6-f45021139652" class="">奇淫技巧，是带有技术含量的操作，这本身也不是信用卡的正确使用方式。关于奇淫技巧，这里只解释基本概念，不介绍如何实操。如果大家对某一个操作特别感兴趣，可以自行谷歌，直接搜索题目即可。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80b7-84ac-f1fd2874c134" class=""><strong>制造消费MS</strong></h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80f4-b269-f41178fa6844" class="">MS（Manufactured Spending），是英文制造消费的缩写，指通过非自然消费手段来刷信用卡，从而获取积分/返现或完成开卡奖励的行为。简单来说，就是把信用卡额度变成现金再还回信用卡，以此赚取中间的奖励差额。MS本身不违法，但操作不当可能导致信用卡被封或账户受限。MS可以有很多种，每种的操作难度和风险都不同。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80e4-8978-c4db403b90c6" class=""><strong>基础操作</strong>：你最近有大额消费，比如交税交学费等。通过刷信用卡而拿到开卡奖励的行为叫做MS。虽然要交手续费，但是有高额开卡奖励可以拿，也就是用钱买点数。没有风险，放心操作。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80db-8cc5-c4bd9ef162bd" class=""><strong>高级操作</strong>：利用信用卡的返现结构到商店购买VGC，再把VGC存回Checking账户实现空手套白狼。虽然购买VGC需要手续费，但是使用返现结构更高的信用卡，多多少少还是能赚的。此操作风险高，S全家案例很多，谨慎操作。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80c5-84a5-cfcea82cd8ae" class="">另外有一个值得介绍的就是利用信用卡交税/交学费等。楼主之前发过这方面的帖子，现在正式合并到本帖。相比于传统的MS风险高，回报低，用信用卡交税算是很无脑的MS方案，且无任何风险。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-809e-8127-c83e68d32680" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80d9-ac0e-e65a9b262258" class="">首先上结论，一般情况下（至少对于XHS的受众），用信用卡交税都是亏的，除非搞开卡奖励。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80ef-a7f6-ce08b4a305bf" class="">关于为什么会得出用信用卡交税都是亏的结论，其次是被迫无奈，毕竟大部分屏幕前的读者并没有经历折腾这方面的东西。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80cf-8bb9-e8b117888b98" class="">如果你查阅IRS网站，信用卡交税手续费为1.75%。这时候肯定有人说了，找一张2%以上返现的卡不是有的赚了吗。比如，Robinhood gold有3%所有，但有dp显示大额消费经常不过，怀疑玩不起。再比如pp卡也有3%，那我就假设你用这张卡交税。扣掉1.75%的手续费，你大概还能赚1.25%。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8017-b778-ca380b88a4a9" class="">但问题是，收益太低了，几乎没得赚。对于这么低的收益你会甘心吗？我猜你不会，因为你既然想用信用卡交税，那你肯定是想薅羊毛的，这点收益你估计看不上。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8091-9052-df7283e1b7b1" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80e4-8ae1-fa3b66abd259" class="">那么信用卡交付的正确操作是什么？信用卡交税属于MS的一种，“除非到了无卡可开的地步，研究MS的收益远不如开卡奖励来的快”。所以，正确的操作应该是开一张新的卡（如果你手上的卡不够全），能用到什么卡开什么卡，交税只是顺便完成开卡奖励而已，不应该左右你的开卡选择。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-800c-a5eb-ddbb1c382a28" class="">那如果没卡可开了怎么办？有一种情况是，CFF基本上在每年第四季度会有Paypal 5x，很多人持有多张CFF然后用PP把税交满。除此之外，有一种方式可以参考。一些酒店卡有满额消费奖励，大家可以先看看。举个例子：</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8025-a887-fc1c23970955" class="">
+</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8097-86d5-cd29d06348a6" class="">Hyatt信用卡每年花满1.5w可以获得C1-4的房券一张。C4房券现金价值200，酒店平均价值350-400。交税1.5w+1.75%手续费，最后你获得了15k点数+房券，保底都有300的现金价值，住店的话能用处上限大约600+的价值，而手续费大概260，还是有利润的。（不过确保你要住店才这么干，不然一顿操作猛如虎下来啥也没捞着）</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80d5-8518-fdc249fd9d7e" class="">其他有类似的消费满xx送xx的活动的卡也可以看看。这也算是一种比较无脑的方式，花钱就完事了。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80dd-91e3-ee5452305be0" class="">那么既然介绍奇淫技巧，肯定要上干货对吧。的确有大佬开发出了一套用信用卡交税攻略。如果操作得当，信用卡交税确实可以赚取收益。有帖子专门介绍，如果你能看完，你也能获取收益。但风险客观存在，并且要花时间去研究。人家成功了不代表在你身上就没有风险，因为这不是一个稳定无风险的操作。所以最简单的就是利用信用卡交税拿开卡奖励，算是最基础也无风险的MS。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80f3-a6aa-e574b526b3b0" class=""><strong>信用卡黑车</strong></h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8061-91ad-e37429570499" class="">“黑车”指的是通过非公开渠道（如内部推荐链接、特定论坛或社群）申请信用卡，以获取比官方公开活动更高的奖励。例如，一些银行或信用卡机构可能会针对特定人群提供更优质的开卡奖励，而这些链接并未在官方页面公开，而是通过私下传播。虽然这类操作本身不一定违法，但同时也伴随着风险。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80a9-bcb4-cdea7eb401bb" class="">目前比较盛行黑车的就是Chase和Amex两家，比如三剑客的黑车链接就常年存活。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80d5-b3ef-e5ba98e8b7c6" class="">黑车链接所以理论上有风险，但不同的链接也分情况。有些黑车风险极低，可忽略不计；而有些黑车风险很高，严重者甚至会被S全家。申请前自行衡量。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-806b-976b-d2fc989c5fc2" class="">关于黑车的等级分类，和来源介绍，有非常详细的一篇帖子介绍。对于一些低等级的黑车，基本上问题还是不大的。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-8065-a30d-fbc538cc83b5" class=""><strong>信用卡申请MDD</strong></h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80f4-acb3-fbc10212002b" class="">MDD是一种同时申请两张Chase个人信用卡用于破5/24的规则。一般来说，在你4/24的时候，把最后一个卡槽在短时间内同时申请两张信用卡，且只要算好时间即有机会将两个HP合并成一个，便是MDD。但是最近由于操作不当，还是有非常多HP合并失败的DP，申请前请自行衡量。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80ed-aa97-f16d43a49e71" class="">MDD近些年来在某种程度上确实可能放松了要求，使大家能更容易地突破524，但也伴随着合并HP失败的dp越来越多。考虑一个点：大多数人MDD就是想突破524规则，然后Chase毕业。但是在你毕业的这个时间点，几乎所有人都没有开过Citi，C1，USBank的卡，而这些银行恰好HP敏感：如果HP合并失败会极大地影响你的后续申卡。再者，根据楼主之前两年八卡的推荐，对于一个新手来说524的另外两个卡槽分别被新手卡+Bilt填满（WF也加了一个隐形的524规定，不然Bilt批不下来），所以对于大部分人来讲，没有MDD的必要。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80c4-9301-d2e613c1cf61" class="">再就是信用记录方面。MDD其实是不适合信用记录一年左右的新手。首先你信用记录不长，手上至少已经有4张卡，如果第1张没有批，打电话recon下卡后，在申请第2张时相当于把你相同的信息放到模型里再跑了一遍，所以肯定不会批。当你打电话给人工recon时，客服肯定能看到你手上已有5张卡从而拒绝你的申请。所以MDD只适合有一定信用记录的人玩。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8038-a841-dd9f56aaecfa" class="">相关的分析可以参考之前楼主的《<a href="Chase%20524%E5%88%B6%E5%BA%A6%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83%2023564738a3cc8072ab18daa501a0fd7d.html">Chase524制度引发的思考</a>》。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8075-88e4-fb6821c48514" class="">总结：楼主已经在上期反思了关于524，大家真的要考虑清楚适不适合自己。总的来说MDD不适合大多数人，且很多人MDD了之后也在一年后选择了关卡，总之不适合长持。具体可以看这个讨论：<a href="https://www.uscardforum.com/t/topic/451709">不适合长持主要冲开卡奖励去的卡</a></p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80bf-a591-e878d99a2018" class=""><strong>信用卡升降机&amp;高年费卡最大回报</strong></h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-801e-b7e5-d90eff6ddfb5" class="">信用卡升降机是指当你持有一张卡时，你可以按照自己当前的需求将这张卡升级或者降级。比如，你当前只有一张$95年费的CSP；如果你不想长持可以选择“降级”到$0年费的Freedom；如果你想追求更高的福利比如PPS，可以选择“升级”到$550年费的CSR。对此，银行给的官方定义是Product Change（中文名转卡），除了包括升降机操作之外，可以通过转卡获得多张相同的卡来实现最大收益：比如你可以通过转卡获得多张CFF&amp;CF，最大化5x收益。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80c9-ad57-dbe0798cbbb6" class="">理论上来说，升降机不是高端操作，银行也默认。但是考虑到很多人不知道，还是放在这里科普一下。之前的CSR轮转大法就是通过升降机实现的，包括接下来马上要介绍的高年费卡最大回报也离不开升降机操作。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8021-8e07-f1693e0ac2a3" class="">截至到发稿前，前天楼主在网上看到了一个最新消息，Chase现在支持用户自助转移卡之间的额度了。虽然已经有人发了但是很明显他没GET到重点。这个功能平时没什么用，主要就是拿来玩升降机用的，因为升级Visa Infinite要求卡上必须至少有1w的额度。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80b3-895e-c53ac70ec4cd" class="">高年费卡的“最大回报”通常指的是通过各种方式最大化银行提供的福利，例如将报销使用多次。之前楼主在CSR的帖子中提到，其进阶操作可以使双重报销和轮转大法。除此之外，其他的高端旅行卡也有此类操作，来达到回报最大化。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-809e-8537-f7aee56ea4c7" class="">不过根据最新情况，改版后的CSR已经不能使用轮转大法，此方法失效。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-8054-99fd-f3393a37a732" class=""><strong>Amex骚操作</strong></h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-804f-a202-ce1fb63d776f" class="">在之前《<a href="%E9%94%90%E8%AF%84%E5%90%84%E5%A4%A7%E9%93%B6%E8%A1%8C%E7%82%B9%E6%95%B0%E7%B3%BB%E7%BB%9F%E5%8F%8A%E4%BC%B0%E5%80%BC%2023564738a3cc806bbe77d640201fc86f.html">锐评银行点数系统及估值</a>》有讲过，Amex骚操作非常多，有些大佬能通过这些操作快速积累MR。这里稍微介绍一下每个操作是什么。</p></div><div style="display:contents" dir="auto"><h3 id="29f64738-a3cc-809a-b1a2-cc5b771c04b6" class="">后退大法</h3></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80ba-ba2d-e4e2d6d8b0a7" class="">当申请Amex信用卡时遇到弹窗提示无法获得开卡奖励（SUB）时，一些用户尝试点击浏览器的“后退”按钮返回前一页面，然后重新提交申请。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8022-a1f5-e7f5f78b09c1" class="">有用户报告称，这种方法有时可以绕过弹窗，成功获得开卡奖励。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80bb-a3d9-c509caaa284f" class="">然而，也有用户遇到网站崩溃或申请状态异常的情况，需联系客户服务取消重复申请。</p></div><div style="display:contents" dir="auto"><h3 id="29f64738-a3cc-80c0-925b-eb5bc14670a1" class="">破解弹窗技巧</h3></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80a1-a084-c79ebef3808a" class="">除了后退大法，用户还尝试了其他方法来绕过Amex的弹窗限制：</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80e8-aa45-c797f3077d7f" class="">使用隐身模式或不同的浏览器。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-80bb-a110-c4fc0715102f" class="">通过非官方链接或朋友的推荐链接申请。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8077-9489-f89b55fb8768" class="">同时打开多个申请页面，先让一个页面出现弹窗，保持该页面不关闭，然后在另一个页面提交申请，有时可以成功绕过弹窗。</p></div><div style="display:contents" dir="auto"><h3 id="29f64738-a3cc-8030-8df9-ebd9154fc34b" class="">NLL（No Lifetime Language）链接</h3></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8026-bff7-f2fbccf5cd39" class="">NLL链接是指申请页面中不包含“终身只能获得一次开卡奖励”字样的链接。通过这些链接申请，理论上可以再次获得开卡奖励。</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-8033-b0a6-f996a449dcb2" class="">多标签页申请法（双开法）</p></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-803e-8240-ef8881313cf3" class="">用户通过同时打开多个申请页面，先在一个页面触发弹窗，然后保持该页面不关闭，在另一个页面提交申请，有时可以成功绕过弹窗并获得开卡奖励。</p></div><div style="display:contents" dir="auto"><h3 id="29f64738-a3cc-80e8-8076-e505a4031552" class="">最新消息</h3></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-800e-b676-f05c3f31b373" class="">根据最新消息，Amex似乎已经堵上了NLL这个漏洞。以后基本上是不能玩了。</p></div><div style="display:contents" dir="auto"><h2 id="29f64738-a3cc-80ef-bab8-c33389dde86a" class="">免责声明</h2></div><div style="display:contents" dir="auto"><p id="29f64738-a3cc-809a-85bb-d4f7c8381dfd" class="">奇淫技巧肯定有风险，属于灰色地带，严重则会被S全家，操作之前考虑清楚。<br/>关于推荐，请不要把这些奇淫技巧推荐给人家。这跟点数的估值是一样的，你自己可能的确可以换出Hyatt 2cpp，但你不能假设人家可以。</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

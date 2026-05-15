@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>美卡从夯到拉排名</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="36164738-a3cc-8091-998d-f18d466e740e" class="page serif"><header><h1 class="page-title" dir="auto">美卡从夯到拉排名</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="36164738-a3cc-80e7-9f9d-fad2f83d1bd7"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="36164738-a3cc-8019-8a20-c41a3b1c82b8" class="">【2026.03】1.0版本发布</p></div></div></figure></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8049-b84e-ce53f19690e1" class="">本来想做这个排名的初衷就是玩票性质，没想到流量爆了：大家意见确实也很多。一张卡在每个人的心里排名不一样很正常，但不管怎么样你自己喜欢就行，没必要批判别人。</p></div><div style="display:contents" dir="ltr"><figure id="36164738-a3cc-80a0-8764-df1a899ab085" class="image"><a href="tierking-screenshot.webp"><img style="width:703.9961547851562px" src="tierking-screenshot.webp"/></a></figure></div><div style="display:contents" dir="auto"><h2 id="36164738-a3cc-80e4-b6eb-fca0c14b0910" class="">解读和澄清</h2></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80b5-aa88-d80fab4538e6" class="">帖子刚出了没多久其实就爆了，除了回复了个别评论之外剩下的几乎来者不善。这个澄清讲两个事情：排名是如何产生的，解答新手疑惑；和一些人的观点和不友好的评论。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80e7-a8c6-c40f2b03262e" class="">然后就是这个榜单不包括任何联名卡。因为如果对联名卡作为一个排名的话，那评论区可能更加两极分化。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8059-8f97-d20366f1659d" class="">首先表格本身，Autograph应该从夯移到顶级。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8042-9a3b-f47c97c61c0d" class="">字数关系都放在图片里了</p></div><div style="display:contents" dir="auto"><h3 id="36164738-a3cc-8057-91c5-ce6c3a5ac751" class="">排名是如何产生的</h3></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8038-996a-c13529d411a9" class="numbered-list" start="1"><li>Boa123：3%网购，覆盖性广，可以多开</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80b3-91a5-ce490ce8c2ef" class="numbered-list" start="2"><li>CSP：保险强，风控模型舒服，很好的万金油，钱包里的备用卡(毕竟你卡那么多总不可能天天带十几张卡出门吧)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8030-a391-f25d3898e138" class="numbered-list" start="3"><li>Double Cash：2%的卡多，2x不多。且相比于Venture X没有年费且点数更好用。</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80be-887f-d21e894e93b3" class="numbered-list" start="4"><li>Custom Cash：5%自选</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8040-9b9d-c65a47bf4578" class="numbered-list" start="5"><li>Premier：转点必备卡，消费结构给力；保险仅次于CSP</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8036-a205-c8331af5078c" class="numbered-list" start="6"><li>CFF：底子还在，有注册会员和保险，缺点是5%是指定类别，且指定的类别大家也有很多吐槽</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-806d-8123-ca74ef5b26b6" class="numbered-list" start="7"><li>UAC：免年费一年4次PPS，还要什么自行车？</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-801b-a218-ec145f510ce5" class="numbered-list" start="8"><li>Strata：消费结构给力，免年费。适合喜欢返现但不喜欢转点的人</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8062-8f00-c1f50f6018a3" class="numbered-list" start="9"><li>PRE：算是性价比最高的高端卡之一了，报销基本无损拿，满血PPS，吃几顿饭就回本了</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8059-b3eb-cc304ce9f5af" class="numbered-list numbered-list-digits-2" start="10"><li>Autograph：3x类别很多，但同级别都有替代品(这也是等级下移的原因)。但是3x general travel和phone plan+手机保险很给力</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8033-988e-db2c6aac11aa" class="numbered-list numbered-list-digits-2" start="11"><li>CFU：在原先UR转Hyatt的情况下1.5x还勉强说得过去；但Hyatt一旦贬值就没有什么竞争力了。不过好在Branch还有offer，拿个开卡奖励后续转卡CF，同样无年费</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-809d-bc6b-fd9487a0be1b" class="numbered-list numbered-list-digits-2" start="12"><li>Venture X：高性价比美卡里有讲过，中立榜。评论两极分化，长板很长短板很短。但考虑到整体表现还是可以人上人</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8055-a73d-f9bde6d8aa1a" class="numbered-list numbered-list-digits-2" start="13"><li>Robinhood gold：3%一卡流</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80dd-beeb-c8a7cff25d23" class="numbered-list numbered-list-digits-2" start="14"><li>Attune：虽然也是2x但WF点数很一般</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8045-8328-ccbbd95bca8c" class="numbered-list numbered-list-digits-2" start="15"><li>SYW：单就卡的返现结构来讲确实给力；但其他方面可能就是缺点了，比如开卡奖励，小银行，风控模型，好不好批等等</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80a4-8512-fbf77bbe63ff" class="numbered-list numbered-list-digits-2" start="16"><li>Travel Reward,  Ultimate Reward：这俩难兄难弟没什么区别，同级别里毫无存在感</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-800b-832a-d32f417aa52f" class="numbered-list numbered-list-digits-2" start="17"><li>Strata Elite：就那样了</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80ce-8d02-ded1420dcca3" class="numbered-list numbered-list-digits-2" start="18"><li>Discover：要不就是新手第1张卡，要不后续就开不下来了。CFF&amp;CC至少还可以配合其他卡成体系，Discover就一张还是返现竞争力很有限</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8087-b9ed-c884b08d5f9e" class="numbered-list numbered-list-digits-2" start="19"><li>UAG：没有什么亮点，4%吃饭有上限</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80b7-9831-e4800f765f3f" class="numbered-list numbered-list-digits-2" start="20"><li>Savor：云居民神卡；但对于美国本土使用在一众竞争对手中没有任何优势</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8011-bb82-d34357444d83" class="numbered-list numbered-list-digits-2" start="21"><li>BCE，BCP：也没有亮点，但也没有特别恶心人的点</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-8038-909b-d61b5ed8afbe" class="numbered-list numbered-list-digits-2" start="22"><li>Premium Reward：拿个奖励而已，后续降级123</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80a4-ad44-e13dfc799c16" class="numbered-list numbered-list-digits-2" start="23"><li>Bilt 2.0：具体参见Bilt 2.0深度评测。油管上每一个夸Bilt 2.0的人都在R上___了</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80cf-b068-c7fda19ee0a3" class="numbered-list numbered-list-digits-2" start="24"><li>CSR：这个没有争议吧</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80be-8969-f23dd4d96f43" class="numbered-list numbered-list-digits-2" start="25"><li>Quicksilver：如果说Savor起码还有一个3x，那这张卡就是倍率既不高，点数也不好用</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80a7-b151-c26131857465" class="numbered-list numbered-list-digits-2" start="26"><li>CFR：不推荐这张做新手卡，申了升级CFU还拿不到CFU奖励</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="36164738-a3cc-80df-9732-e066ee9f1852" class="numbered-list numbered-list-digits-2" start="27"><li>Amex green, gold, plat：见第2部分</li></ol></div><div style="display:contents" dir="auto"><h3 id="36164738-a3cc-808b-afdc-ee1fa2814cf2" class="">评论区问题解答和回应</h3></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-809b-ae40-e9bff0434678" class="">Q：Aspire，Ritz或者其他一些卡为什么没有在列表上面？</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8071-b387-eb41db2a4695" class="">A：联名卡不参与排名。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8022-a4fc-db386d38cb06" class="">Q：榜单依据是什么?</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8052-a12d-e8fbcff7d0f1" class="">A：免责声明里已经写得很清楚了，本来就是仅供娱乐而已。具体原因参见第1部分。另外这个排名本身就是根据性价比或者长持的角度来看；有人说野榜的，如果下次做一个开卡奖励或福利(Coupon)为主的榜单，那Amex绝对可以给到夯。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8056-a8a5-fbb5fa9d9914" class="">Q：这个榜单拉完了</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80c9-a753-e9bacda2c0c1" class="">A：很多留言的人都是云居民，那对你来说肯定不适用。我不shan你评，但你自己watch yourself。卡在每个人心中的排名都不一样</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8043-a0dc-f6c5297ef753" class="">Q：Amex的卡到底是怎么回事</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8098-b858-e9f58e9f521c" class="">A：长期来讲，对于这种用年费换Coupon他的行为都是两极分化，这个很正常。你可以听一个人讲三天三夜关于Coupon怎么用更值，也可以听三天三夜关于另一个人吐槽Coupon有多难用。人在玩卡的时候总会经历几个阶段；当你过了那个疯狂的时段，或者年龄大了，你就会喜欢省心。另外关于这个情况之前也是有过投票，各大论坛上都有讨论：有大约六成的人认为Amex回不了本，另外四成则认为Amex很合算。鉴于考虑主流群体，Amex肯定很一般</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80c1-ace4-e6b81425c543" class="">Q：Paypal Debit呢？</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-800b-9ed3-c2060de70d63" class="">A：首先这个榜单是针对信用卡的，这个不是。那其实讲过很多次了，有方法不消费就能拿50。如果硬要给个排名的话那肯定是夯或顶级</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80ae-b032-da7c8dfdf90e" class="">Q：这个博主很不专业</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80ee-8958-ef1bed479056" class="">A：你看过我的贴吗？大部分人甚至都没有点关注。如果你今天只是偶然刷到了这个贴然后留下的留言，楼主原谅你。楼主一共写过50+原创攻略，被很多人模仿，但我坚持下来了，留言和点赞就是最好的证明。没有大家的支持也没有今天。当然，键盘侠没有成本。</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8092-8a76-f813389897f5" class="">Q：看样子楼主很喜欢无年费的卡</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80d2-995e-e93edc1e35db" class="">A：不是喜欢，而是你们交的高年费卡已经没有什么性价比了。随着经济形势变化羊毛变少是板上钉钉的事。所以现在各家喜欢干的事情就是往高年费卡里塞Coupon。你们真的喜欢吗?</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80bc-85f9-e06a44b28c7a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="36164738-a3cc-808e-b3c9-d46784d317f9"><div style="font-size:1.5em"><img class="icon notion-static-icon" src="https://www.notion.so/icons/megaphone_blue.svg"/></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="36164738-a3cc-80f3-8ca3-de725d95b94d" class="">XHS原文章</p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-80d9-8078-eb7ae55aae0b" class=""><a href="http://xhslink.com/o/4Tr8ztLNCf9">http://xhslink.com/o/4Tr8ztLNCf9</a></p></div><div style="display:contents" dir="auto"><p id="36164738-a3cc-8013-86ec-c325da96abed" class=""><a href="http://xhslink.com/o/26akblzHXRl">http://xhslink.com/o/26akblzHXRl</a></p></div></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
