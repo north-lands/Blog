@@ -313,7 +313,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=7"></script>
+        <script src="js/bilt/cards.js?v=8"></script>
         <script src="js/bilt/values.js?v=6"></script>
         <script src="js/bilt/engine.js?v=6"></script>
         <script>
@@ -714,6 +714,7 @@
 
             function formatSignedDollars(amount) {
                 var rounded = Math.round(amount);
+                if (rounded === 0) rounded = 0;
                 if (rounded < 0) return "−$" + Math.abs(rounded).toLocaleString("en-US");
                 return "$" + rounded.toLocaleString("en-US");
             }
@@ -727,13 +728,12 @@
             }
 
             function formatPointCents(cents) {
-                var rounded = Math.round(cents * 10) / 10;
-                if (Math.abs(rounded - Math.round(rounded)) < 1e-6) return String(Math.round(rounded)) + "¢";
+                var rounded = Math.round(cents * 100) / 100;
                 return String(rounded) + "¢";
             }
 
             function formatEarnRate(rate) {
-                return String(Math.round(rate * 100) / 100) + "×";
+                return String(Math.round(rate * 100) / 100);
             }
 
             function rewardFormula(line) {
@@ -824,8 +824,31 @@
                 box.appendChild(breakdown);
 
                 var lines = result.lines.slice().sort(function (a, b) {
-                    return RESULT_ORDER.indexOf(a.cat) - RESULT_ORDER.indexOf(b.cat);
+                    var byCat = RESULT_ORDER.indexOf(a.cat) - RESULT_ORDER.indexOf(b.cat);
+                    if (byCat !== 0) return byCat;
+                    if (a.cardId !== b.cardId) return a.cardId < b.cardId ? -1 : 1;
+                    return (b.rate || 0) - (a.rate || 0);
                 });
+                function hasBonusLine(cat, cardId) {
+                    for (var k = 0; k < lines.length; k++) {
+                        if (lines[k].cat === cat && lines[k].cardId === cardId && lines[k].tag) return true;
+                    }
+                    return false;
+                }
+                function capNote(line, card) {
+                    if (!card) return "";
+                    if (card.topCategory) {
+                        var monthly = "$" + card.topCategory.monthlyCap.toLocaleString("en-US");
+                        if (line.tag) return "每月前 " + monthly;
+                        if (hasBonusLine(line.cat, line.cardId)) return "超出每月 " + monthly + " 的部分";
+                        return "";
+                    }
+                    if (card.rotating && line.tag) return "季度轮换 5 倍";
+                    if (card.cap && line.tag) return "季度上限内";
+                    if (card.cap && !line.tag && hasBonusLine(line.cat, line.cardId)) return "超出季度上限的部分";
+                    if (card.categoryChoice && !line.tag && line.rate === 1 && hasBonusLine(line.cat, line.cardId)) return "超出年度上限的部分";
+                    return "";
+                }
                 for (var i = 0; i < lines.length; i++) {
                     var line = lines[i];
                     var labels = RESULT_LABELS[line.cat] || [line.cat, line.cat];
@@ -846,6 +869,8 @@
                     } else {
                         if (card) detail += " · " + card.en;
                         if (tag && (line.cat === "housing" || line.cat === "accelerator")) detail += " · " + tag;
+                        var note = capNote(line, card);
+                        if (note) detail += " · " + note;
                         if (formula) detail += " · " + formula + " = " + formatSignedDollars(line.value);
                     }
                     zh.textContent = detail;

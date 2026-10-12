@@ -127,6 +127,14 @@ var CARDS = [
             earnsOnFee: true,
             worthAboveCents: 1
         },
+        credits: [{
+            id: "companion",
+            amount: 99,
+            defaultWorth: 0,
+            en: "Companion fare",
+            zh: "同伴票",
+            hint: "每年消费满 $6,000 才有。按实际能用掉的金额填，用不到填 0。"
+        }],
         note: "房租和房贷记在同一项住房里。经 Bilt 付这笔住房收 3% 手续费，并给 3 倍 Atmos，每年 $50,000 以内。里程估值不超过 1 美分则这笔住房不走这张卡。阿拉斯加本航 3 倍不记进整个旅行类别。"
     },
     {
