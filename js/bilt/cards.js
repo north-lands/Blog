@@ -59,6 +59,7 @@ var CARDS = [
         annualFee: 0,
         earn: { dining: 3, grocery: 1, gas: 1, online: 1, travel: 1, other: 1 },
         housing: null,
+        maxCount: 3,
         rotating: { categories: ["dining", "grocery", "online"], rate: 5, quarterlyCap: 1500, usableQuarters: 2 },
         note: "餐饮全年 3 倍。季度轮换 5 倍、每季最多 $1,500，只从餐饮、超市、网购里计，默认一年只有两个季度对得上，所以最多 $3,000 按 5 倍。Chase Travel 的 5 倍不记。药店 3 倍算在其他里。"
     },
@@ -104,6 +105,7 @@ var CARDS = [
         earn: { dining: 1, grocery: 1, gas: 1, online: 1, travel: 1, other: 1 },
         housing: null,
         transfer: { fullValueWith: ["citi-strata-premier"], ratioWithout: 0.7, cashCents: 1 },
+        maxCount: 3,
         topCategory: {
             categories: ["dining", "grocery", "gas", "travel"],
             rate: 5,
@@ -155,6 +157,7 @@ var CARDS = [
         annualFee: 0,
         earn: { dining: 1, grocery: 2, gas: 1, online: 3, travel: 1, other: 1 },
         housing: null,
+        maxCount: 3,
         cap: { categories: ["online", "grocery"], quarterly: 2500, thenRate: 1 },
         note: "自选网购 3% 现金，超市 2% 现金。这两类合计每季度 $2,500，超出后按 1%。只有现金，没有积分。"
     }

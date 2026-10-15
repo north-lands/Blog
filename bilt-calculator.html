@@ -6,7 +6,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Expires" content="0">
-        <title>Bilt 计算器 Beta | 【北岛land】美国信用卡攻略指南</title>
+        <title>Bilt 2.0 计算器 | 【北岛land】美国信用卡攻略指南</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/all-animations.css">
         <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css?v=7">
+        <link rel="stylesheet" href="css/style.css?v=10">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
@@ -100,8 +100,8 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-8  col-lg-10  col-md-10  col-sm-10 col-12  d-flex align-items-center justify-content-center">
                                 <div class="page-title text-center">
-                                    <h5 class="f-700 mb-10">Bilt Calculator <span class="calc-beta">Beta</span></h5>
-                                    <h1 class="f-700 mt-10 mb-15">Your Cards</h1>
+                                    <h5 class="f-700 mb-10">Bilt 2.0 Calculator</h5>
+                                    <h1 class="f-700 mt-10 mb-15">Bilt 2.0 计算器</h1>
                                     <p class="f-700 mb-0">选卡，看一年净收益</p>
                                 </div>
                             </div>
@@ -126,6 +126,17 @@
                                         <p class="spend-total f-700 mb-0" id="card-count">0 selected</p>
                                         <p class="spend-zh mb-0" id="card-count-zh">已选 0 张</p>
 
+                                        <div class="calc-saved" id="calc-saved">
+                                            <p class="spend-en mb-0">Saved setups</p>
+                                            <p class="spend-zh mb-15">保存方案 · 每个方案都存下当前的支出、积分估值、额度和选的卡</p>
+                                            <div class="combo-form">
+                                                <input id="combo-name" type="text" maxlength="30" placeholder="Name · 方案名，可不填" autocomplete="off">
+                                                <button type="button" class="combo-save" id="combo-save">Save · 保存当前</button>
+                                                <button type="button" class="combo-reset" id="combo-reset">Reset · 重置</button>
+                                            </div>
+                                            <div id="combo-list" class="combo-list"></div>
+                                        </div>
+
                                         <div class="calc-rules">
                                             <p class="spend-en mb-0">How this is counted</p>
                                             <p class="spend-zh mb-15">计算规则</p>
@@ -137,6 +148,8 @@
                                             <p class="spend-zh mb-15">Bilt Cash。Bilt 上的消费按 4% 产生 Bilt Cash。Palladium 附带的 $200 也加进同一个池子，不在额度里另填。池子按这个顺序花：先换住房积分，每 $30 换 1,000 分，最多把住房做到 1 倍。然后 Obsidian 和 Palladium 用剩下的买积分加速器，每 $200 换 5,000 分，一年最多 5 次，每次还要在 Bilt 上消费满 $5,000。Blue 没有加速器。再剩下的记 $0。</p>
                                             <p class="mb-10">Citi Custom Cash. Each month, the calculator chooses the eligible category with the largest added reward. The first $500 in that category earns 5× TYP; the rest goes to the best selected card. Dining, grocery, gas, and travel are eligible here. Online shopping and the mixed “other” bucket are not. The same spending cannot also use Freedom Flex 5×.</p>
                                             <p class="spend-zh mb-15">Citi Custom Cash。系统每月从合资格类别里选择增量收益最高的一类，前 $500 按 5 倍 TYP，剩余消费交给已选卡里回报最高的一张。本计算器把餐饮、超市、加油、旅行列为合资格；网购和混合的「其他」不算。同一笔消费不能再叠加 Freedom Flex 的 5 倍。</p>
+                                            <p class="mb-10">More than one of the same card. Custom Cash, Freedom Flex, and Customized Cash can be counted 1 to 3 times. Each Custom Cash picks its own best category with its own $500 a month, one after another. Each Freedom Flex or Customized Cash adds another full cap. The same spending still cannot be counted twice.</p>
+                                            <p class="spend-zh mb-15">同一张卡有几张。Custom Cash、Freedom Flex、Customized Cash 可以填 1 到 3 张。每张 Custom Cash 各自挑一个最划算的类别，各有每月 $500，依次分配；每张 Freedom Flex 或 Customized Cash 多一份完整额度。同一笔消费仍然只算一次。</p>
                                             <p class="mb-10">Every selected card’s fee is charged. Credits count only the amount you type.</p>
                                             <p class="spend-zh mb-15">选中的每张卡都扣年费。额度只算你填进去的金额。</p>
                                             <p class="mb-10">These numbers are only the math. They do not price the extra work. Bilt takes more attention than a plain cash-back card: credits have to be used, and Bilt Cash has to be spent or it is worth nothing here. A smaller bank is also less of a sure thing than Chase or Citi. Time is money too.</p>
@@ -155,8 +168,8 @@
                                             <span class="spend-en">Light</span>
                                             <span class="spend-zh">轻消费 · 住房 $1,000</span>
                                         </button>
-                                        <button type="button" class="spend-preset" data-preset="middle">
-                                            <span class="spend-en">Middle</span>
+                                        <button type="button" class="spend-preset" data-preset="medium">
+                                            <span class="spend-en">Medium</span>
                                             <span class="spend-zh">中等 · 住房 $2,500</span>
                                         </button>
                                         <button type="button" class="spend-preset" data-preset="heavy">
@@ -260,6 +273,19 @@
             </div>
         </main>
 
+        <div class="calc-modal" id="reset-modal" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title" hidden>
+            <div class="calc-modal-box">
+                <p class="spend-en mb-0" id="reset-modal-title">Reset everything?</p>
+                <p class="spend-zh mb-15">确定要重置吗？</p>
+                <p class="mb-10">This deletes every saved setup and puts spending, point values, credits, and cards back to their defaults.</p>
+                <p class="spend-zh mb-20">会删掉所有已保存的方案，并把支出、积分估值、额度和选卡全部恢复默认。</p>
+                <div class="calc-modal-actions">
+                    <button type="button" class="combo-cancel" id="reset-cancel">Cancel · 取消</button>
+                    <button type="button" class="combo-reset" id="reset-confirm">Reset · 确认重置</button>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <div class="footer-area home4 pt-10">
                 <div class="footer-bottom">
@@ -313,9 +339,9 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=8"></script>
+        <script src="js/bilt/cards.js?v=9"></script>
         <script src="js/bilt/values.js?v=6"></script>
-        <script src="js/bilt/engine.js?v=6"></script>
+        <script src="js/bilt/engine.js?v=7"></script>
         <script>
             var BILT_STORAGE_KEY = "bilt-calculator";
             var BILT_VALUE_DEFAULTS_VERSION = 6;
@@ -330,6 +356,8 @@
                         values: data.values || {},
                         credits: data.credits || {},
                         cards: Array.isArray(data.cards) ? data.cards : [],
+                        cardCounts: data.cardCounts || {},
+                        combos: Array.isArray(data.combos) ? data.combos : [],
                         valuesVersion: data.valuesVersion || 1
                     };
                 } catch (error) {
@@ -387,20 +415,35 @@
                     values: next,
                     credits: saved.credits || {},
                     cards: saved.cards || [],
+                    cardCounts: saved.cardCounts || {},
+                    combos: saved.combos || [],
                     valuesVersion: BILT_VALUE_DEFAULTS_VERSION
                 });
                 return next;
             }
 
-            function saveBiltInputs() {
-                var current = readBiltStore();
-                writeBiltStore({
+            function currentInputs() {
+                return {
                     spend: collectInputs(document.getElementById("spend-form")),
                     values: collectInputs(document.getElementById("value-form")),
                     credits: collectInputs(document.getElementById("credit-form")),
                     cards: selectedCardIds(),
-                    valuesVersion: current.valuesVersion || BILT_VALUE_DEFAULTS_VERSION
-                });
+                    cardCounts: selectedCardCounts()
+                };
+            }
+
+            function saveBiltInputs() {
+                var current = readBiltStore();
+                var now = currentInputs();
+                now.combos = current.combos || [];
+                now.valuesVersion = current.valuesVersion || BILT_VALUE_DEFAULTS_VERSION;
+                writeBiltStore(now);
+            }
+
+            function saveCombos(combos) {
+                var current = readBiltStore();
+                current.combos = combos;
+                writeBiltStore(current);
             }
 
             function restoreInputs(form, saved) {
@@ -435,7 +478,7 @@
 
             var SPEND_PRESETS = {
                 light: { housing: 1000, dining: 200, grocery: 300, gas: 100, online: 100, travel: 50, other: 200 },
-                middle: { housing: 2500, dining: 400, grocery: 500, gas: 150, online: 250, travel: 200, other: 400 },
+                medium: { housing: 2500, dining: 400, grocery: 500, gas: 150, online: 250, travel: 200, other: 400 },
                 heavy: { housing: 4500, dining: 700, grocery: 600, gas: 200, online: 400, travel: 500, other: 600 }
             };
 
@@ -514,18 +557,61 @@
                 return ids;
             }
 
+            function selectedCardCounts() {
+                var buttons = document.querySelectorAll("#card-list .card-pick");
+                if (!buttons.length) {
+                    var stored = readBiltStore();
+                    return stored.cardCounts || {};
+                }
+                var counts = {};
+                for (var i = 0; i < buttons.length; i++) {
+                    var n = parseInt(buttons[i].getAttribute("data-count"), 10);
+                    if (n > 1) counts[buttons[i].getAttribute("data-card")] = n;
+                }
+                return counts;
+            }
+
             function setCardPressed(button, on) {
                 if (on) button.classList.add("is-active");
                 else button.classList.remove("is-active");
                 button.setAttribute("aria-pressed", on ? "true" : "false");
             }
 
+            function setCardQty(button, count) {
+                var card = cardById(button.getAttribute("data-card"));
+                var max = card && card.maxCount ? card.maxCount : 1;
+                if (!(count >= 1)) count = 1;
+                if (count > max) count = max;
+                button.setAttribute("data-count", String(count));
+                var wrap = button.parentNode;
+                var num = wrap ? wrap.querySelector(".card-qty-num") : null;
+                if (num) num.textContent = count + " 张";
+                var minus = wrap ? wrap.querySelector(".card-qty-minus") : null;
+                var plus = wrap ? wrap.querySelector(".card-qty-plus") : null;
+                if (minus) minus.disabled = count <= 1;
+                if (plus) plus.disabled = count >= max;
+            }
+
             function updateCardCount() {
-                var count = selectedCardIds().length;
+                var ids = selectedCardIds();
+                var counts = selectedCardCounts();
+                var total = 0;
+                for (var i = 0; i < ids.length; i++) total += counts[ids[i]] || 1;
                 var en = document.getElementById("card-count");
                 var zh = document.getElementById("card-count-zh");
-                if (en) en.textContent = count + " selected";
-                if (zh) zh.textContent = "已选 " + count + " 张";
+                if (en) en.textContent = total + " selected";
+                if (zh) zh.textContent = "已选 " + total + " 张";
+            }
+
+            function onCardQty(event) {
+                event.stopPropagation();
+                var wrap = this.parentNode.parentNode;
+                var button = wrap.querySelector(".card-pick");
+                var current = parseInt(button.getAttribute("data-count"), 10) || 1;
+                setCardQty(button, current + (this.classList.contains("card-qty-plus") ? 1 : -1));
+                updateCardCount();
+                saveBiltInputs();
+                refreshResult();
             }
 
             function onCardPick() {
@@ -541,7 +627,7 @@
                 refreshResult();
             }
 
-            function renderCardGroup(list, title, cards, chosen) {
+            function renderCardGroup(list, title, cards, chosen, counts) {
                 if (!cards.length) return;
                 var label = document.createElement("p");
                 label.className = "card-group-label";
@@ -552,6 +638,8 @@
                 grid.className = "card-picks";
                 for (var i = 0; i < cards.length; i++) {
                     var card = cards[i];
+                    var wrap = document.createElement("div");
+                    wrap.className = "card-pick-wrap";
                     var button = document.createElement("button");
                     button.type = "button";
                     button.className = "card-pick";
@@ -572,17 +660,47 @@
                     button.appendChild(zh);
                     button.appendChild(fee);
                     button.addEventListener("click", onCardPick);
-                    grid.appendChild(button);
+                    wrap.appendChild(button);
+
+                    if (card.maxCount > 1) {
+                        var qty = document.createElement("div");
+                        qty.className = "card-qty";
+                        var qtyLabel = document.createElement("span");
+                        qtyLabel.className = "card-qty-label";
+                        qtyLabel.textContent = "How many · 有几张";
+                        var minus = document.createElement("button");
+                        minus.type = "button";
+                        minus.className = "card-qty-minus";
+                        minus.textContent = "−";
+                        minus.setAttribute("aria-label", "少一张");
+                        var num = document.createElement("span");
+                        num.className = "card-qty-num";
+                        var plus = document.createElement("button");
+                        plus.type = "button";
+                        plus.className = "card-qty-plus";
+                        plus.textContent = "+";
+                        plus.setAttribute("aria-label", "多一张");
+                        minus.addEventListener("click", onCardQty);
+                        plus.addEventListener("click", onCardQty);
+                        qty.appendChild(qtyLabel);
+                        qty.appendChild(minus);
+                        qty.appendChild(num);
+                        qty.appendChild(plus);
+                        wrap.appendChild(qty);
+                    }
+                    grid.appendChild(wrap);
+                    setCardQty(button, counts && counts[card.id] ? parseInt(counts[card.id], 10) : 1);
                 }
                 list.appendChild(grid);
             }
 
-            function renderCards(selected) {
+            function renderCards(selected, counts) {
                 var list = document.getElementById("card-list");
                 if (!list || typeof CARDS === "undefined" || typeof cardById !== "function") return;
                 var chosen = {};
                 var seen = {};
                 selected = selected || [];
+                counts = counts || {};
                 for (var i = 0; i < selected.length; i++) {
                     var card = cardById(selected[i]);
                     if (!card || chosen[card.id]) continue;
@@ -603,8 +721,8 @@
                     if (CARDS[c].exclusive === "housing") housing.push(CARDS[c]);
                     else others.push(CARDS[c]);
                 }
-                renderCardGroup(list, "Bilt / Alaska · 只能选一张", housing, chosen);
-                renderCardGroup(list, "Other cards · 可多选", others, chosen);
+                renderCardGroup(list, "Bilt / Alaska · 只能选一张", housing, chosen, counts);
+                renderCardGroup(list, "Other cards · 可多选", others, chosen, counts);
                 updateCardCount();
             }
 
@@ -613,7 +731,7 @@
                 var total = document.getElementById("spend-total");
                 var saved = readBiltStore();
                 saved.values = migratePointValues(saved);
-                renderCards(saved.cards);
+                renderCards(saved.cards, saved.cardCounts);
 
                 function updateTotal() {
                     if (!form || !total) return;
@@ -650,7 +768,183 @@
                 renderPointValues(saved.values);
                 renderCredits(saved.credits);
                 refreshResult();
+                bindCombos();
+                renderCombos();
             })();
+
+            function fireInput(form) {
+                if (form) form.dispatchEvent(new Event("input", { bubbles: true }));
+            }
+
+            function comboSummary(combo) {
+                var parts = [];
+                var ids = combo.cards || [];
+                for (var i = 0; i < ids.length; i++) {
+                    var card = cardById(ids[i]);
+                    if (!card) continue;
+                    var n = combo.cardCounts && combo.cardCounts[ids[i]] ? parseInt(combo.cardCounts[ids[i]], 10) : 1;
+                    parts.push(card.en + (n > 1 ? " ×" + n : ""));
+                }
+                return parts.length ? parts.join(" · ") : "没有选卡";
+            }
+
+            function comboNet(combo) {
+                if (!combo.cards || !combo.cards.length || typeof scorePortfolio !== "function") return null;
+                var result = scorePortfolio(combo.cards, combo.spend || {}, combo.values || {}, combo.credits || {}, combo.cardCounts || {});
+                return result ? result.net : null;
+            }
+
+            function monthlySpendTotal(spend) {
+                var sum = 0;
+                for (var key in spend) {
+                    if (!Object.prototype.hasOwnProperty.call(spend, key)) continue;
+                    var v = parseFloat(spend[key]);
+                    if (!isNaN(v) && v > 0) sum += v;
+                }
+                return sum;
+            }
+
+            function renderCombos() {
+                var list = document.getElementById("combo-list");
+                if (!list) return;
+                var combos = readBiltStore().combos || [];
+                list.innerHTML = "";
+                if (!combos.length) {
+                    var empty = document.createElement("p");
+                    empty.className = "spend-zh mb-0";
+                    empty.textContent = "还没有保存的方案。填好数字、选好卡之后点「保存当前」。";
+                    list.appendChild(empty);
+                    return;
+                }
+                for (var i = 0; i < combos.length; i++) {
+                    (function (combo) {
+                        var row = document.createElement("div");
+                        row.className = "combo-row";
+                        var info = document.createElement("div");
+                        info.className = "combo-info";
+                        var name = document.createElement("span");
+                        name.className = "spend-en";
+                        name.textContent = combo.name;
+                        var meta = document.createElement("span");
+                        meta.className = "spend-zh";
+                        meta.textContent = comboSummary(combo) + " · 每月 $" + Math.round(monthlySpendTotal(combo.spend || {})).toLocaleString("en-US");
+                        info.appendChild(name);
+                        info.appendChild(meta);
+
+                        var net = document.createElement("div");
+                        net.className = "card-result-money combo-net";
+                        var value = comboNet(combo);
+                        net.textContent = value === null ? "—" : formatSignedDollars(value);
+
+                        var actions = document.createElement("div");
+                        actions.className = "combo-actions";
+                        var load = document.createElement("button");
+                        load.type = "button";
+                        load.className = "combo-load";
+                        load.textContent = "Load · 载入";
+                        load.addEventListener("click", function () { applyCombo(combo); });
+                        var remove = document.createElement("button");
+                        remove.type = "button";
+                        remove.className = "combo-delete";
+                        remove.textContent = "×";
+                        remove.setAttribute("aria-label", "删除这个方案");
+                        remove.addEventListener("click", function () {
+                            var next = (readBiltStore().combos || []).filter(function (c) { return c.id !== combo.id; });
+                            saveCombos(next);
+                            renderCombos();
+                        });
+                        actions.appendChild(load);
+                        actions.appendChild(remove);
+
+                        row.appendChild(info);
+                        row.appendChild(net);
+                        row.appendChild(actions);
+                        list.appendChild(row);
+                    })(combos[i]);
+                }
+            }
+
+            function applyCombo(combo) {
+                var spendForm = document.getElementById("spend-form");
+                var valueForm = document.getElementById("value-form");
+                var creditForm = document.getElementById("credit-form");
+                var inputs = spendForm ? spendForm.querySelectorAll("input") : [];
+                for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
+                restoreInputs(spendForm, combo.spend || {});
+                restoreInputs(valueForm, combo.values || {});
+                restoreInputs(creditForm, combo.credits || {});
+                renderCards(combo.cards || [], combo.cardCounts || {});
+                fireInput(spendForm);
+                fireInput(valueForm);
+                fireInput(creditForm);
+                saveBiltInputs();
+                refreshResult();
+                var result = document.getElementById("card-result");
+                if (result && result.scrollIntoView) result.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+
+            function saveCurrentCombo() {
+                var nameInput = document.getElementById("combo-name");
+                var combos = readBiltStore().combos || [];
+                var name = nameInput ? nameInput.value.replace(/\s+/g, " ").trim() : "";
+                if (!name) name = "方案 " + (combos.length + 1);
+                var combo = currentInputs();
+                combo.id = String(Date.now()) + "-" + Math.floor(Math.random() * 100000);
+                combo.name = name;
+                combo.savedAt = new Date().toISOString();
+                combos.push(combo);
+                saveCombos(combos);
+                if (nameInput) nameInput.value = "";
+                renderCombos();
+            }
+
+            function setResetModal(open) {
+                var modal = document.getElementById("reset-modal");
+                if (!modal) return;
+                if (open) {
+                    modal.removeAttribute("hidden");
+                    document.body.classList.add("calc-modal-open");
+                    var cancel = document.getElementById("reset-cancel");
+                    if (cancel) cancel.focus();
+                } else {
+                    modal.setAttribute("hidden", "");
+                    document.body.classList.remove("calc-modal-open");
+                }
+            }
+
+            function resetEverything() {
+                try { localStorage.removeItem(BILT_STORAGE_KEY); } catch (error) {}
+                window.location.reload();
+            }
+
+            function bindCombos() {
+                var save = document.getElementById("combo-save");
+                var reset = document.getElementById("combo-reset");
+                var nameInput = document.getElementById("combo-name");
+                var cancel = document.getElementById("reset-cancel");
+                var confirmBtn = document.getElementById("reset-confirm");
+                var modal = document.getElementById("reset-modal");
+                if (save) save.addEventListener("click", saveCurrentCombo);
+                if (nameInput) {
+                    nameInput.addEventListener("keydown", function (event) {
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            saveCurrentCombo();
+                        }
+                    });
+                }
+                if (reset) reset.addEventListener("click", function () { setResetModal(true); });
+                if (cancel) cancel.addEventListener("click", function () { setResetModal(false); });
+                if (confirmBtn) confirmBtn.addEventListener("click", resetEverything);
+                if (modal) {
+                    modal.addEventListener("click", function (event) {
+                        if (event.target === modal) setResetModal(false);
+                    });
+                }
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape" && modal && !modal.hasAttribute("hidden")) setResetModal(false);
+                });
+            }
 
             function renderPointValues(saved) {
                 var form = document.getElementById("value-form");
@@ -767,11 +1061,13 @@
                     box.appendChild(emptyZh);
                     return;
                 }
+                var counts = selectedCardCounts();
                 var result = scorePortfolio(
                     ids,
                     collectInputs(document.getElementById("spend-form")),
                     collectInputs(document.getElementById("value-form")),
-                    collectInputs(document.getElementById("credit-form"))
+                    collectInputs(document.getElementById("credit-form")),
+                    counts
                 );
                 if (!result) return;
 
@@ -837,14 +1133,16 @@
                 }
                 function capNote(line, card) {
                     if (!card) return "";
+                    var n = counts[card.id] || 1;
+                    var many = n > 1 ? " · " + n + " 张" : "";
                     if (card.topCategory) {
                         var monthly = "$" + card.topCategory.monthlyCap.toLocaleString("en-US");
-                        if (line.tag) return "每月前 " + monthly;
+                        if (line.tag) return "每月前 " + monthly + (n > 1 ? "，每张各一类" : "") + many;
                         if (hasBonusLine(line.cat, line.cardId)) return "超出每月 " + monthly + " 的部分";
                         return "";
                     }
-                    if (card.rotating && line.tag) return "季度轮换 5 倍";
-                    if (card.cap && line.tag) return "季度上限内";
+                    if (card.rotating && line.tag) return "季度轮换 5 倍" + many;
+                    if (card.cap && line.tag) return "季度上限内" + many;
                     if (card.cap && !line.tag && hasBonusLine(line.cat, line.cardId)) return "超出季度上限的部分";
                     if (card.categoryChoice && !line.tag && line.rate === 1 && hasBonusLine(line.cat, line.cardId)) return "超出年度上限的部分";
                     return "";

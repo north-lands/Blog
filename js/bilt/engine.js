@@ -169,10 +169,18 @@ function spendPools(annual, bilt, choice) {
     return pools;
 }
 
+function cardCount(card) {
+    var count = card && card.count ? Math.floor(card.count) : 1;
+    if (!(count >= 1)) count = 1;
+    if (card && card.maxCount && count > card.maxCount) count = card.maxCount;
+    return count;
+}
+
 function scarceOffers(cards, cents) {
     var offers = [];
     for (var i = 0; i < cards.length; i++) {
         var card = cards[i];
+        var count = cardCount(card);
         var pointCents = dollarsPerPoint(card, cards, cents) * 100;
         if (card.rotating) {
             offers.push({
@@ -182,7 +190,7 @@ function scarceOffers(cards, cents) {
                 rate: card.rotating.rate,
                 cents: pointCents,
                 capKey: card.id + "-rotating",
-                cap: card.rotating.quarterlyCap * card.rotating.usableQuarters,
+                cap: card.rotating.quarterlyCap * card.rotating.usableQuarters * count,
                 tag: "5x"
             });
         }
@@ -197,75 +205,117 @@ function scarceOffers(cards, cents) {
                     rate: capRate,
                     cents: pointCents,
                     capKey: card.id + "-cap",
-                    cap: card.cap.quarterly * 4,
+                    cap: card.cap.quarterly * 4 * count,
                     tag: String(capRate) + "%"
                 });
             }
         }
         if (card.topCategory) {
-            for (var t = 0; t < card.topCategory.categories.length; t++) {
-                var topCat = card.topCategory.categories[t];
-                offers.push({
-                    cardId: card.id,
-                    cats: [topCat],
-                    value: card.topCategory.rate * pointCents / 100,
-                    rate: card.topCategory.rate,
-                    cents: pointCents,
-                    capKey: card.id + "-top-" + topCat,
-                    cap: card.topCategory.monthlyCap * 12,
-                    selectionGroup: card.id + "-top",
-                    tag: String(card.topCategory.rate) + "x"
-                });
+            for (var k = 0; k < count; k++) {
+                for (var t = 0; t < card.topCategory.categories.length; t++) {
+                    var topCat = card.topCategory.categories[t];
+                    offers.push({
+                        cardId: card.id,
+                        cats: [topCat],
+                        value: card.topCategory.rate * pointCents / 100,
+                        rate: card.topCategory.rate,
+                        cents: pointCents,
+                        capKey: card.id + "-top-" + k + "-" + topCat,
+                        cap: card.topCategory.monthlyCap * 12,
+                        selectionGroup: card.id + "-top-" + k,
+                        tag: String(card.topCategory.rate) + "x"
+                    });
+                }
             }
         }
     }
     return offers;
 }
 
+function offerGainOn(offer, slices) {
+    var pieces = [];
+    var eligibleAmount = 0;
+    for (var s = 0; s < slices.length; s++) {
+        var slice = slices[s];
+        if (slice.tag || !(slice.amount > 1e-9)) continue;
+        if (offer.cats.indexOf(slice.cat) === -1) continue;
+        eligibleAmount += slice.amount;
+        pieces.push({ amount: slice.amount, gain: offer.value - (slice.value + (slice.bonus || 0)) });
+    }
+    pieces.sort(function (a, b) { return b.gain - a.gain; });
+    var room = offer.cap;
+    var totalGain = 0;
+    for (var p = 0; p < pieces.length && room > 1e-9; p++) {
+        if (pieces[p].gain <= 1e-9) break;
+        var take = Math.min(room, pieces[p].amount);
+        totalGain += take * pieces[p].gain;
+        room -= take;
+    }
+    return { totalGain: totalGain, eligibleAmount: eligibleAmount };
+}
+
+function reserveOffer(offer, slices) {
+    var room = offer.cap;
+    var guard = 0;
+    while (room > 1e-9 && guard < 40) {
+        guard++;
+        var bestIndex = -1;
+        var bestGain = 1e-9;
+        for (var s = 0; s < slices.length; s++) {
+            var slice = slices[s];
+            if (slice.tag || !(slice.amount > 1e-9)) continue;
+            if (offer.cats.indexOf(slice.cat) === -1) continue;
+            var gain = offer.value - (slice.value + (slice.bonus || 0));
+            if (gain > bestGain) {
+                bestGain = gain;
+                bestIndex = s;
+            }
+        }
+        if (bestIndex < 0) break;
+        var take = Math.min(slices[bestIndex].amount, room);
+        slices[bestIndex].amount -= take;
+        slices.push({ cat: slices[bestIndex].cat, amount: take, value: offer.value, tag: offer.tag, bonus: 0 });
+        room -= take;
+    }
+}
+
 function lockTopCategoryOffers(offers, slices) {
     var groups = {};
+    var order = [];
     for (var i = 0; i < offers.length; i++) {
         var group = offers[i].selectionGroup;
         if (!group) continue;
-        if (!groups[group]) groups[group] = [];
+        if (!groups[group]) {
+            groups[group] = [];
+            order.push(group);
+        }
         groups[group].push(offers[i]);
     }
+    var work = cloneSlices(slices);
     var winners = {};
-    for (var key in groups) {
-        if (!Object.prototype.hasOwnProperty.call(groups, key)) continue;
+    for (var g = 0; g < order.length; g++) {
+        var key = order[g];
+        var threshold = groups[key][0].value;
+        var probe = cloneSlices(work);
+        for (var f = 0; f < offers.length; f++) {
+            if (!offers[f].selectionGroup && offers[f].value > threshold + 1e-12) reserveOffer(offers[f], probe);
+        }
         var best = null;
         for (var o = 0; o < groups[key].length; o++) {
             var offer = groups[key][o];
-            var pieces = [];
-            var eligibleAmount = 0;
-            for (var s = 0; s < slices.length; s++) {
-                var slice = slices[s];
-                if (slice.tag || !(slice.amount > 1e-9)) continue;
-                if (offer.cats.indexOf(slice.cat) === -1) continue;
-                eligibleAmount += slice.amount;
-                pieces.push({
-                    amount: slice.amount,
-                    gain: offer.value - (slice.value + (slice.bonus || 0))
-                });
-            }
-            pieces.sort(function (a, b) { return b.gain - a.gain; });
-            var room = offer.cap;
-            var totalGain = 0;
-            for (var p = 0; p < pieces.length && room > 1e-9; p++) {
-                if (pieces[p].gain <= 1e-9) break;
-                var take = Math.min(room, pieces[p].amount);
-                totalGain += take * pieces[p].gain;
-                room -= take;
-            }
+            var scored = offerGainOn(offer, probe);
             if (
-                totalGain > 1e-9 &&
-                (!best || totalGain > best.totalGain + 1e-9 ||
-                    (Math.abs(totalGain - best.totalGain) <= 1e-9 && eligibleAmount > best.eligibleAmount))
+                scored.totalGain > 1e-9 &&
+                (!best || scored.totalGain > best.totalGain + 1e-9 ||
+                    (Math.abs(scored.totalGain - best.totalGain) <= 1e-9 && scored.eligibleAmount > best.eligibleAmount))
             ) {
-                best = { offer: offer, totalGain: totalGain, eligibleAmount: eligibleAmount };
+                best = { offer: offer, totalGain: scored.totalGain, eligibleAmount: scored.eligibleAmount };
             }
         }
-        if (best) winners[key] = best.offer;
+        if (best) {
+            winners[key] = best.offer;
+            reserveOffer(best.offer, work);
+        }
     }
     var locked = [];
     for (var n = 0; n < offers.length; n++) {
@@ -562,9 +612,8 @@ function buildLines(slices, housing, housingCardId, housingTag, housingValue, ca
 }
 
 function candidateFrom(cards, slices, mode, choice, housingValue, housingCardId, housingTag, cashValue, accel, worth, annualHousing, housingMeta) {
-    var ids = [];
-    for (var i = 0; i < cards.length; i++) ids.push(cards[i].id);
-    var fee = portfolioNetFee(ids, worth);
+    var fee = 0;
+    for (var i = 0; i < cards.length; i++) fee += netAnnualFee(cards[i], worth) * cardCount(cards[i]);
     var accelPoints = accel ? accel.pointsValue : 0;
     var net = baseEarn(slices) + housingValue + accelPoints - fee;
     var lines = buildLines(slices, annualHousing, housingCardId, housingTag, housingValue, cashValue, accel, housingMeta);
@@ -707,12 +756,25 @@ function scoreChoice(cards, annual, cents, worth, choice, bilt) {
     return list;
 }
 
-function scorePortfolio(cardIds, monthly, centsInput, worthByKey) {
+function withCount(card, count) {
+    var copy = {};
+    for (var key in card) {
+        if (Object.prototype.hasOwnProperty.call(card, key)) copy[key] = card[key];
+    }
+    copy.count = count;
+    return copy;
+}
+
+function scorePortfolio(cardIds, monthly, centsInput, worthByKey, countById) {
     if (!cardIds || !cardIds.length || !isValidPortfolio(cardIds)) return null;
     var cards = [];
     for (var i = 0; i < cardIds.length; i++) {
         var card = cardById(cardIds[i]);
-        if (card) cards.push(card);
+        if (!card) continue;
+        var requested = countById && countById[card.id] ? parseInt(countById[card.id], 10) : 1;
+        if (!(requested >= 1)) requested = 1;
+        if (!card.maxCount) requested = 1;
+        cards.push(withCount(card, Math.min(requested, card.maxCount || 1)));
     }
     if (!cards.length) return null;
     var cents = normalizeCents(centsInput);
