@@ -54,6 +54,7 @@ var CARDS = [
     {
         id: "chase-freedom-flex",
         en: "Chase Freedom Flex",
+        short: "Freedom Flex",
         zh: "Chase Freedom Flex",
         currency: "ur",
         annualFee: 0,
@@ -66,6 +67,7 @@ var CARDS = [
     {
         id: "chase-sapphire-preferred",
         en: "Chase Sapphire Preferred",
+        short: "Sapphire Preferred",
         zh: "Chase Sapphire Preferred",
         currency: "ur",
         annualFee: 95,
@@ -77,6 +79,7 @@ var CARDS = [
     {
         id: "citi-double-cash",
         en: "Citi Double Cash",
+        short: "Double Cash",
         zh: "Citi Double Cash",
         currency: "typ",
         annualFee: 0,
@@ -88,6 +91,7 @@ var CARDS = [
     {
         id: "citi-strata-premier",
         en: "Citi Strata Premier",
+        short: "Strata Premier",
         zh: "Citi Premier（现 Strata Premier）",
         currency: "typ",
         annualFee: 95,
@@ -99,6 +103,7 @@ var CARDS = [
     {
         id: "citi-custom-cash",
         en: "Citi Custom Cash",
+        short: "Custom Cash",
         zh: "Citi Custom Cash",
         currency: "typ",
         annualFee: 0,
@@ -142,6 +147,7 @@ var CARDS = [
     {
         id: "wf-autograph",
         en: "Wells Fargo Autograph",
+        short: "Autograph",
         zh: "富国 Autograph",
         currency: "wf",
         annualFee: 0,
@@ -152,6 +158,7 @@ var CARDS = [
     {
         id: "boa-customized-cash",
         en: "Bank of America Customized Cash",
+        short: "Customized Cash",
         zh: "美国银行 Customized Cash",
         currency: "cash",
         annualFee: 0,

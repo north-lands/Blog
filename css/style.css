@@ -2209,10 +2209,9 @@ input:checked + .slider::before{ transform: translateX(26px);}
 .combo-info .spend-zh {
 	display: block;
 	font-size: 12px;
+	line-height: 1.5;
 	color: #777;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	overflow-wrap: anywhere;
 }
 .combo-net {
 	font-size: 16px;
