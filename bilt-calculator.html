@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/all-animations.css">
         <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css?v=10">
+        <link rel="stylesheet" href="css/style.css?v=11">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
@@ -339,7 +339,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=9"></script>
+        <script src="js/bilt/cards.js?v=10"></script>
         <script src="js/bilt/values.js?v=6"></script>
         <script src="js/bilt/engine.js?v=7"></script>
         <script>
@@ -783,7 +783,7 @@
                     var card = cardById(ids[i]);
                     if (!card) continue;
                     var n = combo.cardCounts && combo.cardCounts[ids[i]] ? parseInt(combo.cardCounts[ids[i]], 10) : 1;
-                    parts.push(card.en + (n > 1 ? " ×" + n : ""));
+                    parts.push((card.short || card.en) + (n > 1 ? " ×" + n : ""));
                 }
                 return parts.length ? parts.join(" · ") : "没有选卡";
             }
