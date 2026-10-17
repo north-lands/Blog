@@ -1873,6 +1873,36 @@ input:checked + .slider::before{ transform: translateX(26px);}
 	.bilt-slip { margin-bottom: 10px; }
 }
 
+.housing-switch {
+	display: inline-flex;
+	gap: 4px;
+	padding: 4px;
+	margin-bottom: 8px;
+	border: 1px solid #e3e0ff;
+	border-radius: 14px;
+	background: #fff;
+}
+.housing-option {
+	min-width: 120px;
+	padding: 8px 18px;
+	border: 0;
+	border-radius: 10px;
+	background: transparent;
+	text-align: center;
+	cursor: pointer;
+}
+.housing-option .spend-en,
+.housing-option .spend-zh {
+	display: block;
+}
+.housing-option.is-active {
+	background: #6c63ff;
+	box-shadow: 0 6px 16px rgba(108, 99, 255, 0.25);
+}
+.housing-option.is-active .spend-en,
+.housing-option.is-active .spend-zh {
+	color: #fff;
+}
 .spend-presets {
 	display: flex;
 	gap: 12px;
@@ -2205,6 +2235,21 @@ input:checked + .slider::before{ transform: translateX(26px);}
 .combo-info .spend-en {
 	display: block;
 	font-size: 15px;
+}
+.combo-housing {
+	display: inline-block;
+	margin-left: 8px;
+	padding: 1px 8px 2px;
+	border-radius: 999px;
+	background: #f5f4ff;
+	color: #6c63ff;
+	font-size: 12px;
+	font-weight: 700;
+	vertical-align: 2px;
+}
+.combo-housing.is-mortgage {
+	background: #fff4e5;
+	color: #c27100;
 }
 .combo-info .spend-zh {
 	display: block;

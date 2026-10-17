@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/all-animations.css">
         <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css?v=11">
+        <link rel="stylesheet" href="css/style.css?v=13">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
@@ -148,6 +148,8 @@
                                             <p class="spend-zh mb-15">Bilt Cash。Bilt 上的消费按 4% 产生 Bilt Cash。Palladium 附带的 $200 也加进同一个池子，不在额度里另填。池子按这个顺序花：先换住房积分，每 $30 换 1,000 分，最多把住房做到 1 倍。然后 Obsidian 和 Palladium 用剩下的买积分加速器，每 $200 换 5,000 分，一年最多 5 次，每次还要在 Bilt 上消费满 $5,000。Blue 没有加速器。再剩下的记 $0。</p>
                                             <p class="mb-10">Citi Custom Cash. Each month, the calculator chooses the eligible category with the largest added reward. The first $500 in that category earns 5× TYP; the rest goes to the best selected card. Dining, grocery, gas, and travel are eligible here. Online shopping and the mixed “other” bucket are not. The same spending cannot also use Freedom Flex 5×.</p>
                                             <p class="spend-zh mb-15">Citi Custom Cash。系统每月从合资格类别里选择增量收益最高的一类，前 $500 按 5 倍 TYP，剩余消费交给已选卡里回报最高的一张。本计算器把餐饮、超市、加油、旅行列为合资格；网购和混合的「其他」不算。同一笔消费不能再叠加 Freedom Flex 的 5 倍。</p>
+                                            <p class="mb-10">Atmos Rewards Ascent. Only rent earns here; mortgage does not, so the card is hidden when Mortgage is picked. Rent paid through Bilt costs a 3% fee and earns 3× Atmos on the charged amount, up to $50,000 a year (about $4,167 a month). Anything above that earns only 1×, and the 3% fee still applies, so it only pays when Atmos is worth more than about 2.91¢. Otherwise the part above $50,000 is left off the card and counts as $0.</p>
+                                            <p class="spend-zh mb-15">Atmos Rewards Ascent。只有房租有奖励，房贷没有，所以选房贷时这张卡不显示。房租经 Bilt 刷这张卡要付 3% 手续费，按刷卡金额给 3 倍 Atmos，每年上限 $50,000（约每月 $4,167）。超过的部分只有 1 倍，手续费照收，只有 Atmos 估值高于约 2.91 美分才划算；否则超出部分不刷这张卡，记 $0。</p>
                                             <p class="mb-10">More than one of the same card. Custom Cash, Freedom Flex, and Customized Cash can be counted 1 to 3 times. Each Custom Cash picks its own best category with its own $500 a month, one after another. Each Freedom Flex or Customized Cash adds another full cap. The same spending still cannot be counted twice.</p>
                                             <p class="spend-zh mb-15">同一张卡有几张。Custom Cash、Freedom Flex、Customized Cash 可以填 1 到 3 张。每张 Custom Cash 各自挑一个最划算的类别，各有每月 $500，依次分配；每张 Freedom Flex 或 Customized Cash 多一份完整额度。同一笔消费仍然只算一次。</p>
                                             <p class="mb-10">Every selected card’s fee is charged. Credits count only the amount you type.</p>
@@ -160,8 +162,20 @@
                                     <div class="calc-inputs">
                                     <h3 class="f-700 mb-10">Inputs</h3>
                                     <h4 class="mb-10">支出、积分和额度</h4>
-                                    <p class="mb-15">A typical month. Rent and mortgage go together. Use 0 if a category does not apply.</p>
-                                    <p class="spend-zh mb-20">按平常的一个月来填。房租和房贷填在一起。没有的类别填 0。</p>
+                                    <p class="mb-15">A typical month. Pick rent or mortgage first. Use 0 if a category does not apply.</p>
+                                    <p class="spend-zh mb-20">按平常的一个月来填。先选房租还是房贷。没有的类别填 0。</p>
+
+                                    <div class="housing-switch" id="housing-switch" role="group" aria-label="Rent or mortgage">
+                                        <button type="button" class="housing-option is-active" data-housing="rent" aria-pressed="true">
+                                            <span class="spend-en">Rent</span>
+                                            <span class="spend-zh">房租</span>
+                                        </button>
+                                        <button type="button" class="housing-option" data-housing="mortgage" aria-pressed="false">
+                                            <span class="spend-en">Mortgage</span>
+                                            <span class="spend-zh">房贷</span>
+                                        </button>
+                                    </div>
+                                    <p class="spend-zh mb-20" id="housing-switch-note">Atmos Rewards Ascent 只在房租上有奖励，房贷不行。选房贷后这张卡不出现在列表里。</p>
 
                                     <div class="spend-presets" id="spend-presets">
                                         <button type="button" class="spend-preset" data-preset="light">
@@ -185,8 +199,8 @@
                                     <form id="spend-form" class="spend-form">
                                         <div class="spend-row">
                                             <label for="housing">
-                                                <span class="spend-en">Rent / mortgage</span>
-                                                <span class="spend-zh">房租或房贷</span>
+                                                <span class="spend-en" id="housing-label-en">Rent</span>
+                                                <span class="spend-zh" id="housing-label-zh">房租</span>
                                             </label>
                                             <div class="spend-input">
                                                 <span>$</span>
@@ -339,9 +353,9 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=10"></script>
+        <script src="js/bilt/cards.js?v=12"></script>
         <script src="js/bilt/values.js?v=6"></script>
-        <script src="js/bilt/engine.js?v=7"></script>
+        <script src="js/bilt/engine.js?v=9"></script>
         <script>
             var BILT_STORAGE_KEY = "bilt-calculator";
             var BILT_VALUE_DEFAULTS_VERSION = 6;
@@ -358,6 +372,7 @@
                         cards: Array.isArray(data.cards) ? data.cards : [],
                         cardCounts: data.cardCounts || {},
                         combos: Array.isArray(data.combos) ? data.combos : [],
+                        housingType: data.housingType === "mortgage" ? "mortgage" : "rent",
                         valuesVersion: data.valuesVersion || 1
                     };
                 } catch (error) {
@@ -417,6 +432,7 @@
                     cards: saved.cards || [],
                     cardCounts: saved.cardCounts || {},
                     combos: saved.combos || [],
+                    housingType: saved.housingType || "rent",
                     valuesVersion: BILT_VALUE_DEFAULTS_VERSION
                 });
                 return next;
@@ -428,8 +444,60 @@
                     values: collectInputs(document.getElementById("value-form")),
                     credits: collectInputs(document.getElementById("credit-form")),
                     cards: selectedCardIds(),
-                    cardCounts: selectedCardCounts()
+                    cardCounts: selectedCardCounts(),
+                    housingType: currentHousingType()
                 };
+            }
+
+            function currentHousingType() {
+                var active = document.querySelector("#housing-switch .housing-option.is-active");
+                return active && active.getAttribute("data-housing") === "mortgage" ? "mortgage" : "rent";
+            }
+
+            function spendWithHousing(spend, housingType) {
+                var copy = {};
+                for (var key in spend) {
+                    if (Object.prototype.hasOwnProperty.call(spend, key)) copy[key] = spend[key];
+                }
+                copy.housingType = housingType === "mortgage" ? "mortgage" : "rent";
+                return copy;
+            }
+
+            function cardAllowed(card, housingType) {
+                return !(card.housing && card.housing.rentOnly && housingType === "mortgage");
+            }
+
+            function setHousingType(type) {
+                type = type === "mortgage" ? "mortgage" : "rent";
+                var options = document.querySelectorAll("#housing-switch .housing-option");
+                for (var i = 0; i < options.length; i++) {
+                    var on = options[i].getAttribute("data-housing") === type;
+                    if (on) options[i].classList.add("is-active");
+                    else options[i].classList.remove("is-active");
+                    options[i].setAttribute("aria-pressed", on ? "true" : "false");
+                }
+                var en = document.getElementById("housing-label-en");
+                var zh = document.getElementById("housing-label-zh");
+                if (en) en.textContent = type === "mortgage" ? "Mortgage" : "Rent";
+                if (zh) zh.textContent = type === "mortgage" ? "房贷" : "房租";
+                RESULT_LABELS.housing = type === "mortgage" ? ["Mortgage", "房贷"] : ["Rent", "房租"];
+                return type;
+            }
+
+            function bindHousingSwitch() {
+                var options = document.querySelectorAll("#housing-switch .housing-option");
+                for (var i = 0; i < options.length; i++) {
+                    options[i].addEventListener("click", function () {
+                        var type = this.getAttribute("data-housing");
+                        if (type === currentHousingType()) return;
+                        var keepCards = selectedCardIds();
+                        var keepCounts = selectedCardCounts();
+                        setHousingType(type);
+                        renderCards(keepCards, keepCounts);
+                        saveBiltInputs();
+                        refreshResult();
+                    });
+                }
             }
 
             function saveBiltInputs() {
@@ -458,7 +526,7 @@
             }
 
             var RESULT_LABELS = {
-                housing: ["Rent / mortgage", "房租或房贷"],
+                housing: ["Rent", "房租"],
                 dining: ["Dining", "餐饮"],
                 grocery: ["Grocery", "超市"],
                 gas: ["Gas", "加油"],
@@ -699,11 +767,12 @@
                 if (!list || typeof CARDS === "undefined" || typeof cardById !== "function") return;
                 var chosen = {};
                 var seen = {};
+                var housingType = currentHousingType();
                 selected = selected || [];
                 counts = counts || {};
                 for (var i = 0; i < selected.length; i++) {
                     var card = cardById(selected[i]);
-                    if (!card || chosen[card.id]) continue;
+                    if (!card || chosen[card.id] || !cardAllowed(card, housingType)) continue;
                     var keys = typeof exclusiveKeys === "function" ? exclusiveKeys(card) : [];
                     var blocked = false;
                     for (var k = 0; k < keys.length; k++) {
@@ -717,11 +786,17 @@
                 list.innerHTML = "";
                 var housing = [];
                 var others = [];
+                var hasAlaska = false;
                 for (var c = 0; c < CARDS.length; c++) {
-                    if (CARDS[c].exclusive === "housing") housing.push(CARDS[c]);
-                    else others.push(CARDS[c]);
+                    if (!cardAllowed(CARDS[c], housingType)) continue;
+                    if (CARDS[c].exclusive === "housing") {
+                        housing.push(CARDS[c]);
+                        if (CARDS[c].group !== "bilt") hasAlaska = true;
+                    } else {
+                        others.push(CARDS[c]);
+                    }
                 }
-                renderCardGroup(list, "Bilt / Alaska · 只能选一张", housing, chosen, counts);
+                renderCardGroup(list, hasAlaska ? "Bilt / Alaska · 只能选一张" : "Bilt · 只能选一张", housing, chosen, counts);
                 renderCardGroup(list, "Other cards · 可多选", others, chosen, counts);
                 updateCardCount();
             }
@@ -731,6 +806,8 @@
                 var total = document.getElementById("spend-total");
                 var saved = readBiltStore();
                 saved.values = migratePointValues(saved);
+                setHousingType(saved.housingType);
+                bindHousingSwitch();
                 renderCards(saved.cards, saved.cardCounts);
 
                 function updateTotal() {
@@ -790,7 +867,7 @@
 
             function comboNet(combo) {
                 if (!combo.cards || !combo.cards.length || typeof scorePortfolio !== "function") return null;
-                var result = scorePortfolio(combo.cards, combo.spend || {}, combo.values || {}, combo.credits || {}, combo.cardCounts || {});
+                var result = scorePortfolio(combo.cards, spendWithHousing(combo.spend || {}, combo.housingType), combo.values || {}, combo.credits || {}, combo.cardCounts || {});
                 return result ? result.net : null;
             }
 
@@ -825,6 +902,10 @@
                         var name = document.createElement("span");
                         name.className = "spend-en";
                         name.textContent = combo.name;
+                        var housingTag = document.createElement("span");
+                        housingTag.className = "combo-housing" + (combo.housingType === "mortgage" ? " is-mortgage" : "");
+                        housingTag.textContent = combo.housingType === "mortgage" ? "Mortgage · 房贷" : "Rent · 房租";
+                        name.appendChild(housingTag);
                         var meta = document.createElement("span");
                         meta.className = "spend-zh";
                         meta.textContent = comboSummary(combo) + " · 每月 $" + Math.round(monthlySpendTotal(combo.spend || {})).toLocaleString("en-US");
@@ -873,6 +954,7 @@
                 restoreInputs(spendForm, combo.spend || {});
                 restoreInputs(valueForm, combo.values || {});
                 restoreInputs(creditForm, combo.credits || {});
+                setHousingType(combo.housingType);
                 renderCards(combo.cards || [], combo.cardCounts || {});
                 fireInput(spendForm);
                 fireInput(valueForm);
@@ -1018,6 +1100,7 @@
                 if (tag === "floor") return "250 pts/mo · 每月保底 250 分";
                 if (tag === "5x") return "5×";
                 if (tag === "3x") return "3×";
+                if (tag === "over-cap") return "";
                 return tag;
             }
 
@@ -1064,7 +1147,7 @@
                 var counts = selectedCardCounts();
                 var result = scorePortfolio(
                     ids,
-                    collectInputs(document.getElementById("spend-form")),
+                    spendWithHousing(collectInputs(document.getElementById("spend-form")), currentHousingType()),
                     collectInputs(document.getElementById("value-form")),
                     collectInputs(document.getElementById("credit-form")),
                     counts
@@ -1133,6 +1216,12 @@
                 }
                 function capNote(line, card) {
                     if (!card) return "";
+                    if (line.cat === "housing" && card.housing && card.housing.annualCap) {
+                        var yearly = "$" + card.housing.annualCap.toLocaleString("en-US");
+                        if (line.tag === "over-cap") return "超过每年 " + yearly + " 的部分按 " + card.housing.overRate + "×";
+                        if (line.capped) return "每年前 " + yearly;
+                        return "";
+                    }
                     var n = counts[card.id] || 1;
                     var many = n > 1 ? " · " + n + " 张" : "";
                     if (card.topCategory) {
@@ -1169,7 +1258,11 @@
                         if (tag && (line.cat === "housing" || line.cat === "accelerator")) detail += " · " + tag;
                         var note = capNote(line, card);
                         if (note) detail += " · " + note;
-                        if (formula) detail += " · " + formula + " = " + formatSignedDollars(line.value);
+                        if (line.tag === "over-cap" && !(line.raw > 0)) {
+                            detail += " · " + formula + " = " + formatSignedDollars(line.raw) + "，不划算，这部分不刷这张卡，记 $0";
+                        } else if (formula) {
+                            detail += " · " + formula + " = " + formatSignedDollars(line.value);
+                        }
                     }
                     zh.textContent = detail;
                     label.appendChild(en);

@@ -89,6 +89,7 @@ function annualFromMonthly(monthly) {
         var numeric = parseFloat(monthly && monthly[keys[i]]);
         annual[keys[i]] = !isNaN(numeric) && numeric > 0 ? numeric * 12 : 0;
     }
+    annual.housingType = monthly && monthly.housingType === "mortgage" ? "mortgage" : "rent";
     return annual;
 }
 
@@ -99,9 +100,12 @@ function findBiltCard(cards) {
     return null;
 }
 
-function findAlaskaCard(cards) {
+function findAlaskaCard(cards, housingType) {
     for (var i = 0; i < cards.length; i++) {
-        if (cards[i].housing && cards[i].housing.kind === "atmos-rent") return cards[i];
+        var rule = cards[i].housing;
+        if (!rule || rule.kind !== "atmos-rent") continue;
+        if (rule.rentOnly && housingType === "mortgage") continue;
+        return cards[i];
     }
     return null;
 }
@@ -529,6 +533,24 @@ function housingPointCount(spend, housing) {
     return { points: housing * 1.25, tier: "1.25x" };
 }
 
+function alaskaOverCap(card, housing, cents) {
+    if (!card || !(housing > 0)) return null;
+    var rule = card.housing;
+    var over = housing - rule.annualCap;
+    if (!(over > 0.5) || !(rule.overRate > 0)) return null;
+    var asCents = cents[card.currency] || 0;
+    var multiplier = rule.overRate * (rule.earnsOnFee ? (1 + rule.fee) : 1);
+    var raw = over * (multiplier * (asCents / 100) - rule.fee);
+    return {
+        basis: over,
+        rate: multiplier,
+        cents: asCents,
+        feeAmount: over * rule.fee,
+        raw: raw,
+        value: raw > 0 ? raw : 0
+    };
+}
+
 function alaskaHousingValue(card, housing, cents) {
     if (!card || !(housing > 0)) return 0;
     var rule = card.housing;
@@ -536,7 +558,8 @@ function alaskaHousingValue(card, housing, cents) {
     if (!(asCents > rule.worthAboveCents)) return 0;
     var capped = Math.min(housing, rule.annualCap);
     var multiplier = rule.rate * (rule.earnsOnFee ? (1 + rule.fee) : 1);
-    return capped * (multiplier * (asCents / 100) - rule.fee);
+    var over = alaskaOverCap(card, housing, cents);
+    return capped * (multiplier * (asCents / 100) - rule.fee) + (over ? over.value : 0);
 }
 
 function acceleratorBonus(card, biltSpend, leftCash, cpp) {
@@ -580,17 +603,33 @@ function buildLines(slices, housing, housingCardId, housingTag, housingValue, ca
     for (var n = 0; n < order.length; n++) lines.push(merged[order[n]]);
     if (housing > 0) {
         var meta = housingMeta || {};
+        var over = housingValue > 0 ? meta.over : null;
         lines.push({
             cat: "housing",
             cardId: housingValue > 0 ? housingCardId : "",
             tag: housingValue > 0 ? housingTag : "",
             amount: meta.basis > 0 ? meta.basis : housing,
-            value: housingValue,
+            value: housingValue - (over ? over.value : 0),
             rate: meta.rate || 0,
             cents: meta.cents || 0,
             points: meta.points || 0,
-            feeAmount: meta.feeAmount || 0
+            feeAmount: meta.feeAmount || 0,
+            capped: !!over
         });
+        if (over) {
+            lines.push({
+                cat: "housing",
+                cardId: housingCardId,
+                tag: "over-cap",
+                amount: over.basis,
+                value: over.value,
+                raw: over.raw,
+                rate: over.rate,
+                cents: over.cents,
+                points: 0,
+                feeAmount: over.feeAmount
+            });
+        }
     }
     if (cashValue > 0.5) {
         lines.push({ cat: "bilt-cash", cardId: "", tag: "", amount: cashValue, value: 0, rate: 0, cents: 0, points: 0, feeAmount: 0 });
@@ -684,13 +723,14 @@ function alaskaHousingMeta(card, housing, cents) {
         rate: multiplier,
         cents: asCents,
         points: 0,
-        feeAmount: capped * rule.fee
+        feeAmount: capped * rule.fee,
+        over: alaskaOverCap(card, housing, cents)
     };
 }
 
 function scoreChoice(cards, annual, cents, worth, choice, bilt) {
     var housing = annual.housing || 0;
-    var alaska = findAlaskaCard(cards);
+    var alaska = findAlaskaCard(cards, annual.housingType);
     var alaskaValue = alaskaHousingValue(alaska, housing, cents);
     var list = [];
     if (!bilt) {
