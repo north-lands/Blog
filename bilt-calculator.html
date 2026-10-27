@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/all-animations.css">
         <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css?v=19">
+        <link rel="stylesheet" href="css/style.css?v=21">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
@@ -196,6 +196,7 @@
                                                     <li><span class="rule-en">Everyday spend no longer earns 4% Bilt Cash. Housing earns only through the housing-points steps above.</span><span class="rule-zh">日常消费不再返 4% Bilt Cash，住房只按上面住房积分的档位给分。</span></li>
                                                     <li><span class="rule-en">Bilt Cash can no longer unlock housing points. Here it only buys the Point Accelerator: each $200 adds +1× on the next $5,000 of Bilt spend, up to 5 times a year.</span><span class="rule-zh">Bilt Cash 不能再换住房积分，这里只拿来买积分加速器：每 $200 让接下来 $5,000 的 Bilt 消费多 1 倍，一年最多 5 次。</span></li>
                                                     <li><span class="rule-en">Where it comes from: Palladium’s $600 a year, plus $50 for every 25,000 Bilt points earned (everyday and housing points).</span><span class="rule-zh">来源：Palladium 每年送的 $600，加上每累计 25,000 分（日常和住房积分）送的 $50。</span></li>
+                                                    <li><span class="rule-en">Palladium: in Credits, pick how the $600 is used. Point Accelerator puts all of it into accelerators. Hotel uses $400 on hotel bookings (twice a year, $200 each), at the worth you type, and the other $200 buys one accelerator.</span><span class="rule-zh">Palladium：在额度里选这 $600 怎么用。选「积分加速器」就全部拿去买加速器；选「订酒店」就用 $400 订酒店（每年两次、每次 $200），价值按你填的算，剩下的 $200 买一次加速器。</span></li>
                                                     <li><span class="rule-en">Obsidian’s $100 a year is not enough for one accelerator, so it is a credit whose worth you type in.</span><span class="rule-zh">Obsidian 每年的 $100 不够开一次加速器，所以当作额度，由你填实际能用掉的金额。</span></li>
                                                     <li><span class="rule-en">Cash still left counts as $0. Daily Rewards are not counted.</span><span class="rule-zh">再剩下的记 $0。Daily Rewards 不计入。</span></li>
                                                 </ul>
@@ -456,9 +457,9 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=13"></script>
+        <script src="js/bilt/cards.js?v=14"></script>
         <script src="js/bilt/values.js?v=6"></script>
-        <script src="js/bilt/engine.js?v=10"></script>
+        <script src="js/bilt/engine.js?v=11"></script>
         <script>
             var BILT_STORAGE_KEY = "bilt-calculator";
             var BILT_VALUE_DEFAULTS_VERSION = 6;
@@ -1010,7 +1011,13 @@
                     var card = cardById(ids[i]);
                     if (!card) continue;
                     var n = combo.cardCounts && combo.cardCounts[ids[i]] ? parseInt(combo.cardCounts[ids[i]], 10) : 1;
-                    parts.push((card.short || card.en) + (n > 1 ? " ×" + n : ""));
+                    var label = (card.short || card.en) + (n > 1 ? " ×" + n : "");
+                    var rules = cardForRules(card, combo.ruleSet === "2027" ? "2027" : "legacy");
+                    if (combo.ruleSet === "2027" && rules.cashChoice) {
+                        var use = combo.credits && combo.credits[cashChoiceKey(rules)] === "hotel" ? "Hotel" : "Point Accelerator";
+                        label += " (" + use + ")";
+                    }
+                    parts.push(label);
                 }
                 return parts.length ? parts.join(" · ") : "没有选卡";
             }
@@ -1434,6 +1441,71 @@
                 }
             }
 
+            function renderCashChoice(card, saved) {
+                var key = cashChoiceKey(card);
+                var box = document.createElement("div");
+                box.className = "cash-choice";
+                box.setAttribute("data-key", key);
+
+                var ask = document.createElement("p");
+                ask.className = "spend-zh mb-0";
+                ask.textContent = "每年 $" + card.annualBiltCash + " Bilt Cash 怎么用？";
+                box.appendChild(ask);
+
+                var hidden = document.createElement("input");
+                hidden.type = "hidden";
+                hidden.name = key;
+                hidden.value = saved[key] === "hotel" ? "hotel" : "accel";
+                box.appendChild(hidden);
+
+                var group = document.createElement("div");
+                group.className = "housing-switch cash-switch";
+                var options = [["accel", "Point Accelerator"], ["hotel", "Hotel"]];
+                for (var i = 0; i < options.length; i++) {
+                    var button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "housing-option";
+                    button.setAttribute("data-choice", options[i][0]);
+                    button.textContent = options[i][1];
+                    button.addEventListener("click", function () {
+                        hidden.value = this.getAttribute("data-choice");
+                        var form = document.getElementById("credit-form");
+                        if (form) form.dispatchEvent(new Event("input", { bubbles: true }));
+                    });
+                    group.appendChild(button);
+                }
+                box.appendChild(group);
+
+                var note = document.createElement("p");
+                note.className = "spend-zh mb-0 cash-choice-note";
+                box.appendChild(note);
+                return box;
+            }
+
+            function syncCashChoices() {
+                var notes = {
+                    accel: "全部 $600 拿去买积分加速器：每 $200 一次，最多 3 次，每次要在 Bilt 上消费满 $5,000。结果见奖励明细。",
+                    hotel: "$400 用来订酒店（每年两次、每次 $200），价值按下面填的算；剩下的 $200 拿去买一次积分加速器。"
+                };
+                var boxes = document.querySelectorAll("#credit-form .cash-choice");
+                for (var i = 0; i < boxes.length; i++) {
+                    var hidden = boxes[i].querySelector("input[type='hidden']");
+                    var choice = hidden && hidden.value === "hotel" ? "hotel" : "accel";
+                    var buttons = boxes[i].querySelectorAll(".housing-option");
+                    for (var b = 0; b < buttons.length; b++) {
+                        var on = buttons[b].getAttribute("data-choice") === choice;
+                        if (on) buttons[b].classList.add("is-active");
+                        else buttons[b].classList.remove("is-active");
+                        buttons[b].setAttribute("aria-pressed", on ? "true" : "false");
+                    }
+                    var note = boxes[i].querySelector(".cash-choice-note");
+                    if (note) note.textContent = notes[choice];
+                    var block = boxes[i].parentNode;
+                    var row = block ? block.querySelector(".cash-hotel-row") : null;
+                    if (row) row.hidden = choice !== "hotel";
+                }
+            }
+
             function renderCredits(saved) {
                 var form = document.getElementById("credit-form");
                 if (!form || typeof CARDS === "undefined" || typeof netAnnualFee !== "function") return;
@@ -1452,8 +1524,8 @@
 
                 for (var v = 0; v < variants.length; v++) {
                     var card = variants[v].card;
-                    var credits = card.credits || [];
-                    if (!credits.length && !card.creditNote) continue;
+                    var credits = (card.credits || []).slice();
+                    if (!credits.length && !card.creditNote && !card.cashChoice) continue;
 
                     var block = document.createElement("div");
                     block.className = "credit-card";
@@ -1477,11 +1549,18 @@
                         block.appendChild(cardNote);
                     }
 
+                    var hotelCreditId = "";
+                    if (card.cashChoice) {
+                        block.appendChild(renderCashChoice(card, saved));
+                        credits.push(card.cashChoice.hotelCredit);
+                        hotelCreditId = card.cashChoice.hotelCredit.id;
+                    }
+
                     for (var j = 0; j < credits.length; j++) {
                         var credit = credits[j];
                         var key = creditKey(card.id, credit.id);
                         var row = document.createElement("div");
-                        row.className = "spend-row";
+                        row.className = "spend-row" + (credit.id === hotelCreditId ? " cash-hotel-row" : "");
 
                         var label = document.createElement("label");
                         label.htmlFor = "credit-" + key;
@@ -1540,14 +1619,16 @@
                     for (var n = 0; n < lines.length; n++) {
                         var current = cardById(lines[n].getAttribute("data-card"));
                         if (!current) continue;
-                        if (lines[n].getAttribute("data-rules") === "2027") current = cardForRules(current, "2027");
+                        if (lines[n].getAttribute("data-rules") === "2027") current = applyCashChoice(cardForRules(current, "2027"), worth);
                         var netFee = netAnnualFee(current, worth);
                         lines[n].textContent = "净年费 " + formatSignedDollars(netFee) + " · Net fee " + formatSignedDollars(netFee);
                     }
                 }
 
+                syncCashChoices();
                 updateNetFees();
                 form.addEventListener("input", function () {
+                    syncCashChoices();
                     updateNetFees();
                     saveBiltInputs();
                     refreshResult();

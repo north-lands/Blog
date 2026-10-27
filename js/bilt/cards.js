@@ -62,7 +62,18 @@ var CARDS = [
         rules2027: {
             annualBiltCash: 600,
             credits: [],
-            creditNote: "每年 $600 Bilt Cash，不用在这里填。系统自动拿去买积分加速器，结果见奖励明细。"
+            cashChoice: {
+                id: "cash-use",
+                hotelAmount: 400,
+                hotelCredit: {
+                    id: "hotel-2027",
+                    amount: 400,
+                    defaultWorth: 280,
+                    en: "Hotel bookings with Bilt Cash",
+                    zh: "用 Bilt Cash 订酒店",
+                    hint: "每年两次、每次最多 $200，要在 Bilt Travel 订、至少住两晚。按你实际能用掉的价值填。"
+                }
+            }
         },
         note: "日常消费 2 倍。Bilt 餐厅和 Bilt Travel 的更高倍率不记进固定类别。"
     },

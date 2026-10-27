@@ -2265,6 +2265,31 @@ input:checked + .slider::before{ transform: translateX(26px);}
 .credit-note {
 	margin-top: 8px;
 }
+.cash-choice {
+	margin-top: 12px;
+}
+.cash-switch {
+	margin: 8px 0 6px;
+	padding: 3px;
+	border-radius: 10px;
+}
+.cash-switch .housing-option {
+	min-width: 0;
+	padding: 4px 12px;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #444;
+	white-space: nowrap;
+}
+.cash-switch .housing-option.is-active {
+	color: #fff;
+	box-shadow: none;
+}
+.cash-hotel-row[hidden] {
+	display: none;
+}
 .rules-switch .housing-option {
 	min-width: 170px;
 }
