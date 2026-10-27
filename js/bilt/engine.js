@@ -90,7 +90,20 @@ function annualFromMonthly(monthly) {
         annual[keys[i]] = !isNaN(numeric) && numeric > 0 ? numeric * 12 : 0;
     }
     annual.housingType = monthly && monthly.housingType === "mortgage" ? "mortgage" : "rent";
+    annual.ruleSet = monthly && monthly.ruleSet === "2027" ? "2027" : "legacy";
     return annual;
+}
+
+function cardForRules(card, ruleSet) {
+    if (!card || ruleSet !== "2027" || !card.rules2027) return card;
+    var copy = {};
+    for (var key in card) {
+        if (Object.prototype.hasOwnProperty.call(card, key)) copy[key] = card[key];
+    }
+    for (var over in card.rules2027) {
+        if (Object.prototype.hasOwnProperty.call(card.rules2027, over)) copy[over] = card.rules2027[over];
+    }
+    return copy;
 }
 
 function findBiltCard(cards) {
@@ -638,7 +651,7 @@ function buildLines(slices, housing, housingCardId, housingTag, housingValue, ca
         lines.push({
             cat: "accelerator",
             cardId: "",
-            tag: "用掉 $" + Math.round(accel.cost),
+            tag: accel.tag || "用掉 $" + Math.round(accel.cost),
             amount: accel.points || 0,
             value: accel.pointsValue,
             rate: 0,
@@ -728,6 +741,98 @@ function alaskaHousingMeta(card, housing, cents) {
     };
 }
 
+function housingPointCandidates(cards, annual, cents, worth, choice, bilt, cpp, bonusAt, extras) {
+    var housing = annual.housing || 0;
+    var list = [];
+    var natural = placeSpend(cards, annual, cents, choice, bilt, bonusAt);
+    var naturalSpend = spendOnCard(natural, bilt.id);
+    var targets = [naturalSpend];
+    var ratios = [0.25, 0.5, 0.75, 1];
+    for (var r = 0; r < ratios.length; r++) {
+        var target = ratios[r] * housing;
+        if (target > naturalSpend + 1e-6) targets.push(target);
+    }
+    for (var t = 0; t < targets.length; t++) {
+        var slices = Math.abs(targets[t] - naturalSpend) < 1e-6 ? natural : pullToSpend(natural, bilt, targets[t], cards, cents, choice);
+        if (!slices) continue;
+        var counted = housingPointCount(spendOnCard(slices, bilt.id), housing);
+        var extra = extras ? extras(slices, counted) : null;
+        var candidate = candidateFrom(
+            cards, slices, "housing-points", choice,
+            counted.points * cpp, bilt.id, counted.tier,
+            extra ? extra.left : 0, extra ? extra.accel : null, worth, housing,
+            housingPointsMeta(counted.tier, housing, cpp)
+        );
+        if (extra) candidate.cashPool = extra.pool;
+        list.push(candidate);
+    }
+    return list;
+}
+
+function hasAccelerator(card) {
+    return !!card && card.group === "bilt" && card.id !== "bilt-blue";
+}
+
+function acceleratorBonusAt(card, cpp, times) {
+    var extra = hasAccelerator(card) && cpp > 0 ? cpp : 0;
+    var room = extra > 0 ? times * 5000 : 0;
+    return function (spend) {
+        if (extra > 0 && spend < room - 1e-9) return { extra: extra, kind: "accelerator", room: room - spend };
+        return { extra: 0, kind: "", room: Infinity };
+    };
+}
+
+function accelerator2027(card, biltSpend, pool, cpp) {
+    if (!hasAccelerator(card) || !(cpp > 0)) return { cost: 0, pointsValue: 0 };
+    var times = Math.min(5, Math.floor(pool / 200 + 1e-9));
+    var boosted = Math.min(biltSpend, times * 5000);
+    if (!(boosted > 0.5)) return { cost: 0, pointsValue: 0 };
+    var used = Math.ceil(boosted / 5000 - 1e-9);
+    return { cost: used * 200, pointsValue: boosted * cpp, points: boosted, cents: cpp * 100 };
+}
+
+function biltPointsOn(slices, cardId) {
+    var total = 0;
+    for (var i = 0; i < slices.length; i++) {
+        if (slices[i].cardId === cardId) total += slices[i].amount * (slices[i].rate || 0);
+    }
+    return total;
+}
+
+function milestoneCash(points) {
+    return points > 0 ? Math.floor(points / 25000 + 1e-9) * 50 : 0;
+}
+
+function scoreRules2027(cards, annual, cents, worth, choice, bilt, cpp) {
+    var gift = biltCashGift(bilt);
+    var pool = gift;
+    var list = [];
+    function extras(slices, counted) {
+        var earned = biltPointsOn(slices, bilt.id) + counted.points;
+        var milestone = milestoneCash(earned);
+        var total = gift + milestone;
+        var accel = accelerator2027(bilt, spendOnCard(slices, bilt.id), total, cpp);
+        if (accel.pointsValue > 0) {
+            var source = [];
+            if (gift > 0) source.push("每年送 $" + gift);
+            if (milestone > 0) source.push("累计积分送 $" + milestone);
+            accel.tag = "用掉 Bilt Cash $" + Math.round(accel.cost) + "，共有 $" + Math.round(total) + (source.length ? "（" + source.join(" + ") + "）" : "");
+        }
+        return { accel: accel, left: total - accel.cost, pool: total };
+    }
+    for (var pass = 0; pass < 2; pass++) {
+        var times = Math.min(5, Math.floor(pool / 200 + 1e-9));
+        list = housingPointCandidates(cards, annual, cents, worth, choice, bilt, cpp, acceleratorBonusAt(bilt, cpp, times), extras);
+        var best = null;
+        for (var i = 0; i < list.length; i++) {
+            if (!best || list[i].net > best.net) best = list[i];
+        }
+        if (!best || best.cashPool === pool) break;
+        pool = best.cashPool;
+    }
+    return list;
+}
+
 function scoreChoice(cards, annual, cents, worth, choice, bilt) {
     var housing = annual.housing || 0;
     var alaska = findAlaskaCard(cards, annual.housingType);
@@ -744,25 +849,8 @@ function scoreChoice(cards, annual, cents, worth, choice, bilt) {
         return list;
     }
     var cpp = dollarsPerPoint(bilt, cards, cents);
-    var natural = placeSpend(cards, annual, cents, choice, bilt, zeroBonus);
-    var naturalSpend = spendOnCard(natural, bilt.id);
-    var targets = [naturalSpend];
-    var ratios = [0.25, 0.5, 0.75, 1];
-    for (var r = 0; r < ratios.length; r++) {
-        var target = ratios[r] * housing;
-        if (target > naturalSpend + 1e-6) targets.push(target);
-    }
-    for (var t = 0; t < targets.length; t++) {
-        var slices = Math.abs(targets[t] - naturalSpend) < 1e-6 ? natural : pullToSpend(natural, bilt, targets[t], cards, cents, choice);
-        if (!slices) continue;
-        var counted = housingPointCount(spendOnCard(slices, bilt.id), housing);
-        list.push(candidateFrom(
-            cards, slices, "housing-points", choice,
-            counted.points * cpp, bilt.id, counted.tier,
-            0, null, worth, housing,
-            housingPointsMeta(counted.tier, housing, cpp)
-        ));
-    }
+    if (annual.ruleSet === "2027") return scoreRules2027(cards, annual, cents, worth, choice, bilt, cpp);
+    list = housingPointCandidates(cards, annual, cents, worth, choice, bilt, cpp, zeroBonus, null);
     var cashSlices = placeSpend(cards, annual, cents, choice, bilt, redeemBonus(bilt, housing, cpp));
     var cashSpend = spendOnCard(cashSlices, bilt.id);
     var earned = cashSpend * 0.04 + biltCashGift(bilt);
@@ -807,9 +895,10 @@ function withCount(card, count) {
 
 function scorePortfolio(cardIds, monthly, centsInput, worthByKey, countById) {
     if (!cardIds || !cardIds.length || !isValidPortfolio(cardIds)) return null;
+    var ruleSet = monthly && monthly.ruleSet === "2027" ? "2027" : "legacy";
     var cards = [];
     for (var i = 0; i < cardIds.length; i++) {
-        var card = cardById(cardIds[i]);
+        var card = cardForRules(cardById(cardIds[i]), ruleSet);
         if (!card) continue;
         var requested = countById && countById[card.id] ? parseInt(countById[card.id], 10) : 1;
         if (!(requested >= 1)) requested = 1;
