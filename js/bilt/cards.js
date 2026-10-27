@@ -32,6 +32,16 @@ var CARDS = [
         earn: { dining: 1, grocery: 1, gas: 1, online: 1, travel: 2, other: 1 },
         housing: { kind: "bilt" },
         credits: [{ id: "hotel", amount: 100, defaultWorth: 0, en: "Hotel credit", zh: "酒店额度" }],
+        rules2027: {
+            credits: [{
+                id: "cash",
+                amount: 100,
+                defaultWorth: 0,
+                en: "Annual Bilt Cash",
+                zh: "每年 $100 Bilt Cash",
+                hint: "不够开一次积分加速器（要 $200），按订酒店或其他兑换实际能用掉的金额填，用不到填 0。"
+            }]
+        },
         note: "餐饮或超市全年选一个 3 倍，超市每年上限 $25,000。旅行按通道外的 2 倍。"
     },
     {
@@ -49,6 +59,11 @@ var CARDS = [
         credits: [
             { id: "hotel", amount: 400, defaultWorth: 280, en: "Hotel credit", zh: "酒店额度" }
         ],
+        rules2027: {
+            annualBiltCash: 600,
+            credits: [],
+            creditNote: "每年 $600 Bilt Cash，不用在这里填。系统自动拿去买积分加速器，结果见奖励明细。"
+        },
         note: "日常消费 2 倍。Bilt 餐厅和 Bilt Travel 的更高倍率不记进固定类别。"
     },
     {
