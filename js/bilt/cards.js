@@ -195,5 +195,17 @@ var CARDS = [
         maxCount: 3,
         cap: { categories: ["online", "grocery"], quarterly: 2500, thenRate: 1 },
         note: "自选网购 3% 现金，超市 2% 现金。这两类合计每季度 $2,500，超出后按 1%。只有现金，没有积分。"
+    },
+    {
+        id: "robinhood-gold",
+        en: "Robinhood Gold Card",
+        short: "Robinhood Gold",
+        zh: "Robinhood Gold Card",
+        currency: "cash",
+        annualFee: 0,
+        earn: { dining: 3, grocery: 3, gas: 3, online: 3, travel: 3, other: 3 },
+        housing: null,
+        pickNote: "3% 不含房租、贷款、保险、学费等",
+        note: "所有日常消费 3% 现金，按 1 美分一分固定计。房租、房贷、贷款、保险、学费等不算 3%，所以住房不走这张卡。"
     }
 ];

@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="css/meanmenu.css">
         <link rel="stylesheet" href="css/all-animations.css">
         <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/style.css?v=21">
+        <link rel="stylesheet" href="css/style.css?v=23">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
@@ -221,6 +221,15 @@
                                             </div>
 
                                             <div class="rules-section">
+                                                <p class="rules-title">Robinhood Gold Card</p>
+                                                <ul class="rules-list">
+                                                    <li><span class="rule-en">3% cash back on all everyday spend, counted at a flat 1¢ per point.</span><span class="rule-zh">所有日常消费 3% 现金返现，按每分 1 美分固定计算。</span></li>
+                                                    <li><span class="rule-en">The 3% does not apply to rent, mortgage, loans, insurance, tuition, and similar payments, so housing never goes on this card.</span><span class="rule-zh">3% 不适用于房租、房贷、贷款、保险、学费等，所以住房不会走这张卡。</span></li>
+                                                    <li><span class="rule-en">The spending inputs assume “Other” does not include loans, insurance, tuition, or similar payments. Leave those out of Other, or the 3% here is overstated.</span><span class="rule-zh">支出输入默认「其他」里不包含贷款、保险、学费这类付款。请不要把它们填进「其他」，否则这里的 3% 会被算多。</span></li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="rules-section">
                                                 <p class="rules-title">More than one of the same card <span>同一张卡有几张</span></p>
                                                 <ul class="rules-list">
                                                     <li><span class="rule-en">Custom Cash, Freedom Flex, and Customized Cash can be counted 1 to 3 times.</span><span class="rule-zh">Custom Cash、Freedom Flex、Customized Cash 可以填 1 到 3 张。</span></li>
@@ -242,6 +251,29 @@
                                                 <p class="rule-en">These numbers are only the math. They do not price the extra work. Bilt takes more attention than a plain cash-back card: credits have to be used, and Bilt Cash has to be spent or it is worth nothing here. A smaller bank is also less of a sure thing than Chase or Citi. Time is money too.</p>
                                                 <p class="rule-zh mb-0">以上只按数学计算，没有把费心算进去。Bilt 比一张普通返现卡更要盯着：各种额度要记得用掉，Bilt Cash 也要花完，否则这里记成 0。小银行也不如大银行稳妥。时间也是钱。</p>
                                             </div>
+                                        </div>
+
+                                        <div class="calc-changelog">
+                                            <p class="spend-en mb-0">Changelog</p>
+                                            <p class="spend-zh mb-0">更新日志</p>
+                                            <ol class="changelog-list">
+                                                <li>
+                                                    <span class="changelog-date">2026.10.27</span>
+                                                    <span class="changelog-text">新增 Robinhood Gold Card 作为可选卡片。<span>Added the Robinhood Gold Card as an option.</span></span>
+                                                </li>
+                                                <li>
+                                                    <span class="changelog-date">2026.10.27</span>
+                                                    <span class="changelog-text">加入 Bilt 2027 新规则，可以在现行规则和 2027 新规则之间切换。<span>Added the Bilt 2027 rules, with a switch between the current and 2027 rules.</span></span>
+                                                </li>
+                                                <li>
+                                                    <span class="changelog-date">2026.10.17</span>
+                                                    <span class="changelog-text">修正 Alaska Atmos 卡只适用于房租的问题：先选房租或房贷，选房贷时不再显示这张卡。<span>Fixed the Alaska Atmos card to count rent only. Pick rent or mortgage first; the card is hidden for mortgage.</span></span>
+                                                </li>
+                                                <li>
+                                                    <span class="changelog-date">2026.10.16</span>
+                                                    <span class="changelog-text">计算器首发，包含 Bilt 卡和 7 张其他卡。<span>First launch, with the Bilt cards and 7 other cards.</span></span>
+                                                </li>
+                                            </ol>
                                         </div>
                                     </div>
 
@@ -364,7 +396,7 @@
                                         <div class="spend-row">
                                             <label for="other">
                                                 <span class="spend-en">Other</span>
-                                                <span class="spend-zh">剩下的全部</span>
+                                                <span class="spend-zh">剩下的全部，不含贷款、保险、学费</span>
                                             </label>
                                             <div class="spend-input">
                                                 <span>$</span>
@@ -457,7 +489,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/jquery.meanmenu.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/bilt/cards.js?v=14"></script>
+        <script src="js/bilt/cards.js?v=15"></script>
         <script src="js/bilt/values.js?v=6"></script>
         <script src="js/bilt/engine.js?v=11"></script>
         <script>
@@ -876,6 +908,12 @@
                     button.appendChild(en);
                     button.appendChild(zh);
                     button.appendChild(fee);
+                    if (card.pickNote) {
+                        var pickNote = document.createElement("span");
+                        pickNote.className = "spend-zh card-pick-note";
+                        pickNote.textContent = card.pickNote;
+                        button.appendChild(pickNote);
+                    }
                     button.addEventListener("click", onCardPick);
                     wrap.appendChild(button);
 
