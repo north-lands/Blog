@@ -106,6 +106,26 @@ function cardForRules(card, ruleSet) {
     return copy;
 }
 
+function cashChoiceKey(card) {
+    return card && card.cashChoice ? creditKey(card.id, card.cashChoice.id) : "";
+}
+
+function applyCashChoice(card, worthByKey) {
+    if (!card || !card.cashChoice) return card;
+    var picked = worthByKey && worthByKey[cashChoiceKey(card)];
+    if (picked !== "hotel") return card;
+    var copy = {};
+    for (var key in card) {
+        if (Object.prototype.hasOwnProperty.call(card, key)) copy[key] = card[key];
+    }
+    var total = card.annualBiltCash || 0;
+    var hotel = Math.min(card.cashChoice.hotelAmount, total);
+    copy.credits = (card.credits || []).concat([card.cashChoice.hotelCredit]);
+    copy.annualBiltCash = total - hotel;
+    copy.giftLabel = "每年 $" + total + " 里订完酒店剩下 $" + (total - hotel);
+    return copy;
+}
+
 function findBiltCard(cards) {
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].group === "bilt") return cards[i];
@@ -814,7 +834,7 @@ function scoreRules2027(cards, annual, cents, worth, choice, bilt, cpp) {
         var accel = accelerator2027(bilt, spendOnCard(slices, bilt.id), total, cpp);
         if (accel.pointsValue > 0) {
             var source = [];
-            if (gift > 0) source.push("每年送 $" + gift);
+            if (gift > 0) source.push(bilt.giftLabel || "每年送 $" + gift);
             if (milestone > 0) source.push("累计积分送 $" + milestone);
             accel.tag = "用掉 Bilt Cash $" + Math.round(accel.cost) + "，共有 $" + Math.round(total) + (source.length ? "（" + source.join(" + ") + "）" : "");
         }
@@ -899,6 +919,7 @@ function scorePortfolio(cardIds, monthly, centsInput, worthByKey, countById) {
     var cards = [];
     for (var i = 0; i < cardIds.length; i++) {
         var card = cardForRules(cardById(cardIds[i]), ruleSet);
+        if (ruleSet === "2027") card = applyCashChoice(card, worthByKey);
         if (!card) continue;
         var requested = countById && countById[card.id] ? parseInt(countById[card.id], 10) : 1;
         if (!(requested >= 1)) requested = 1;
