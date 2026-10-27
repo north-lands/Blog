@@ -2706,234 +2706,291 @@ body.calc-modal-open {
 	.card-picks { grid-template-columns: 1fr; }
 }
 
-/* bilt calculator: compact sizing */
+/* bilt calculator: balanced sizing */
 .calc-hero .page-height {
-	padding: 92px 0 28px;
+	padding: 100px 0 40px;
 }
 .calc-hero .page-title h1 {
-	font-size: 34px;
-	margin-bottom: 8px;
+	font-size: 38px;
+	margin-bottom: 10px;
 }
 .calc-hero .page-title h5 {
-	font-size: 15px;
+	font-size: 16px;
 }
 .calc-body {
-	margin-top: 24px;
+	margin-top: 40px;
 }
 .calc-body .calc-main > p:not(.spend-zh):not(.spend-total),
 .calc-body .calc-inputs > p:not(.spend-zh),
 .calc-body .calc-bilt-rules > p:not(.spend-zh) {
-	margin-bottom: 4px;
-	font-size: 14px;
-	line-height: 1.5;
+	margin-bottom: 6px;
+	font-size: 15px;
+	line-height: 1.6;
 }
 .calc-body .calc-main > p.spend-zh,
 .calc-body .calc-inputs > p.spend-zh,
 .calc-body .calc-bilt-rules > p.spend-zh {
-	margin-bottom: 12px;
-	font-size: 12px;
+	margin-bottom: 16px;
+	font-size: 13px;
+	line-height: 1.6;
 }
 .calc-body .calc-main > h3,
 .calc-body .calc-inputs > h3,
 .calc-body .calc-bilt-rules > h3 {
-	margin-bottom: 2px;
-	font-size: 20px;
+	margin-bottom: 4px;
+	font-size: 24px;
 	line-height: 1.3;
 }
 .calc-body .calc-main > h4,
 .calc-body .calc-inputs > h4,
 .calc-body .calc-bilt-rules > h4 {
-	margin-bottom: 8px;
-	font-size: 14px;
-	line-height: 1.4;
+	margin-bottom: 10px;
+	font-size: 15px;
+	line-height: 1.45;
 }
 .calc-body .calc-bilt-rules {
-	margin-bottom: 24px;
-	padding-bottom: 18px;
+	margin-bottom: 36px;
+	padding-bottom: 28px;
+}
+.calc-body .calc-inputs .calc-sub {
+	margin-top: 32px;
 }
 .calc-body .calc-main {
-	margin-top: 32px;
-	padding-top: 24px;
+	margin-top: 40px;
+	padding-top: 32px;
 }
 .calc-body .housing-option {
-	min-width: 96px;
-	padding: 5px 12px;
+	min-width: 110px;
+	padding: 7px 16px;
 }
 .calc-body .rules-switch .housing-option {
-	min-width: 130px;
+	min-width: 150px;
 }
 .calc-body .housing-option .spend-en {
-	font-size: 13px;
+	font-size: 14px;
 }
 .calc-body .housing-option .spend-zh {
-	font-size: 11px;
+	font-size: 12px;
+}
+.calc-body .calc-inputs .spend-en {
+	font-size: 15px;
+}
+.calc-body .calc-inputs .spend-zh {
+	font-size: 13px;
+}
+.calc-body .calc-inputs .spend-input span,
+.calc-body .calc-inputs .spend-input input {
+	font-size: 16px;
 }
 .calc-body .calc-inputs .spend-row {
-	padding: 4px 0;
+	padding: 9px 0;
 }
 .calc-body .calc-inputs .spend-preset {
-	padding: 6px 10px;
+	padding: 9px 12px;
+}
+.calc-body .calc-inputs .spend-presets {
+	gap: 10px;
+	margin-bottom: 10px;
 }
 .calc-body .card-result {
-	padding: 14px 16px 4px;
-	margin-bottom: 14px;
+	padding: 20px 22px 8px;
+	margin-bottom: 20px;
 }
 .calc-body .card-result-value {
-	margin: 2px 0 4px;
-	font-size: 30px;
+	margin: 4px 0 6px;
+	font-size: 36px;
 }
 .calc-body .card-result > p.mb-0 {
-	font-size: 14px;
+	font-size: 15px;
 }
 .calc-body .result-breakdown-title {
-	margin-top: 10px;
-	padding: 8px 0 2px;
+	margin-top: 14px;
+	padding: 12px 0 4px;
 }
 .calc-body .card-result .result-breakdown-title .spend-en {
-	font-size: 14px;
+	font-size: 16px;
 }
 .calc-body .card-result .spend-row {
-	padding: 3px 0;
+	padding: 6px 0;
 }
 .calc-body .card-result .spend-en,
 .calc-body .card-result .card-result-money {
-	font-size: 13px;
-}
-.calc-body .card-result .spend-zh {
-	font-size: 12px;
-}
-.calc-body .card-group-label {
-	margin: 14px 0 6px;
-	font-size: 12px;
-}
-.calc-body .card-picks {
-	gap: 8px;
-}
-@media (min-width: 1200px) {
-	.calc-body .calc-main .card-picks { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-	.calc-body .calc-article-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-	.calc-body .calc-inputs #spend-form,
-	.calc-body .calc-inputs #value-form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-.calc-body .card-pick {
-	padding: 8px 28px 8px 12px;
-	border-radius: 12px;
-}
-.calc-body .card-pick.is-active::after {
-	top: 8px;
-	right: 10px;
-	font-size: 13px;
-}
-.calc-body .card-pick .spend-en {
 	font-size: 14px;
 }
-.calc-body .card-pick .spend-zh {
+.calc-body .card-result .spend-zh {
+	font-size: 13px;
+}
+.calc-body .card-group-label {
+	margin: 20px 0 10px;
+	font-size: 13px;
+}
+.calc-body .card-picks {
+	gap: 12px;
+}
+.calc-body .calc-cards-col {
+	order: 2;
+}
+.calc-body .calc-extra {
+	order: 3;
+}
+.calc-body .calc-extra > .calc-saved:first-child {
 	margin-top: 0;
-	font-size: 12px;
+}
+@media (min-width: 1200px) {
+	.calc-body .container {
+		max-width: 1440px;
+	}
+	.calc-body .blog-page1-content {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+		column-gap: 64px;
+		align-items: start;
+	}
+	.calc-body .calc-inputs {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	.calc-body .calc-cards-col {
+		grid-column: 2;
+		grid-row: 1;
+		align-self: stretch;
+	}
+	.calc-body .calc-main.calc-cards {
+		position: sticky;
+		top: 84px;
+		max-height: calc(100vh - 96px);
+		margin-top: 0;
+		padding: 0 6px 12px 0;
+		border-top: 0;
+		overflow-y: auto;
+	}
+	.calc-body .calc-extra {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		margin-top: 56px;
+	}
+	.calc-body .calc-cards .card-picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.calc-body .calc-article-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.calc-body .card-pick {
+	padding: 12px 30px 12px 14px;
+	border-radius: 14px;
+}
+.calc-body .card-pick.is-active::after {
+	top: 12px;
+	right: 12px;
+	font-size: 14px;
+}
+.calc-body .card-pick .spend-en {
+	font-size: 16px;
+}
+.calc-body .card-pick .spend-zh {
+	margin-top: 2px;
+	font-size: 13px;
 }
 .calc-body .card-qty {
-	margin-top: 4px;
-	font-size: 12px;
+	margin-top: 6px;
+	font-size: 13px;
 }
 .calc-body .card-qty-minus,
 .calc-body .card-qty-plus {
-	width: 24px;
-	height: 24px;
-	line-height: 22px;
-	font-size: 14px;
+	width: 26px;
+	height: 26px;
+	line-height: 24px;
+	font-size: 15px;
 }
 .calc-body .calc-main .spend-total {
-	margin-top: 12px;
-	font-size: 16px;
+	margin-top: 18px;
+	font-size: 18px;
 }
 .calc-body .calc-saved {
-	margin-top: 40px;
-	padding: 14px 16px 10px;
+	margin-top: 48px;
+	padding: 20px 22px 14px;
 }
 .calc-body .calc-main .calc-saved .spend-en {
-	font-size: 15px;
+	font-size: 17px;
 }
 .calc-body .combo-form input,
 .calc-body .combo-save,
 .calc-body .combo-reset,
 .calc-body .combo-cancel {
-	height: 34px;
-	font-size: 13px;
+	height: 40px;
+	font-size: 14px;
 }
 .calc-body .combo-row {
-	padding: 6px 0;
+	padding: 10px 0;
 }
 .calc-body .calc-article {
-	margin-top: 32px;
-	padding: 16px 18px;
-	border-radius: 14px;
+	margin-top: 36px;
+	padding: 22px 24px;
+	border-radius: 16px;
 }
 .calc-body .calc-main .calc-article .spend-en {
-	font-size: 16px;
+	font-size: 19px;
 }
 .calc-body .calc-article-desc {
-	margin-top: 8px;
-	font-size: 13px;
+	margin-top: 10px;
+	font-size: 14px;
 }
 .calc-body .calc-article-list {
-	gap: 6px;
-	margin-top: 10px;
+	gap: 10px;
+	margin-top: 14px;
 }
 .calc-body .calc-article-item {
-	padding: 7px 10px;
-	font-size: 12px;
+	padding: 10px 12px;
+	font-size: 13px;
 }
 .calc-body .calc-article-item b {
-	font-size: 13px;
+	font-size: 14px;
 }
 .calc-body .calc-article-go {
-	padding: 7px 14px;
-	font-size: 13px;
+	padding: 9px 16px;
+	font-size: 14px;
 }
 .calc-body .calc-rules {
-	margin-top: 48px;
-	padding-top: 28px;
+	margin-top: 56px;
+	padding-top: 32px;
 }
 .calc-body .calc-main .calc-rules .spend-en,
 .calc-body .calc-main .calc-changelog .spend-en {
-	font-size: 16px;
+	font-size: 18px;
 }
 .calc-body .calc-rules .rules-section {
-	margin-top: 16px;
+	margin-top: 24px;
 }
 .calc-body .calc-main .calc-rules .rules-title {
-	margin-bottom: 4px;
-	font-size: 14px;
+	margin-bottom: 6px;
+	font-size: 15px;
 }
 .calc-body .calc-rules .rules-list li {
-	margin-bottom: 5px;
+	margin-bottom: 8px;
 }
 .calc-body .calc-rules .rule-en {
-	font-size: 13px;
-	line-height: 1.5;
+	font-size: 14px;
+	line-height: 1.55;
 }
 .calc-body .calc-rules .rule-zh,
 .calc-body .calc-main .calc-rules p.rule-zh {
-	font-size: 12px;
+	font-size: 13px;
 }
 .calc-body .calc-main .calc-rules .rules-caveat p.rule-en {
-	font-size: 13px;
+	font-size: 14px;
 }
 .calc-body .calc-changelog {
-	margin-top: 44px;
-	padding-top: 28px;
+	margin-top: 48px;
+	padding-top: 32px;
 }
 .calc-body .changelog-list li {
-	padding-bottom: 12px;
+	padding-bottom: 16px;
 }
 .calc-body .changelog-date {
-	font-size: 13px;
+	font-size: 14px;
 }
 .calc-body .changelog-text {
-	font-size: 13px;
+	font-size: 14px;
 }
 .calc-body .changelog-text span {
-	font-size: 12px;
+	font-size: 13px;
 }
 
 /* extra css  */
